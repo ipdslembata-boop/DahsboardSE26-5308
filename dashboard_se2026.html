@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Monitoring Lapangan · SE2026 Kabupaten Lembata</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
+
+  :root{
+    --bg:#0E1C2B;
+    --bg-soft:#15283C;
+    --bg-soft2:#1D3349;
+    --line:rgba(255,255,255,0.09);
+    --text:#EAF2F6;
+    --text-dim:#90A8BC;
+    --text-faint:#5B7185;
+    --gold:#E3A23D;
+    --gold-soft:rgba(227,162,61,0.14);
+
+    --c-open:#46586B;
+    --c-draft:#6F93B8;
+    --c-submit:#3FA6C9;
+    --c-reject:#E2654C;
+    --c-approve:#49BD82;
+
+    --good:#49BD82;
+    --warn:#E3A23D;
+    --bad:#E2654C;
+
+    --radius:12px;
+    --radius-sm:8px;
+    --font-display:'Space Grotesk', sans-serif;
+    --font-body:'Inter', sans-serif;
+    --font-mono:'JetBrains Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(circle at 12% -10%, rgba(227,162,61,0.10), transparent 42%),
+      radial-gradient(circle at 100% 0%, rgba(63,166,201,0.10), transparent 38%),
+      var(--bg);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-size:14px;
+    line-height:1.5;
+    min-height:100vh;
+  }
+  a{color:inherit;}
+  button,select,input{font-family:inherit;}
+  ::selection{background:var(--gold-soft);}
+
+  *:focus-visible{
+    outline:2px solid var(--gold);
+    outline-offset:2px;
+    border-radius:6px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
+  }
+
+  .wrap{
+    max-width:1280px;
+    margin:0 auto;
+    padding:18px 18px 60px;
+  }
+
+  /* ---------- Topbar ---------- */
+  .topbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    gap:16px;
+    flex-wrap:wrap;
+    padding-bottom:18px;
+    border-bottom:1px solid var(--line);
+    margin-bottom:22px;
+  }
+  .topbar .brand .eyebrow{
+    font-family:var(--font-mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    color:var(--gold);
+    text-transform:uppercase;
+    margin:0 0 6px;
+  }
+  .topbar .brand h1{
+    font-family:var(--font-display);
+    font-size:25px;
+    font-weight:700;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .topbar .brand p{
+    margin:6px 0 0;
+    color:var(--text-dim);
+    font-size:13px;
+  }
+  .topbar .actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+  .sync-pill{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    font-family:var(--font-mono);
+    font-size:11.5px;
+    color:var(--text-dim);
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:6px 12px;
+    white-space:nowrap;
+  }
+  .dot-live{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--good);
+    box-shadow:0 0 0 0 rgba(73,189,130,0.6);
+    animation:pulse 2.2s infinite;
+  }
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(73,189,130,0.55);}
+    70%{box-shadow:0 0 0 6px rgba(73,189,130,0);}
+    100%{box-shadow:0 0 0 0 rgba(73,189,130,0);}
+  }
+  .btn{
+    appearance:none;
+    border:1px solid var(--line);
+    background:var(--bg-soft);
+    color:var(--text);
+    font-family:var(--font-body);
+    font-weight:600;
+    font-size:13px;
+    padding:10px 16px;
+    border-radius:var(--radius-sm);
+    cursor:pointer;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    transition:transform .12s ease, border-color .12s ease, background .12s ease;
+    min-height:40px;
+  }
+  .btn:hover{border-color:rgba(255,255,255,0.22); background:var(--bg-soft2);}
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:#1A1206;
+  }
+  .btn-primary:hover{background:#EEB257; border-color:#EEB257;}
+  .btn .spin{
+    width:13px;height:13px;border-radius:50%;
+    border:2px solid currentColor;border-right-color:transparent;
+    animation:spin .7s linear infinite;
+    display:none;
+  }
+  .btn.loading .spin{display:inline-block;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  /* ---------- Error banner ---------- */
+  .banner{
+    display:none;
+    align-items:center;
+    justify-content:space-between;
+    gap:12px;
+    flex-wrap:wrap;
+    background:rgba(226,101,76,0.12);
+    border:1px solid rgba(226,101,76,0.4);
+    color:#FFD9CF;
+    padding:13px 16px;
+    border-radius:var(--radius-sm);
+    margin-bottom:20px;
+    font-size:13px;
+  }
+  .banner.show{display:flex;}
+  .banner strong{color:#fff;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(160deg, var(--bg-soft) 0%, var(--bg-soft2) 100%);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:26px 26px 22px;
+    margin-bottom:20px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:'';
+    position:absolute; right:-60px; top:-60px;
+    width:220px;height:220px;border-radius:50%;
+    background:radial-gradient(circle, rgba(227,162,61,0.14), transparent 70%);
+  }
+  .hero-top{
+    display:flex;
+    gap:28px;
+    flex-wrap:wrap;
+    align-items:flex-end;
+    position:relative;
+    z-index:1;
+  }
+  .hero-number{
+    font-family:var(--font-mono);
+    font-size:54px;
+    font-weight:700;
+    color:var(--gold);
+    line-height:1;
+  }
+  .hero-label{
+    font-size:13px;
+    color:var(--text-dim);
+    margin-top:6px;
+  }
+  .hero-sub{
+    flex:1;
+    min-width:220px;
+  }
+  .hero-sub .scope{
+    font-family:var(--font-mono);
+    font-size:11px;
+    color:var(--text-faint);
+    letter-spacing:.04em;
+    margin-bottom:4px;
+  }
+  .hero-sub .scope b{color:var(--text-dim); font-weight:600;}
+  .hero-sub p{
+    margin:0;
+    font-size:14.5px;
+    color:var(--text);
+    max-width:520px;
+  }
+  .hero-sub p span{font-family:var(--font-mono); color:var(--gold); font-weight:600;}
+
+  .segbar{
+    display:flex;
+    width:100%;
+    height:14px;
+    border-radius:8px;
+    overflow:hidden;
+    background:var(--bg-soft2);
+    margin-top:18px;
+    position:relative;
+    z-index:1;
+  }
+  .segbar > span{height:100%;}
+  .segbar.tiny{height:8px;border-radius:5px;}
+  .seg-open{background:var(--c-open);}
+  .seg-draft{background:var(--c-draft);}
+  .seg-submit{background:var(--c-submit);}
+  .seg-reject{background:var(--c-reject);}
+  .seg-approve{background:var(--c-approve);}
+
+  .legend{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-top:12px;
+    position:relative;
+    z-index:1;
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    font-size:11.5px;
+    color:var(--text-dim);
+  }
+  .legend-item .sw{width:9px;height:9px;border-radius:3px;flex:none;}
+
+  /* ---------- KPI cards ---------- */
+  .kpis{
+    display:grid;
+    grid-template-columns:repeat(6, 1fr);
+    gap:12px;
+    margin-bottom:20px;
+  }
+  .kpi{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-left:3px solid var(--text-faint);
+    border-radius:var(--radius-sm);
+    padding:14px 14px 12px;
+  }
+  .kpi.k-good{border-left-color:var(--good);}
+  .kpi.k-warn{border-left-color:var(--gold);}
+  .kpi.k-bad{border-left-color:var(--bad);}
+  .kpi .lbl{
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--text-faint);
+    margin:0 0 8px;
+  }
+  .kpi .val{
+    font-family:var(--font-mono);
+    font-size:21px;
+    font-weight:700;
+    color:var(--text);
+  }
+  .kpi .sub{
+    font-size:11.5px;
+    color:var(--text-dim);
+    margin-top:3px;
+  }
+
+  /* ---------- Filters ---------- */
+  .filters{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius-sm);
+    padding:12px 14px;
+    margin-bottom:20px;
+  }
+  .field{display:flex; flex-direction:column; gap:5px;}
+  .field label{font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em;}
+  select, .search input{
+    background:var(--bg-soft2);
+    border:1px solid var(--line);
+    color:var(--text);
+    border-radius:7px;
+    padding:8px 10px;
+    font-size:13px;
+    min-height:38px;
+    min-width:170px;
+  }
+  .search{flex:1; min-width:200px; display:flex; flex-direction:column; gap:5px;}
+  .search input{width:100%;}
+  .clear-chip{
+    margin-left:auto;
+    display:none;
+    align-items:center;
+    gap:6px;
+    font-size:12px;
+    color:var(--gold);
+    background:var(--gold-soft);
+    border:1px solid rgba(227,162,61,0.35);
+    border-radius:999px;
+    padding:7px 12px;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .clear-chip.show{display:inline-flex;}
+
+  /* ---------- Panels / charts ---------- */
+  .grid-charts{
+    display:grid;
+    grid-template-columns:1.4fr 1fr;
+    gap:16px;
+    margin-bottom:16px;
+  }
+  .grid-charts.row2{grid-template-columns:1fr 1fr;}
+  .panel{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 16px 12px;
+    min-width:0;
+  }
+  .panel h3{
+    font-family:var(--font-display);
+    font-size:14.5px;
+    margin:0 0 2px;
+    font-weight:600;
+  }
+  .panel .cap{
+    font-size:11.5px;
+    color:var(--text-faint);
+    margin:0 0 12px;
+  }
+  .chart-scroll{max-height:430px; overflow-y:auto;}
+  .chart-scroll::-webkit-scrollbar{width:6px;}
+  .chart-scroll::-webkit-scrollbar-thumb{background:var(--bg-soft2); border-radius:4px;}
+
+  /* ---------- Table ---------- */
+  .table-panel{
+    background:var(--bg-soft);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px;
+  }
+  .table-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:10px;
+  }
+  .table-head .count{font-size:12px; color:var(--text-faint);}
+  .table-scroll{
+    overflow-x:auto;
+    max-height:520px;
+    overflow-y:auto;
+    border-radius:var(--radius-sm);
+    border:1px solid var(--line);
+  }
+  table{width:100%; border-collapse:collapse; font-size:12.5px; min-width:780px;}
+  thead th{
+    position:sticky; top:0;
+    background:var(--bg-soft2);
+    text-align:left;
+    padding:10px 12px;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:.05em;
+    color:var(--text-dim);
+    cursor:pointer;
+    white-space:nowrap;
+    user-select:none;
+    border-bottom:1px solid var(--line);
+  }
+  thead th:hover{color:var(--text);}
+  thead th.sorted{color:var(--gold);}
+  tbody td{
+    padding:9px 12px;
+    border-bottom:1px solid var(--line);
+    vertical-align:middle;
+    white-space:nowrap;
+  }
+  tbody tr:hover{background:rgba(255,255,255,0.03);}
+  td.name{font-weight:600; white-space:normal; min-width:150px;}
+  td.dim{color:var(--text-dim); white-space:normal;}
+  td.num{font-family:var(--font-mono); text-align:right;}
+  .row-bar{width:110px;}
+  .pct-badge{
+    font-family:var(--font-mono);
+    font-weight:700;
+    padding:3px 8px;
+    border-radius:6px;
+    font-size:11.5px;
+  }
+  .pct-low{background:rgba(226,101,76,0.16); color:#FF9C84;}
+  .pct-mid{background:rgba(227,162,61,0.16); color:#F2C172;}
+  .pct-high{background:rgba(73,189,130,0.16); color:#7CE0A6;}
+  .flag-dot{
+    display:inline-block; width:6px; height:6px; border-radius:50%;
+    background:var(--bad); margin-right:6px; vertical-align:middle;
+  }
+  .empty-row td{text-align:center; color:var(--text-faint); padding:28px; white-space:normal;}
+
+  footer{
+    margin-top:24px;
+    text-align:center;
+    color:var(--text-faint);
+    font-size:11.5px;
+  }
+  footer a{color:var(--gold); text-decoration:none;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:980px){
+    .kpis{grid-template-columns:repeat(3,1fr);}
+    .grid-charts, .grid-charts.row2{grid-template-columns:1fr;}
+  }
+  @media (max-width:640px){
+    .wrap{padding:14px 12px 40px;}
+    .kpis{grid-template-columns:repeat(2,1fr);}
+    .hero{padding:20px 18px;}
+    .hero-number{font-size:40px;}
+    .topbar .actions{width:100%;}
+    .btn{flex:1; justify-content:center;}
+    select, .search input{min-width:0; width:100%;}
+    .field{flex:1 1 130px;}
+    .clear-chip{margin-left:0; width:100%; justify-content:center;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="topbar">
+    <div class="brand">
+      <p class="eyebrow">Sensus Ekonomi 2026 · Kabupaten Lembata</p>
+      <h1>Monitoring Lapangan</h1>
+      <p>Capaian pendataan per Korwil, PML, dan PPL — ditarik langsung dari Google Sheet.</p>
+    </div>
+    <div class="actions">
+      <span class="sync-pill"><span class="dot-live" id="liveDot"></span><span id="syncText">menyambungkan…</span></span>
+      <button class="btn" id="btnRefresh"><span class="spin"></span><span>⟳ Refresh data</span></button>
+      <button class="btn btn-primary" id="btnEdit">✎ Update progress di Spreadsheet</button>
+    </div>
+  </div>
+
+  <div class="banner" id="errBanner">
+    <span><strong>Data belum bisa dimuat.</strong> Periksa koneksi internet, atau pastikan spreadsheet dibagikan sebagai "Siapa saja yang memiliki link dapat melihat".</span>
+    <button class="btn" id="btnRetry" style="background:transparent;">Coba lagi</button>
+  </div>
+
+  <div class="hero">
+    <div class="hero-top">
+      <div>
+        <div class="hero-number" id="heroPct">0%</div>
+        <div class="hero-label">unit usaha sudah didata</div>
+      </div>
+      <div class="hero-sub">
+        <div class="scope" id="heroScope">Lingkup: <b>Semua Korwil</b></div>
+        <p id="heroText">Memuat data dari spreadsheet…</p>
+      </div>
+    </div>
+    <div class="segbar tiny" id="heroBar2"></div>
+    <div class="segbar" id="heroBar5" style="margin-top:8px;"></div>
+    <div class="legend">
+      <span class="legend-item"><span class="sw seg-open"></span>Open · belum dikerjakan</span>
+      <span class="legend-item"><span class="sw seg-draft"></span>Draft · sedang diisi</span>
+      <span class="legend-item"><span class="sw seg-submit"></span>Submit · terkirim</span>
+      <span class="legend-item"><span class="sw seg-reject"></span>Reject · perlu perbaikan</span>
+      <span class="legend-item"><span class="sw seg-approve"></span>Approve · disetujui</span>
+    </div>
+  </div>
+
+  <div class="kpis" id="kpiGrid">
+    <div class="kpi"><p class="lbl">Total Target</p><div class="val" id="kpiTarget">–</div><div class="sub">unit usaha (Jumlah)</div></div>
+    <div class="kpi k-good"><p class="lbl">Sudah Didata</p><div class="val" id="kpiSudah">–</div><div class="sub" id="kpiSudahSub">–</div></div>
+    <div class="kpi k-warn"><p class="lbl">Belum Didata</p><div class="val" id="kpiBelum">–</div><div class="sub" id="kpiBelumSub">–</div></div>
+    <div class="kpi"><p class="lbl">Petugas Aktif (PPL)</p><div class="val" id="kpiPpl">–</div><div class="sub" id="kpiPplSub">–</div></div>
+    <div class="kpi"><p class="lbl">Desa Tercakup</p><div class="val" id="kpiDesa">–</div><div class="sub" id="kpiDesaSub">–</div></div>
+    <div class="kpi k-bad"><p class="lbl">Perlu Perbaikan</p><div class="val" id="kpiReject">–</div><div class="sub">isian status Reject</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="field">
+      <label for="selKorwil">Korwil</label>
+      <select id="selKorwil"><option value="ALL">Semua Korwil</option></select>
+    </div>
+    <div class="field">
+      <label for="selPml">PML</label>
+      <select id="selPml"><option value="ALL">Semua PML</option></select>
+    </div>
+    <div class="search">
+      <label for="searchInput">Cari PPL / Desa / Kecamatan</label>
+      <input type="text" id="searchInput" placeholder="Ketik untuk mencari…" />
+    </div>
+    <div class="clear-chip" id="clearChip">✕ Hapus filter</div>
+  </div>
+
+  <div class="grid-charts">
+    <div class="panel">
+      <h3>Capaian per Korwil</h3>
+      <p class="cap">Diurut dari capaian tertinggi · klik bar untuk memfilter</p>
+      <div class="chart-scroll"><div id="korwilWrap"><canvas id="chartKorwil"></canvas></div></div>
+    </div>
+    <div class="panel">
+      <h3>Komposisi Status</h3>
+      <p class="cap" id="donutCap">Sebaran tahapan pendataan pada lingkup terpilih</p>
+      <canvas id="chartDonut" height="300"></canvas>
+    </div>
+  </div>
+
+  <div class="grid-charts row2">
+    <div class="panel">
+      <h3>Capaian per PML</h3>
+      <p class="cap" id="pmlCap">Lingkup: Semua Korwil · klik bar untuk memfilter</p>
+      <div class="chart-scroll"><div id="pmlWrap"><canvas id="chartPml"></canvas></div></div>
+    </div>
+    <div class="panel">
+      <h3>Distribusi Capaian Petugas Pendataan</h3>
+      <p class="cap">Jumlah PPL menurut rentang persentase selesai — gambaran keseluruhan petugas</p>
+      <canvas id="chartHist" height="260"></canvas>
+    </div>
+  </div>
+
+  <div class="table-panel">
+    <div class="table-head">
+      <h3 style="font-family:var(--font-display); margin:0; font-size:14.5px;">Rincian per Petugas &amp; Desa</h3>
+      <span class="count" id="rowCount">0 baris</span>
+    </div>
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th data-key="ppl">PPL</th>
+            <th data-key="korwil">Korwil</th>
+            <th data-key="pml">PML</th>
+            <th data-key="kecamatan">Kecamatan</th>
+            <th data-key="desa">Desa/Kel</th>
+            <th data-key="jumlah">Target</th>
+            <th>Rincian status</th>
+            <th data-key="pct">% Selesai</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"><tr class="empty-row"><td colspan="8">Memuat data…</td></tr></tbody>
+      </table>
+    </div>
+  </div>
+
+  <footer>
+    Data ditarik langsung dari Google Sheets dan disinkron otomatis setiap 60 detik.<br/>
+    Terakhir sinkron: <span id="syncTime" style="font-family:var(--font-mono);">–</span> WITA ·
+    <a id="openSheetLink" href="#" target="_blank" rel="noopener">Buka spreadsheet sumber</a>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  "use strict";
+
+  var SHEET_ID = "1BOosLF4OmOvuvkwYBp2j2AbRzYKzDymtx9B1CeY2bcI";
+  var GID = "959635293";
+  var EDIT_URL = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit?gid=" + GID;
+  var AUTO_REFRESH_MS = 60000;
+  var REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  document.getElementById('btnEdit').addEventListener('click', function(){ window.open(EDIT_URL, '_blank'); });
+  document.getElementById('openSheetLink').setAttribute('href', EDIT_URL);
+
+  // ---------------- state ----------------
+  var allRecords = [];
+  var filterKorwil = 'ALL';
+  var filterPml = 'ALL';
+  var searchQ = '';
+  var sortKey = 'pct';
+  var sortDir = 'desc';
+  var charts = {};
+  var autoTimer = null;
+
+  // ---------------- helpers ----------------
+  function norm(s){ return (s == null ? '' : String(s)).trim().toLowerCase(); }
+  function fmtInt(n){ return Math.round(n || 0).toLocaleString('id-ID'); }
+  function fmtPct(n){ if(!isFinite(n)) n = 0; return n.toFixed(1) + '%'; }
+  function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
+
+  function colFindExact(headers, name){
+    var n = norm(name);
+    for(var i=0;i<headers.length;i++){ if(norm(headers[i]) === n) return i; }
+    return -1;
+  }
+  function colFindIncludes(headers, sub){
+    var n = norm(sub);
+    for(var i=0;i<headers.length;i++){ if(norm(headers[i]).indexOf(n) !== -1) return i; }
+    return -1;
+  }
+
+  function cellRaw(row, idx){
+    if(idx == null || idx < 0 || !row || !row.c) return null;
+    var c = row.c[idx];
+    if(!c) return null;
+    return c.v;
+  }
+  function cellStr(row, idx){
+    var v = cellRaw(row, idx);
+    return v == null ? '' : String(v).trim();
+  }
+  function cellNum(row, idx){
+    var v = cellRaw(row, idx);
+    if(v == null || v === '') return 0;
+    var n = typeof v === 'number' ? v : parseFloat(String(v).replace(/[^0-9.\-]/g,''));
+    return isNaN(n) ? 0 : n;
+  }
+
+  // ---------------- fetch + parse ----------------
+  function fetchSheet(){
+    var url = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:json&gid=" + GID + "&cb=" + Date.now();
+    return fetch(url, { cache: 'no-store' }).then(function(res){
+      if(!res.ok) throw new Error('HTTP ' + res.status);
+      return res.text();
+    }).then(function(text){
+      var start = text.indexOf('{');
+      var end = text.lastIndexOf('}');
+      var jsonStr = text.substring(start, end + 1);
+      var json = JSON.parse(jsonStr);
+      return json.table;
+    });
+  }
+
+  function buildHeadersAndRows(table){
+    var headers = table.cols.map(function(c){ return c.label || ''; });
+    var rows = table.rows || [];
+    var hasKorwil = headers.some(function(h){ return norm(h).indexOf('korwil') !== -1; });
+    if(!hasKorwil && rows.length){
+      headers = (rows[0].c || []).map(function(c){ return c && c.v != null ? String(c.v) : ''; });
+      rows = rows.slice(1);
+    }
+    return { headers: headers, rows: rows };
+  }
+
+  function parseRecords(table){
+    var built = buildHeadersAndRows(table);
+    var headers = built.headers, rows = built.rows;
+    var idx = {
+      korwil: colFindIncludes(headers, 'korwil'),
+      pml: colFindIncludes(headers, 'pml'),
+      ppl: colFindIncludes(headers, 'ppl'),
+      email: colFindIncludes(headers, 'email'),
+      kecamatan: colFindIncludes(headers, 'kecamatan'),
+      desa: colFindIncludes(headers, 'desa'),
+      open: colFindExact(headers, 'open'),
+      draft: colFindExact(headers, 'draft'),
+      submit: colFindExact(headers, 'submit'),
+      reject: colFindExact(headers, 'reject'),
+      approve: colFindExact(headers, 'approve'),
+      jumlah: colFindExact(headers, 'jumlah'),
+      target: colFindIncludes(headers, 'agustus')
+    };
+    var out = [];
+    rows.forEach(function(row){
+      if(!row || !row.c) return;
+      var korwil = cellStr(row, idx.korwil);
+      var ppl = cellStr(row, idx.ppl);
+      if(!korwil && !ppl) return;
+      var open = cellNum(row, idx.open);
+      var draft = cellNum(row, idx.draft);
+      var submit = cellNum(row, idx.submit);
+      var reject = cellNum(row, idx.reject);
+      var approve = cellNum(row, idx.approve);
+      var jumlah = cellNum(row, idx.jumlah);
+      if(!jumlah) jumlah = open + draft + submit + reject + approve;
+      out.push({
+        korwil: korwil || '(Tanpa Korwil)',
+        pml: cellStr(row, idx.pml) || '(Tanpa PML)',
+        ppl: ppl || '(Tanpa PPL)',
+        email: cellStr(row, idx.email),
+        kecamatan: cellStr(row, idx.kecamatan),
+        desa: cellStr(row, idx.desa),
+        open: open, draft: draft, submit: submit, reject: reject, approve: approve, jumlah: jumlah,
+        target: cellStr(row, idx.target)
+      });
+    });
+    return out;
+  }
+
+  function pctSudah(o){ return o.jumlah > 0 ? (o.jumlah - o.open) / o.jumlah * 100 : 0; }
+
+  function aggregate(records, keyFn){
+    var map = {};
+    var order = [];
+    records.forEach(function(r){
+      var key = keyFn(r);
+      if(!map[key]){
+        map[key] = { key:key, open:0, draft:0, submit:0, reject:0, approve:0, jumlah:0, _ppl:{}, _pml:{}, _korwil:{}, _desa:{}, rows:0 };
+        order.push(key);
+      }
+      var a = map[key];
+      a.open += r.open; a.draft += r.draft; a.submit += r.submit; a.reject += r.reject; a.approve += r.approve; a.jumlah += r.jumlah;
+      a._ppl[r.ppl + '|' + r.email] = 1;
+      a._pml[r.pml] = 1;
+      a._korwil[r.korwil] = 1;
+      a._desa[r.kecamatan + '|' + r.desa] = 1;
+      a.rows++;
+    });
+    return order.map(function(key){
+      var a = map[key];
+      var pplCount = Object.keys(a._ppl).length;
+      var pmlCount = Object.keys(a._pml).length;
+      var korwilCount = Object.keys(a._korwil).length;
+      var desaCount = Object.keys(a._desa).length;
+      return {
+        key: key, open:a.open, draft:a.draft, submit:a.submit, reject:a.reject, approve:a.approve, jumlah:a.jumlah,
+        pplCount:pplCount, pmlCount:pmlCount, korwilCount:korwilCount, desaCount:desaCount, rows:a.rows,
+        pct: a.jumlah > 0 ? (a.jumlah - a.open) / a.jumlah * 100 : 0
+      };
+    });
+  }
+
+  // ---------------- filtering ----------------
+  function getFiltered(){
+    var q = norm(searchQ);
+    return allRecords.filter(function(r){
+      if(filterKorwil !== 'ALL' && r.korwil !== filterKorwil) return false;
+      if(filterPml !== 'ALL' && r.pml !== filterPml) return false;
+      if(q){
+        var hay = norm(r.ppl + ' ' + r.desa + ' ' + r.kecamatan + ' ' + r.pml);
+        if(hay.indexOf(q) === -1) return false;
+      }
+      return true;
+    });
+  }
+
+  // ---------------- options ----------------
+  function populateKorwilOptions(){
+    var sel = document.getElementById('selKorwil');
+    var names = Array.from(new Set(allRecords.map(function(r){ return r.korwil; }))).sort(function(a,b){ return a.localeCompare(b); });
+    sel.innerHTML = '<option value="ALL">Semua Korwil</option>' + names.map(function(n){ return '<option value="'+escAttr(n)+'">'+escHtml(n)+'</option>'; }).join('');
+    sel.value = filterKorwil;
+  }
+  function populatePmlOptions(){
+    var sel = document.getElementById('selPml');
+    var scoped = filterKorwil === 'ALL' ? allRecords : allRecords.filter(function(r){ return r.korwil === filterKorwil; });
+    var names = Array.from(new Set(scoped.map(function(r){ return r.pml; }))).sort(function(a,b){ return a.localeCompare(b); });
+    sel.innerHTML = '<option value="ALL">Semua PML</option>' + names.map(function(n){ return '<option value="'+escAttr(n)+'">'+escHtml(n)+'</option>'; }).join('');
+    if(names.indexOf(filterPml) === -1) filterPml = 'ALL';
+    sel.value = filterPml;
+  }
+
+  function escHtml(s){ return String(s).replace(/[&<>]/g, function(c){ return c==='&'?'&amp;':c==='<'?'&lt;':'&gt;'; }); }
+  function escAttr(s){ return String(s).replace(/"/g, '&quot;'); }
+
+  // ---------------- render: hero + KPI ----------------
+  function renderHeroAndKpi(f){
+    var totalJumlah = 0, totalOpen=0, totalDraft=0, totalSubmit=0, totalReject=0, totalApprove=0;
+    var pplSet = {}, desaSet = {};
+    f.forEach(function(r){
+      totalJumlah += r.jumlah; totalOpen += r.open; totalDraft += r.draft; totalSubmit += r.submit; totalReject += r.reject; totalApprove += r.approve;
+      pplSet[r.ppl + '|' + r.email] = 1;
+      desaSet[r.kecamatan + '|' + r.desa] = 1;
+    });
+    var sudah = totalJumlah - totalOpen;
+    var pct = totalJumlah > 0 ? sudah / totalJumlah * 100 : 0;
+
+    document.getElementById('heroPct').textContent = pct.toFixed(1) + '%';
+    document.getElementById('heroText').innerHTML = '<span>' + fmtInt(sudah) + '</span> dari <span>' + fmtInt(totalJumlah) + '</span> unit usaha telah diproses petugas di lapangan.';
+
+    var scopeParts = [];
+    scopeParts.push(filterKorwil === 'ALL' ? 'Semua Korwil' : filterKorwil);
+    if(filterPml !== 'ALL') scopeParts.push(filterPml);
+    document.getElementById('heroScope').innerHTML = 'Lingkup: <b>' + scopeParts.map(escHtml).join(' › ') + '</b>';
+
+    var bar2 = document.getElementById('heroBar2');
+    bar2.innerHTML = segHtml([
+      { cls:'seg-open', val:totalOpen },
+      { cls:'seg-draft', val:sudah }
+    ], totalJumlah);
+
+    var bar5 = document.getElementById('heroBar5');
+    bar5.innerHTML = segHtml([
+      { cls:'seg-open', val:totalOpen },
+      { cls:'seg-draft', val:totalDraft },
+      { cls:'seg-submit', val:totalSubmit },
+      { cls:'seg-reject', val:totalReject },
+      { cls:'seg-approve', val:totalApprove }
+    ], totalJumlah);
+
+    document.getElementById('kpiTarget').textContent = fmtInt(totalJumlah);
+    document.getElementById('kpiSudah').textContent = fmtInt(sudah);
+    document.getElementById('kpiSudahSub').textContent = fmtPct(pct) + ' dari target';
+    document.getElementById('kpiBelum').textContent = fmtInt(totalOpen);
+    document.getElementById('kpiBelumSub').textContent = fmtPct(100-pct) + ' dari target';
+    document.getElementById('kpiPpl').textContent = fmtInt(Object.keys(pplSet).length);
+    document.getElementById('kpiPplSub').textContent = 'petugas pada lingkup ini';
+    document.getElementById('kpiDesa').textContent = fmtInt(Object.keys(desaSet).length);
+    document.getElementById('kpiDesaSub').textContent = 'desa/kelurahan';
+    document.getElementById('kpiReject').textContent = fmtInt(totalReject);
+  }
+
+  function segHtml(segs, total){
+    if(!total || total <= 0){
+      return '<span style="background:var(--bg-soft2);width:100%;height:100%;"></span>';
+    }
+    return segs.map(function(s){
+      var w = clamp(s.val / total * 100, 0, 100);
+      if(w <= 0) return '';
+      return '<span class="' + s.cls + '" style="width:' + w.toFixed(3) + '%"></span>';
+    }).join('');
+  }
+
+  // ---------------- chart helpers ----------------
+  function destroyChart(key){ if(charts[key]){ charts[key].destroy(); charts[key]=null; } }
+
+  function statusDatasets(items){
+    return [
+      { label:'Open', data: items.map(function(i){return i.open;}), backgroundColor: getVar('--c-open') },
+      { label:'Draft', data: items.map(function(i){return i.draft;}), backgroundColor: getVar('--c-draft') },
+      { label:'Submit', data: items.map(function(i){return i.submit;}), backgroundColor: getVar('--c-submit') },
+      { label:'Reject', data: items.map(function(i){return i.reject;}), backgroundColor: getVar('--c-reject') },
+      { label:'Approve', data: items.map(function(i){return i.approve;}), backgroundColor: getVar('--c-approve') }
+    ];
+  }
+  function getVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
+
+  function renderKorwilChart(){
+    var items = aggregate(allRecords, function(r){ return r.korwil; }).sort(function(a,b){ return b.pct - a.pct; });
+    var canvas = document.getElementById('chartKorwil');
+    var h = Math.max(260, items.length * 30);
+    document.getElementById('korwilWrap').style.height = h + 'px';
+    canvas.height = h;
+    destroyChart('korwil');
+    charts.korwil = new Chart(canvas, {
+      type:'bar',
+      data:{ labels: items.map(function(i){return i.key;}), datasets: statusDatasets(items) },
+      options: barOptions(true, function(idx){
+        var key = items[idx].key;
+        filterKorwil = key; filterPml = 'ALL';
+        populatePmlOptions();
+        document.getElementById('selKorwil').value = filterKorwil;
+        renderAll();
+      })
+    });
+  }
+
+  function renderPmlChart(){
+    var scoped = filterKorwil === 'ALL' ? allRecords : allRecords.filter(function(r){ return r.korwil === filterKorwil; });
+    var items = aggregate(scoped, function(r){ return r.pml; }).sort(function(a,b){ return b.jumlah - a.jumlah; });
+    var capped = items.length > 20 ? items.slice(0,20) : items;
+    document.getElementById('pmlCap').textContent = 'Lingkup: ' + (filterKorwil==='ALL'?'Semua Korwil':filterKorwil) + (items.length>20 ? ' · menampilkan 20 PML teratas' : '') + ' · klik bar untuk memfilter';
+    var canvas = document.getElementById('chartPml');
+    var h = Math.max(260, capped.length * 30);
+    document.getElementById('pmlWrap').style.height = h + 'px';
+    canvas.height = h;
+    destroyChart('pml');
+    charts.pml = new Chart(canvas, {
+      type:'bar',
+      data:{ labels: capped.map(function(i){return i.key;}), datasets: statusDatasets(capped) },
+      options: barOptions(true, function(idx){
+        filterPml = capped[idx].key;
+        document.getElementById('selPml').value = filterPml;
+        renderAll();
+      })
+    });
+  }
+
+  function barOptions(stacked, onClickBar){
+    return {
+      indexAxis:'y',
+      animation: REDUCED_MOTION ? false : { duration:450 },
+      responsive:true,
+      maintainAspectRatio:false,
+      onClick: function(evt, elements){
+        if(elements && elements.length){ onClickBar(elements[0].index); }
+      },
+      plugins:{
+        legend:{ display:false },
+        tooltip:{
+          mode:'index',
+          callbacks:{
+            footer: function(items){
+              var sum=0; items.forEach(function(i){ sum+=i.parsed.x; });
+              return 'Total: ' + fmtInt(sum);
+            }
+          }
+        }
+      },
+      scales:{
+        x:{ stacked:true, grid:{ color:'rgba(255,255,255,0.06)' }, ticks:{ color: getVar('--text-faint') } },
+        y:{ stacked:true, grid:{ display:false }, ticks:{ color: getVar('--text-dim'), font:{ size:11 } } }
+      }
+    };
+  }
+
+  function renderDonut(f){
+    var t = { open:0, draft:0, submit:0, reject:0, approve:0 };
+    f.forEach(function(r){ t.open+=r.open; t.draft+=r.draft; t.submit+=r.submit; t.reject+=r.reject; t.approve+=r.approve; });
+    var total = t.open+t.draft+t.submit+t.reject+t.approve;
+    var pctSudahVal = total>0 ? (total-t.open)/total*100 : 0;
+    document.getElementById('donutCap').textContent = 'Total ' + fmtInt(total) + ' unit usaha pada lingkup terpilih';
+    destroyChart('donut');
+    var canvas = document.getElementById('chartDonut');
+    charts.donut = new Chart(canvas, {
+      type:'doughnut',
+      data:{
+        labels:['Open','Draft','Submit','Reject','Approve'],
+        datasets:[{ data:[t.open,t.draft,t.submit,t.reject,t.approve],
+          backgroundColor:[getVar('--c-open'),getVar('--c-draft'),getVar('--c-submit'),getVar('--c-reject'),getVar('--c-approve')],
+          borderWidth:0 }]
+      },
+      options:{
+        animation: REDUCED_MOTION ? false : { duration:450 },
+        cutout:'68%',
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          legend:{ position:'bottom', labels:{ color:getVar('--text-dim'), boxWidth:10, font:{size:11} } },
+          tooltip:{ callbacks:{ label:function(ctx){ return ctx.label+': '+fmtInt(ctx.parsed); } } }
+        }
+      },
+      plugins:[{
+        id:'centerText',
+        afterDraw: function(chart){
+          var ctx = chart.ctx;
+          var w = chart.width, h = chart.height;
+          ctx.save();
+          ctx.font = '700 22px JetBrains Mono, monospace';
+          ctx.fillStyle = getVar('--text');
+          ctx.textAlign = 'center'; ctx.textBaseline='middle';
+          ctx.fillText(pctSudahVal.toFixed(1)+'%', w/2, h/2 - 16);
+          ctx.font = '600 10.5px Inter, sans-serif';
+          ctx.fillStyle = getVar('--text-faint');
+          ctx.fillText('SUDAH DIDATA', w/2, h/2 + 8);
+          ctx.restore();
+        }
+      }]
+    });
+  }
+
+  function renderHistogram(f){
+    var pplAgg = aggregate(f, function(r){ return r.ppl + '|' + r.email; });
+    var buckets = [0,0,0,0];
+    pplAgg.forEach(function(a){
+      var p = a.pct;
+      if(p < 25) buckets[0]++;
+      else if(p < 50) buckets[1]++;
+      else if(p < 75) buckets[2]++;
+      else buckets[3]++;
+    });
+    destroyChart('hist');
+    var canvas = document.getElementById('chartHist');
+    charts.hist = new Chart(canvas, {
+      type:'bar',
+      data:{
+        labels:['0–25%','25–50%','50–75%','75–100%'],
+        datasets:[{ data:buckets, backgroundColor:[getVar('--c-reject'),getVar('--gold'),getVar('--c-submit'),getVar('--c-approve')], borderRadius:6, maxBarThickness:60 }]
+      },
+      options:{
+        animation: REDUCED_MOTION ? false : { duration:450 },
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(ctx){ return ctx.parsed.y + ' PPL'; } } } },
+        scales:{
+          x:{ grid:{display:false}, ticks:{ color:getVar('--text-dim') } },
+          y:{ beginAtZero:true, grid:{ color:'rgba(255,255,255,0.06)' }, ticks:{ color:getVar('--text-faint'), precision:0 } }
+        }
+      }
+    });
+  }
+
+  // ---------------- table ----------------
+  function pctClass(p){ if(p < 50) return 'pct-low'; if(p < 80) return 'pct-mid'; return 'pct-high'; }
+
+  function renderTable(f){
+    var rows = f.slice();
+    rows.sort(function(a,b){
+      var av, bv;
+      if(sortKey === 'pct'){ av = pctSudah(a); bv = pctSudah(b); }
+      else if(sortKey === 'jumlah'){ av = a.jumlah; bv = b.jumlah; }
+      else { av = norm(a[sortKey]); bv = norm(b[sortKey]); }
+      if(av < bv) return sortDir === 'asc' ? -1 : 1;
+      if(av > bv) return sortDir === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    document.getElementById('rowCount').textContent = fmtInt(rows.length) + ' baris';
+
+    var tbody = document.getElementById('tbody');
+    if(!rows.length){
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Tidak ada data yang cocok dengan filter atau pencarian saat ini.</td></tr>';
+      return;
+    }
+
+    var html = rows.map(function(r){
+      var p = pctSudah(r);
+      var flag = r.reject > 0 ? '<span class="flag-dot" title="Ada isian Reject"></span>' : '';
+      var bar = '<div class="segbar tiny row-bar">' + segHtml([
+        {cls:'seg-open', val:r.open}, {cls:'seg-draft', val:r.draft}, {cls:'seg-submit', val:r.submit},
+        {cls:'seg-reject', val:r.reject}, {cls:'seg-approve', val:r.approve}
+      ], r.jumlah) + '</div>';
+      return '<tr>' +
+        '<td class="name">' + flag + escHtml(r.ppl) + '</td>' +
+        '<td class="dim">' + escHtml(r.korwil) + '</td>' +
+        '<td class="dim">' + escHtml(r.pml) + '</td>' +
+        '<td class="dim">' + escHtml(r.kecamatan) + '</td>' +
+        '<td class="dim">' + escHtml(r.desa) + '</td>' +
+        '<td class="num">' + fmtInt(r.jumlah) + '</td>' +
+        '<td>' + bar + '</td>' +
+        '<td><span class="pct-badge ' + pctClass(p) + '">' + fmtPct(p) + '</span></td>' +
+        '</tr>';
+    }).join('');
+    tbody.innerHTML = html;
+  }
+
+  document.querySelectorAll('thead th[data-key]').forEach(function(th){
+    th.addEventListener('click', function(){
+      var key = th.getAttribute('data-key');
+      if(sortKey === key){ sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+      else { sortKey = key; sortDir = key === 'pct' || key === 'jumlah' ? 'desc' : 'asc'; }
+      document.querySelectorAll('thead th').forEach(function(x){ x.classList.remove('sorted'); });
+      th.classList.add('sorted');
+      renderTable(getFiltered());
+    });
+  });
+
+  // ---------------- render orchestration ----------------
+  function updateClearChip(){
+    var chip = document.getElementById('clearChip');
+    var active = filterKorwil !== 'ALL' || filterPml !== 'ALL' || searchQ;
+    chip.classList.toggle('show', !!active);
+  }
+
+  function renderAll(){
+    var f = getFiltered();
+    renderHeroAndKpi(f);
+    renderKorwilChart();
+    renderPmlChart();
+    renderDonut(f);
+    renderHistogram(f);
+    renderTable(f);
+    updateClearChip();
+  }
+
+  // ---------------- filter events ----------------
+  document.getElementById('selKorwil').addEventListener('change', function(e){
+    filterKorwil = e.target.value;
+    filterPml = 'ALL';
+    populatePmlOptions();
+    renderAll();
+  });
+  document.getElementById('selPml').addEventListener('change', function(e){
+    filterPml = e.target.value;
+    renderAll();
+  });
+  var searchTimer = null;
+  document.getElementById('searchInput').addEventListener('input', function(e){
+    var v = e.target.value;
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function(){ searchQ = v; renderAll(); }, 220);
+  });
+  document.getElementById('clearChip').addEventListener('click', function(){
+    filterKorwil = 'ALL'; filterPml = 'ALL'; searchQ = '';
+    document.getElementById('selKorwil').value = 'ALL';
+    populatePmlOptions();
+    document.getElementById('searchInput').value = '';
+    renderAll();
+  });
+
+  // ---------------- load / refresh ----------------
+  function setSyncUi(state, msg){
+    var dot = document.getElementById('liveDot');
+    var txt = document.getElementById('syncText');
+    if(state === 'ok'){
+      dot.style.background = getVar('--good');
+      txt.textContent = msg || 'tersambung';
+    } else if(state === 'loading'){
+      dot.style.background = getVar('--gold');
+      txt.textContent = msg || 'menyinkronkan…';
+    } else {
+      dot.style.background = getVar('--bad');
+      txt.textContent = msg || 'gagal sinkron';
+    }
+  }
+
+  function load(isManual){
+    var btn = document.getElementById('btnRefresh');
+    btn.classList.add('loading');
+    setSyncUi('loading');
+    fetchSheet().then(function(table){
+      allRecords = parseRecords(table);
+      document.getElementById('errBanner').classList.remove('show');
+      populateKorwilOptions();
+      populatePmlOptions();
+      renderAll();
+      var now = new Date();
+      document.getElementById('syncTime').textContent = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
+      setSyncUi('ok', 'tersambung · ' + allRecords.length + ' baris');
+    }).catch(function(err){
+      console.error(err);
+      document.getElementById('errBanner').classList.add('show');
+      setSyncUi('err', 'gagal sinkron');
+    }).finally(function(){
+      btn.classList.remove('loading');
+    });
+  }
+
+  document.getElementById('btnRefresh').addEventListener('click', function(){ load(true); });
+  document.getElementById('btnRetry').addEventListener('click', function(){ load(true); });
+
+  load(false);
+  autoTimer = setInterval(function(){ load(false); }, AUTO_REFRESH_MS);
+
+})();
+</script>
+</body>
+</html>
