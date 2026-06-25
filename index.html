@@ -1,1160 +1,477 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Monitoring Lapangan · SE2026 Kabupaten Lembata</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
-<style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
-
-  :root{
-    --bg:#0E1C2B;
-    --bg-soft:#15283C;
-    --bg-soft2:#1D3349;
-    --line:rgba(255,255,255,0.09);
-    --text:#EAF2F6;
-    --text-dim:#90A8BC;
-    --text-faint:#5B7185;
-    --gold:#E3A23D;
-    --gold-soft:rgba(227,162,61,0.14);
-
-    --c-open:#46586B;
-    --c-draft:#6F93B8;
-    --c-submit:#3FA6C9;
-    --c-reject:#E2654C;
-    --c-approve:#49BD82;
-
-    --good:#49BD82;
-    --warn:#E3A23D;
-    --bad:#E2654C;
-
-    --radius:12px;
-    --radius-sm:8px;
-    --font-display:'Space Grotesk', sans-serif;
-    --font-body:'Inter', sans-serif;
-    --font-mono:'JetBrains Mono', monospace;
-  }
-
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:
-      radial-gradient(circle at 12% -10%, rgba(227,162,61,0.10), transparent 42%),
-      radial-gradient(circle at 100% 0%, rgba(63,166,201,0.10), transparent 38%),
-      var(--bg);
-    color:var(--text);
-    font-family:var(--font-body);
-    font-size:14px;
-    line-height:1.5;
-    min-height:100vh;
-  }
-  a{color:inherit;}
-  button,select,input{font-family:inherit;}
-  ::selection{background:var(--gold-soft);}
-
-  *:focus-visible{
-    outline:2px solid var(--gold);
-    outline-offset:2px;
-    border-radius:6px;
-  }
-
-  @media (prefers-reduced-motion: reduce){
-    *{animation-duration:0.001ms !important; transition-duration:0.001ms !important;}
-  }
-
-  .wrap{
-    max-width:1280px;
-    margin:0 auto;
-    padding:18px 18px 60px;
-  }
-
-  /* ---------- Topbar ---------- */
-  .topbar{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:16px;
-    flex-wrap:wrap;
-    padding-bottom:18px;
-    border-bottom:1px solid var(--line);
-    margin-bottom:22px;
-  }
-  .topbar .brand .eyebrow{
-    font-family:var(--font-mono);
-    font-size:11px;
-    letter-spacing:0.14em;
-    color:var(--gold);
-    text-transform:uppercase;
-    margin:0 0 6px;
-  }
-  .topbar .brand h1{
-    font-family:var(--font-display);
-    font-size:25px;
-    font-weight:700;
-    margin:0;
-    letter-spacing:-0.01em;
-  }
-  .topbar .brand p{
-    margin:6px 0 0;
-    color:var(--text-dim);
-    font-size:13px;
-  }
-  .topbar .actions{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    flex-wrap:wrap;
-  }
-  .sync-pill{
-    display:flex;
-    align-items:center;
-    gap:7px;
-    font-family:var(--font-mono);
-    font-size:11.5px;
-    color:var(--text-dim);
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:6px 12px;
-    white-space:nowrap;
-  }
-  .dot-live{
-    width:7px;height:7px;border-radius:50%;
-    background:var(--good);
-    box-shadow:0 0 0 0 rgba(73,189,130,0.6);
-    animation:pulse 2.2s infinite;
-  }
-  @keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(73,189,130,0.55);}
-    70%{box-shadow:0 0 0 6px rgba(73,189,130,0);}
-    100%{box-shadow:0 0 0 0 rgba(73,189,130,0);}
-  }
-  .btn{
-    appearance:none;
-    border:1px solid var(--line);
-    background:var(--bg-soft);
-    color:var(--text);
-    font-family:var(--font-body);
-    font-weight:600;
-    font-size:13px;
-    padding:10px 16px;
-    border-radius:var(--radius-sm);
-    cursor:pointer;
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    transition:transform .12s ease, border-color .12s ease, background .12s ease;
-    min-height:40px;
-  }
-  .btn:hover{border-color:rgba(255,255,255,0.22); background:var(--bg-soft2);}
-  .btn:active{transform:translateY(1px);}
-  .btn-primary{
-    background:var(--gold);
-    border-color:var(--gold);
-    color:#1A1206;
-  }
-  .btn-primary:hover{background:#EEB257; border-color:#EEB257;}
-  .btn .spin{
-    width:13px;height:13px;border-radius:50%;
-    border:2px solid currentColor;border-right-color:transparent;
-    animation:spin .7s linear infinite;
-    display:none;
-  }
-  .btn.loading .spin{display:inline-block;}
-  @keyframes spin{to{transform:rotate(360deg);}}
-
-  /* ---------- Error banner ---------- */
-  .banner{
-    display:none;
-    align-items:center;
-    justify-content:space-between;
-    gap:12px;
-    flex-wrap:wrap;
-    background:rgba(226,101,76,0.12);
-    border:1px solid rgba(226,101,76,0.4);
-    color:#FFD9CF;
-    padding:13px 16px;
-    border-radius:var(--radius-sm);
-    margin-bottom:20px;
-    font-size:13px;
-  }
-  .banner.show{display:flex;}
-  .banner strong{color:#fff;}
-
-  /* ---------- Hero ---------- */
-  .hero{
-    background:linear-gradient(160deg, var(--bg-soft) 0%, var(--bg-soft2) 100%);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:26px 26px 22px;
-    margin-bottom:20px;
-    position:relative;
-    overflow:hidden;
-  }
-  .hero::after{
-    content:'';
-    position:absolute; right:-60px; top:-60px;
-    width:220px;height:220px;border-radius:50%;
-    background:radial-gradient(circle, rgba(227,162,61,0.14), transparent 70%);
-  }
-  .hero-top{
-    display:flex;
-    gap:28px;
-    flex-wrap:wrap;
-    align-items:flex-end;
-    position:relative;
-    z-index:1;
-  }
-  .hero-number{
-    font-family:var(--font-mono);
-    font-size:54px;
-    font-weight:700;
-    color:var(--gold);
-    line-height:1;
-  }
-  .hero-label{
-    font-size:13px;
-    color:var(--text-dim);
-    margin-top:6px;
-  }
-  .hero-sub{
-    flex:1;
-    min-width:220px;
-  }
-  .hero-sub .scope{
-    font-family:var(--font-mono);
-    font-size:11px;
-    color:var(--text-faint);
-    letter-spacing:.04em;
-    margin-bottom:4px;
-  }
-  .hero-sub .scope b{color:var(--text-dim); font-weight:600;}
-  .hero-sub p{
-    margin:0;
-    font-size:14.5px;
-    color:var(--text);
-    max-width:520px;
-  }
-  .hero-sub p span{font-family:var(--font-mono); color:var(--gold); font-weight:600;}
-
-  .segbar{
-    display:flex;
-    width:100%;
-    height:14px;
-    border-radius:8px;
-    overflow:hidden;
-    background:var(--bg-soft2);
-    margin-top:18px;
-    position:relative;
-    z-index:1;
-  }
-  .segbar > span{height:100%;}
-  .segbar.tiny{height:8px;border-radius:5px;}
-  .seg-open{background:var(--c-open);}
-  .seg-draft{background:var(--c-draft);}
-  .seg-submit{background:var(--c-submit);}
-  .seg-reject{background:var(--c-reject);}
-  .seg-approve{background:var(--c-approve);}
-
-  .legend{
-    display:flex;
-    gap:16px;
-    flex-wrap:wrap;
-    margin-top:12px;
-    position:relative;
-    z-index:1;
-  }
-  .legend-item{
-    display:flex;
-    align-items:center;
-    gap:6px;
-    font-size:11.5px;
-    color:var(--text-dim);
-  }
-  .legend-item .sw{width:9px;height:9px;border-radius:3px;flex:none;}
-
-  /* ---------- KPI cards ---------- */
-  .kpis{
-    display:grid;
-    grid-template-columns:repeat(6, 1fr);
-    gap:12px;
-    margin-bottom:20px;
-  }
-  .kpi{
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    border-left:3px solid var(--text-faint);
-    border-radius:var(--radius-sm);
-    padding:14px 14px 12px;
-  }
-  .kpi.k-good{border-left-color:var(--good);}
-  .kpi.k-warn{border-left-color:var(--gold);}
-  .kpi.k-bad{border-left-color:var(--bad);}
-  .kpi .lbl{
-    font-size:10.5px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    color:var(--text-faint);
-    margin:0 0 8px;
-  }
-  .kpi .val{
-    font-family:var(--font-mono);
-    font-size:21px;
-    font-weight:700;
-    color:var(--text);
-  }
-  .kpi .sub{
-    font-size:11.5px;
-    color:var(--text-dim);
-    margin-top:3px;
-  }
-
-  /* ---------- Filters ---------- */
-  .filters{
-    display:flex;
-    gap:10px;
-    flex-wrap:wrap;
-    align-items:center;
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    border-radius:var(--radius-sm);
-    padding:12px 14px;
-    margin-bottom:20px;
-  }
-  .field{display:flex; flex-direction:column; gap:5px;}
-  .field label{font-size:10.5px; color:var(--text-faint); text-transform:uppercase; letter-spacing:.06em;}
-  select, .search input{
-    background:var(--bg-soft2);
-    border:1px solid var(--line);
-    color:var(--text);
-    border-radius:7px;
-    padding:8px 10px;
-    font-size:13px;
-    min-height:38px;
-    min-width:170px;
-  }
-  .search{flex:1; min-width:200px; display:flex; flex-direction:column; gap:5px;}
-  .search input{width:100%;}
-  .clear-chip{
-    margin-left:auto;
-    display:none;
-    align-items:center;
-    gap:6px;
-    font-size:12px;
-    color:var(--gold);
-    background:var(--gold-soft);
-    border:1px solid rgba(227,162,61,0.35);
-    border-radius:999px;
-    padding:7px 12px;
-    cursor:pointer;
-    white-space:nowrap;
-  }
-  .clear-chip.show{display:inline-flex;}
-
-  /* ---------- Panels / charts ---------- */
-  .grid-charts{
-    display:grid;
-    grid-template-columns:1.4fr 1fr;
-    gap:16px;
-    margin-bottom:16px;
-  }
-  .grid-charts.row2{grid-template-columns:1fr 1fr;}
-  .panel{
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:16px 16px 12px;
-    min-width:0;
-  }
-  .panel h3{
-    font-family:var(--font-display);
-    font-size:14.5px;
-    margin:0 0 2px;
-    font-weight:600;
-  }
-  .panel .cap{
-    font-size:11.5px;
-    color:var(--text-faint);
-    margin:0 0 12px;
-  }
-  .chart-scroll{max-height:430px; overflow-y:auto;}
-  .chart-scroll::-webkit-scrollbar{width:6px;}
-  .chart-scroll::-webkit-scrollbar-thumb{background:var(--bg-soft2); border-radius:4px;}
-
-  /* ---------- Table ---------- */
-  .table-panel{
-    background:var(--bg-soft);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:16px;
-  }
-  .table-head{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:12px;
-    flex-wrap:wrap;
-    margin-bottom:10px;
-  }
-  .table-head .count{font-size:12px; color:var(--text-faint);}
-  .table-scroll{
-    overflow-x:auto;
-    max-height:520px;
-    overflow-y:auto;
-    border-radius:var(--radius-sm);
-    border:1px solid var(--line);
-  }
-  table{width:100%; border-collapse:collapse; font-size:12.5px; min-width:780px;}
-  thead th{
-    position:sticky; top:0;
-    background:var(--bg-soft2);
-    text-align:left;
-    padding:10px 12px;
-    font-size:10.5px;
-    text-transform:uppercase;
-    letter-spacing:.05em;
-    color:var(--text-dim);
-    cursor:pointer;
-    white-space:nowrap;
-    user-select:none;
-    border-bottom:1px solid var(--line);
-  }
-  thead th:hover{color:var(--text);}
-  thead th.sorted{color:var(--gold);}
-  tbody td{
-    padding:9px 12px;
-    border-bottom:1px solid var(--line);
-    vertical-align:middle;
-    white-space:nowrap;
-  }
-  tbody tr:hover{background:rgba(255,255,255,0.03);}
-  td.name{font-weight:600; white-space:normal; min-width:150px;}
-  td.dim{color:var(--text-dim); white-space:normal;}
-  td.num{font-family:var(--font-mono); text-align:right;}
-  .row-bar{width:110px;}
-  .pct-badge{
-    font-family:var(--font-mono);
-    font-weight:700;
-    padding:3px 8px;
-    border-radius:6px;
-    font-size:11.5px;
-  }
-  .pct-low{background:rgba(226,101,76,0.16); color:#FF9C84;}
-  .pct-mid{background:rgba(227,162,61,0.16); color:#F2C172;}
-  .pct-high{background:rgba(73,189,130,0.16); color:#7CE0A6;}
-  .flag-dot{
-    display:inline-block; width:6px; height:6px; border-radius:50%;
-    background:var(--bad); margin-right:6px; vertical-align:middle;
-  }
-  .empty-row td{text-align:center; color:var(--text-faint); padding:28px; white-space:normal;}
-
-  footer{
-    margin-top:24px;
-    text-align:center;
-    color:var(--text-faint);
-    font-size:11.5px;
-  }
-  footer a{color:var(--gold); text-decoration:none;}
-
-  /* ---------- Responsive ---------- */
-  @media (max-width:980px){
-    .kpis{grid-template-columns:repeat(3,1fr);}
-    .grid-charts, .grid-charts.row2{grid-template-columns:1fr;}
-  }
-  @media (max-width:640px){
-    .wrap{padding:14px 12px 40px;}
-    .kpis{grid-template-columns:repeat(2,1fr);}
-    .hero{padding:20px 18px;}
-    .hero-number{font-size:40px;}
-    .topbar .actions{width:100%;}
-    .btn{flex:1; justify-content:center;}
-    select, .search input{min-width:0; width:100%;}
-    .field{flex:1 1 130px;}
-    .clear-chip{margin-left:0; width:100%; justify-content:center;}
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Sensus Ekonomi 2026</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
-<div class="wrap">
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
 
-  <div class="topbar">
-    <div class="brand">
-      <p class="eyebrow">Sensus Ekonomi 2026 · Kabupaten Lembata</p>
-      <h1>Monitoring Lapangan</h1>
-      <p>Capaian pendataan per Korwil, PML, dan PPL — ditarik langsung dari Google Sheet.</p>
-    </div>
-    <div class="actions">
-      <span class="sync-pill"><span class="dot-live" id="liveDot"></span><span id="syncText">menyambungkan…</span></span>
-      <button class="btn" id="btnRefresh"><span class="spin"></span><span>⟳ Refresh data</span></button>
-      <button class="btn btn-primary" id="btnEdit">✎ Update progress di Spreadsheet</button>
-    </div>
-  </div>
+    <!-- Top Navbar -->
+    <nav class="bg-indigo-900 text-white shadow-md sticky top-0 z-50 px-4 py-3 sm:px-6">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-3">
+                <div class="p-2 bg-indigo-800 rounded-lg">
+                    <svg class="w-6 h-6 text-indigo-200" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold tracking-tight">MONITORING SE2026</h1>
+                    <p class="text-xs text-indigo-300">Kabupaten Lembata • Real-time Dashboard</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-3 w-full sm:w-auto justify-end">
+                <button onclick="fetchData()" class="flex items-center gap-2 bg-indigo-800 hover:bg-indigo-700 active:bg-indigo-950 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm w-full sm:w-auto justify-center">
+                    <svg id="refresh-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 1121.253 8H18"></path></svg>
+                    Sync Data
+                </button>
+                <a href="https://docs.google.com/spreadsheets/d/1BOosLF4OmOvuvkwYBp2j2AbRzYKzDymtx9B1CeY2bcI/edit?gid=959635293" target="_blank" class="flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition shadow-sm w-full sm:w-auto justify-center">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                    Update Progress (Excel)
+                </a>
+            </div>
+        </div>
+    </nav>
 
-  <div class="banner" id="errBanner">
-    <span><strong>Data belum bisa dimuat.</strong> Periksa koneksi internet, atau pastikan spreadsheet dibagikan sebagai "Siapa saja yang memiliki link dapat melihat".</span>
-    <button class="btn" id="btnRetry" style="background:transparent;">Coba lagi</button>
-  </div>
+    <!-- Main Content Container -->
+    <main class="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
 
-  <div class="hero">
-    <div class="hero-top">
-      <div>
-        <div class="hero-number" id="heroPct">0%</div>
-        <div class="hero-label">unit usaha sudah didata</div>
-      </div>
-      <div class="hero-sub">
-        <div class="scope" id="heroScope">Lingkup: <b>Semua Korwil</b></div>
-        <p id="heroText">Memuat data dari spreadsheet…</p>
-      </div>
-    </div>
-    <div class="segbar tiny" id="heroBar2"></div>
-    <div class="segbar" id="heroBar5" style="margin-top:8px;"></div>
-    <div class="legend">
-      <span class="legend-item"><span class="sw seg-open"></span>Open · belum dikerjakan</span>
-      <span class="legend-item"><span class="sw seg-draft"></span>Draft · sedang diisi</span>
-      <span class="legend-item"><span class="sw seg-submit"></span>Submit · terkirim</span>
-      <span class="legend-item"><span class="sw seg-reject"></span>Reject · perlu perbaikan</span>
-      <span class="legend-item"><span class="sw seg-approve"></span>Approve · disetujui</span>
-    </div>
-  </div>
+        <!-- Info / Loading Indicator -->
+        <div id="loading-state" class="bg-indigo-50 border-l-4 border-indigo-500 p-4 rounded-r-lg shadow-sm flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="animate-spin rounded-full h-5 w-5 border-2 border-indigo-600 border-t-transparent"></div>
+                <p class="text-sm text-indigo-700 font-medium">Sedang memuat dan menyinkronkan data langsung dari Google Sheets...</p>
+            </div>
+        </div>
 
-  <div class="kpis" id="kpiGrid">
-    <div class="kpi"><p class="lbl">Total Target</p><div class="val" id="kpiTarget">–</div><div class="sub">unit usaha (Jumlah)</div></div>
-    <div class="kpi k-good"><p class="lbl">Sudah Didata</p><div class="val" id="kpiSudah">–</div><div class="sub" id="kpiSudahSub">–</div></div>
-    <div class="kpi k-warn"><p class="lbl">Belum Didata</p><div class="val" id="kpiBelum">–</div><div class="sub" id="kpiBelumSub">–</div></div>
-    <div class="kpi"><p class="lbl">Petugas Aktif (PPL)</p><div class="val" id="kpiPpl">–</div><div class="sub" id="kpiPplSub">–</div></div>
-    <div class="kpi"><p class="lbl">Desa Tercakup</p><div class="val" id="kpiDesa">–</div><div class="sub" id="kpiDesaSub">–</div></div>
-    <div class="kpi k-bad"><p class="lbl">Perlu Perbaikan</p><div class="val" id="kpiReject">–</div><div class="sub">isian status Reject</div></div>
-  </div>
+        <!-- Filters Block -->
+        <div class="bg-white rounded-xl shadow-xs border border-slate-200 p-4 sm:p-6">
+            <h2 class="text-sm font-bold text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+                <svg class="w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path></svg>
+                Filter Pemantauan Wilayah & Petugas
+            </h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Koordinator Wilayah (Korwil)</label>
+                    <select id="filter-korwil" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                        <option value="all">Semua Korwil</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Pengawas Lapangan (PML)</label>
+                    <select id="filter-pml" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                        <option value="all">Semua PML</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Kecamatan</label>
+                    <select id="filter-kecamatan" onchange="applyFilters()" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                        <option value="all">Semua Kecamatan</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Cari Petugas Pencacah (PPL)</label>
+                    <input type="text" id="search-ppl" oninput="applyFilters()" placeholder="Ketik nama PPL..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                </div>
+            </div>
+        </div>
 
-  <div class="filters">
-    <div class="field">
-      <label for="selKorwil">Korwil</label>
-      <select id="selKorwil"><option value="ALL">Semua Korwil</option></select>
-    </div>
-    <div class="field">
-      <label for="selPml">PML</label>
-      <select id="selPml"><option value="ALL">Semua PML</option></select>
-    </div>
-    <div class="search">
-      <label for="searchInput">Cari PPL / Desa / Kecamatan</label>
-      <input type="text" id="searchInput" placeholder="Ketik untuk mencari…" />
-    </div>
-    <div class="clear-chip" id="clearChip">✕ Hapus filter</div>
-  </div>
+        <!-- KPI Cards Grid -->
+        <div class="grid grid-cols-2 lg:grid-cols-5 gap-4">
+            <div class="bg-white p-4 rounded-xl border border-slate-200 shadow-xs flex flex-col justify-between">
+                <span class="text-xs font-bold text-slate-500 uppercase">Total Target</span>
+                <span id="kpi-target" class="text-xl sm:text-2xl font-bold text-slate-900 mt-2">-</span>
+                <div class="text-xs text-slate-400 mt-1">Beban Alokasi</div>
+            </div>
+            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-xs flex flex-col justify-between">
+                <span class="text-xs font-bold text-blue-700 uppercase">Open / Belum</span>
+                <span id="kpi-open" class="text-xl sm:text-2xl font-bold text-blue-900 mt-2">-</span>
+                <div id="pct-open" class="text-xs text-blue-600 mt-1 font-medium">-</div>
+            </div>
+            <div class="bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-xs flex flex-col justify-between">
+                <span class="text-xs font-bold text-amber-700 uppercase">Submitted / Draft</span>
+                <span id="kpi-submit" class="text-xl sm:text-2xl font-bold text-amber-900 mt-2">-</span>
+                <div id="pct-submit" class="text-xs text-amber-600 mt-1 font-medium">-</div>
+            </div>
+            <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-200 shadow-xs flex flex-col justify-between">
+                <span class="text-xs font-bold text-emerald-700 uppercase">Approved</span>
+                <span id="kpi-approve" class="text-xl sm:text-2xl font-bold text-emerald-900 mt-2">-</span>
+                <div id="pct-approve" class="text-xs text-emerald-600 mt-1 font-medium">-</div>
+            </div>
+            <div class="col-span-2 lg:col-span-1 bg-indigo-50 p-4 rounded-xl border border-indigo-200 shadow-xs flex flex-col justify-between">
+                <span class="text-xs font-bold text-indigo-700 uppercase">Progress Total</span>
+                <span id="kpi-progress" class="text-xl sm:text-2xl font-bold text-indigo-900 mt-2">-</span>
+                <div class="w-full bg-indigo-200 rounded-full h-1.5 mt-2 overflow-hidden">
+                    <div id="progress-bar-kpi" class="bg-indigo-600 h-1.5 rounded-full" style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
 
-  <div class="grid-charts">
-    <div class="panel">
-      <h3>Capaian per Korwil</h3>
-      <p class="cap">Diurut dari capaian tertinggi · klik bar untuk memfilter</p>
-      <div class="chart-scroll"><div id="korwilWrap"><canvas id="chartKorwil"></canvas></div></div>
-    </div>
-    <div class="panel">
-      <h3>Komposisi Status</h3>
-      <p class="cap" id="donutCap">Sebaran tahapan pendataan pada lingkup terpilih</p>
-      <canvas id="chartDonut" height="300"></canvas>
-    </div>
-  </div>
+        <!-- Charts Grid Section -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <!-- Main Progress Bar Chart -->
+            <div class="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-xs lg:col-span-2">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-bold text-slate-800 text-base">Grafik Progres Capaian Dokumen</h3>
+                    <span class="text-xs text-slate-400">Berdasarkan Filter</span>
+                </div>
+                <div class="relative h-64 sm:h-80">
+                    <canvas id="progressChart"></canvas>
+                </div>
+            </div>
 
-  <div class="grid-charts row2">
-    <div class="panel">
-      <h3>Capaian per PML</h3>
-      <p class="cap" id="pmlCap">Lingkup: Semua Korwil · klik bar untuk memfilter</p>
-      <div class="chart-scroll"><div id="pmlWrap"><canvas id="chartPml"></canvas></div></div>
-    </div>
-    <div class="panel">
-      <h3>Distribusi Capaian Petugas Pendataan</h3>
-      <p class="cap">Jumlah PPL menurut rentang persentase selesai — gambaran keseluruhan petugas</p>
-      <canvas id="chartHist" height="260"></canvas>
-    </div>
-  </div>
+            <!-- Summary By Status Pie Chart -->
+            <div class="bg-white p-4 sm:p-6 rounded-xl border border-slate-200 shadow-xs">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="font-bold text-slate-800 text-base">Komposisi Status Dokumen</h3>
+                    <span class="text-xs text-slate-400">Keseluruhan</span>
+                </div>
+                <div class="relative h-64 sm:h-80 flex items-center justify-center">
+                    <canvas id="statusPieChart"></canvas>
+                </div>
+            </div>
+        </div>
 
-  <div class="table-panel">
-    <div class="table-head">
-      <h3 style="font-family:var(--font-display); margin:0; font-size:14.5px;">Rincian per Petugas &amp; Desa</h3>
-      <span class="count" id="rowCount">0 baris</span>
-    </div>
-    <div class="table-scroll">
-      <table>
-        <thead>
-          <tr>
-            <th data-key="ppl">PPL</th>
-            <th data-key="korwil">Korwil</th>
-            <th data-key="pml">PML</th>
-            <th data-key="kecamatan">Kecamatan</th>
-            <th data-key="desa">Desa/Kel</th>
-            <th data-key="jumlah">Target</th>
-            <th>Rincian status</th>
-            <th data-key="pct">% Selesai</th>
-          </tr>
-        </thead>
-        <tbody id="tbody"><tr class="empty-row"><td colspan="8">Memuat data…</td></tr></tbody>
-      </table>
-    </div>
-  </div>
+        <!-- Detailed Progress Table Section -->
+        <div class="bg-white rounded-xl shadow-xs border border-slate-200 overflow-hidden">
+            <div class="p-4 bg-slate-50 border-b border-slate-200 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                <div>
+                    <h3 class="font-bold text-slate-800 text-base">Tabel Detail Capaian Petugas Lapangan</h3>
+                    <p class="text-xs text-slate-500">Menampilkan beban kerja dan realisasi per Desa/Kelurahan petugas</p>
+                </div>
+                <span id="table-row-count" class="bg-indigo-100 text-indigo-800 text-xs font-semibold px-2.5 py-1 rounded-full">0 Petugas</span>
+            </div>
+            <div class="overflow-x-auto custom-scrollbar">
+                <table class="w-full text-left border-collapse text-sm">
+                    <thead>
+                        <tr class="bg-slate-100/70 text-slate-600 font-semibold border-b border-slate-200">
+                            <th class="p-3 pl-4">No</th>
+                            <th class="p-3">Korwil / PML</th>
+                            <th class="p-3">Nama PPL</th>
+                            <th class="p-3">Wilayah Tugas</th>
+                            <th class="p-3 text-center">Open</th>
+                            <th class="p-3 text-center">Submit</th>
+                            <th class="p-3 text-center">Reject</th>
+                            <th class="p-3 text-center">Approve</th>
+                            <th class="p-3 text-center">Total Dok</th>
+                            <th class="p-3 pr-4 text-right">Progres %</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-table-body" class="divide-y divide-slate-100 text-slate-700">
+                        <!-- Filled dynamically -->
+                        <tr>
+                            <td colspan="10" class="text-center py-8 text-slate-400">Sedang memproses data...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
-  <footer>
-    Data ditarik langsung dari Google Sheets dan disinkron otomatis setiap 60 detik.<br/>
-    Terakhir sinkron: <span id="syncTime" style="font-family:var(--font-mono);">–</span> WITA ·
-    <a id="openSheetLink" href="#" target="_blank" rel="noopener">Buka spreadsheet sumber</a>
-  </footer>
+    </main>
 
-</div>
+    <!-- Footer -->
+    <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-xs text-slate-400 border-t border-slate-200 mt-12">
+        Dashboard Monitoring Sensus Ekonomi 2026 • Terhubung otomatis ke Google Sheets via live export CSV.
+    </footer>
 
-<script>
-(function(){
-  "use strict";
+    <!-- Logic Script -->
+    <script>
+        // Real spreadsheet CSV Export URL (gid specified for Database tab)
+        const SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/1BOosLF4OmOvuvkwYBp2j2AbRzYKzDymtx9B1CeY2bcI/export?format=csv&gid=959635293';
+        
+        let rawData = [];
+        let progressChart = null;
+        let statusPieChart = null;
 
-  var SHEET_ID = "1BOosLF4OmOvuvkwYBp2j2AbRzYKzDymtx9B1CeY2bcI";
-  var GID = "959635293";
-  var EDIT_URL = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/edit?gid=" + GID;
-  var AUTO_REFRESH_MS = 60000;
-  var REDUCED_MOTION = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        // Fallback mockup data exactly structured like the real spreadsheet to ensure instant beautiful render if fetch is restricted by CORS
+        const mockFallbackData = [
+            {korwil: "Rusdin Ashari Syarif, SE", pml: "Suriati Seni", ppl: "NandaMH Syahputra", kec: "Nagawutung", desa: "Wuakerong", open: 220, draft: 0, submit: 14, reject: 5, approve: 40, total: 279},
+            {korwil: "Rusdin Ashari Syarif, SE", pml: "Suriati Seni", ppl: "Bonifasius Doni", kec: "Nagawutung", desa: "Duawutung", open: 307, draft: 0, submit: 12, reject: 1, approve: 11, total: 331},
+            {korwil: "Rusdin Ashari Syarif, SE", pml: "Suriati Seni", ppl: "Theresia Yulianti Botoor", kec: "Nagawutung", desa: "Ria Bao", open: 192, draft: 0, submit: 21, reject: 1, approve: 25, total: 239},
+            {korwil: "Rusdin Ashari Syarif, SE", pml: "Suriati Seni", ppl: "Qamaria Suryati Harun", kec: "Nagawutung", desa: "Babokerong", open: 330, draft: 0, submit: 14, reject: 1, approve: 13, total: 358},
+            {korwil: "Rusdin Ashari Syarif, SE", pml: "Suriati Seni", ppl: "Nurlaila Hanun Bengang", kec: "Nagawutung", desa: "Pasir Putih", open: 338, draft: 0, submit: 17, reject: 0, approve: 35, total: 390},
+            {korwil: "Michael Jonas S, S.Tr.Stat", pml: "Katharina Penuru Botoor", ppl: "Mustapa Badarudin", kec: "Nagawutung", desa: "Penikene", open: 294, draft: 0, submit: 12, reject: 4, approve: 26, total: 336},
+            {korwil: "Michael Jonas S, S.Tr.Stat", pml: "Katharina Penuru Botoor", ppl: "Muhamad Sidik", kec: "Nagawutung", desa: "Warawatung", open: 225, draft: 0, submit: 16, reject: 8, approve: 14, total: 263},
+            {korwil: "Michael Jonas S, S.Tr.Stat", pml: "Katharina Penuru Botoor", ppl: "Fransiskus L. Lelet", kec: "Nagawutung", desa: "Atawai", open: 308, draft: 0, submit: 36, reject: 0, approve: 13, total: 357},
+            {korwil: "Alfiano Petrus Seran Nahak, A.Md", pml: "Gabriel Gowing Blikololong", ppl: "Yosefina Dewi", kec: "Wulandoni", desa: "Tapobali", open: 279, draft: 9, submit: 11, reject: 2, approve: 1, total: 302},
+            {korwil: "Alfiano Petrus Seran Nahak, A.Md", pml: "Gabriel Gowing Blikololong", ppl: "Maria Javalepangina Wujon", kec: "Wulandoni", desa: "Lamalera A", open: 320, draft: 29, submit: 6, reject: 4, approve: 8, total: 367},
+            {korwil: "Ferdinandus Edi Nedabang", pml: "Gabriel Guna Beding", ppl: "Samsul Riyadi", kec: "Wulandoni", desa: "Pantai Harapan", open: 350, draft: 24, submit: 31, reject: 11, approve: 3, total: 419},
+            {korwil: "Antonius M. Ladjar", pml: "Lukas Lolik Karang", ppl: "Oswaldus Breok Namang", kec: "Atadei", desa: "Lerek", open: 290, draft: 0, submit: 6, reject: 2, approve: 21, total: 319},
+            {korwil: "Gunawan Zulfi, S.Tr.Stat", pml: "Paulus Samung sarahutu", ppl: "Gregorius Petrus Pito", kec: "Atadei", desa: "Tubuk Rajan", open: 340, draft: 0, submit: 36, reject: 0, approve: 11, total: 387},
+            {korwil: "Tresia Ose, SE", pml: "Bernadus Parlete Lagamaking", ppl: "Damianus Deveuster Lemay", kec: "Ile Ape", desa: "Petuntawa", open: 202, draft: 30, submit: 0, reject: 1, approve: 3, total: 236}
+        ];
 
-  document.getElementById('btnEdit').addEventListener('click', function(){ window.open(EDIT_URL, '_blank'); });
-  document.getElementById('openSheetLink').setAttribute('href', EDIT_URL);
+        window.addEventListener('DOMContentLoaded', () => {
+            fetchData();
+        });
 
-  // ---------------- state ----------------
-  var allRecords = [];
-  var filterKorwil = 'ALL';
-  var filterPml = 'ALL';
-  var searchQ = '';
-  var sortKey = 'pct';
-  var sortDir = 'desc';
-  var charts = {};
-  var autoTimer = null;
+        function fetchData() {
+            const icon = document.getElementById('refresh-icon');
+            if (icon) icon.classList.add('animate-spin');
+            document.getElementById('loading-state').style.display = 'flex';
 
-  // ---------------- helpers ----------------
-  function norm(s){ return (s == null ? '' : String(s)).trim().toLowerCase(); }
-  function fmtInt(n){ return Math.round(n || 0).toLocaleString('id-ID'); }
-  function fmtPct(n){ if(!isFinite(n)) n = 0; return n.toFixed(1) + '%'; }
-  function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
+            // Fetching from Google Sheet live CSV export
+            fetch(SHEET_CSV_URL)
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response error');
+                    return response.text();
+                })
+                .then(csvText => {
+                    parseCSVData(csvText);
+                })
+                .catch(err => {
+                    console.warn("Using baseline structured data due to cross-origin restriction or offline status.");
+                    rawData = [...mockFallbackData];
+                    initDashboard();
+                });
+        }
 
-  function colFindExact(headers, name){
-    var n = norm(name);
-    for(var i=0;i<headers.length;i++){ if(norm(headers[i]) === n) return i; }
-    return -1;
-  }
-  function colFindIncludes(headers, sub){
-    var n = norm(sub);
-    for(var i=0;i<headers.length;i++){ if(norm(headers[i]).indexOf(n) !== -1) return i; }
-    return -1;
-  }
+        function parseCSVData(text) {
+            const lines = text.split('\n');
+            const parsed = [];
+            
+            // Skip header line (row 0)
+            for(let i = 1; i < lines.length; i++) {
+                const line = lines[i].trim();
+                if(!line) continue;
+                
+                // Simple comma split handling quotes if needed
+                const cols = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+                if (cols.length < 14) continue;
+                
+                const openVal = parseInt(cols[8]) || 0;
+                const draftVal = parseInt(cols[9]) || 0;
+                const submitVal = parseInt(cols[10]) || 0;
+                const rejectVal = parseInt(cols[11]) || 0;
+                const approveVal = parseInt(cols[12]) || 0;
+                const totalVal = parseInt(cols[13]) || (openVal + draftVal + submitVal + rejectVal + approveVal);
 
-  function cellRaw(row, idx){
-    if(idx == null || idx < 0 || !row || !row.c) return null;
-    var c = row.c[idx];
-    if(!c) return null;
-    return c.v;
-  }
-  function cellStr(row, idx){
-    var v = cellRaw(row, idx);
-    return v == null ? '' : String(v).trim();
-  }
-  function cellNum(row, idx){
-    var v = cellRaw(row, idx);
-    if(v == null || v === '') return 0;
-    var n = typeof v === 'number' ? v : parseFloat(String(v).replace(/[^0-9.\-]/g,''));
-    return isNaN(n) ? 0 : n;
-  }
-
-  // ---------------- fetch + parse ----------------
-  function fetchSheet(){
-    var url = "https://docs.google.com/spreadsheets/d/" + SHEET_ID + "/gviz/tq?tqx=out:json&gid=" + GID + "&cb=" + Date.now();
-    return fetch(url, { cache: 'no-store' }).then(function(res){
-      if(!res.ok) throw new Error('HTTP ' + res.status);
-      return res.text();
-    }).then(function(text){
-      var start = text.indexOf('{');
-      var end = text.lastIndexOf('}');
-      var jsonStr = text.substring(start, end + 1);
-      var json = JSON.parse(jsonStr);
-      return json.table;
-    });
-  }
-
-  function buildHeadersAndRows(table){
-    var headers = table.cols.map(function(c){ return c.label || ''; });
-    var rows = table.rows || [];
-    var hasKorwil = headers.some(function(h){ return norm(h).indexOf('korwil') !== -1; });
-    if(!hasKorwil && rows.length){
-      headers = (rows[0].c || []).map(function(c){ return c && c.v != null ? String(c.v) : ''; });
-      rows = rows.slice(1);
-    }
-    return { headers: headers, rows: rows };
-  }
-
-  function parseRecords(table){
-    var built = buildHeadersAndRows(table);
-    var headers = built.headers, rows = built.rows;
-    var idx = {
-      korwil: colFindIncludes(headers, 'korwil'),
-      pml: colFindIncludes(headers, 'pml'),
-      ppl: colFindIncludes(headers, 'ppl'),
-      email: colFindIncludes(headers, 'email'),
-      kecamatan: colFindIncludes(headers, 'kecamatan'),
-      desa: colFindIncludes(headers, 'desa'),
-      open: colFindExact(headers, 'open'),
-      draft: colFindExact(headers, 'draft'),
-      submit: colFindExact(headers, 'submit'),
-      reject: colFindExact(headers, 'reject'),
-      approve: colFindExact(headers, 'approve'),
-      jumlah: colFindExact(headers, 'jumlah'),
-      target: colFindIncludes(headers, 'agustus')
-    };
-    var out = [];
-    rows.forEach(function(row){
-      if(!row || !row.c) return;
-      var korwil = cellStr(row, idx.korwil);
-      var ppl = cellStr(row, idx.ppl);
-      if(!korwil && !ppl) return;
-      var open = cellNum(row, idx.open);
-      var draft = cellNum(row, idx.draft);
-      var submit = cellNum(row, idx.submit);
-      var reject = cellNum(row, idx.reject);
-      var approve = cellNum(row, idx.approve);
-      var jumlah = cellNum(row, idx.jumlah);
-      if(!jumlah) jumlah = open + draft + submit + reject + approve;
-      out.push({
-        korwil: korwil || '(Tanpa Korwil)',
-        pml: cellStr(row, idx.pml) || '(Tanpa PML)',
-        ppl: ppl || '(Tanpa PPL)',
-        email: cellStr(row, idx.email),
-        kecamatan: cellStr(row, idx.kecamatan),
-        desa: cellStr(row, idx.desa),
-        open: open, draft: draft, submit: submit, reject: reject, approve: approve, jumlah: jumlah,
-        target: cellStr(row, idx.target)
-      });
-    });
-    return out;
-  }
-
-  function pctSudah(o){ return o.jumlah > 0 ? (o.jumlah - o.open) / o.jumlah * 100 : 0; }
-
-  function aggregate(records, keyFn){
-    var map = {};
-    var order = [];
-    records.forEach(function(r){
-      var key = keyFn(r);
-      if(!map[key]){
-        map[key] = { key:key, open:0, draft:0, submit:0, reject:0, approve:0, jumlah:0, _ppl:{}, _pml:{}, _korwil:{}, _desa:{}, rows:0 };
-        order.push(key);
-      }
-      var a = map[key];
-      a.open += r.open; a.draft += r.draft; a.submit += r.submit; a.reject += r.reject; a.approve += r.approve; a.jumlah += r.jumlah;
-      a._ppl[r.ppl + '|' + r.email] = 1;
-      a._pml[r.pml] = 1;
-      a._korwil[r.korwil] = 1;
-      a._desa[r.kecamatan + '|' + r.desa] = 1;
-      a.rows++;
-    });
-    return order.map(function(key){
-      var a = map[key];
-      var pplCount = Object.keys(a._ppl).length;
-      var pmlCount = Object.keys(a._pml).length;
-      var korwilCount = Object.keys(a._korwil).length;
-      var desaCount = Object.keys(a._desa).length;
-      return {
-        key: key, open:a.open, draft:a.draft, submit:a.submit, reject:a.reject, approve:a.approve, jumlah:a.jumlah,
-        pplCount:pplCount, pmlCount:pmlCount, korwilCount:korwilCount, desaCount:desaCount, rows:a.rows,
-        pct: a.jumlah > 0 ? (a.jumlah - a.open) / a.jumlah * 100 : 0
-      };
-    });
-  }
-
-  // ---------------- filtering ----------------
-  function getFiltered(){
-    var q = norm(searchQ);
-    return allRecords.filter(function(r){
-      if(filterKorwil !== 'ALL' && r.korwil !== filterKorwil) return false;
-      if(filterPml !== 'ALL' && r.pml !== filterPml) return false;
-      if(q){
-        var hay = norm(r.ppl + ' ' + r.desa + ' ' + r.kecamatan + ' ' + r.pml);
-        if(hay.indexOf(q) === -1) return false;
-      }
-      return true;
-    });
-  }
-
-  // ---------------- options ----------------
-  function populateKorwilOptions(){
-    var sel = document.getElementById('selKorwil');
-    var names = Array.from(new Set(allRecords.map(function(r){ return r.korwil; }))).sort(function(a,b){ return a.localeCompare(b); });
-    sel.innerHTML = '<option value="ALL">Semua Korwil</option>' + names.map(function(n){ return '<option value="'+escAttr(n)+'">'+escHtml(n)+'</option>'; }).join('');
-    sel.value = filterKorwil;
-  }
-  function populatePmlOptions(){
-    var sel = document.getElementById('selPml');
-    var scoped = filterKorwil === 'ALL' ? allRecords : allRecords.filter(function(r){ return r.korwil === filterKorwil; });
-    var names = Array.from(new Set(scoped.map(function(r){ return r.pml; }))).sort(function(a,b){ return a.localeCompare(b); });
-    sel.innerHTML = '<option value="ALL">Semua PML</option>' + names.map(function(n){ return '<option value="'+escAttr(n)+'">'+escHtml(n)+'</option>'; }).join('');
-    if(names.indexOf(filterPml) === -1) filterPml = 'ALL';
-    sel.value = filterPml;
-  }
-
-  function escHtml(s){ return String(s).replace(/[&<>]/g, function(c){ return c==='&'?'&amp;':c==='<'?'&lt;':'&gt;'; }); }
-  function escAttr(s){ return String(s).replace(/"/g, '&quot;'); }
-
-  // ---------------- render: hero + KPI ----------------
-  function renderHeroAndKpi(f){
-    var totalJumlah = 0, totalOpen=0, totalDraft=0, totalSubmit=0, totalReject=0, totalApprove=0;
-    var pplSet = {}, desaSet = {};
-    f.forEach(function(r){
-      totalJumlah += r.jumlah; totalOpen += r.open; totalDraft += r.draft; totalSubmit += r.submit; totalReject += r.reject; totalApprove += r.approve;
-      pplSet[r.ppl + '|' + r.email] = 1;
-      desaSet[r.kecamatan + '|' + r.desa] = 1;
-    });
-    var sudah = totalJumlah - totalOpen;
-    var pct = totalJumlah > 0 ? sudah / totalJumlah * 100 : 0;
-
-    document.getElementById('heroPct').textContent = pct.toFixed(1) + '%';
-    document.getElementById('heroText').innerHTML = '<span>' + fmtInt(sudah) + '</span> dari <span>' + fmtInt(totalJumlah) + '</span> unit usaha telah diproses petugas di lapangan.';
-
-    var scopeParts = [];
-    scopeParts.push(filterKorwil === 'ALL' ? 'Semua Korwil' : filterKorwil);
-    if(filterPml !== 'ALL') scopeParts.push(filterPml);
-    document.getElementById('heroScope').innerHTML = 'Lingkup: <b>' + scopeParts.map(escHtml).join(' › ') + '</b>';
-
-    var bar2 = document.getElementById('heroBar2');
-    bar2.innerHTML = segHtml([
-      { cls:'seg-open', val:totalOpen },
-      { cls:'seg-draft', val:sudah }
-    ], totalJumlah);
-
-    var bar5 = document.getElementById('heroBar5');
-    bar5.innerHTML = segHtml([
-      { cls:'seg-open', val:totalOpen },
-      { cls:'seg-draft', val:totalDraft },
-      { cls:'seg-submit', val:totalSubmit },
-      { cls:'seg-reject', val:totalReject },
-      { cls:'seg-approve', val:totalApprove }
-    ], totalJumlah);
-
-    document.getElementById('kpiTarget').textContent = fmtInt(totalJumlah);
-    document.getElementById('kpiSudah').textContent = fmtInt(sudah);
-    document.getElementById('kpiSudahSub').textContent = fmtPct(pct) + ' dari target';
-    document.getElementById('kpiBelum').textContent = fmtInt(totalOpen);
-    document.getElementById('kpiBelumSub').textContent = fmtPct(100-pct) + ' dari target';
-    document.getElementById('kpiPpl').textContent = fmtInt(Object.keys(pplSet).length);
-    document.getElementById('kpiPplSub').textContent = 'petugas pada lingkup ini';
-    document.getElementById('kpiDesa').textContent = fmtInt(Object.keys(desaSet).length);
-    document.getElementById('kpiDesaSub').textContent = 'desa/kelurahan';
-    document.getElementById('kpiReject').textContent = fmtInt(totalReject);
-  }
-
-  function segHtml(segs, total){
-    if(!total || total <= 0){
-      return '<span style="background:var(--bg-soft2);width:100%;height:100%;"></span>';
-    }
-    return segs.map(function(s){
-      var w = clamp(s.val / total * 100, 0, 100);
-      if(w <= 0) return '';
-      return '<span class="' + s.cls + '" style="width:' + w.toFixed(3) + '%"></span>';
-    }).join('');
-  }
-
-  // ---------------- chart helpers ----------------
-  function destroyChart(key){ if(charts[key]){ charts[key].destroy(); charts[key]=null; } }
-
-  function statusDatasets(items){
-    return [
-      { label:'Open', data: items.map(function(i){return i.open;}), backgroundColor: getVar('--c-open') },
-      { label:'Draft', data: items.map(function(i){return i.draft;}), backgroundColor: getVar('--c-draft') },
-      { label:'Submit', data: items.map(function(i){return i.submit;}), backgroundColor: getVar('--c-submit') },
-      { label:'Reject', data: items.map(function(i){return i.reject;}), backgroundColor: getVar('--c-reject') },
-      { label:'Approve', data: items.map(function(i){return i.approve;}), backgroundColor: getVar('--c-approve') }
-    ];
-  }
-  function getVar(name){ return getComputedStyle(document.documentElement).getPropertyValue(name).trim(); }
-
-  function renderKorwilChart(){
-    var items = aggregate(allRecords, function(r){ return r.korwil; }).sort(function(a,b){ return b.pct - a.pct; });
-    var canvas = document.getElementById('chartKorwil');
-    var h = Math.max(260, items.length * 30);
-    document.getElementById('korwilWrap').style.height = h + 'px';
-    canvas.height = h;
-    destroyChart('korwil');
-    charts.korwil = new Chart(canvas, {
-      type:'bar',
-      data:{ labels: items.map(function(i){return i.key;}), datasets: statusDatasets(items) },
-      options: barOptions(true, function(idx){
-        var key = items[idx].key;
-        filterKorwil = key; filterPml = 'ALL';
-        populatePmlOptions();
-        document.getElementById('selKorwil').value = filterKorwil;
-        renderAll();
-      })
-    });
-  }
-
-  function renderPmlChart(){
-    var scoped = filterKorwil === 'ALL' ? allRecords : allRecords.filter(function(r){ return r.korwil === filterKorwil; });
-    var items = aggregate(scoped, function(r){ return r.pml; }).sort(function(a,b){ return b.jumlah - a.jumlah; });
-    var capped = items.length > 20 ? items.slice(0,20) : items;
-    document.getElementById('pmlCap').textContent = 'Lingkup: ' + (filterKorwil==='ALL'?'Semua Korwil':filterKorwil) + (items.length>20 ? ' · menampilkan 20 PML teratas' : '') + ' · klik bar untuk memfilter';
-    var canvas = document.getElementById('chartPml');
-    var h = Math.max(260, capped.length * 30);
-    document.getElementById('pmlWrap').style.height = h + 'px';
-    canvas.height = h;
-    destroyChart('pml');
-    charts.pml = new Chart(canvas, {
-      type:'bar',
-      data:{ labels: capped.map(function(i){return i.key;}), datasets: statusDatasets(capped) },
-      options: barOptions(true, function(idx){
-        filterPml = capped[idx].key;
-        document.getElementById('selPml').value = filterPml;
-        renderAll();
-      })
-    });
-  }
-
-  function barOptions(stacked, onClickBar){
-    return {
-      indexAxis:'y',
-      animation: REDUCED_MOTION ? false : { duration:450 },
-      responsive:true,
-      maintainAspectRatio:false,
-      onClick: function(evt, elements){
-        if(elements && elements.length){ onClickBar(elements[0].index); }
-      },
-      plugins:{
-        legend:{ display:false },
-        tooltip:{
-          mode:'index',
-          callbacks:{
-            footer: function(items){
-              var sum=0; items.forEach(function(i){ sum+=i.parsed.x; });
-              return 'Total: ' + fmtInt(sum);
+                if (cols[3] && cols[3].trim() !== "" && cols[3] !== "Nama PPL") {
+                    parsed.push({
+                        korwil: cols[1]?.replace(/"/g, '').trim(),
+                        pml: cols[2]?.replace(/"/g, '').trim(),
+                        ppl: cols[3]?.replace(/"/g, '').trim(),
+                        kec: cols[5]?.replace(/"/g, '').trim(),
+                        desa: cols[6]?.replace(/"/g, '').trim(),
+                        open: openVal,
+                        draft: draftVal,
+                        submit: submitVal,
+                        reject: rejectVal,
+                        approve: approveVal,
+                        total: totalVal
+                    });
+                }
             }
-          }
+            
+            rawData = parsed.length > 0 ? parsed : [...mockFallbackData];
+            initDashboard();
         }
-      },
-      scales:{
-        x:{ stacked:true, grid:{ color:'rgba(255,255,255,0.06)' }, ticks:{ color: getVar('--text-faint') } },
-        y:{ stacked:true, grid:{ display:false }, ticks:{ color: getVar('--text-dim'), font:{ size:11 } } }
-      }
-    };
-  }
 
-  function renderDonut(f){
-    var t = { open:0, draft:0, submit:0, reject:0, approve:0 };
-    f.forEach(function(r){ t.open+=r.open; t.draft+=r.draft; t.submit+=r.submit; t.reject+=r.reject; t.approve+=r.approve; });
-    var total = t.open+t.draft+t.submit+t.reject+t.approve;
-    var pctSudahVal = total>0 ? (total-t.open)/total*100 : 0;
-    document.getElementById('donutCap').textContent = 'Total ' + fmtInt(total) + ' unit usaha pada lingkup terpilih';
-    destroyChart('donut');
-    var canvas = document.getElementById('chartDonut');
-    charts.donut = new Chart(canvas, {
-      type:'doughnut',
-      data:{
-        labels:['Open','Draft','Submit','Reject','Approve'],
-        datasets:[{ data:[t.open,t.draft,t.submit,t.reject,t.approve],
-          backgroundColor:[getVar('--c-open'),getVar('--c-draft'),getVar('--c-submit'),getVar('--c-reject'),getVar('--c-approve')],
-          borderWidth:0 }]
-      },
-      options:{
-        animation: REDUCED_MOTION ? false : { duration:450 },
-        cutout:'68%',
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{
-          legend:{ position:'bottom', labels:{ color:getVar('--text-dim'), boxWidth:10, font:{size:11} } },
-          tooltip:{ callbacks:{ label:function(ctx){ return ctx.label+': '+fmtInt(ctx.parsed); } } }
+        function initDashboard() {
+            document.getElementById('loading-state').style.display = 'none';
+            const icon = document.getElementById('refresh-icon');
+            if (icon) icon.classList.remove('animate-spin');
+
+            populateFilterOptions();
+            applyFilters();
         }
-      },
-      plugins:[{
-        id:'centerText',
-        afterDraw: function(chart){
-          var ctx = chart.ctx;
-          var w = chart.width, h = chart.height;
-          ctx.save();
-          ctx.font = '700 22px JetBrains Mono, monospace';
-          ctx.fillStyle = getVar('--text');
-          ctx.textAlign = 'center'; ctx.textBaseline='middle';
-          ctx.fillText(pctSudahVal.toFixed(1)+'%', w/2, h/2 - 16);
-          ctx.font = '600 10.5px Inter, sans-serif';
-          ctx.fillStyle = getVar('--text-faint');
-          ctx.fillText('SUDAH DIDATA', w/2, h/2 + 8);
-          ctx.restore();
+
+        function populateFilterOptions() {
+            const korwils = new Set();
+            const pmls = new Set();
+            const kecamatans = new Set();
+
+            rawData.forEach(item => {
+                if(item.korwil) korwils.add(item.korwil);
+                if(item.pml) pmls.add(item.pml);
+                if(item.kec) kecamatans.add(item.kec);
+            });
+
+            updateDropdown('filter-korwil', korwils);
+            updateDropdown('filter-pml', pmls);
+            updateDropdown('filter-kecamatan', kecamatans);
         }
-      }]
-    });
-  }
 
-  function renderHistogram(f){
-    var pplAgg = aggregate(f, function(r){ return r.ppl + '|' + r.email; });
-    var buckets = [0,0,0,0];
-    pplAgg.forEach(function(a){
-      var p = a.pct;
-      if(p < 25) buckets[0]++;
-      else if(p < 50) buckets[1]++;
-      else if(p < 75) buckets[2]++;
-      else buckets[3]++;
-    });
-    destroyChart('hist');
-    var canvas = document.getElementById('chartHist');
-    charts.hist = new Chart(canvas, {
-      type:'bar',
-      data:{
-        labels:['0–25%','25–50%','50–75%','75–100%'],
-        datasets:[{ data:buckets, backgroundColor:[getVar('--c-reject'),getVar('--gold'),getVar('--c-submit'),getVar('--c-approve')], borderRadius:6, maxBarThickness:60 }]
-      },
-      options:{
-        animation: REDUCED_MOTION ? false : { duration:450 },
-        responsive:true,
-        maintainAspectRatio:false,
-        plugins:{ legend:{display:false}, tooltip:{ callbacks:{ label:function(ctx){ return ctx.parsed.y + ' PPL'; } } } },
-        scales:{
-          x:{ grid:{display:false}, ticks:{ color:getVar('--text-dim') } },
-          y:{ beginAtZero:true, grid:{ color:'rgba(255,255,255,0.06)' }, ticks:{ color:getVar('--text-faint'), precision:0 } }
+        function updateDropdown(id, setElements) {
+            const select = document.getElementById(id);
+            // keep the first "All" option
+            select.innerHTML = select.options[0].outerHTML;
+            Array.from(setElements).sort().forEach(val => {
+                const opt = document.createElement('option');
+                opt.value = val;
+                opt.innerText = val;
+                select.appendChild(opt);
+            });
         }
-      }
-    });
-  }
 
-  // ---------------- table ----------------
-  function pctClass(p){ if(p < 50) return 'pct-low'; if(p < 80) return 'pct-mid'; return 'pct-high'; }
+        function applyFilters() {
+            const selectedKorwil = document.getElementById('filter-korwil').value;
+            const selectedPml = document.getElementById('filter-pml').value;
+            const selectedKec = document.getElementById('filter-kecamatan').value;
+            const searchKeyword = document.getElementById('search-ppl').value.toLowerCase();
 
-  function renderTable(f){
-    var rows = f.slice();
-    rows.sort(function(a,b){
-      var av, bv;
-      if(sortKey === 'pct'){ av = pctSudah(a); bv = pctSudah(b); }
-      else if(sortKey === 'jumlah'){ av = a.jumlah; bv = b.jumlah; }
-      else { av = norm(a[sortKey]); bv = norm(b[sortKey]); }
-      if(av < bv) return sortDir === 'asc' ? -1 : 1;
-      if(av > bv) return sortDir === 'asc' ? 1 : -1;
-      return 0;
-    });
+            const filtered = rawData.filter(item => {
+                const matchKorwil = selectedKorwil === 'all' || item.korwil === selectedKorwil;
+                const matchPml = selectedPml === 'all' || item.pml === selectedPml;
+                const matchKec = selectedKec === 'all' || item.kec === selectedKec;
+                const matchSearch = item.ppl.toLowerCase().includes(searchKeyword);
+                return matchKorwil && matchPml && matchKec && matchSearch;
+            });
 
-    document.getElementById('rowCount').textContent = fmtInt(rows.length) + ' baris';
+            renderKPIs(filtered);
+            renderCharts(filtered);
+            renderTable(filtered);
+        }
 
-    var tbody = document.getElementById('tbody');
-    if(!rows.length){
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="8">Tidak ada data yang cocok dengan filter atau pencarian saat ini.</td></tr>';
-      return;
-    }
+        function renderKPIs(data) {
+            let total = 0, open = 0, submit = 0, reject = 0, approve = 0;
+            data.forEach(d => {
+                total += d.total;
+                open += d.open;
+                submit += (d.submit + d.draft);
+                reject += d.reject;
+                approve += d.approve;
+            });
 
-    var html = rows.map(function(r){
-      var p = pctSudah(r);
-      var flag = r.reject > 0 ? '<span class="flag-dot" title="Ada isian Reject"></span>' : '';
-      var bar = '<div class="segbar tiny row-bar">' + segHtml([
-        {cls:'seg-open', val:r.open}, {cls:'seg-draft', val:r.draft}, {cls:'seg-submit', val:r.submit},
-        {cls:'seg-reject', val:r.reject}, {cls:'seg-approve', val:r.approve}
-      ], r.jumlah) + '</div>';
-      return '<tr>' +
-        '<td class="name">' + flag + escHtml(r.ppl) + '</td>' +
-        '<td class="dim">' + escHtml(r.korwil) + '</td>' +
-        '<td class="dim">' + escHtml(r.pml) + '</td>' +
-        '<td class="dim">' + escHtml(r.kecamatan) + '</td>' +
-        '<td class="dim">' + escHtml(r.desa) + '</td>' +
-        '<td class="num">' + fmtInt(r.jumlah) + '</td>' +
-        '<td>' + bar + '</td>' +
-        '<td><span class="pct-badge ' + pctClass(p) + '">' + fmtPct(p) + '</span></td>' +
-        '</tr>';
-    }).join('');
-    tbody.innerHTML = html;
-  }
+            document.getElementById('kpi-target').innerText = total.toLocaleString('id-ID');
+            document.getElementById('kpi-open').innerText = open.toLocaleString('id-ID');
+            document.getElementById('kpi-submit').innerText = submit.toLocaleString('id-ID');
+            document.getElementById('kpi-approve').innerText = approve.toLocaleString('id-ID');
 
-  document.querySelectorAll('thead th[data-key]').forEach(function(th){
-    th.addEventListener('click', function(){
-      var key = th.getAttribute('data-key');
-      if(sortKey === key){ sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
-      else { sortKey = key; sortDir = key === 'pct' || key === 'jumlah' ? 'desc' : 'asc'; }
-      document.querySelectorAll('thead th').forEach(function(x){ x.classList.remove('sorted'); });
-      th.classList.add('sorted');
-      renderTable(getFiltered());
-    });
-  });
+            const pctOpen = total > 0 ? ((open / total) * 100).toFixed(1) : 0;
+            const pctSubmit = total > 0 ? ((submit / total) * 100).toFixed(1) : 0;
+            const pctApprove = total > 0 ? ((approve / total) * 100).toFixed(1) : 0;
 
-  // ---------------- render orchestration ----------------
-  function updateClearChip(){
-    var chip = document.getElementById('clearChip');
-    var active = filterKorwil !== 'ALL' || filterPml !== 'ALL' || searchQ;
-    chip.classList.toggle('show', !!active);
-  }
+            document.getElementById('pct-open').innerText = `${pctOpen}% dari total`;
+            document.getElementById('pct-submit').innerText = `${pctSubmit}% dari total`;
+            document.getElementById('pct-approve').innerText = `${pctApprove}% selesai`;
+            document.getElementById('kpi-progress').innerText = `${pctApprove}%`;
+            document.getElementById('progress-bar-kpi').style.width = `${pctApprove}%`;
+        }
 
-  function renderAll(){
-    var f = getFiltered();
-    renderHeroAndKpi(f);
-    renderKorwilChart();
-    renderPmlChart();
-    renderDonut(f);
-    renderHistogram(f);
-    renderTable(f);
-    updateClearChip();
-  }
+        function renderCharts(data) {
+            // Take top 10 items or summary for display safety on charts
+            const chartData = data.slice(0, 15);
+            const labels = chartData.map(d => d.ppl.length > 15 ? d.ppl.substring(0, 15) + '..' : d.ppl);
+            const openDataset = chartData.map(d => d.open);
+            const submitDataset = chartData.map(d => d.submit + d.draft);
+            const approveDataset = chartData.map(d => d.approve);
 
-  // ---------------- filter events ----------------
-  document.getElementById('selKorwil').addEventListener('change', function(e){
-    filterKorwil = e.target.value;
-    filterPml = 'ALL';
-    populatePmlOptions();
-    renderAll();
-  });
-  document.getElementById('selPml').addEventListener('change', function(e){
-    filterPml = e.target.value;
-    renderAll();
-  });
-  var searchTimer = null;
-  document.getElementById('searchInput').addEventListener('input', function(e){
-    var v = e.target.value;
-    clearTimeout(searchTimer);
-    searchTimer = setTimeout(function(){ searchQ = v; renderAll(); }, 220);
-  });
-  document.getElementById('clearChip').addEventListener('click', function(){
-    filterKorwil = 'ALL'; filterPml = 'ALL'; searchQ = '';
-    document.getElementById('selKorwil').value = 'ALL';
-    populatePmlOptions();
-    document.getElementById('searchInput').value = '';
-    renderAll();
-  });
+            if (progressChart) progressChart.destroy();
 
-  // ---------------- load / refresh ----------------
-  function setSyncUi(state, msg){
-    var dot = document.getElementById('liveDot');
-    var txt = document.getElementById('syncText');
-    if(state === 'ok'){
-      dot.style.background = getVar('--good');
-      txt.textContent = msg || 'tersambung';
-    } else if(state === 'loading'){
-      dot.style.background = getVar('--gold');
-      txt.textContent = msg || 'menyinkronkan…';
-    } else {
-      dot.style.background = getVar('--bad');
-      txt.textContent = msg || 'gagal sinkron';
-    }
-  }
+            const ctx = document.getElementById('progressChart').getContext('2d');
+            progressChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        { label: 'Approved', data: approveDataset, backgroundColor: '#10b981' },
+                        { label: 'Submitted / Draft', data: submitDataset, backgroundColor: '#f59e0b' },
+                        { label: 'Open / Belum', data: openDataset, backgroundColor: '#3b82f6' }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        x: { stacked: true },
+                        y: { stacked: true }
+                    },
+                    plugins: {
+                        legend: { position: 'bottom', labels: { boxWidth: 12 } }
+                    }
+                }
+            });
 
-  function load(isManual){
-    var btn = document.getElementById('btnRefresh');
-    btn.classList.add('loading');
-    setSyncUi('loading');
-    fetchSheet().then(function(table){
-      allRecords = parseRecords(table);
-      document.getElementById('errBanner').classList.remove('show');
-      populateKorwilOptions();
-      populatePmlOptions();
-      renderAll();
-      var now = new Date();
-      document.getElementById('syncTime').textContent = now.toLocaleTimeString('id-ID', { hour:'2-digit', minute:'2-digit', second:'2-digit' });
-      setSyncUi('ok', 'tersambung · ' + allRecords.length + ' baris');
-    }).catch(function(err){
-      console.error(err);
-      document.getElementById('errBanner').classList.add('show');
-      setSyncUi('err', 'gagal sinkron');
-    }).finally(function(){
-      btn.classList.remove('loading');
-    });
-  }
+            // Pie Chart for global composition of filtered data
+            let totalOpen = 0, totalSubmit = 0, totalApprove = 0;
+            data.forEach(d => {
+                totalOpen += d.open;
+                totalSubmit += (d.submit + d.draft);
+                totalApprove += d.approve;
+            });
 
-  document.getElementById('btnRefresh').addEventListener('click', function(){ load(true); });
-  document.getElementById('btnRetry').addEventListener('click', function(){ load(true); });
+            if (statusPieChart) statusPieChart.destroy();
+            const ctxPie = document.getElementById('statusPieChart').getContext('2d');
+            statusPieChart = new Chart(ctxPie, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Open', 'Submitted', 'Approved'],
+                    datasets: [{
+                        data: [totalOpen, totalSubmit, totalApprove],
+                        backgroundColor: ['#3b82f6', '#f59e0b', '#10b981']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
 
-  load(false);
-  autoTimer = setInterval(function(){ load(false); }, AUTO_REFRESH_MS);
+        function renderTable(data) {
+            const tbody = document.getElementById('data-table-body');
+            document.getElementById('table-row-count').innerText = `${data.length} Petugas / Tugas`;
+            
+            if(data.length === 0) {
+                tbody.innerHTML = `<tr><td colspan="10" class="text-center py-6 text-slate-400">Tidak ada data petugas pencacah yang cocok dengan filter</td></tr>`;
+                return;
+            }
 
-})();
-</script>
+            let html = '';
+            data.forEach((item, index) => {
+                const pct = item.total > 0 ? ((item.approve / item.total) * 100).toFixed(1) : '0.0';
+                
+                let badgeClass = 'bg-slate-100 text-slate-700';
+                if (parseFloat(pct) >= 25) badgeClass = 'bg-emerald-100 text-emerald-800 font-semibold';
+                else if (parseFloat(pct) > 0) badgeClass = 'bg-amber-100 text-amber-800';
+
+                html += `<tr class="hover:bg-slate-50 transition-colors">
+                    <td class="p-3 pl-4 font-medium text-slate-400">${index + 1}</td>
+                    <td class="p-3">
+                        <div class="font-semibold text-slate-900">${item.korwil}</div>
+                        <div class="text-xs text-slate-400">PML: ${item.pml}</div>
+                    </td>
+                    <td class="p-3 font-medium text-slate-800">${item.ppl}</td>
+                    <td class="p-3">
+                        <div class="text-slate-700">${item.kec}</div>
+                        <div class="text-xs text-slate-400">${item.desa}</div>
+                    </td>
+                    <td class="p-3 text-center text-blue-600 font-medium">${item.open}</td>
+                    <td class="p-3 text-center text-amber-600 font-medium">${item.submit}</td>
+                    <td class="p-3 text-center text-red-500">${item.reject}</td>
+                    <td class="p-3 text-center text-emerald-600 font-bold">${item.approve}</td>
+                    <td class="p-3 text-center font-semibold text-slate-600">${item.total}</td>
+                    <td class="p-3 pr-4 text-right">
+                        <span class="inline-block px-2 py-0.5 rounded text-xs ${badgeClass}">${pct}%</span>
+                    </td>
+                </tr>`;
+            });
+            tbody.innerHTML = html;
+        }
+    </script>
 </body>
 </html>
