@@ -1196,7 +1196,7 @@ document.addEventListener('DOMContentLoaded', wireProgresKpiHighlight);
 document.addEventListener('keydown', e=>{ if(e.key==='Escape'){ anomCloseExpand(); anomCloseTableModal(); } });
 // ===================== /ANOMALI =====================
 
-const FASIH_TANGGAL = "2 Juli 2026 pukul 15.44 WITA (FASIH)";
+const FASIH_TANGGAL = "2 Juli 2026 pukul 15.49 WITA (FASIH)";
 window.addEventListener('DOMContentLoaded', () => {
     const el=document.getElementById('sync-timestamp');
     if(el){ el.innerText=FASIH_TANGGAL; el.className='text-[11px] sm:text-sm font-semibold text-emerald-400 max-w-[120px] sm:max-w-none truncate'; }
@@ -1338,8 +1338,8 @@ function radarData(){     // per-desa, abaikan korwil & pml
 function applyFilters(){
     const f=getFiltered();       // per PPL (ikut semua filter)
     const fd=getFilteredDesa();  // per desa (ikut semua filter)
-    renderKPIs(fd);
-    renderGauge(fd);
+    renderKPIs(f);       // per-PPL: Progres Kerja == Progres Hari Ini (tren)
+    renderGauge(f);      // per-PPL: konsisten dgn KPI & tren
     renderRankingChart(rankingData());   // kebal korwil/pml
     renderApproveRadar(radarData());     // kebal korwil/pml
     renderPPLSummary(f);
@@ -1920,7 +1920,7 @@ window.openChartModal=function(which){
         if(which==='gauge'){
             modalChartTitle='gauge_capaian_total';
             titleEl.innerText='⏱️ Gauge Capaian Total';
-            const pct=renderGauge(getFilteredDesa(),'modalChart','modal');
+            const pct=renderGauge(getFiltered(),'modalChart','modal');
             extra.innerHTML=`<span class="text-3xl font-extrabold text-indigo-700">${pct.toFixed(1)}%</span> <span class="text-sm text-slate-400">dokumen sudah diproses</span>`;
         } else if(which==='radar'){
             modalChartTitle='radar_per_kecamatan';
