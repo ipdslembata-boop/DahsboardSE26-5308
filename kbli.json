@@ -1,31 +1,31 @@
 {
-  "generated_at": "2026-07-19T09:32:31.660Z",
-  "generated_label": "19 Juli 2026 pukul 17.32 WITA",
+  "generated_at": "2026-07-23T10:25:08.873Z",
+  "generated_label": "23 Juli 2026 pukul 18.25 WITA",
   "kode_kabupaten": "5308",
   "nama_kabupaten": "LEMBATA",
   "summary": {
-    "total_usaha": 21540,
+    "total_usaha": 10992,
     "per_kategori": {
-      "A": 15774,
-      "B": 2,
-      "C": 2772,
-      "D": 33,
-      "E": 6,
-      "F": 111,
-      "G": 1930,
-      "H": 326,
-      "I": 207,
-      "J": 18,
-      "K": 84,
-      "L": 37,
-      "M": 98,
+      "A": 8005,
+      "B": 1,
+      "C": 1606,
+      "D": 11,
+      "E": 5,
+      "F": 47,
+      "G": 925,
+      "H": 141,
+      "I": 83,
+      "J": 8,
+      "K": 41,
+      "L": 11,
+      "M": 40,
       "P": 0,
-      "Q": 8,
-      "R": 9,
-      "N_O": 107,
-      "S_U": 18
+      "Q": 6,
+      "R": 3,
+      "N_O": 55,
+      "S_U": 4
     },
-    "jumlah_sls": 992
+    "jumlah_sls": 718
   },
   "kategori": [
     "A",
@@ -73,15 +73,30 @@
       "sls": "RT 005 DUSUN LEJAP",
       "A": 52,
       "C": 10,
-      "G": 4
+      "G": 5
     },
     {
       "kode14": "53080200130001",
       "kec": "ATADEI",
       "desa": "DORI PEWUT",
       "sls": "RT 01 DUSUN 01 URUWOKOL",
-      "A": 20,
+      "A": 24,
       "C": 2
+    },
+    {
+      "kode14": "53080200130010",
+      "kec": "ATADEI",
+      "desa": "DORI PEWUT",
+      "sls": "RT 010 DUSUN 04 LAMAKOBA",
+      "A": 12,
+      "C": 3
+    },
+    {
+      "kode14": "53080200130011",
+      "kec": "ATADEI",
+      "desa": "DORI PEWUT",
+      "sls": "RT 011 DUSUN 04 LAMAKOBA",
+      "A": 2
     },
     {
       "kode14": "53080200130012",
@@ -91,6 +106,13 @@
       "A": 16,
       "C": 2,
       "G": 1
+    },
+    {
+      "kode14": "53080200130002",
+      "kec": "ATADEI",
+      "desa": "DORI PEWUT",
+      "sls": "RT 02 DUSUN 01 URUWOKOL",
+      "A": 1
     },
     {
       "kode14": "53080200130003",
@@ -129,7 +151,7 @@
       "kec": "ATADEI",
       "desa": "DORI PEWUT",
       "sls": "RT 07 DUSUN 03 WAIOKIM",
-      "A": 4,
+      "A": 7,
       "C": 1
     },
     {
@@ -141,12 +163,20 @@
       "C": 1
     },
     {
+      "kode14": "53080200070001",
+      "kec": "ATADEI",
+      "desa": "DULIR",
+      "sls": "RT 001 DUSUN 01",
+      "A": 6,
+      "C": 7
+    },
+    {
       "kode14": "53080200070002",
       "kec": "ATADEI",
       "desa": "DULIR",
       "sls": "RT 002 DUSUN 01",
-      "A": 2,
-      "C": 1
+      "A": 6,
+      "C": 4
     },
     {
       "kode14": "53080200070004",
@@ -191,8 +221,8 @@
       "kec": "ATADEI",
       "desa": "ILE KERBAU",
       "sls": "RT 03 DUSUN 02 (ATUAER)",
-      "A": 22,
-      "C": 5,
+      "A": 21,
+      "C": 4,
       "G": 2
     },
     {
@@ -200,7 +230,7 @@
       "kec": "ATADEI",
       "desa": "ILE KERBAU",
       "sls": "RT 04 DUSUN 02 (ATUAER)",
-      "A": 19,
+      "A": 21,
       "C": 2
     },
     {
@@ -208,8 +238,8 @@
       "kec": "ATADEI",
       "desa": "ILE KERBAU",
       "sls": "RT 05 DUSUN 03 (PAOPARAW)",
-      "A": 17,
-      "C": 3,
+      "A": 19,
+      "C": 4,
       "G": 2,
       "K": 1
     },
@@ -218,54 +248,51 @@
       "kec": "ATADEI",
       "desa": "ILE KERBAU",
       "sls": "RT 06 DUSUN 03 (PAOPARAW)",
-      "A": 2
+      "A": 6,
+      "C": 1
     },
     {
       "kode14": "53080200140001",
       "kec": "ATADEI",
       "desa": "ILE KIMOK",
       "sls": "RT 001 DUSUN I HAGARAI",
-      "A": 20,
-      "C": 9,
-      "G": 2,
-      "H": 1
+      "A": 13,
+      "C": 3
     },
     {
       "kode14": "53080200140005",
       "kec": "ATADEI",
       "desa": "ILE KIMOK",
       "sls": "RT 005 DUSUN II LAGANIA",
-      "A": 32,
-      "C": 19,
-      "G": 8,
-      "K": 1
+      "A": 2,
+      "C": 2
     },
     {
       "kode14": "53080200140006",
       "kec": "ATADEI",
       "desa": "ILE KIMOK",
       "sls": "RT 006 DUSUN II LAGANIA",
-      "A": 47,
-      "C": 21,
-      "G": 1
-    },
-    {
-      "kode14": "53080200140007",
-      "kec": "ATADEI",
-      "desa": "ILE KIMOK",
-      "sls": "RT 007 DUSUN II LAGANIA",
-      "A": 17,
-      "C": 5,
-      "G": 2
+      "A": 12,
+      "C": 4
     },
     {
       "kode14": "53080200140008",
       "kec": "ATADEI",
       "desa": "ILE KIMOK",
       "sls": "RT 008 DUSUN II LAGANIA",
-      "A": 34,
-      "C": 28,
-      "G": 2
+      "A": 3,
+      "C": 3
+    },
+    {
+      "kode14": "53080200140010",
+      "kec": "ATADEI",
+      "desa": "ILE KIMOK",
+      "sls": "RT 010 DUSUN III KARANGORA",
+      "A": 12,
+      "C": 7,
+      "G": 1,
+      "K": 1,
+      "N_O": 1
     },
     {
       "kode14": "53080200160001",
@@ -275,13 +302,6 @@
       "A": 23,
       "C": 2,
       "G": 2
-    },
-    {
-      "kode14": "53080200160010",
-      "kec": "ATADEI",
-      "desa": "KATAKEJA",
-      "sls": "RT 10 DUSUN III KASA LOLON",
-      "A": 4
     },
     {
       "kode14": "53080200160011",
@@ -301,6 +321,7 @@
       "A": 29,
       "C": 3,
       "G": 3,
+      "Q": 1,
       "N_O": 1
     },
     {
@@ -329,52 +350,57 @@
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 15 DUSUN IV TITE HENA",
-      "A": 4,
-      "G": 2,
+      "A": 22,
+      "C": 5,
+      "F": 2,
+      "G": 4,
       "L": 1,
       "N_O": 1
+    },
+    {
+      "kode14": "53080200160016",
+      "kec": "ATADEI",
+      "desa": "KATAKEJA",
+      "sls": "RT 16 DUSUN IV TITE HENA",
+      "A": 4,
+      "G": 2,
+      "I": 1,
+      "Q": 1
     },
     {
       "kode14": "53080200160002",
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 2 DUSUN I WATENA",
-      "A": 17,
-      "C": 5,
-      "G": 2
-    },
-    {
-      "kode14": "53080200160003",
-      "kec": "ATADEI",
-      "desa": "KATAKEJA",
-      "sls": "RT 3 DUSUN I WATENA",
-      "A": 16,
-      "C": 2,
-      "G": 2
+      "A": 12,
+      "C": 4,
+      "G": 1
     },
     {
       "kode14": "53080200160004",
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 4 DUSUN I WATENA",
-      "A": 3
+      "A": 4
     },
     {
       "kode14": "53080200160005",
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 5 DUSUN I WATENA",
-      "A": 16,
-      "C": 1
+      "A": 8,
+      "Q": 1
     },
     {
       "kode14": "53080200160008",
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 8 DUSUN II SINAR DAMAI",
-      "A": 22,
-      "C": 5,
+      "A": 30,
+      "C": 6,
       "F": 1,
+      "G": 1,
+      "M": 1,
       "N_O": 1
     },
     {
@@ -382,15 +408,14 @@
       "kec": "ATADEI",
       "desa": "KATAKEJA",
       "sls": "RT 9 DUSUN II SINAR DAMAI",
-      "A": 15,
-      "C": 1
+      "A": 3
     },
     {
       "kode14": "53080200110001",
       "kec": "ATADEI",
       "desa": "LEBAATA",
       "sls": "RT 01 DUSUN 01 BLAHAR TAWA",
-      "A": 26,
+      "A": 27,
       "C": 10,
       "F": 2,
       "G": 1
@@ -400,25 +425,27 @@
       "kec": "ATADEI",
       "desa": "LEBAATA",
       "sls": "RT 02 DUSUN 01 BLAHAR TAWA",
-      "A": 16,
+      "A": 18,
       "C": 4,
-      "G": 1
+      "G": 1,
+      "K": 1
     },
     {
       "kode14": "53080200110003",
       "kec": "ATADEI",
       "desa": "LEBAATA",
       "sls": "RT 03 DUSUN 02 NAGA MATA",
-      "A": 4,
-      "C": 1
+      "A": 10,
+      "C": 3,
+      "G": 2
     },
     {
       "kode14": "53080200110004",
       "kec": "ATADEI",
       "desa": "LEBAATA",
       "sls": "RT 04 DUSUN 02 NAGA MATA",
-      "A": 19,
-      "C": 7,
+      "A": 28,
+      "C": 11,
       "F": 1,
       "G": 1,
       "K": 1
@@ -437,29 +464,26 @@
       "kec": "ATADEI",
       "desa": "LEREK",
       "sls": "RT 002 DUSUN 001",
-      "A": 27,
-      "C": 9,
-      "G": 3,
-      "K": 1
+      "A": 15,
+      "C": 4,
+      "G": 2
     },
     {
       "kode14": "53080200080003",
       "kec": "ATADEI",
       "desa": "LEREK",
       "sls": "RT 003 DUSUN 001",
-      "A": 23,
-      "C": 8,
-      "G": 2,
-      "K": 1
+      "A": 20,
+      "C": 6,
+      "G": 2
     },
     {
       "kode14": "53080200080004",
       "kec": "ATADEI",
       "desa": "LEREK",
       "sls": "RT 004 DUSUN 002",
-      "A": 21,
-      "C": 8,
-      "F": 1
+      "A": 18,
+      "C": 7
     },
     {
       "kode14": "53080200080005",
@@ -484,8 +508,8 @@
       "kec": "ATADEI",
       "desa": "LEREK",
       "sls": "RT 007 DUSUN 003",
-      "A": 19,
-      "C": 1,
+      "A": 25,
+      "C": 2,
       "G": 2,
       "K": 1
     },
@@ -494,8 +518,8 @@
       "kec": "ATADEI",
       "desa": "LEREK",
       "sls": "RT 013 DUSUN 004",
-      "A": 32,
-      "C": 9,
+      "A": 29,
+      "C": 8,
       "F": 1,
       "G": 1
     },
@@ -559,7 +583,7 @@
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 001 DUSUN I BALA GEGO",
-      "A": 24,
+      "A": 26,
       "C": 19,
       "D": 1,
       "G": 2,
@@ -571,8 +595,8 @@
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 002 DUSUN I BALA GEGO",
-      "A": 18,
-      "C": 13,
+      "A": 20,
+      "C": 15,
       "G": 2
     },
     {
@@ -590,23 +614,27 @@
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 004 DUSUN I BALA GEGO",
-      "C": 1
+      "A": 19,
+      "C": 13,
+      "F": 1,
+      "G": 1
     },
     {
       "kode14": "53080200040005",
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 005 DUSUN I BALA GEGO",
-      "A": 14,
-      "C": 11
+      "A": 22,
+      "C": 19,
+      "H": 1
     },
     {
       "kode14": "53080200040006",
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 006 DUSUN II BEDA GULE",
-      "A": 17,
-      "C": 13,
+      "A": 24,
+      "C": 16,
       "F": 1,
       "G": 2
     },
@@ -617,6 +645,18 @@
       "sls": "RT 007 DUSUN II BEDA GULE",
       "A": 12,
       "C": 7
+    },
+    {
+      "kode14": "53080200040008",
+      "kec": "ATADEI",
+      "desa": "LUSILAME",
+      "sls": "RT 008 DUSUN II BEDA GULE",
+      "A": 40,
+      "C": 30,
+      "F": 2,
+      "G": 3,
+      "H": 1,
+      "K": 1
     },
     {
       "kode14": "53080200040009",
@@ -631,8 +671,8 @@
       "kec": "ATADEI",
       "desa": "LUSILAME",
       "sls": "RT 010 DUSUN II BEDA GULE",
-      "A": 14,
-      "C": 12
+      "A": 15,
+      "C": 13
     },
     {
       "kode14": "53080200172002",
@@ -646,8 +686,8 @@
       "kec": "ATADEI",
       "desa": "NUBA ATALOJO",
       "sls": "RT 001 DUSUN I",
-      "A": 18,
-      "C": 8
+      "A": 16,
+      "C": 7
     },
     {
       "kode14": "53080200170002",
@@ -659,69 +699,46 @@
       "G": 1
     },
     {
-      "kode14": "53080200170003",
-      "kec": "ATADEI",
-      "desa": "NUBA ATALOJO",
-      "sls": "RT 003 DUSUN II",
-      "A": 35,
-      "C": 19,
-      "G": 4
-    },
-    {
       "kode14": "53080200170004",
       "kec": "ATADEI",
       "desa": "NUBA ATALOJO",
       "sls": "RT 004 DUSUN II",
-      "A": 39,
-      "C": 17,
-      "G": 10,
-      "H": 2
+      "A": 9,
+      "C": 4,
+      "G": 2
     },
     {
       "kode14": "53080200170005",
       "kec": "ATADEI",
       "desa": "NUBA ATALOJO",
       "sls": "RT 005 DUSUN III",
-      "A": 15,
-      "C": 11,
-      "G": 5
+      "A": 9,
+      "C": 7
     },
     {
       "kode14": "53080200170006",
       "kec": "ATADEI",
       "desa": "NUBA ATALOJO",
       "sls": "RT 006 DUSUN III",
-      "A": 10,
-      "C": 4
-    },
-    {
-      "kode14": "53080200100004",
-      "kec": "ATADEI",
-      "desa": "NUBAHAERAKA",
-      "sls": "RT 004 DUSUN II WAIWEJAK",
-      "A": 9,
-      "C": 1,
-      "D": 1,
-      "H": 1,
-      "K": 1,
-      "L": 1
+      "A": 8,
+      "C": 3
     },
     {
       "kode14": "53080200100005",
       "kec": "ATADEI",
       "desa": "NUBAHAERAKA",
       "sls": "RT 005 DUSUN III LEWOKURANG",
-      "A": 19,
+      "A": 15,
       "C": 10,
-      "G": 2
+      "G": 1
     },
     {
       "kode14": "53080200100006",
       "kec": "ATADEI",
       "desa": "NUBAHAERAKA",
       "sls": "RT 006 DUSUN III LEWOKURANG",
-      "A": 17,
-      "C": 11,
+      "A": 10,
+      "C": 7,
       "N_O": 1
     },
     {
@@ -748,40 +765,24 @@
       "kec": "ATADEI",
       "desa": "TUBUK RAJAN",
       "sls": "RT 003 DUSUN I KOLILEREK",
-      "A": 40,
-      "C": 6,
-      "G": 2,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080200150004",
-      "kec": "ATADEI",
-      "desa": "TUBUK RAJAN",
-      "sls": "RT 004 DUSUN II KLOREOR",
-      "A": 22,
-      "C": 2,
-      "G": 1
+      "A": 15,
+      "C": 1
     },
     {
       "kode14": "53080200150005",
       "kec": "ATADEI",
       "desa": "TUBUK RAJAN",
       "sls": "RT 005 DUSUN II KLOREOR",
-      "A": 29,
-      "C": 2,
-      "G": 2,
-      "N_O": 1
+      "A": 1
     },
     {
       "kode14": "53080200150006",
       "kec": "ATADEI",
       "desa": "TUBUK RAJAN",
       "sls": "RT 006 DUSUN III MIREK WOLO",
-      "A": 32,
-      "C": 8,
-      "F": 1,
-      "G": 4,
-      "N_O": 1
+      "A": 8,
+      "C": 1,
+      "G": 2
     },
     {
       "kode14": "53080200150007",
@@ -809,48 +810,23 @@
       "kec": "ATADEI",
       "desa": "TUBUK RAJAN",
       "sls": "RT 009 DUSUN IV LAMADUA",
-      "A": 33,
+      "A": 31,
       "C": 2
-    },
-    {
-      "kode14": "53080200150010",
-      "kec": "ATADEI",
-      "desa": "TUBUK RAJAN",
-      "sls": "RT 010 DUSUN IV LAMADUA",
-      "A": 2
     },
     {
       "kode14": "53080700200001",
       "kec": "BUYASARI",
       "desa": "ATU WALUPANG",
       "sls": "RT 001 DUSUN I ATUWALUPANG",
-      "A": 25,
-      "C": 6
-    },
-    {
-      "kode14": "53080700200002",
-      "kec": "BUYASARI",
-      "desa": "ATU WALUPANG",
-      "sls": "RT 002 DUSUN I ATUWALUPANG",
-      "A": 15,
-      "C": 3,
-      "H": 1
-    },
-    {
-      "kode14": "53080700200003",
-      "kec": "BUYASARI",
-      "desa": "ATU WALUPANG",
-      "sls": "RT 003 DUSUN II ATUWALUPANG",
-      "A": 17,
-      "C": 6
+      "A": 27,
+      "C": 7
     },
     {
       "kode14": "53080700050001",
       "kec": "BUYASARI",
       "desa": "ATULALENG",
       "sls": "RT 001 DUSUN 1(LETUBUNG)",
-      "A": 31,
-      "C": 2,
+      "A": 23,
       "G": 1
     },
     {
@@ -858,85 +834,51 @@
       "kec": "BUYASARI",
       "desa": "ATULALENG",
       "sls": "RT 002 DUSUN 1(LETUBUNG)",
-      "A": 43,
-      "C": 1,
-      "D": 1,
-      "G": 1,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080700050003",
-      "kec": "BUYASARI",
-      "desa": "ATULALENG",
-      "sls": "RT 003 DUSUN 2(LAMABAYUNG)",
-      "A": 41
-    },
-    {
-      "kode14": "53080700050004",
-      "kec": "BUYASARI",
-      "desa": "ATULALENG",
-      "sls": "RT 004 DUSUN 2(LAMABAYUNG)",
-      "A": 45,
-      "C": 2,
-      "G": 2
-    },
-    {
-      "kode14": "53080700050005",
-      "kec": "BUYASARI",
-      "desa": "ATULALENG",
-      "sls": "RT 005 DUSUN 2(LAMABATUNG)",
-      "A": 17,
-      "G": 2
-    },
-    {
-      "kode14": "53080700050006",
-      "kec": "BUYASARI",
-      "desa": "ATULALENG",
-      "sls": "RT 006 DUSUN 3(URUAYAQ)",
-      "A": 8
-    },
-    {
-      "kode14": "53080700050007",
-      "kec": "BUYASARI",
-      "desa": "ATULALENG",
-      "sls": "RT 007 DUSUN 3(URUATAQ)",
-      "A": 1
+      "A": 29,
+      "D": 1
     },
     {
       "kode14": "53080700170001",
       "kec": "BUYASARI",
       "desa": "BARENG",
       "sls": "RT 001 DUSUN 1",
+      "A": 7,
+      "C": 8
+    },
+    {
+      "kode14": "53080700170002",
+      "kec": "BUYASARI",
+      "desa": "BARENG",
+      "sls": "RT 002 DUSUN 1",
       "A": 1,
-      "C": 1
+      "C": 4
     },
     {
       "kode14": "53080700170003",
       "kec": "BUYASARI",
       "desa": "BARENG",
       "sls": "RT 003 DUSUN 2",
-      "A": 17,
-      "C": 24,
+      "A": 6,
+      "C": 9,
       "F": 1,
-      "G": 2,
-      "N_O": 1
+      "G": 2
     },
     {
       "kode14": "53080700170004",
       "kec": "BUYASARI",
       "desa": "BARENG",
       "sls": "RT 004 DUSUN 3",
-      "A": 18,
-      "C": 22,
-      "G": 2
+      "A": 9,
+      "C": 14,
+      "G": 1
     },
     {
       "kode14": "53080700020002",
       "kec": "BUYASARI",
       "desa": "BEAN",
       "sls": "RT 002 DUSUN 01 ILI ANAQ",
-      "A": 30,
-      "C": 5,
+      "A": 23,
+      "C": 4,
       "G": 3
     },
     {
@@ -944,19 +886,10 @@
       "kec": "BUYASARI",
       "desa": "BEAN",
       "sls": "RT 005 DUSUN 03 WAQ TOLA",
-      "A": 81,
+      "A": 77,
       "C": 5,
-      "F": 1,
       "G": 3,
       "L": 1
-    },
-    {
-      "kode14": "53080700020006",
-      "kec": "BUYASARI",
-      "desa": "BEAN",
-      "sls": "RT 006 DUSUN 03 WAQ TOLA",
-      "A": 3,
-      "G": 1
     },
     {
       "kode14": "53080700030001",
@@ -968,44 +901,12 @@
       "G": 4
     },
     {
-      "kode14": "53080700030002",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING",
-      "sls": "RT 002 DUSUN 01/ WULAKADA",
-      "A": 57,
-      "C": 5,
-      "G": 6,
-      "H": 2,
-      "I": 2,
-      "L": 1,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080700030003",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING",
-      "sls": "RT 003 DUSUN 02/ BUYA ABE",
-      "A": 84,
-      "C": 6,
-      "F": 1,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080700030004",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING",
-      "sls": "RT 004 DUSUN 02/ BUYA ABE",
-      "A": 16,
-      "C": 3
-    },
-    {
       "kode14": "53080700040001",
       "kec": "BUYASARI",
       "desa": "BENIHADING II",
       "sls": "RT 001 DUSUN PEMOLE SELATAN (001)",
-      "A": 31,
-      "C": 5,
+      "A": 23,
+      "C": 4,
       "G": 2,
       "I": 1,
       "N_O": 1
@@ -1015,93 +916,37 @@
       "kec": "BUYASARI",
       "desa": "BENIHADING II",
       "sls": "RT 002 DUSUN PEMOLE SELATAN (001)",
-      "A": 47,
-      "C": 14,
+      "A": 28,
+      "C": 9,
       "F": 1,
-      "G": 2,
-      "N_O": 2
+      "G": 2
     },
     {
       "kode14": "53080700040003",
       "kec": "BUYASARI",
       "desa": "BENIHADING II",
       "sls": "RT 003 DUSUN PEMOLE SELATAN (001)",
-      "A": 61,
-      "C": 12,
-      "G": 5,
-      "H": 6
-    },
-    {
-      "kode14": "53080700040004",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 004 DUSUN PEMOLE UTARA (002)",
-      "A": 64,
-      "C": 13,
-      "H": 1
-    },
-    {
-      "kode14": "53080700040005",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 005 DUSUN PEMOLE UTARA (002)",
-      "A": 35,
-      "C": 12,
+      "A": 37,
+      "C": 6,
       "G": 3,
-      "H": 1,
-      "S_U": 2
-    },
-    {
-      "kode14": "53080700040006",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 006 DUSUN PEMOLE UTARA (002)",
-      "A": 16,
-      "C": 6
+      "H": 2
     },
     {
       "kode14": "53080700040007",
       "kec": "BUYASARI",
       "desa": "BENIHADING II",
       "sls": "RT 007 DUSUN LEUDAWAN (003)",
-      "A": 59,
-      "C": 19,
+      "A": 53,
+      "C": 15,
       "G": 2,
       "H": 1
-    },
-    {
-      "kode14": "53080700040009",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 009 DUSUN LEUDAWAN (003)",
-      "A": 41,
-      "C": 9,
-      "G": 1
-    },
-    {
-      "kode14": "53080700040012",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 012 DUSUN TOUL (004)",
-      "A": 45,
-      "C": 10,
-      "G": 1
-    },
-    {
-      "kode14": "53080700040013",
-      "kec": "BUYASARI",
-      "desa": "BENIHADING II",
-      "sls": "RT 013 DUSUN TOUL (004)",
-      "A": 17,
-      "C": 5,
-      "G": 2
     },
     {
       "kode14": "53080700140004",
       "kec": "BUYASARI",
       "desa": "BURIWUTUNG",
       "sls": "RT 004 DUSUN 002",
-      "A": 25,
+      "A": 24,
       "G": 3
     },
     {
@@ -1125,7 +970,7 @@
       "kec": "BUYASARI",
       "desa": "BURIWUTUNG",
       "sls": "RT 007 DUSUN 002",
-      "A": 19,
+      "A": 20,
       "G": 2
     },
     {
@@ -1142,7 +987,7 @@
       "kec": "BUYASARI",
       "desa": "BURIWUTUNG",
       "sls": "RT 009 DUSUN 003",
-      "A": 25,
+      "A": 24,
       "C": 2
     },
     {
@@ -1150,7 +995,7 @@
       "kec": "BUYASARI",
       "desa": "BURIWUTUNG",
       "sls": "RT 010 DUSUN 003",
-      "A": 17,
+      "A": 10,
       "C": 1
     },
     {
@@ -1167,46 +1012,59 @@
       "kec": "BUYASARI",
       "desa": "KALIKUR",
       "sls": "RT 003 DUSUN 2",
-      "A": 10,
-      "C": 14,
-      "G": 7,
-      "H": 1,
-      "I": 1
+      "A": 1,
+      "C": 10,
+      "G": 3
     },
     {
       "kode14": "53080700180004",
       "kec": "BUYASARI",
       "desa": "KALIKUR",
       "sls": "RT 004 DUSUN 2",
-      "A": 4,
-      "C": 8,
-      "G": 5
+      "C": 3,
+      "G": 2
     },
     {
       "kode14": "53080700180005",
       "kec": "BUYASARI",
       "desa": "KALIKUR",
       "sls": "RT 005 DUSUN 3",
-      "A": 9,
-      "C": 6
+      "A": 5,
+      "C": 4
     },
     {
       "kode14": "53080700180006",
       "kec": "BUYASARI",
       "desa": "KALIKUR",
       "sls": "RT 006 DUSUN 3",
-      "A": 1,
-      "C": 1
+      "A": 10,
+      "C": 12,
+      "G": 4
+    },
+    {
+      "kode14": "53080700180007",
+      "kec": "BUYASARI",
+      "desa": "KALIKUR",
+      "sls": "RT 007 DUSUN 4",
+      "A": 6,
+      "C": 9
     },
     {
       "kode14": "53080700110001",
       "kec": "BUYASARI",
       "desa": "KALIKUR WL",
       "sls": "RT 001 DUSUN I BORA",
-      "A": 21,
+      "A": 20,
       "C": 9,
-      "G": 2,
-      "H": 3
+      "G": 1,
+      "H": 2
+    },
+    {
+      "kode14": "53080700110002",
+      "kec": "BUYASARI",
+      "desa": "KALIKUR WL",
+      "sls": "RT 002 DUSUN I BORA",
+      "G": 1
     },
     {
       "kode14": "53080700110004",
@@ -1231,34 +1089,8 @@
       "kec": "BUYASARI",
       "desa": "KALIKUR WL",
       "sls": "RT 006 DUSUN III LIANGKUNGMAWETE",
-      "A": 24,
+      "A": 12,
       "C": 6,
-      "G": 2
-    },
-    {
-      "kode14": "53080700120001",
-      "kec": "BUYASARI",
-      "desa": "KAOHUA",
-      "sls": "RT 001 DUSUN 1 AIHUA",
-      "A": 34,
-      "G": 2
-    },
-    {
-      "kode14": "53080700120002",
-      "kec": "BUYASARI",
-      "desa": "KAOHUA",
-      "sls": "RT 002 DUSUN 1 AIHUA",
-      "A": 34,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080700120003",
-      "kec": "BUYASARI",
-      "desa": "KAOHUA",
-      "sls": "RT 003 DUSUN 2 UJARAI",
-      "A": 36,
-      "C": 1,
       "G": 2
     },
     {
@@ -1266,35 +1098,21 @@
       "kec": "BUYASARI",
       "desa": "KAOHUA",
       "sls": "RT 004 DUSUN 2 UJARAI",
-      "A": 26
+      "A": 1
     },
     {
       "kode14": "53080700090001",
       "kec": "BUYASARI",
       "desa": "LEUBURI",
       "sls": "RT 001 DUSUN AMPERA",
-      "A": 52,
-      "C": 4,
-      "G": 3,
-      "H": 3,
-      "K": 1
-    },
-    {
-      "kode14": "53080700090002",
-      "kec": "BUYASARI",
-      "desa": "LEUBURI",
-      "sls": "RT 002 DUSUN AMPERA",
-      "A": 46,
-      "C": 2,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080700090003",
       "kec": "BUYASARI",
       "desa": "LEUBURI",
       "sls": "RT 003 DUSUN SUMBER JAYA",
-      "A": 57,
-      "G": 2,
+      "A": 4,
       "H": 1
     },
     {
@@ -1302,7 +1120,7 @@
       "kec": "BUYASARI",
       "desa": "LEUWOHUNG",
       "sls": "RT 001 DUSUN TAMAL BALUNG",
-      "A": 54,
+      "A": 35,
       "C": 2,
       "G": 2
     },
@@ -1311,8 +1129,7 @@
       "kec": "BUYASARI",
       "desa": "LEUWOHUNG",
       "sls": "RT 002 DUSUN TAMAL BALUNG",
-      "A": 28,
-      "C": 4,
+      "A": 6,
       "G": 1
     },
     {
@@ -1320,20 +1137,16 @@
       "kec": "BUYASARI",
       "desa": "LEUWOHUNG",
       "sls": "RT 003 DUSUN TUBULHADING",
-      "A": 36,
-      "C": 7,
-      "G": 2
+      "A": 4,
+      "C": 1
     },
     {
       "kode14": "53080700080001",
       "kec": "BUYASARI",
       "desa": "LOYOBOHOR",
       "sls": "RT 001 DUSUN PEHANG BURAQ",
-      "A": 70,
-      "C": 1,
-      "G": 3,
+      "A": 1,
       "J": 1,
-      "K": 1,
       "N_O": 1
     },
     {
@@ -1341,18 +1154,7 @@
       "kec": "BUYASARI",
       "desa": "LOYOBOHOR",
       "sls": "RT 002 DUSUN PEHANG BURAQ",
-      "A": 37,
-      "C": 2,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080700080003",
-      "kec": "BUYASARI",
-      "desa": "LOYOBOHOR",
-      "sls": "RT 003 DUSUN KULANG DAWAN",
-      "A": 18,
-      "C": 2,
+      "A": 4,
       "G": 1
     },
     {
@@ -1360,37 +1162,34 @@
       "kec": "BUYASARI",
       "desa": "LOYOBOHOR",
       "sls": "RT 004 DUSUN KULANG DAWAN",
-      "A": 1
+      "A": 3
     },
     {
       "kode14": "53080700150001",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 001 DUSUN 001",
-      "A": 19,
-      "C": 2,
-      "G": 4,
-      "M": 1
+      "A": 8,
+      "G": 3
     },
     {
       "kode14": "53080700150002",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 002 DUSUN 001",
-      "A": 57,
+      "A": 53,
       "C": 6,
       "F": 1,
-      "G": 7,
-      "H": 2
+      "G": 5,
+      "H": 1
     },
     {
       "kode14": "53080700150003",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 003 DUSUN 001",
-      "A": 22,
+      "A": 14,
       "C": 1,
-      "G": 1,
       "K": 1
     },
     {
@@ -1398,8 +1197,7 @@
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 004 DUSUN 002",
-      "A": 41,
-      "C": 1,
+      "A": 16,
       "G": 1
     },
     {
@@ -1407,17 +1205,15 @@
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 005 DUSUN 002",
-      "A": 24,
-      "C": 5
+      "A": 14,
+      "C": 3
     },
     {
       "kode14": "53080700150006",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 006 DUSUN 002",
-      "A": 33,
-      "C": 1,
-      "F": 1,
+      "A": 29,
       "G": 1,
       "H": 1
     },
@@ -1426,88 +1222,55 @@
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 007 DUSUN 003",
-      "A": 34,
-      "C": 4,
-      "G": 1
+      "A": 27,
+      "C": 2
     },
     {
       "kode14": "53080700150008",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 008 DUSUN 003",
-      "A": 26,
-      "C": 2,
-      "D": 1,
-      "G": 1,
-      "K": 1
+      "A": 14,
+      "G": 1
     },
     {
       "kode14": "53080700150009",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 009 DUSUN 003",
-      "A": 22
+      "A": 2
     },
     {
       "kode14": "53080700150010",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 010 DUSUN 003",
-      "A": 35,
-      "K": 1
+      "A": 5
     },
     {
       "kode14": "53080700150011",
       "kec": "BUYASARI",
       "desa": "MAMPIR",
       "sls": "RT 011 DUSUN 003",
-      "A": 24,
-      "C": 4,
-      "D": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080700010002",
-      "kec": "BUYASARI",
-      "desa": "PANAMA",
-      "sls": "RT 002 DUSUN 1 TUAQ MADO",
-      "L": 1
-    },
-    {
-      "kode14": "53080700010004",
-      "kec": "BUYASARI",
-      "desa": "PANAMA",
-      "sls": "RT 004 DUSUN 2 LEUNAHAQ",
-      "A": 2
+      "A": 16,
+      "C": 2
     },
     {
       "kode14": "53080700010005",
       "kec": "BUYASARI",
       "desa": "PANAMA",
       "sls": "RT 005 DUSUN 2 LAUNAHAQ",
-      "A": 45,
-      "C": 3,
+      "A": 46,
+      "C": 4,
       "G": 5
-    },
-    {
-      "kode14": "53080700010006",
-      "kec": "BUYASARI",
-      "desa": "PANAMA",
-      "sls": "RT 006 DUSUN 3 HADING ROBIQ",
-      "A": 78,
-      "C": 7,
-      "G": 2,
-      "H": 1,
-      "L": 1
     },
     {
       "kode14": "53080700010007",
       "kec": "BUYASARI",
       "desa": "PANAMA",
       "sls": "RT 007 DUSUN 3 HADING ROBIQ",
-      "A": 41,
-      "C": 5,
-      "G": 1,
+      "A": 37,
+      "C": 4,
       "H": 1,
       "N_O": 1
     },
@@ -1516,30 +1279,19 @@
       "kec": "BUYASARI",
       "desa": "PANAMA",
       "sls": "RT 008 DUSUN 3  HADING ROBIQ",
-      "A": 44,
+      "A": 42,
       "C": 7,
-      "G": 2
+      "G": 1
     },
     {
       "kode14": "53080700010009",
       "kec": "BUYASARI",
       "desa": "PANAMA",
       "sls": "RT 009 DUSUN 3 HADING ROBIQ",
-      "A": 63,
-      "C": 4,
-      "G": 2,
-      "H": 2
-    },
-    {
-      "kode14": "53080700010010",
-      "kec": "BUYASARI",
-      "desa": "PANAMA",
-      "sls": "RT 010 DUSUN 4 WAQ KIO",
-      "A": 73,
-      "C": 6,
-      "F": 1,
-      "G": 6,
-      "J": 1
+      "A": 27,
+      "C": 1,
+      "G": 1,
+      "H": 1
     },
     {
       "kode14": "53080700070004",
@@ -1553,178 +1305,77 @@
       "kec": "BUYASARI",
       "desa": "ROHO",
       "sls": "RT 005 DUSUN HOARATAN II",
-      "A": 37,
-      "C": 3,
-      "G": 2,
-      "H": 1
+      "A": 9,
+      "G": 1
+    },
+    {
+      "kode14": "53080700070006",
+      "kec": "BUYASARI",
+      "desa": "ROHO",
+      "sls": "RT 006 DUSUN HOARATAN II",
+      "A": 1
     },
     {
       "kode14": "53080700070007",
       "kec": "BUYASARI",
       "desa": "ROHO",
       "sls": "RT 007 DUSUN HEORARAN II",
-      "A": 14,
-      "C": 1
-    },
-    {
-      "kode14": "53080700070009",
-      "kec": "BUYASARI",
-      "desa": "ROHO",
-      "sls": "RT 009 DUSUN HOARATAN I",
-      "A": 31,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080700070010",
-      "kec": "BUYASARI",
-      "desa": "ROHO",
-      "sls": "RT 010 DUSUN HOARATIN I",
-      "A": 20,
-      "C": 1,
-      "H": 1
+      "A": 1
     },
     {
       "kode14": "53080700190001",
       "kec": "BUYASARI",
       "desa": "RUMANG",
       "sls": "RT 001 DUSUN 1",
-      "A": 47,
-      "G": 3
-    },
-    {
-      "kode14": "53080700190002",
-      "kec": "BUYASARI",
-      "desa": "RUMANG",
-      "sls": "RT 002 DUSUN 1",
-      "A": 64,
-      "C": 1
+      "A": 3,
+      "G": 1
     },
     {
       "kode14": "53080700190003",
       "kec": "BUYASARI",
       "desa": "RUMANG",
       "sls": "RT 003 DUSUN 2",
-      "A": 46,
-      "G": 1
+      "A": 7
     },
     {
       "kode14": "53080700190004",
       "kec": "BUYASARI",
       "desa": "RUMANG",
       "sls": "RT 004 DUSUN 2",
-      "A": 35
+      "A": 3
     },
     {
       "kode14": "53080700100001",
       "kec": "BUYASARI",
       "desa": "TOBOTANI",
       "sls": "RT 001 DUSUN I TAMAL HAUR",
-      "A": 17,
-      "C": 10
-    },
-    {
-      "kode14": "53080700061002",
-      "kec": "BUYASARI",
-      "desa": "TUBUNG WALANG",
-      "sls": "KEBUN TAMAL LEDEL",
       "A": 4,
-      "C": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080700060001",
-      "kec": "BUYASARI",
-      "desa": "TUBUNG WALANG",
-      "sls": "RT 001 DUSUN ATUTODA",
-      "A": 13,
-      "C": 1
-    },
-    {
-      "kode14": "53080700060002",
-      "kec": "BUYASARI",
-      "desa": "TUBUNG WALANG",
-      "sls": "RT 002 DUSUN ATUTODA",
-      "A": 32,
-      "C": 3,
-      "G": 2,
-      "H": 1,
-      "L": 3
+      "C": 2
     },
     {
       "kode14": "53080700060005",
       "kec": "BUYASARI",
       "desa": "TUBUNG WALANG",
       "sls": "RT 005 DUSUN NAYA ILEQ",
-      "A": 14,
+      "A": 10,
       "C": 5,
       "F": 1,
-      "G": 4,
-      "H": 1,
-      "R": 1
-    },
-    {
-      "kode14": "53080700060006",
-      "kec": "BUYASARI",
-      "desa": "TUBUNG WALANG",
-      "sls": "RT 006 DUSUN NAYA ILEQ",
-      "A": 21,
-      "C": 6,
-      "G": 7,
-      "H": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080700130003",
-      "kec": "BUYASARI",
-      "desa": "UMALEU",
-      "sls": "RT 003 DUSUN UMAWALA I",
-      "A": 16
-    },
-    {
-      "kode14": "53080700130004",
-      "kec": "BUYASARI",
-      "desa": "UMALEU",
-      "sls": "RT 004 DUSUN UMAWALA II",
-      "A": 8,
-      "C": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080700130005",
-      "kec": "BUYASARI",
-      "desa": "UMALEU",
-      "sls": "RT 005 DUSUN UMAWALA II",
-      "A": 15,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080700130007",
-      "kec": "BUYASARI",
-      "desa": "UMALEU",
-      "sls": "RT 007 DUSUN LEUWUTUNG",
-      "A": 28
+      "G": 2
     },
     {
       "kode14": "53080700130011",
       "kec": "BUYASARI",
       "desa": "UMALEU",
       "sls": "RT 011 DUSUN ATUNG LALENG",
-      "A": 28,
-      "C": 2,
-      "G": 2
+      "A": 8,
+      "G": 1
     },
     {
       "kode14": "53080700130013",
       "kec": "BUYASARI",
       "desa": "UMALEU",
       "sls": "RT 013 DUSUN WAIRIANG",
-      "A": 9,
-      "C": 8,
-      "E": 1,
-      "G": 17,
-      "I": 11
+      "G": 2
     },
     {
       "kode14": "53080700130014",
@@ -1732,7 +1383,7 @@
       "desa": "UMALEU",
       "sls": "RT 014 DUSUN WAIRIANG",
       "C": 1,
-      "G": 28,
+      "G": 27,
       "I": 1
     },
     {
@@ -1740,23 +1391,28 @@
       "kec": "ILE APE",
       "desa": "AMAKAKA",
       "sls": "RT 001 DUSUN A",
-      "A": 8,
-      "G": 2
+      "A": 6
     },
     {
       "kode14": "53080300150013",
       "kec": "ILE APE",
       "desa": "AMAKAKA",
       "sls": "RT 013 DUSUN D",
-      "A": 2
+      "A": 4
+    },
+    {
+      "kode14": "53080300150014",
+      "kec": "ILE APE",
+      "desa": "AMAKAKA",
+      "sls": "RT 014 DUSUN D",
+      "C": 1
     },
     {
       "kode14": "53080300150015",
       "kec": "ILE APE",
       "desa": "AMAKAKA",
       "sls": "RT 015 DUSUN D",
-      "A": 3,
-      "G": 1
+      "A": 2
     },
     {
       "kode14": "53080300240002",
@@ -1773,7 +1429,7 @@
       "kec": "ILE APE",
       "desa": "BEUTARAN",
       "sls": "RT 003 DUSUN 1",
-      "A": 14,
+      "A": 15,
       "C": 1
     },
     {
@@ -1781,9 +1437,8 @@
       "kec": "ILE APE",
       "desa": "BEUTARAN",
       "sls": "RT 004 DUSUN 2",
-      "A": 11,
-      "C": 7,
-      "G": 1
+      "A": 9,
+      "C": 5
     },
     {
       "kode14": "53080300240006",
@@ -1794,23 +1449,6 @@
       "C": 1,
       "G": 1,
       "I": 1
-    },
-    {
-      "kode14": "53080300240007",
-      "kec": "ILE APE",
-      "desa": "BEUTARAN",
-      "sls": "RT 007 DUSUN 3",
-      "A": 9,
-      "C": 1
-    },
-    {
-      "kode14": "53080300240008",
-      "kec": "ILE APE",
-      "desa": "BEUTARAN",
-      "sls": "RT 008 DUSUN 3",
-      "A": 15,
-      "C": 2,
-      "G": 1
     },
     {
       "kode14": "53080300240011",
@@ -1832,9 +1470,7 @@
       "kec": "ILE APE",
       "desa": "BEUTARAN",
       "sls": "RT 013 DUSUN 4",
-      "A": 20,
-      "C": 6,
-      "G": 1
+      "A": 5
     },
     {
       "kode14": "53080300140001",
@@ -1871,7 +1507,7 @@
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 005 DUSUN B",
-      "A": 5,
+      "A": 4,
       "C": 3,
       "H": 1,
       "I": 1
@@ -1881,7 +1517,7 @@
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 006 DUSUN B",
-      "A": 4,
+      "A": 2,
       "G": 1,
       "H": 1
     },
@@ -1897,8 +1533,8 @@
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 008 DUSUN B",
-      "A": 12,
-      "C": 2,
+      "A": 10,
+      "C": 1,
       "G": 1
     },
     {
@@ -1906,7 +1542,7 @@
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 009 DUSUN",
-      "A": 2,
+      "A": 1,
       "C": 1,
       "H": 1
     },
@@ -1932,18 +1568,14 @@
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 012 DUSUN",
-      "A": 8,
-      "C": 1,
-      "G": 1,
-      "J": 1,
-      "N_O": 1
+      "A": 3
     },
     {
       "kode14": "53080300140013",
       "kec": "ILE APE",
       "desa": "BUNGAMUDA",
       "sls": "RT 013 DUSUN D",
-      "A": 5
+      "A": 3
     },
     {
       "kode14": "53080300140014",
@@ -1961,19 +1593,11 @@
       "C": 1
     },
     {
-      "kode14": "53080300140016",
-      "kec": "ILE APE",
-      "desa": "BUNGAMUDA",
-      "sls": "RT 016 DUSUN D",
-      "A": 8,
-      "C": 1
-    },
-    {
       "kode14": "53080300200002",
       "kec": "ILE APE",
       "desa": "DULITUKAN",
       "sls": "RT 002 DUSUN 1",
-      "A": 6
+      "A": 2
     },
     {
       "kode14": "53080300200005",
@@ -1996,16 +1620,16 @@
       "kec": "ILE APE",
       "desa": "DULITUKAN",
       "sls": "RT 007 DUSUN 2",
-      "A": 4,
-      "C": 2,
-      "G": 3
+      "A": 1,
+      "C": 1,
+      "G": 1
     },
     {
       "kode14": "53080300200008",
       "kec": "ILE APE",
       "desa": "DULITUKAN",
       "sls": "RT 008 DUSUN 2",
-      "A": 8,
+      "A": 4,
       "C": 4
     },
     {
@@ -2016,36 +1640,12 @@
       "A": 3
     },
     {
-      "kode14": "53080300200012",
-      "kec": "ILE APE",
-      "desa": "DULITUKAN",
-      "sls": "RT 012 DUSUN 3",
-      "A": 5,
-      "C": 1
-    },
-    {
-      "kode14": "53080300200013",
-      "kec": "ILE APE",
-      "desa": "DULITUKAN",
-      "sls": "RT 013 DUSUN 4",
-      "A": 21,
-      "C": 5,
-      "G": 1
-    },
-    {
-      "kode14": "53080300200016",
-      "kec": "ILE APE",
-      "desa": "DULITUKAN",
-      "sls": "RT 016 DUSUN 4",
-      "A": 5
-    },
-    {
       "kode14": "53080300210005",
       "kec": "ILE APE",
       "desa": "KOLIPADAN",
       "sls": "RT 005 DUSUN B",
       "A": 19,
-      "C": 13,
+      "C": 12,
       "F": 1,
       "G": 1,
       "H": 1
@@ -2055,62 +1655,30 @@
       "kec": "ILE APE",
       "desa": "KOLIPADAN",
       "sls": "RT 006 DUSUN B",
-      "A": 25,
-      "C": 12,
-      "G": 1
+      "A": 4,
+      "C": 2
     },
     {
       "kode14": "53080300210007",
       "kec": "ILE APE",
       "desa": "KOLIPADAN",
       "sls": "RT 007 DUSUN B",
-      "A": 14,
-      "C": 8,
-      "F": 1,
-      "H": 1
+      "A": 2,
+      "C": 1
     },
     {
       "kode14": "53080300210008",
       "kec": "ILE APE",
       "desa": "KOLIPADAN",
       "sls": "RT 008 DUSUN B",
-      "A": 7,
-      "C": 2,
-      "F": 1,
       "G": 1
-    },
-    {
-      "kode14": "53080300210013",
-      "kec": "ILE APE",
-      "desa": "KOLIPADAN",
-      "sls": "RT 013 DUSUN D",
-      "A": 5,
-      "C": 2
-    },
-    {
-      "kode14": "53080300210014",
-      "kec": "ILE APE",
-      "desa": "KOLIPADAN",
-      "sls": "RT 014 DUSUN D",
-      "A": 9,
-      "C": 10,
-      "F": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080300210015",
-      "kec": "ILE APE",
-      "desa": "KOLIPADAN",
-      "sls": "RT 015 DUSUN D",
-      "A": 4,
-      "C": 1
     },
     {
       "kode14": "53080300010001",
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 001 DUSUN I TOBI LANGUN",
-      "A": 26,
+      "A": 25,
       "G": 1
     },
     {
@@ -2118,8 +1686,9 @@
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 002 DUSUN I TOBI LANGUN",
-      "A": 3,
-      "C": 1
+      "A": 9,
+      "C": 1,
+      "F": 1
     },
     {
       "kode14": "53080300010003",
@@ -2130,11 +1699,18 @@
       "C": 1
     },
     {
+      "kode14": "53080300010004",
+      "kec": "ILE APE",
+      "desa": "KOLONTOBO",
+      "sls": "RT 004 DUSUN I TOBI LANGUN",
+      "A": 4
+    },
+    {
       "kode14": "53080300010005",
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 005 DUSUN II",
-      "A": 3
+      "A": 6
     },
     {
       "kode14": "53080300010006",
@@ -2148,7 +1724,7 @@
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 007 DUSUN II",
-      "A": 1
+      "A": 2
     },
     {
       "kode14": "53080300010012",
@@ -2174,7 +1750,7 @@
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 014 DUSUN IV",
-      "A": 23,
+      "A": 21,
       "C": 2,
       "G": 1,
       "I": 1
@@ -2184,7 +1760,7 @@
       "kec": "ILE APE",
       "desa": "KOLONTOBO",
       "sls": "RT 015 DUSUN IV",
-      "A": 20,
+      "A": 17,
       "C": 3,
       "G": 3,
       "K": 2
@@ -2203,51 +1779,17 @@
       "kec": "ILE APE",
       "desa": "LAMAWARA",
       "sls": "RT 001 RW 01 DUSUN A",
-      "A": 9,
-      "G": 6
+      "A": 7,
+      "G": 4
     },
     {
       "kode14": "53080300230002",
       "kec": "ILE APE",
       "desa": "LAMAWARA",
       "sls": "RT 002 RW 01 DUSUN A",
-      "A": 14,
+      "A": 12,
       "C": 2,
-      "G": 4,
-      "M": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080300230004",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 004 RW 02 DUSUN A",
-      "A": 4,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080300230006",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 006 RW 03 DUSUN B",
-      "A": 2
-    },
-    {
-      "kode14": "53080300230007",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 007 RW 04 DUSUN B",
-      "A": 2,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080300230008",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 008 RW 04 DUSUN B",
-      "A": 1
+      "G": 3
     },
     {
       "kode14": "53080300230009",
@@ -2261,61 +1803,28 @@
       "kec": "ILE APE",
       "desa": "LAMAWARA",
       "sls": "RT 010 RW 05 DUSUN",
-      "A": 4
+      "A": 2
     },
     {
       "kode14": "53080300230011",
       "kec": "ILE APE",
       "desa": "LAMAWARA",
       "sls": "RT 011 RW 06 DUSUN",
-      "A": 3,
       "G": 1
-    },
-    {
-      "kode14": "53080300230012",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 012 RW 06 DUSUN",
-      "A": 1
-    },
-    {
-      "kode14": "53080300230013",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 013 RW 07 DUSUN D",
-      "A": 1,
-      "C": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080300230014",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 014 RW 07 DUSUN D",
-      "A": 2
-    },
-    {
-      "kode14": "53080300230015",
-      "kec": "ILE APE",
-      "desa": "LAMAWARA",
-      "sls": "RT 015 RW 07 DUSUN D",
-      "A": 1,
-      "C": 1
     },
     {
       "kode14": "53080300230016",
       "kec": "ILE APE",
       "desa": "LAMAWARA",
       "sls": "RT 016 RW 08 DUSUN D",
-      "A": 6,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080300020001",
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 001 DUSUN 1",
-      "A": 26,
+      "A": 24,
       "C": 5,
       "G": 2,
       "K": 1
@@ -2325,9 +1834,9 @@
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 002 DUSUN 1",
-      "A": 6,
+      "A": 14,
       "C": 3,
-      "G": 2,
+      "G": 3,
       "H": 2,
       "N_O": 1
     },
@@ -2336,8 +1845,8 @@
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 004 DUSUN 1",
-      "A": 21,
-      "C": 6,
+      "A": 29,
+      "C": 7,
       "H": 2,
       "N_O": 1
     },
@@ -2355,7 +1864,7 @@
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 006 DUSUN 2",
-      "A": 8,
+      "A": 7,
       "C": 2,
       "G": 3,
       "H": 1
@@ -2369,15 +1878,14 @@
       "C": 7,
       "G": 2,
       "H": 1,
-      "I": 1,
-      "R": 1
+      "I": 1
     },
     {
       "kode14": "53080300020008",
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 008 DUSUN 2",
-      "A": 23,
+      "A": 20,
       "C": 7,
       "I": 1
     },
@@ -2424,7 +1932,7 @@
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 013 DUSUN 4",
-      "A": 3,
+      "A": 2,
       "C": 1
     },
     {
@@ -2441,7 +1949,7 @@
       "kec": "ILE APE",
       "desa": "LARANWUNTUN",
       "sls": "RT 015 DUSUN 4",
-      "A": 16,
+      "A": 20,
       "C": 2,
       "H": 1
     },
@@ -2457,15 +1965,43 @@
       "kec": "ILE APE",
       "desa": "MURUONA",
       "sls": "RT 005 DUSUN III",
-      "A": 5,
-      "G": 1
+      "A": 15,
+      "C": 2,
+      "G": 1,
+      "I": 1,
+      "N_O": 1
     },
     {
       "kode14": "53080300030008",
       "kec": "ILE APE",
       "desa": "MURUONA",
       "sls": "RT 008 DUSUN IV",
-      "A": 2
+      "A": 14,
+      "C": 1,
+      "J": 1
+    },
+    {
+      "kode14": "53080300130001",
+      "kec": "ILE APE",
+      "desa": "NAPASABOK",
+      "sls": "RT 001 DUSUN A",
+      "A": 5
+    },
+    {
+      "kode14": "53080300130002",
+      "kec": "ILE APE",
+      "desa": "NAPASABOK",
+      "sls": "RT 002 DUSUN A",
+      "A": 4,
+      "C": 2
+    },
+    {
+      "kode14": "53080300130004",
+      "kec": "ILE APE",
+      "desa": "NAPASABOK",
+      "sls": "RT 004 DUSUN A",
+      "A": 4,
+      "C": 4
     },
     {
       "kode14": "53080300170001",
@@ -2491,8 +2027,7 @@
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 003 RW 02 DUSUN 1",
-      "A": 8,
-      "F": 1,
+      "A": 7,
       "G": 2
     },
     {
@@ -2507,7 +2042,7 @@
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 005 RW 03 DUSUN 2",
-      "A": 9,
+      "A": 7,
       "C": 2
     },
     {
@@ -2515,15 +2050,15 @@
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 006 RW 03 DUSUN 2",
-      "A": 10,
-      "C": 3
+      "A": 3,
+      "C": 1
     },
     {
       "kode14": "53080300170007",
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 007 RW 04 DUSUN 2",
-      "A": 2,
+      "A": 1,
       "C": 1
     },
     {
@@ -2531,39 +2066,15 @@
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 009 RW 05 DUSUN 3",
-      "A": 6,
+      "A": 2,
       "G": 1
-    },
-    {
-      "kode14": "53080300170010",
-      "kec": "ILE APE",
-      "desa": "PETUNTAWA",
-      "sls": "RT 010 RW 05 DUSUN 3",
-      "A": 3
     },
     {
       "kode14": "53080300170011",
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 011 RW 06 DUSUN 3",
-      "A": 12,
-      "C": 1,
-      "G": 2,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080300170013",
-      "kec": "ILE APE",
-      "desa": "PETUNTAWA",
-      "sls": "RT 013 RW 07 DUSUN 4",
-      "A": 7
-    },
-    {
-      "kode14": "53080300170014",
-      "kec": "ILE APE",
-      "desa": "PETUNTAWA",
-      "sls": "RT 014 RW 07 DUSUN 4",
-      "A": 4,
+      "A": 6,
       "C": 1
     },
     {
@@ -2579,15 +2090,14 @@
       "kec": "ILE APE",
       "desa": "PETUNTAWA",
       "sls": "RT 016 RW 08 DUSUN 4",
-      "A": 10,
-      "C": 1
+      "A": 10
     },
     {
       "kode14": "53080300190001",
       "kec": "ILE APE",
       "desa": "TAGAWITI",
       "sls": "RT 001 DUSUN 1",
-      "A": 33,
+      "A": 32,
       "C": 1,
       "E": 1,
       "G": 4,
@@ -2598,7 +2108,7 @@
       "kec": "ILE APE",
       "desa": "TAGAWITI",
       "sls": "RT 002 DUSUN 1",
-      "A": 11,
+      "A": 9,
       "G": 1
     },
     {
@@ -2606,7 +2116,7 @@
       "kec": "ILE APE",
       "desa": "TAGAWITI",
       "sls": "RT 003 DUSUN 1",
-      "A": 13,
+      "A": 5,
       "G": 2
     },
     {
@@ -2614,111 +2124,31 @@
       "kec": "ILE APE",
       "desa": "TAGAWITI",
       "sls": "RT 004 DUSUN 1",
-      "A": 19,
-      "C": 2,
-      "D": 1,
-      "G": 3,
-      "K": 2
-    },
-    {
-      "kode14": "53080300190005",
-      "kec": "ILE APE",
-      "desa": "TAGAWITI",
-      "sls": "RT 005 DUSUN 2",
-      "A": 19,
-      "C": 5,
-      "G": 3
-    },
-    {
-      "kode14": "53080300190006",
-      "kec": "ILE APE",
-      "desa": "TAGAWITI",
-      "sls": "RT 006 DUSUN 2",
-      "A": 19,
-      "C": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080300190007",
-      "kec": "ILE APE",
-      "desa": "TAGAWITI",
-      "sls": "RT 007 DUSUN 2",
-      "A": 5,
-      "G": 2
-    },
-    {
-      "kode14": "53080300160002",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 002 DUSUN 01",
       "A": 2,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080300160003",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 003 DUSUN 02",
-      "A": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080300160004",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 004 DUSUN 02",
-      "A": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080300160005",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 005 DUSUN 03",
-      "A": 2
-    },
-    {
-      "kode14": "53080300160006",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 006 DUSUN 03",
-      "A": 4,
       "C": 1
-    },
-    {
-      "kode14": "53080300160007",
-      "kec": "ILE APE",
-      "desa": "TANJUNG BATU",
-      "sls": "RT 007 DUSUN 04",
-      "A": 1,
-      "G": 1
     },
     {
       "kode14": "53080300180001",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 001 RW 01 DUSUN 01",
-      "A": 12,
       "C": 1,
-      "G": 4
+      "G": 1
     },
     {
       "kode14": "53080300180002",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 002 RW 01 DUSUN 01",
-      "A": 18,
-      "C": 2,
-      "G": 2
+      "A": 1
     },
     {
       "kode14": "53080300180003",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 003 RW 02 DUSUN 01",
-      "A": 20,
-      "C": 4,
+      "A": 14,
+      "C": 1,
       "G": 2
     },
     {
@@ -2726,7 +2156,7 @@
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 004 RW 02 DUSUN 01",
-      "A": 15,
+      "A": 11,
       "C": 1,
       "G": 1
     },
@@ -2752,10 +2182,8 @@
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 007 RW 04 DUSUN 02",
-      "A": 10,
-      "C": 1,
-      "G": 1,
-      "K": 1
+      "A": 8,
+      "G": 1
     },
     {
       "kode14": "53080300180008",
@@ -2770,58 +2198,33 @@
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 009 RW 05 DUSUN 03",
-      "A": 11,
-      "C": 3,
-      "G": 2
+      "A": 8,
+      "C": 2,
+      "G": 1
     },
     {
       "kode14": "53080300180010",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 010 RW 05 DUSUN 03",
-      "A": 21,
-      "C": 2
+      "A": 18,
+      "C": 1
     },
     {
       "kode14": "53080300180011",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 011 RW 06 DUSUN 03",
-      "A": 12,
-      "G": 4
+      "A": 6,
+      "G": 1
     },
     {
       "kode14": "53080300180012",
       "kec": "ILE APE",
       "desa": "WAOWALA",
       "sls": "RT 012 RW 06 DUSUN 03",
-      "A": 10,
-      "C": 2
-    },
-    {
-      "kode14": "53080300180013",
-      "kec": "ILE APE",
-      "desa": "WAOWALA",
-      "sls": "RT 013 RW 07 DUSUN 04",
-      "A": 3,
-      "G": 2
-    },
-    {
-      "kode14": "53080300180014",
-      "kec": "ILE APE",
-      "desa": "WAOWALA",
-      "sls": "RT 014 RW 07 DUSUN 04",
-      "A": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080300180016",
-      "kec": "ILE APE",
-      "desa": "WAOWALA",
-      "sls": "RT 016 RW 08 DUSUN 04",
-      "A": 1,
-      "C": 1,
-      "G": 1
+      "A": 5,
+      "C": 1
     },
     {
       "kode14": "53080300041001",
@@ -2835,8 +2238,8 @@
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 001 DUSUN I ARAPIRA",
-      "A": 26,
-      "C": 5,
+      "A": 24,
+      "C": 4,
       "F": 1,
       "G": 2,
       "N_O": 1
@@ -2846,7 +2249,7 @@
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 002 DUSUN I ARAPIRA",
-      "A": 20,
+      "A": 23,
       "C": 6,
       "F": 1,
       "G": 1,
@@ -2857,7 +2260,7 @@
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 003 DUSUN II KOROHAMA",
-      "A": 5,
+      "A": 8,
       "G": 2
     },
     {
@@ -2865,33 +2268,41 @@
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 004 DUSUN II KOROHAMA",
-      "A": 14,
+      "A": 24,
       "C": 3,
       "G": 3,
-      "I": 2
+      "I": 3
     },
     {
       "kode14": "53080300040005",
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 005 DUSUN III RIANG HALA",
-      "A": 5
+      "A": 8
     },
     {
       "kode14": "53080300040006",
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 006 DUSUN III RIANGHALA",
+      "A": 1,
+      "I": 1
+    },
+    {
+      "kode14": "53080300040007",
+      "kec": "ILE APE",
+      "desa": "WATODIRI",
+      "sls": "RT 007 DUSUN IV KIMAKAMA",
       "A": 4,
-      "G": 1
+      "C": 2
     },
     {
       "kode14": "53080300040008",
       "kec": "ILE APE",
       "desa": "WATODIRI",
       "sls": "RT 008 DUSUN IV KIMAKAMA",
-      "A": 4,
-      "C": 7,
+      "A": 7,
+      "C": 8,
       "G": 1
     },
     {
@@ -2899,43 +2310,20 @@
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 001 DUSUN I RIAN TOBI",
-      "A": 20,
-      "C": 3,
-      "G": 2
-    },
-    {
-      "kode14": "53080310060002",
-      "kec": "ILE APE TIMUR",
-      "desa": "AULESA",
-      "sls": "RT 002 DUSUN I RIAN TOBI",
-      "A": 19,
-      "C": 1,
-      "G": 2,
-      "H": 1
+      "C": 3
     },
     {
       "kode14": "53080310060003",
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 003 DUSUN I RIAN TOBI",
-      "A": 17,
-      "C": 1,
-      "G": 1
+      "C": 1
     },
     {
       "kode14": "53080310060004",
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 004 DUSUN I RIAN TOBI",
-      "A": 25,
-      "C": 3
-    },
-    {
-      "kode14": "53080310060005",
-      "kec": "ILE APE TIMUR",
-      "desa": "AULESA",
-      "sls": "RT 005 DUSUN II RIANG BUNGA",
-      "A": 15,
       "C": 1
     },
     {
@@ -2952,238 +2340,93 @@
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 007 DUSUN II RIANG BUNGA",
-      "A": 19,
-      "C": 3,
-      "F": 1,
-      "G": 1,
-      "I": 1,
-      "N_O": 1
+      "A": 9,
+      "G": 1
     },
     {
       "kode14": "53080310060008",
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 008 DUSUN II RIANG BUNGA",
-      "A": 9,
-      "C": 1
+      "A": 10,
+      "C": 2
     },
     {
       "kode14": "53080310060009",
       "kec": "ILE APE TIMUR",
       "desa": "AULESA",
       "sls": "RT 009 DUSUN III WAILOLON",
-      "A": 2,
-      "C": 1,
-      "H": 1
+      "A": 1,
+      "C": 2
     },
     {
       "kode14": "53080310090003",
       "kec": "ILE APE TIMUR",
       "desa": "BAO LALI DULI",
       "sls": "RT 003 DUSUN DEMON TUGU DULI",
-      "A": 17,
-      "C": 1
+      "A": 6
     },
     {
       "kode14": "53080310090004",
       "kec": "ILE APE TIMUR",
       "desa": "BAO LALI DULI",
       "sls": "RT 004 DUSUN DEMON TUGU DULI",
-      "A": 11,
-      "G": 1
-    },
-    {
-      "kode14": "53080310090005",
-      "kec": "ILE APE TIMUR",
-      "desa": "BAO LALI DULI",
-      "sls": "RT 005 DUSUN MITEM TAPAN LARAN",
-      "A": 7
-    },
-    {
-      "kode14": "53080310090006",
-      "kec": "ILE APE TIMUR",
-      "desa": "BAO LALI DULI",
-      "sls": "RT 006 DUSUN MITEM TAPAN LARAN",
-      "A": 8,
-      "C": 1
-    },
-    {
-      "kode14": "53080310090007",
-      "kec": "ILE APE TIMUR",
-      "desa": "BAO LALI DULI",
-      "sls": "RT 007 DUSUN MITEM TAPAN LARAN",
-      "A": 15,
-      "J": 2
-    },
-    {
-      "kode14": "53080310090008",
-      "kec": "ILE APE TIMUR",
-      "desa": "BAO LALI DULI",
-      "sls": "RT 008 DUSUN MITEM TAPAN LARAN",
-      "A": 10,
-      "G": 1
+      "A": 2
     },
     {
       "kode14": "53080310020001",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 001 DUSUN 01",
-      "A": 38,
-      "C": 2,
-      "G": 4,
-      "H": 1,
-      "J": 1,
-      "K": 1,
-      "L": 1
+      "A": 1,
+      "G": 1
     },
     {
       "kode14": "53080310020002",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 002 DUSUN 01",
-      "A": 18,
-      "C": 3,
-      "G": 2,
-      "H": 1,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080310020003",
-      "kec": "ILE APE TIMUR",
-      "desa": "JONTONA",
-      "sls": "RT 003 DUSUN 01",
-      "A": 27,
-      "C": 6,
-      "G": 3,
-      "J": 1
-    },
-    {
-      "kode14": "53080310020005",
-      "kec": "ILE APE TIMUR",
-      "desa": "JONTONA",
-      "sls": "RT 005 DUSUN 02",
-      "A": 27,
-      "C": 6,
-      "G": 2,
-      "H": 1,
-      "J": 1
+      "C": 1
     },
     {
       "kode14": "53080310020007",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 007 DUSUN 02",
-      "A": 21,
-      "C": 6,
+      "A": 2,
       "G": 1,
-      "I": 1,
       "J": 1,
-      "L": 1,
-      "N_O": 1
+      "L": 1
     },
     {
       "kode14": "53080310020008",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 008 DUSUN 02",
-      "A": 24,
-      "C": 7,
-      "G": 8,
-      "H": 1,
-      "J": 1
+      "A": 5,
+      "C": 2,
+      "G": 2
     },
     {
       "kode14": "53080310020011",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 011 DUSUN 03",
-      "A": 10,
-      "C": 1,
-      "G": 3
+      "A": 2,
+      "G": 1
     },
     {
       "kode14": "53080310020012",
       "kec": "ILE APE TIMUR",
       "desa": "JONTONA",
       "sls": "RT 012 DUSUN 03",
-      "A": 10
-    },
-    {
-      "kode14": "53080310050010",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAAU",
-      "sls": "RT 010 DUSUN 03",
-      "A": 1,
-      "G": 2
-    },
-    {
-      "kode14": "53080310050011",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAAU",
-      "sls": "RT 011 DUSUN 03",
-      "A": 11,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080310050012",
       "kec": "ILE APE TIMUR",
       "desa": "LAMAAU",
       "sls": "RT 012 DUSUN 03",
-      "A": 14,
-      "C": 1,
-      "I": 1,
-      "J": 1,
-      "R": 1
-    },
-    {
-      "kode14": "53080310080002",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 002 DUSUN LABA LOLIAMAN",
-      "A": 1
-    },
-    {
-      "kode14": "53080310080003",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 003 DUSUN LABA LOLIAMAN",
-      "A": 2
-    },
-    {
-      "kode14": "53080310080004",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 004 DUSUN LABA LOLIAMAN",
-      "A": 2
-    },
-    {
-      "kode14": "53080310080008",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 008 DUSUN LULONG KARIAMAN",
-      "A": 2
-    },
-    {
-      "kode14": "53080310080011",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 011 DUSUN MERE PAYONG AMAN",
-      "A": 3
-    },
-    {
-      "kode14": "53080310080012",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 012 DUSUN MERE PAYONG AMAN",
-      "A": 1,
-      "C": 1
-    },
-    {
-      "kode14": "53080310080016",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMAGUTE",
-      "sls": "RT 016 DUSUN KAI GUTE",
-      "A": 1,
       "C": 1
     },
     {
@@ -3191,8 +2434,7 @@
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 001 DUSUN WATANTUAN",
-      "A": 15,
-      "G": 1,
+      "A": 8,
       "H": 1,
       "I": 1
     },
@@ -3201,31 +2443,22 @@
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 002 DUSUN WATANTUAN",
-      "A": 12,
-      "C": 2
+      "A": 1,
+      "C": 1
     },
     {
       "kode14": "53080310040003",
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 003 DUSUN WATANTUAN",
-      "A": 22,
+      "A": 1,
       "G": 1
-    },
-    {
-      "kode14": "53080310040004",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMATOKAN",
-      "sls": "RT 004 DUSUN WATANTUAN",
-      "A": 14,
-      "C": 1
     },
     {
       "kode14": "53080310040005",
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 005 DUSUN MOTONG ONE",
-      "A": 19,
       "C": 1
     },
     {
@@ -3233,50 +2466,14 @@
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 006 DUSUN MOTONG ONE",
-      "A": 15,
-      "G": 1
-    },
-    {
-      "kode14": "53080310040007",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMATOKAN",
-      "sls": "RT 007 DUSUN MOTONG ONE",
-      "A": 11,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080310040013",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMATOKAN",
-      "sls": "RT 013 DUSUN HORE GALA",
-      "A": 26
-    },
-    {
-      "kode14": "53080310040014",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMATOKAN",
-      "sls": "RT 014 DUSUN HORE GALA",
-      "A": 17,
-      "C": 1
-    },
-    {
-      "kode14": "53080310040015",
-      "kec": "ILE APE TIMUR",
-      "desa": "LAMATOKAN",
-      "sls": "RT 015 DUSUN HORE GALA",
-      "A": 33,
-      "C": 1,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080310040016",
       "kec": "ILE APE TIMUR",
       "desa": "LAMATOKAN",
       "sls": "RT 016 DUSUN HORE GALA",
-      "A": 29,
-      "C": 1,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080310030001",
@@ -3290,43 +2487,22 @@
       "kec": "ILE APE TIMUR",
       "desa": "LAMAWOLO",
       "sls": "RT 002 DUSUN A LAGA DONI",
-      "A": 5
+      "A": 4
     },
     {
       "kode14": "53080310010001",
       "kec": "ILE APE TIMUR",
       "desa": "TODANARA",
       "sls": "RT 001 DUSUN 01",
-      "A": 13,
-      "C": 3,
-      "G": 3,
-      "J": 1,
-      "N_O": 1
+      "A": 9,
+      "G": 1
     },
     {
       "kode14": "53080310010004",
       "kec": "ILE APE TIMUR",
       "desa": "TODANARA",
       "sls": "RT 004 DUSUN 01",
-      "A": 11,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080310010005",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 005 DUSUN 02",
       "A": 5,
-      "C": 1
-    },
-    {
-      "kode14": "53080310010006",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 006 DUSUN 02",
-      "A": 17,
-      "C": 3,
       "G": 1
     },
     {
@@ -3334,60 +2510,14 @@
       "kec": "ILE APE TIMUR",
       "desa": "TODANARA",
       "sls": "RT 007 DUSUN 02",
-      "A": 7,
-      "C": 1,
-      "G": 1
+      "A": 4
     },
     {
       "kode14": "53080310010008",
       "kec": "ILE APE TIMUR",
       "desa": "TODANARA",
       "sls": "RT 008 DUSUN 02",
-      "A": 7,
-      "C": 2,
-      "G": 2
-    },
-    {
-      "kode14": "53080310010009",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 009 DUSUN 03",
-      "A": 1,
-      "C": 3,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080310010010",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 010 DUSUN 03",
-      "A": 1,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080310010013",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 013 DUSUN 04",
-      "A": 2,
-      "C": 2,
-      "G": 2
-    },
-    {
-      "kode14": "53080310010014",
-      "kec": "ILE APE TIMUR",
-      "desa": "TODANARA",
-      "sls": "RT 014 DUSUN 04",
-      "C": 1
-    },
-    {
-      "kode14": "53080310070007",
-      "kec": "ILE APE TIMUR",
-      "desa": "WAIMATAN",
-      "sls": "RT 007 DUSUN II",
-      "A": 2
+      "A": 1
     },
     {
       "kode14": "53080400170001",
@@ -3410,92 +2540,72 @@
       "kec": "LEBATUKAN",
       "desa": "ATAKOWA",
       "sls": "RT 003 WUAN BALA DUSUN II LAMABOTUN",
-      "A": 22,
-      "C": 2,
-      "G": 1
+      "A": 20,
+      "C": 2
     },
     {
       "kode14": "53080400170004",
       "kec": "LEBATUKAN",
       "desa": "ATAKOWA",
       "sls": "RT 004 MADA RENCONG DUSUN II LAMABOTUN",
-      "A": 14
+      "A": 10
     },
     {
       "kode14": "53080400170005",
       "kec": "LEBATUKAN",
       "desa": "ATAKOWA",
       "sls": "RT 005 DOLO PAI DUSUN III BAOLOLONG",
-      "A": 10
+      "A": 8
     },
     {
       "kode14": "53080400170006",
       "kec": "LEBATUKAN",
       "desa": "ATAKOWA",
       "sls": "RT 006 KOKE PUKEN DUSUN III BAOLOLONG",
-      "A": 6
+      "A": 2
     },
     {
       "kode14": "53080400130001",
       "kec": "LEBATUKAN",
       "desa": "BALUREBONG",
       "sls": "RT 001 DUSUN 1 - PAO PUE",
-      "A": 19
+      "A": 5
     },
     {
       "kode14": "53080400130002",
       "kec": "LEBATUKAN",
       "desa": "BALUREBONG",
       "sls": "RT 002 DUSUN 1 - PAO PUE",
-      "A": 18,
+      "A": 15,
       "C": 1
-    },
-    {
-      "kode14": "53080400130003",
-      "kec": "LEBATUKAN",
-      "desa": "BALUREBONG",
-      "sls": "RT 003 DUSUN 2 - BAO MURENG",
-      "A": 13,
-      "G": 1
     },
     {
       "kode14": "53080400130004",
       "kec": "LEBATUKAN",
       "desa": "BALUREBONG",
       "sls": "RT 004 DUSUN 2 - BAO MURENG",
-      "A": 13
+      "A": 11
     },
     {
       "kode14": "53080400130005",
       "kec": "LEBATUKAN",
       "desa": "BALUREBONG",
       "sls": "RT 005 DUSUN 3 - HELENARE",
-      "A": 15,
-      "C": 1
+      "A": 3
     },
     {
       "kode14": "53080400160007",
       "kec": "LEBATUKAN",
       "desa": "BANITOBO",
       "sls": "RT 007 DUSUN WATOBANI",
-      "A": 12,
-      "C": 1,
-      "G": 1
+      "A": 6
     },
     {
       "kode14": "53080400160013",
       "kec": "LEBATUKAN",
       "desa": "BANITOBO",
       "sls": "RT 008 DUSUN WATOBANI",
-      "A": 5,
-      "G": 1
-    },
-    {
-      "kode14": "53080400160009",
-      "kec": "LEBATUKAN",
-      "desa": "BANITOBO",
-      "sls": "RT 009 DUSUN WATOBANI",
-      "A": 6
+      "A": 1
     },
     {
       "kode14": "53080400020001",
@@ -3513,7 +2623,7 @@
       "kec": "LEBATUKAN",
       "desa": "BAOPANA",
       "sls": "RT 002 DUSUN 01",
-      "A": 15,
+      "A": 16,
       "H": 1
     },
     {
@@ -3534,11 +2644,20 @@
       "A": 13
     },
     {
+      "kode14": "53080400020006",
+      "kec": "LEBATUKAN",
+      "desa": "BAOPANA",
+      "sls": "RT 006 DUSUN 02",
+      "A": 5,
+      "C": 1,
+      "N_O": 1
+    },
+    {
       "kode14": "53080400080001",
       "kec": "LEBATUKAN",
       "desa": "DIKESARE",
       "sls": "RT 001 DUSUN 01- INGOLAMABETE",
-      "A": 2,
+      "A": 6,
       "C": 2
     },
     {
@@ -3554,24 +2673,23 @@
       "kec": "LEBATUKAN",
       "desa": "DIKESARE",
       "sls": "RT 003 DUSUN 02- RUAN NOME KOLE",
-      "A": 6,
-      "C": 4,
-      "G": 1
+      "A": 4,
+      "C": 1
     },
     {
       "kode14": "53080400080004",
       "kec": "LEBATUKAN",
       "desa": "DIKESARE",
       "sls": "RT 004 DUSUN 02- RUAN NOME KOLE",
-      "A": 14,
-      "C": 6
+      "A": 9,
+      "C": 2
     },
     {
       "kode14": "53080400080005",
       "kec": "LEBATUKAN",
       "desa": "DIKESARE",
       "sls": "RT 005 DUSUN 03- BERA OLE LOLON",
-      "A": 7,
+      "A": 8,
       "C": 5,
       "G": 1
     },
@@ -3580,10 +2698,7 @@
       "kec": "LEBATUKAN",
       "desa": "DIKESARE",
       "sls": "RT 006 DUSUN 03- BERA OLE LOLON",
-      "A": 9,
-      "C": 1,
-      "I": 2,
-      "M": 1
+      "A": 3
     },
     {
       "kode14": "53080400040001",
@@ -3591,7 +2706,7 @@
       "desa": "HADAKEWA",
       "sls": "RT 001 DUSUN 01 TUJUH MARET",
       "A": 4,
-      "C": 3,
+      "C": 4,
       "G": 2,
       "H": 1,
       "I": 2,
@@ -3621,17 +2736,36 @@
       "kec": "LEBATUKAN",
       "desa": "HADAKEWA",
       "sls": "RT 005 DUSUN 02 WALIRIANG",
-      "A": 12,
-      "C": 7,
+      "A": 10,
+      "C": 5,
       "F": 1,
       "G": 1
+    },
+    {
+      "kode14": "53080400040006",
+      "kec": "LEBATUKAN",
+      "desa": "HADAKEWA",
+      "sls": "RT 006 DUSUN 02 WALIRIANG",
+      "A": 4,
+      "C": 5,
+      "F": 1
+    },
+    {
+      "kode14": "53080400040010",
+      "kec": "LEBATUKAN",
+      "desa": "HADAKEWA",
+      "sls": "RT 010 DUSUN 03 UDE",
+      "A": 1
     },
     {
       "kode14": "53080400040011",
       "kec": "LEBATUKAN",
       "desa": "HADAKEWA",
       "sls": "RT 011 DUSUN 03 UDE",
-      "G": 1
+      "A": 2,
+      "C": 1,
+      "G": 1,
+      "H": 1
     },
     {
       "kode14": "53080400040012",
@@ -3644,11 +2778,18 @@
       "H": 1
     },
     {
+      "kode14": "53080400040013",
+      "kec": "LEBATUKAN",
+      "desa": "HADAKEWA",
+      "sls": "RT 013 DUSUN 04 RIANG TALUMA",
+      "A": 2
+    },
+    {
       "kode14": "53080400090003",
       "kec": "LEBATUKAN",
       "desa": "LAMADALE",
       "sls": "RT 003 DUSUN 02. INA TUA TIMU",
-      "A": 15
+      "A": 11
     },
     {
       "kode14": "53080400090005",
@@ -3662,7 +2803,7 @@
       "kec": "LEBATUKAN",
       "desa": "LAMADALE",
       "sls": "RT 007 DUSUN 04. LINGI LAMADALE",
-      "A": 7
+      "A": 3
     },
     {
       "kode14": "53080400090008",
@@ -3672,45 +2813,26 @@
       "A": 3
     },
     {
-      "kode14": "53080400140001",
-      "kec": "LEBATUKAN",
-      "desa": "LAMALELA",
-      "sls": "RT 001 DUSUN 01. MALEMU",
-      "A": 4
-    },
-    {
-      "kode14": "53080400140002",
-      "kec": "LEBATUKAN",
-      "desa": "LAMALELA",
-      "sls": "RT 002 DUSUN 01. MALEMU",
-      "A": 11,
-      "C": 1
-    },
-    {
       "kode14": "53080400140004",
       "kec": "LEBATUKAN",
       "desa": "LAMALELA",
       "sls": "RT 004 DUSUN 01. MALEMU",
-      "A": 21,
-      "C": 2,
-      "G": 2,
-      "K": 1
+      "A": 9
     },
     {
       "kode14": "53080400140007",
       "kec": "LEBATUKAN",
       "desa": "LAMALELA",
       "sls": "RT 007 DUSUN 03. DULI PALI",
-      "A": 28,
-      "C": 2
+      "A": 10
     },
     {
       "kode14": "53080400140008",
       "kec": "LEBATUKAN",
       "desa": "LAMALELA",
       "sls": "RT 008 DUSUN 03. DULI PALI",
-      "A": 27,
-      "C": 5
+      "A": 4,
+      "C": 1
     },
     {
       "kode14": "53080400010001",
@@ -3752,8 +2874,9 @@
       "kec": "LEBATUKAN",
       "desa": "LAMATUKA",
       "sls": "RT 05 DUSUN 02",
-      "A": 20,
-      "C": 4,
+      "A": 27,
+      "C": 5,
+      "G": 1,
       "H": 1,
       "K": 2
     },
@@ -3772,8 +2895,7 @@
       "kec": "LEBATUKAN",
       "desa": "LERAHINGA",
       "sls": "RT 001 DUSUN 01",
-      "A": 19,
-      "G": 1
+      "A": 17
     },
     {
       "kode14": "53080400050002",
@@ -3820,6 +2942,15 @@
       "G": 3
     },
     {
+      "kode14": "53080400050007",
+      "kec": "LEBATUKAN",
+      "desa": "LERAHINGA",
+      "sls": "RT 007 DUSUN 02",
+      "A": 8,
+      "G": 1,
+      "H": 3
+    },
+    {
       "kode14": "53080400050008",
       "kec": "LEBATUKAN",
       "desa": "LERAHINGA",
@@ -3841,14 +2972,15 @@
       "kec": "LEBATUKAN",
       "desa": "LERAHINGA",
       "sls": "RT 010 DUSUN 03",
-      "A": 1
+      "A": 7,
+      "G": 1
     },
     {
       "kode14": "53080400100001",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 001 DUSUN 01. KELEN LAMA BURA",
-      "A": 28,
+      "A": 22,
       "G": 1
     },
     {
@@ -3856,44 +2988,42 @@
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 002 DUSUN 01. KELEN LAMA BURA",
-      "A": 10,
-      "G": 2
+      "A": 6
     },
     {
       "kode14": "53080400100003",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 003 DUSUN 02. WOLO LAMA DOA",
-      "A": 18,
-      "G": 1
+      "A": 12
     },
     {
       "kode14": "53080400100004",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 004 DUSUN 02. WOLO LAMA DOA",
-      "A": 12
+      "A": 7
     },
     {
       "kode14": "53080400100005",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 005 DUSUN 03. GALITIWA",
-      "A": 5
+      "A": 2
     },
     {
       "kode14": "53080400100007",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 007 DUSUN 04. NUBANARA",
-      "A": 8
+      "A": 10
     },
     {
       "kode14": "53080400100008",
       "kec": "LEBATUKAN",
       "desa": "LEWOELENG",
       "sls": "RT 008 DUSUN 04. NUBANARA",
-      "A": 9
+      "A": 12
     },
     {
       "kode14": "53080400110001",
@@ -3907,15 +3037,14 @@
       "kec": "LEBATUKAN",
       "desa": "LODOTODOKOWA",
       "sls": "RT 002 DUSUN I. TEPALEDAN",
-      "A": 8,
-      "G": 2
+      "A": 3
     },
     {
       "kode14": "53080400110005",
       "kec": "LEBATUKAN",
       "desa": "LODOTODOKOWA",
       "sls": "RT 005 DUSUN II NOBOBUTO",
-      "A": 11,
+      "A": 8,
       "C": 1,
       "G": 1
     },
@@ -3924,7 +3053,14 @@
       "kec": "LEBATUKAN",
       "desa": "LODOTODOKOWA",
       "sls": "RT 007 DUSUN II. NOBOBUTO",
-      "A": 11
+      "A": 8
+    },
+    {
+      "kode14": "53080400110008",
+      "kec": "LEBATUKAN",
+      "desa": "LODOTODOKOWA",
+      "sls": "RT 008 DUSUN II. NOBOBUTO",
+      "A": 9
     },
     {
       "kode14": "53080400110010",
@@ -3938,15 +3074,14 @@
       "kec": "LEBATUKAN",
       "desa": "LODOTODOKOWA",
       "sls": "RT 014 DUSUN IV. REPA LIWU",
-      "A": 3
+      "A": 2
     },
     {
       "kode14": "53080400110015",
       "kec": "LEBATUKAN",
       "desa": "LODOTODOKOWA",
       "sls": "RT 015 DUSUN IV. REPA LIWU",
-      "A": 11,
-      "C": 1
+      "A": 9
     },
     {
       "kode14": "53080400110016",
@@ -3970,12 +3105,26 @@
       "A": 1
     },
     {
+      "kode14": "53080400030003",
+      "kec": "LEBATUKAN",
+      "desa": "MERDEKA",
+      "sls": "RT 003 DUSUN 01 KAWELA",
+      "A": 2
+    },
+    {
       "kode14": "53080400030005",
       "kec": "LEBATUKAN",
       "desa": "MERDEKA",
       "sls": "RT 005 DUSUN 02 TITEHENA",
       "A": 4,
       "G": 1
+    },
+    {
+      "kode14": "53080400030006",
+      "kec": "LEBATUKAN",
+      "desa": "MERDEKA",
+      "sls": "RT 006 DUSUN 02 TITEHENA",
+      "A": 2
     },
     {
       "kode14": "53080400030009",
@@ -4032,15 +3181,14 @@
       "kec": "LEBATUKAN",
       "desa": "SERANGGORANG",
       "sls": "RT 005 DUSUN III. PATILAMANIAN",
-      "A": 13,
-      "F": 1
+      "A": 4
     },
     {
       "kode14": "53080400120006",
       "kec": "LEBATUKAN",
       "desa": "SERANGGORANG",
       "sls": "RT 006 DUSUN III. PATILAMANIAN",
-      "A": 14,
+      "A": 6,
       "F": 1
     },
     {
@@ -4048,40 +3196,36 @@
       "kec": "LEBATUKAN",
       "desa": "SERANGGORANG",
       "sls": "RT 007 DUSUN IV. LEPABATAN",
-      "A": 3
-    },
-    {
-      "kode14": "53080400120008",
-      "kec": "LEBATUKAN",
-      "desa": "SERANGGORANG",
-      "sls": "RT 008 DUSUN IV. LEPABATAN",
-      "A": 9
+      "A": 1
     },
     {
       "kode14": "53080400150001",
       "kec": "LEBATUKAN",
       "desa": "TAPOLANGU",
       "sls": "RT 001 DUSUN BUDIDIKE",
-      "A": 23,
-      "C": 2,
-      "G": 3,
-      "H": 1
+      "A": 4,
+      "G": 2
     },
     {
       "kode14": "53080400150002",
       "kec": "LEBATUKAN",
       "desa": "TAPOLANGU",
       "sls": "RT 002 DUSUN BUDIDIKE",
-      "A": 9,
-      "C": 1,
-      "G": 3
+      "G": 2
     },
     {
       "kode14": "53080400150004",
       "kec": "LEBATUKAN",
       "desa": "TAPOLANGU",
       "sls": "RT 004 DUSUN TITEHENA",
-      "A": 10
+      "A": 9
+    },
+    {
+      "kode14": "53080400150005",
+      "kec": "LEBATUKAN",
+      "desa": "TAPOLANGU",
+      "sls": "RT 005 DUSUN ALAN SARE",
+      "A": 4
     },
     {
       "kode14": "53080400061001",
@@ -4095,62 +3239,24 @@
       "kec": "LEBATUKAN",
       "desa": "WAIENGA",
       "sls": "RT 001 DUSUN 01. WAIOTE",
-      "A": 13,
-      "C": 1,
-      "F": 1,
-      "G": 1,
-      "H": 1,
-      "Q": 1
-    },
-    {
-      "kode14": "53080400060002",
-      "kec": "LEBATUKAN",
-      "desa": "WAIENGA",
-      "sls": "RT 002 DUSUN 01. WAIOTE",
-      "A": 23,
-      "C": 5,
-      "G": 1
-    },
-    {
-      "kode14": "53080400060003",
-      "kec": "LEBATUKAN",
-      "desa": "WAIENGA",
-      "sls": "RT 003 DUSUN 02. BELOBAYA",
-      "A": 17,
-      "C": 6,
-      "G": 2
-    },
-    {
-      "kode14": "53080400060004",
-      "kec": "LEBATUKAN",
-      "desa": "WAIENGA",
-      "sls": "RT 004 DUSUN 02. BELOBAYA",
-      "A": 11,
+      "A": 3,
       "C": 1
-    },
-    {
-      "kode14": "53080400060008",
-      "kec": "LEBATUKAN",
-      "desa": "WAIENGA",
-      "sls": "RT 008 DUSUN 04. LEWOLEDO",
-      "A": 4,
-      "C": 1,
-      "F": 1
     },
     {
       "kode14": "53080100070001",
       "kec": "NAGAWUTUNG",
       "desa": "ATAWAI",
       "sls": "RT 01 DUSUN A (LABALIKO)",
-      "A": 8,
-      "C": 1
+      "A": 15,
+      "C": 3
     },
     {
       "kode14": "53080100070002",
       "kec": "NAGAWUTUNG",
       "desa": "ATAWAI",
       "sls": "RT 02 DUSUN A (LABALIKO)",
-      "A": 15,
+      "A": 31,
+      "C": 2,
       "K": 1,
       "N_O": 1
     },
@@ -4193,9 +3299,8 @@
       "kec": "NAGAWUTUNG",
       "desa": "ATAWAI",
       "sls": "RT 07 DUSUN",
-      "A": 17,
-      "C": 3,
-      "G": 1
+      "A": 14,
+      "C": 2
     },
     {
       "kode14": "53080100070008",
@@ -4211,36 +3316,25 @@
       "kec": "NAGAWUTUNG",
       "desa": "ATAWAI",
       "sls": "RT 09 DUSUN",
-      "A": 6,
-      "C": 1,
-      "G": 1
+      "A": 3,
+      "C": 1
     },
     {
       "kode14": "53080100030001",
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 01 DUSUN A",
-      "A": 10,
-      "C": 20,
-      "G": 11
-    },
-    {
-      "kode14": "53080100030012",
-      "kec": "NAGAWUTUNG",
-      "desa": "BABOKERONG",
-      "sls": "RT 012 DUSUN D",
-      "A": 4,
-      "G": 1
+      "A": 3,
+      "C": 10,
+      "G": 3
     },
     {
       "kode14": "53080100030002",
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 02 DUSUN A",
-      "A": 10,
-      "C": 17,
-      "G": 4,
-      "K": 1
+      "A": 8,
+      "C": 11
     },
     {
       "kode14": "53080100030003",
@@ -4248,35 +3342,23 @@
       "desa": "BABOKERONG",
       "sls": "RT 03 DUSUN A",
       "A": 19,
-      "C": 32,
-      "G": 4
+      "C": 31,
+      "G": 2
     },
     {
       "kode14": "53080100030004",
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 04 DUSUN B",
-      "A": 6,
-      "C": 6,
-      "G": 2,
-      "K": 1
-    },
-    {
-      "kode14": "53080100030005",
-      "kec": "NAGAWUTUNG",
-      "desa": "BABOKERONG",
-      "sls": "RT 05 DUSUN B",
-      "A": 1,
-      "C": 3,
-      "G": 2
+      "C": 1
     },
     {
       "kode14": "53080100030006",
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 06 DUSUN B",
-      "A": 4,
-      "C": 9
+      "A": 1,
+      "C": 1
     },
     {
       "kode14": "53080100030007",
@@ -4292,25 +3374,32 @@
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 08 DUSUN",
-      "A": 7,
-      "C": 10,
-      "G": 3
+      "A": 8,
+      "C": 11,
+      "G": 4
     },
     {
       "kode14": "53080100030009",
       "kec": "NAGAWUTUNG",
       "desa": "BABOKERONG",
       "sls": "RT 09 DUSUN",
-      "A": 2,
-      "C": 2,
-      "G": 2
+      "A": 8,
+      "C": 13,
+      "G": 7
+    },
+    {
+      "kode14": "53080100190005",
+      "kec": "NAGAWUTUNG",
+      "desa": "BAOBOLAK",
+      "sls": "RT 05 DUSUN LAMA DUA",
+      "A": 1
     },
     {
       "kode14": "53080100160001",
       "kec": "NAGAWUTUNG",
       "desa": "BELABAJA",
       "sls": "RT 01 DUSUN A",
-      "A": 17,
+      "A": 14,
       "C": 4,
       "K": 1,
       "N_O": 2
@@ -4320,7 +3409,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "BELABAJA",
       "sls": "RT 02 DUSUN A",
-      "A": 18,
+      "A": 16,
       "C": 1
     },
     {
@@ -4329,14 +3418,14 @@
       "desa": "BELABAJA",
       "sls": "RT 03 DUSUN A",
       "A": 20,
-      "G": 2
+      "G": 3
     },
     {
       "kode14": "53080100160004",
       "kec": "NAGAWUTUNG",
       "desa": "BELABAJA",
       "sls": "RT 04 DUSUN B",
-      "A": 12,
+      "A": 14,
       "C": 1
     },
     {
@@ -4344,10 +3433,10 @@
       "kec": "NAGAWUTUNG",
       "desa": "BELABAJA",
       "sls": "RT 05 DUSUN B",
-      "A": 34,
+      "A": 38,
       "C": 3,
       "G": 2,
-      "N_O": 1
+      "N_O": 2
     },
     {
       "kode14": "53080100160006",
@@ -4363,38 +3452,22 @@
       "kec": "NAGAWUTUNG",
       "desa": "BOLIBEAN",
       "sls": "RT 01 DUSUN A",
-      "A": 85,
-      "C": 3,
-      "G": 2,
-      "H": 1
+      "A": 25,
+      "C": 2
     },
     {
       "kode14": "53080100210002",
       "kec": "NAGAWUTUNG",
       "desa": "BOLIBEAN",
       "sls": "RT 02 DUSUN A",
-      "A": 60,
-      "C": 1,
-      "H": 1
+      "A": 4
     },
     {
       "kode14": "53080100210003",
       "kec": "NAGAWUTUNG",
       "desa": "BOLIBEAN",
       "sls": "RT 03 DUSUN A",
-      "A": 34,
-      "C": 1,
-      "G": 1,
-      "H": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080100210004",
-      "kec": "NAGAWUTUNG",
-      "desa": "BOLIBEAN",
-      "sls": "RT 04 DUSUN B",
-      "A": 43,
-      "C": 2,
+      "A": 11,
       "G": 1
     },
     {
@@ -4402,16 +3475,14 @@
       "kec": "NAGAWUTUNG",
       "desa": "BOLIBEAN",
       "sls": "RT 05 DUSUN B",
-      "A": 62,
-      "C": 1,
-      "G": 1
+      "A": 34
     },
     {
       "kode14": "53080100040001",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 01 DUSUN A",
-      "A": 15,
+      "A": 9,
       "C": 2
     },
     {
@@ -4422,14 +3493,6 @@
       "A": 2
     },
     {
-      "kode14": "53080100040003",
-      "kec": "NAGAWUTUNG",
-      "desa": "DUAWUTUN",
-      "sls": "RT 03 DUSUN A",
-      "A": 6,
-      "G": 1
-    },
-    {
       "kode14": "53080100040004",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
@@ -4438,33 +3501,18 @@
       "C": 1
     },
     {
-      "kode14": "53080100040005",
-      "kec": "NAGAWUTUNG",
-      "desa": "DUAWUTUN",
-      "sls": "RT 05 DUSUN B",
-      "A": 3
-    },
-    {
-      "kode14": "53080100040006",
-      "kec": "NAGAWUTUNG",
-      "desa": "DUAWUTUN",
-      "sls": "RT 06 DUSUN B",
-      "A": 3
-    },
-    {
       "kode14": "53080100040007",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 07 DUSUN",
-      "A": 3
+      "A": 4
     },
     {
       "kode14": "53080100040008",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 08 DUSUN",
-      "A": 28,
-      "C": 2,
+      "A": 22,
       "I": 1,
       "J": 1
     },
@@ -4473,31 +3521,37 @@
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 09 DUSUN",
-      "A": 11,
-      "G": 2
+      "A": 4
     },
     {
       "kode14": "53080100040010",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 10 DUSUN D",
-      "A": 8,
-      "C": 1
+      "A": 1
     },
     {
       "kode14": "53080100040011",
       "kec": "NAGAWUTUNG",
       "desa": "DUAWUTUN",
       "sls": "RT 11 DUSUN D",
-      "A": 10,
-      "C": 1
+      "A": 1
+    },
+    {
+      "kode14": "53080100230001",
+      "kec": "NAGAWUTUNG",
+      "desa": "IDALOLONG",
+      "sls": "RT 01 DUSUN GALEWATO",
+      "A": 1,
+      "C": 1,
+      "G": 1
     },
     {
       "kode14": "53080100230003",
       "kec": "NAGAWUTUNG",
       "desa": "IDALOLONG",
       "sls": "RT 03 DUSUN LEWOLEREK",
-      "A": 16,
+      "A": 15,
       "C": 7,
       "I": 1
     },
@@ -4506,17 +3560,16 @@
       "kec": "NAGAWUTUNG",
       "desa": "IDALOLONG",
       "sls": "RT 04 DUSUN LEWOLEREK",
-      "A": 16,
-      "C": 8,
-      "G": 1
+      "A": 12,
+      "C": 5
     },
     {
       "kode14": "53080100230005",
       "kec": "NAGAWUTUNG",
       "desa": "IDALOLONG",
       "sls": "RT 05 DUSUN RAJA LABA",
-      "A": 18,
-      "C": 5,
+      "A": 10,
+      "C": 2,
       "G": 1
     },
     {
@@ -4528,39 +3581,29 @@
       "C": 3
     },
     {
-      "kode14": "53080100230007",
-      "kec": "NAGAWUTUNG",
-      "desa": "IDALOLONG",
-      "sls": "RT 07 DUSUN RAJA LABA",
-      "A": 5,
-      "C": 1,
-      "G": 1
-    },
-    {
       "kode14": "53080100230008",
       "kec": "NAGAWUTUNG",
       "desa": "IDALOLONG",
       "sls": "RT 08 DUSUN RAJA LABA",
-      "A": 26,
-      "C": 10
+      "A": 4,
+      "C": 2
     },
     {
       "kode14": "53080100171001",
       "kec": "NAGAWUTUNG",
       "desa": "LABALIMUT",
       "sls": "LAHAN PERKEBUNAN",
-      "A": 18,
-      "C": 2
+      "A": 4,
+      "C": 1
     },
     {
       "kode14": "53080100170001",
       "kec": "NAGAWUTUNG",
       "desa": "LABALIMUT",
       "sls": "RT 01 DUSUN A",
-      "A": 156,
+      "A": 100,
       "C": 2,
-      "G": 5,
-      "H": 1,
+      "G": 2,
       "K": 2
     },
     {
@@ -4568,11 +3611,10 @@
       "kec": "NAGAWUTUNG",
       "desa": "LABALIMUT",
       "sls": "RT 02 DUSUN A",
-      "A": 104,
-      "C": 5,
-      "D": 2,
-      "G": 14,
-      "H": 1,
+      "A": 21,
+      "C": 1,
+      "D": 1,
+      "G": 12,
       "N_O": 1
     },
     {
@@ -4580,11 +3622,17 @@
       "kec": "NAGAWUTUNG",
       "desa": "LABALIMUT",
       "sls": "RT 03 DUSUN A",
-      "A": 52,
-      "C": 3,
-      "G": 2,
-      "H": 1,
-      "N_O": 1
+      "A": 9,
+      "C": 3
+    },
+    {
+      "kode14": "53080100170005",
+      "kec": "NAGAWUTUNG",
+      "desa": "LABALIMUT",
+      "sls": "RT 05 DUSUN B",
+      "A": 20,
+      "G": 4,
+      "H": 2
     },
     {
       "kode14": "53080100080001",
@@ -4608,7 +3656,7 @@
       "desa": "LUSIDUAWUTUN",
       "sls": "RT 03 DUSUN LEMATAN",
       "A": 2,
-      "C": 2,
+      "C": 3,
       "G": 1
     },
     {
@@ -4620,49 +3668,63 @@
       "C": 3
     },
     {
+      "kode14": "53080100080005",
+      "kec": "NAGAWUTUNG",
+      "desa": "LUSIDUAWUTUN",
+      "sls": "RT 05 DUSUN KAPITAN LAMAJURU",
+      "A": 11,
+      "C": 6
+    },
+    {
+      "kode14": "53080100010004",
+      "kec": "NAGAWUTUNG",
+      "desa": "PASIR PUTIH",
+      "sls": "RT 04 DUSUN A",
+      "A": 13,
+      "G": 1
+    },
+    {
       "kode14": "53080100010005",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 05 DUSUN A",
-      "A": 8
+      "A": 18
     },
     {
       "kode14": "53080100010006",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 06 DUSUN A",
-      "A": 13
+      "A": 19,
+      "G": 1
     },
     {
       "kode14": "53080100010007",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 07 DUSUN A",
-      "A": 21
+      "A": 12
     },
     {
       "kode14": "53080100010008",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 08 DUSUN A",
-      "A": 14,
-      "G": 1
+      "A": 11
     },
     {
       "kode14": "53080100010009",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 09 DUSUN B",
-      "A": 34,
-      "G": 3
+      "A": 29
     },
     {
       "kode14": "53080100010010",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 10 DUSUN B",
-      "A": 28,
-      "G": 2
+      "A": 24
     },
     {
       "kode14": "53080100010011",
@@ -4678,7 +3740,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 12 DUSUN",
-      "A": 26
+      "A": 25
     },
     {
       "kode14": "53080100010013",
@@ -4692,7 +3754,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 14 DUSUN",
-      "A": 17,
+      "A": 15,
       "G": 1
     },
     {
@@ -4700,7 +3762,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 15 DUSUN D",
-      "A": 19,
+      "A": 15,
       "G": 1
     },
     {
@@ -4708,23 +3770,23 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 16 DUSUN D",
-      "A": 15
+      "A": 14
     },
     {
       "kode14": "53080100010017",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 17 DUSUN D",
-      "A": 14,
+      "A": 13,
       "C": 1,
-      "G": 2
+      "G": 1
     },
     {
       "kode14": "53080100010018",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 18 DUSUN D",
-      "A": 19,
+      "A": 17,
       "G": 1,
       "K": 1
     },
@@ -4748,22 +3810,21 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 21 DUSUN E",
-      "A": 16
+      "A": 18
     },
     {
       "kode14": "53080100010022",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 22 DUSUN E",
-      "A": 17,
-      "G": 2
+      "A": 12
     },
     {
       "kode14": "53080100010023",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 23 DUSUN E",
-      "A": 18,
+      "A": 16,
       "C": 1
     },
     {
@@ -4771,14 +3832,15 @@
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 24 DUSUN E",
-      "A": 17
+      "A": 14
     },
     {
       "kode14": "53080100010025",
       "kec": "NAGAWUTUNG",
       "desa": "PASIR PUTIH",
       "sls": "RT 25 DUSUN E",
-      "A": 23
+      "A": 27,
+      "C": 1
     },
     {
       "kode14": "53080100060001",
@@ -4793,8 +3855,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "PENIKENE",
       "sls": "RT 02 DUSUN WAIKUBANG",
-      "A": 23,
-      "C": 3,
+      "A": 4,
       "G": 1
     },
     {
@@ -4804,6 +3865,15 @@
       "sls": "RT 03 DUSUN LABA LANGAT",
       "A": 11,
       "C": 2
+    },
+    {
+      "kode14": "53080100060004",
+      "kec": "NAGAWUTUNG",
+      "desa": "PENIKENE",
+      "sls": "RT 04 DUSUN LABA LANGAT",
+      "A": 10,
+      "C": 1,
+      "G": 1
     },
     {
       "kode14": "53080100060005",
@@ -4819,7 +3889,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "PENIKENE",
       "sls": "RT 06 DUSUN BOLI SONI",
-      "A": 5,
+      "A": 6,
       "G": 1
     },
     {
@@ -4843,18 +3913,17 @@
       "kec": "NAGAWUTUNG",
       "desa": "RIA BAO",
       "sls": "RT 01 DUSUN TUBUK RAJAN",
-      "A": 15,
+      "A": 13,
       "C": 4,
-      "G": 4,
-      "H": 1,
-      "I": 2
+      "G": 3,
+      "H": 1
     },
     {
       "kode14": "53080100220002",
       "kec": "NAGAWUTUNG",
       "desa": "RIA BAO",
       "sls": "RT 02 DUSUN TUBUK RAJAN",
-      "A": 6,
+      "A": 5,
       "C": 3,
       "G": 1
     },
@@ -4863,11 +3932,9 @@
       "kec": "NAGAWUTUNG",
       "desa": "RIA BAO",
       "sls": "RT 03 DUSUN TUBUK RAJAN",
-      "A": 14,
-      "C": 3,
+      "A": 8,
       "E": 1,
-      "G": 1,
-      "M": 1
+      "G": 1
     },
     {
       "kode14": "53080100220004",
@@ -4875,7 +3942,7 @@
       "desa": "RIA BAO",
       "sls": "RT 04 DUSUN WAITEBA",
       "A": 5,
-      "G": 2,
+      "G": 1,
       "I": 1
     },
     {
@@ -4912,11 +3979,8 @@
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 01 DUSUN B",
-      "A": 50,
-      "B": 1,
-      "C": 1,
-      "F": 1,
-      "G": 5,
+      "A": 9,
+      "G": 2,
       "K": 1
     },
     {
@@ -4924,38 +3988,34 @@
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 02 DUSUN A",
-      "A": 37,
-      "C": 2,
-      "F": 1,
-      "G": 2,
-      "H": 1
+      "A": 3,
+      "C": 1,
+      "G": 1
     },
     {
       "kode14": "53080100200003",
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 03 DUSUN B",
-      "A": 21,
+      "A": 19,
       "C": 1,
-      "G": 4
+      "G": 3
     },
     {
       "kode14": "53080100200004",
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 04 DUSUN A",
-      "A": 36,
-      "G": 1,
-      "H": 1
+      "A": 13
     },
     {
       "kode14": "53080100200005",
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 05 DUSUN B",
-      "A": 36,
-      "C": 4,
-      "F": 2,
+      "A": 24,
+      "C": 3,
+      "F": 1,
       "G": 2
     },
     {
@@ -4963,18 +4023,15 @@
       "kec": "NAGAWUTUNG",
       "desa": "TEWAOWUTUNG",
       "sls": "RT 06 DUSUN A",
-      "A": 18,
-      "C": 2,
-      "G": 1,
-      "L": 1,
-      "S_U": 1
+      "A": 4,
+      "C": 1
     },
     {
       "kode14": "53080100240001",
       "kec": "NAGAWUTUNG",
       "desa": "WARAWATUNG",
       "sls": "RT 01 DUSUN BANI RAJA",
-      "A": 17,
+      "A": 15,
       "C": 1,
       "G": 1
     },
@@ -5008,7 +4065,7 @@
       "desa": "WARAWATUNG",
       "sls": "RT 05 DUSUN MAU RAJA",
       "A": 8,
-      "C": 3,
+      "C": 2,
       "G": 2
     },
     {
@@ -5023,7 +4080,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "WARAWATUNG",
       "sls": "RT 07 DUSUN TRI NUBA",
-      "A": 13,
+      "A": 11,
       "C": 2,
       "G": 2,
       "K": 1
@@ -5042,7 +4099,7 @@
       "kec": "NAGAWUTUNG",
       "desa": "WARAWATUNG",
       "sls": "RT 09 DUSUN TRI NUBA",
-      "A": 12,
+      "A": 11,
       "C": 1
     },
     {
@@ -5092,46 +4149,63 @@
       "kec": "NAGAWUTUNG",
       "desa": "WUAKERONG",
       "sls": "RT 08 DUSUN",
-      "A": 13,
-      "C": 7,
-      "G": 2,
+      "A": 6,
+      "C": 4,
+      "G": 1,
       "N_O": 1
+    },
+    {
+      "kode14": "53080100050009",
+      "kec": "NAGAWUTUNG",
+      "desa": "WUAKERONG",
+      "sls": "RT 09 DUSUN",
+      "A": 2,
+      "C": 1,
+      "F": 1
     },
     {
       "kode14": "53080100050010",
       "kec": "NAGAWUTUNG",
       "desa": "WUAKERONG",
       "sls": "RT 10 DUSUN B",
-      "A": 20,
-      "C": 7,
+      "A": 12,
+      "C": 3,
       "F": 1,
-      "G": 5,
-      "I": 1,
-      "L": 1
+      "G": 1
     },
     {
       "kode14": "53080100050011",
       "kec": "NAGAWUTUNG",
       "desa": "WUAKERONG",
       "sls": "RT 11 DUSUN B",
-      "A": 12,
-      "C": 1,
-      "G": 1
+      "A": 11,
+      "C": 1
     },
     {
-      "kode14": "53080500030001",
+      "kode14": "53080500010001",
       "kec": "NUBATUKAN",
-      "desa": "BAOLANGU",
-      "sls": "RT 001 DUSUN 001",
-      "A": 1,
-      "H": 1
+      "desa": "BELOBATANG",
+      "sls": "RT 001 DUSUN 1",
+      "A": 14,
+      "G": 3
+    },
+    {
+      "kode14": "53080500010002",
+      "kec": "NUBATUKAN",
+      "desa": "BELOBATANG",
+      "sls": "RT 002 DUSUN 1",
+      "A": 26,
+      "C": 1,
+      "G": 2,
+      "H": 1,
+      "N_O": 1
     },
     {
       "kode14": "53080500010003",
       "kec": "NUBATUKAN",
       "desa": "BELOBATANG",
       "sls": "RT 003 DUSUN 1",
-      "A": 28,
+      "A": 31,
       "C": 1,
       "G": 2
     },
@@ -5140,9 +4214,9 @@
       "kec": "NUBATUKAN",
       "desa": "BELOBATANG",
       "sls": "RT 004 DUSUN 2",
-      "A": 37,
+      "A": 42,
       "C": 2,
-      "G": 3,
+      "G": 4,
       "K": 1
     },
     {
@@ -5150,8 +4224,8 @@
       "kec": "NUBATUKAN",
       "desa": "BELOBATANG",
       "sls": "RT 005 DUSUN 2",
-      "A": 24,
-      "G": 2
+      "A": 27,
+      "G": 3
     },
     {
       "kode14": "53080500010006",
@@ -5160,8 +4234,7 @@
       "sls": "RT 006 DUSUN 3",
       "A": 28,
       "C": 1,
-      "G": 2,
-      "Q": 1
+      "G": 2
     },
     {
       "kode14": "53080500010007",
@@ -5176,72 +4249,18 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 01 RW 01",
-      "A": 8,
-      "C": 8,
-      "G": 13,
-      "H": 5,
-      "I": 4,
-      "K": 2,
-      "L": 1,
-      "M": 1,
-      "S_U": 2
-    },
-    {
-      "kode14": "53080500100002",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 02 RW 01",
-      "A": 10,
-      "C": 3,
-      "G": 11,
-      "H": 2,
-      "I": 6,
-      "K": 1,
-      "M": 2,
-      "N_O": 1
+      "A": 3,
+      "G": 2,
+      "H": 1
     },
     {
       "kode14": "53080500100003",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 03 RW 01",
-      "A": 10,
-      "C": 3,
-      "G": 6,
-      "H": 4,
-      "I": 1,
-      "M": 2,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500100011",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 07 RW 03",
-      "G": 4,
-      "L": 1,
-      "M": 2
-    },
-    {
-      "kode14": "53080500100012",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 08 RW 03",
-      "A": 4,
+      "A": 1,
       "C": 1,
       "G": 1,
-      "H": 2,
-      "I": 1,
-      "M": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500100014",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 09 RW 04",
-      "A": 1,
-      "F": 1,
       "H": 1
     },
     {
@@ -5249,174 +4268,73 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 10 RW 04",
-      "A": 10,
+      "A": 7,
       "C": 1,
-      "G": 3,
+      "G": 2,
       "H": 2,
-      "L": 1,
-      "N_O": 1
+      "L": 1
     },
     {
       "kode14": "53080500100018",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 11 RW 05",
-      "A": 29,
-      "C": 8,
-      "F": 1,
-      "G": 14,
-      "I": 4,
-      "K": 1,
-      "M": 2,
-      "N_O": 2
+      "A": 11,
+      "C": 3,
+      "G": 8
     },
     {
       "kode14": "53080500100019",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 12 RW 05",
-      "A": 24,
-      "C": 5,
-      "F": 1,
-      "G": 9,
-      "H": 2,
-      "I": 1,
-      "K": 1,
-      "M": 3,
-      "N_O": 2
+      "A": 1,
+      "C": 1,
+      "G": 1,
+      "N_O": 1
     },
     {
       "kode14": "53080500100022",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 13 RW 06",
-      "A": 4,
+      "A": 2,
       "C": 2,
-      "G": 2,
-      "I": 2,
+      "G": 3,
+      "I": 1,
       "M": 1
+    },
+    {
+      "kode14": "53080500100024",
+      "kec": "NUBATUKAN",
+      "desa": "LEWOLEBA",
+      "sls": "RT 15 RW 06",
+      "G": 1
     },
     {
       "kode14": "53080500100028",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 19 RW 08",
-      "A": 2,
-      "C": 2,
-      "G": 3,
-      "H": 2
+      "A": 1
     },
     {
       "kode14": "53080500100033",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 23 RW 10",
-      "A": 14,
-      "C": 2,
-      "G": 5,
-      "H": 1
-    },
-    {
-      "kode14": "53080500100034",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 24 RW 10",
-      "A": 10,
-      "C": 1
+      "A": 4,
+      "G": 1
     },
     {
       "kode14": "53080500100005",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA",
       "sls": "RT 27 RW 02",
-      "A": 5,
-      "C": 2,
-      "G": 1,
-      "H": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500100016",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 31 RW 04",
-      "A": 1,
-      "C": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080500100017",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 32 RW 04",
-      "A": 6,
-      "C": 3,
-      "F": 1,
+      "A": 4,
       "G": 2,
-      "H": 3
-    },
-    {
-      "kode14": "53080500100020",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 33 RW 05",
-      "A": 16,
-      "C": 3,
-      "G": 2,
-      "H": 1,
       "I": 1,
-      "L": 1,
       "N_O": 1
-    },
-    {
-      "kode14": "53080500100021",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 34 RW 05",
-      "A": 12,
-      "C": 9,
-      "F": 2,
-      "G": 6,
-      "H": 2
-    },
-    {
-      "kode14": "53080500100032",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 35 RW 09",
-      "A": 10,
-      "C": 3,
-      "G": 3,
-      "I": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080500100037",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 36 RW 11",
-      "A": 12,
-      "G": 1
-    },
-    {
-      "kode14": "53080500100009",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA",
-      "sls": "RT 37 RW 12",
-      "A": 7,
-      "C": 2,
-      "F": 1,
-      "G": 4,
-      "H": 2,
-      "I": 1,
-      "M": 1
-    },
-    {
-      "kode14": "53080500080001",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA BARAT",
-      "sls": "RT 001 RW 001",
-      "A": 2
     },
     {
       "kode14": "53080500080003",
@@ -5430,7 +4348,7 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 005 RW 002",
-      "A": 3,
+      "A": 1,
       "C": 4,
       "H": 1
     },
@@ -5442,56 +4360,39 @@
       "G": 3
     },
     {
-      "kode14": "53080500080008",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA BARAT",
-      "sls": "RT 008 RW 003",
-      "I": 1
-    },
-    {
       "kode14": "53080500080011",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 011 RW 004",
-      "A": 18,
-      "C": 5,
-      "G": 5,
-      "H": 5
+      "A": 10,
+      "C": 4,
+      "G": 3,
+      "H": 2
     },
     {
       "kode14": "53080500080012",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 012 RW 004",
-      "A": 9,
+      "A": 5,
       "F": 1,
-      "G": 2,
+      "G": 1,
       "H": 1,
-      "N_O": 2
+      "N_O": 1
     },
     {
       "kode14": "53080500080013",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 013 RW 004",
-      "A": 21,
-      "C": 5,
-      "F": 1,
-      "G": 8,
-      "H": 6,
-      "I": 3,
-      "J": 1,
-      "M": 1,
-      "N_O": 1
+      "G": 1
     },
     {
-      "kode14": "53080500080014",
+      "kode14": "53080500080019",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
-      "sls": "RT 014 RW 005",
-      "A": 7,
-      "G": 1,
-      "H": 1
+      "sls": "RT 019 RW 006",
+      "G": 1
     },
     {
       "kode14": "53080500080020",
@@ -5528,26 +4429,26 @@
       "D": 1,
       "G": 2,
       "H": 1,
-      "I": 1,
-      "M": 1
+      "I": 1
     },
     {
       "kode14": "53080500080023",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 023 RW 007",
-      "A": 20,
-      "G": 3,
-      "H": 4
+      "A": 12,
+      "G": 2,
+      "H": 1
     },
     {
       "kode14": "53080500080024",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 024 RW 008",
-      "A": 13,
+      "A": 10,
+      "G": 1,
       "H": 1,
-      "I": 2
+      "I": 1
     },
     {
       "kode14": "53080500080025",
@@ -5564,16 +4465,25 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 026 RW 008",
-      "A": 2
+      "A": 14,
+      "C": 1
+    },
+    {
+      "kode14": "53080500080027",
+      "kec": "NUBATUKAN",
+      "desa": "LEWOLEBA BARAT",
+      "sls": "RT 027 RW 009",
+      "A": 5,
+      "M": 1
     },
     {
       "kode14": "53080500080035",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 035 RW 012",
-      "A": 4,
+      "A": 3,
       "G": 1,
-      "H": 3
+      "H": 1
     },
     {
       "kode14": "53080500080036",
@@ -5588,47 +4498,24 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 037 RW 012",
-      "A": 6,
+      "A": 1,
       "C": 1,
       "G": 1,
-      "M": 2,
-      "S_U": 1
+      "M": 2
     },
     {
       "kode14": "53080500080038",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 038 RW 013",
-      "A": 3
+      "A": 2
     },
     {
       "kode14": "53080500080039",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA BARAT",
       "sls": "RT 039 RW 013",
-      "A": 7,
-      "C": 1,
-      "F": 3,
-      "G": 1,
-      "H": 2,
-      "I": 1,
-      "M": 1
-    },
-    {
-      "kode14": "53080500080040",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA BARAT",
-      "sls": "RT 040 RW 013",
-      "A": 7
-    },
-    {
-      "kode14": "53080500080041",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA BARAT",
-      "sls": "RT 041 RW 014",
-      "A": 6,
-      "G": 1,
-      "M": 2
+      "A": 2
     },
     {
       "kode14": "53080500160001",
@@ -5636,7 +4523,6 @@
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 01 RW I LINGKUNGAN KOTA BARU TIMUR",
       "C": 1,
-      "L": 1,
       "M": 1
     },
     {
@@ -5644,7 +4530,7 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 02 RW I LINGKUNGAN KOTA BARU TIMUR",
-      "G": 2,
+      "G": 3,
       "M": 1
     },
     {
@@ -5683,8 +4569,8 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 06 RW III LINGKUNGAN KOTA BARU BARAT",
-      "A": 6,
-      "C": 6,
+      "A": 5,
+      "C": 5,
       "G": 3,
       "M": 1
     },
@@ -5702,36 +4588,48 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 08 RW IV LINGKUNGAN KOTA BARU BARAT",
+      "A": 7,
+      "C": 3,
+      "G": 2,
+      "N_O": 1
+    },
+    {
+      "kode14": "53080500160013",
+      "kec": "NUBATUKAN",
+      "desa": "LEWOLEBA SELATAN",
+      "sls": "RT 13 RW VI LINGKUNGAN TUJUH MARET",
       "A": 3,
-      "C": 1,
-      "G": 1
+      "C": 2,
+      "G": 1,
+      "H": 1,
+      "S_U": 1
     },
     {
       "kode14": "53080500160014",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 14 RW VI LINGKUNGAN TUJUH MARET",
-      "A": 2,
+      "A": 3,
       "C": 1,
-      "G": 3
+      "G": 4
     },
     {
       "kode14": "53080500160015",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 15 RW VI LINGKUNGAN TUJUH MARET",
-      "A": 4,
-      "C": 4,
-      "G": 3
+      "A": 5,
+      "C": 5,
+      "G": 4,
+      "M": 1
     },
     {
       "kode14": "53080500160016",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 16 RW VII LINGKUNGAN TUJUH MARET",
-      "A": 7,
-      "C": 1,
-      "G": 2,
+      "A": 3,
+      "G": 3,
       "H": 1
     },
     {
@@ -5739,60 +4637,37 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 17 RW VII LINGKUNGAN TUJUH MARET",
-      "A": 9,
-      "C": 5,
-      "D": 1,
-      "G": 1,
+      "A": 2,
+      "G": 2,
       "H": 1,
-      "M": 3
+      "M": 1
     },
     {
       "kode14": "53080500160018",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 18 RW VII LINGKUNGAN TUJUH MARET",
-      "A": 9,
-      "C": 5,
-      "G": 1,
-      "K": 1,
-      "M": 1
+      "A": 2,
+      "G": 1
     },
     {
       "kode14": "53080500160024",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA SELATAN",
       "sls": "RT 24 RW X LINGKUNGAN KOMAK",
-      "A": 18,
-      "C": 5,
-      "D": 1,
-      "G": 8,
-      "H": 3,
-      "M": 3,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500160025",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA SELATAN",
-      "sls": "RT 25 RW X LINGKUNGAN KOMAK",
-      "A": 5,
-      "F": 1,
-      "G": 2
+      "A": 7,
+      "C": 1,
+      "G": 4,
+      "H": 1,
+      "M": 1
     },
     {
       "kode14": "53080500110001",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 001 RW 001",
-      "A": 7,
-      "G": 16
-    },
-    {
-      "kode14": "53080500110002",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TENGAH",
-      "sls": "RT 002 RW 001",
-      "L": 1
+      "A": 8,
+      "G": 17
     },
     {
       "kode14": "53080500110003",
@@ -5800,7 +4675,7 @@
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 003 RW 001",
       "A": 3,
-      "G": 7,
+      "G": 8,
       "H": 1
     },
     {
@@ -5808,9 +4683,9 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 004 RW 002",
-      "A": 16,
+      "A": 15,
       "C": 1,
-      "G": 17,
+      "G": 16,
       "H": 1
     },
     {
@@ -5818,7 +4693,9 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 006 RW 002",
-      "A": 4,
+      "A": 6,
+      "C": 1,
+      "D": 2,
       "I": 1
     },
     {
@@ -5826,8 +4703,8 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 007 RW 003",
-      "A": 9,
-      "C": 2,
+      "A": 8,
+      "C": 4,
       "G": 3,
       "I": 2,
       "M": 3,
@@ -5838,11 +4715,11 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 009 RW 003",
-      "A": 2,
+      "A": 3,
       "C": 1,
+      "E": 1,
       "G": 3,
-      "I": 2,
-      "L": 1,
+      "I": 3,
       "M": 1
     },
     {
@@ -5860,9 +4737,10 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 011 RW 004",
-      "A": 6,
+      "A": 7,
       "C": 1,
-      "G": 3
+      "G": 4,
+      "I": 1
     },
     {
       "kode14": "53080500110012",
@@ -5879,6 +4757,7 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 013 RW 005",
+      "A": 1,
       "C": 1,
       "G": 5,
       "H": 1,
@@ -5891,9 +4770,10 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 014 RW 005",
-      "C": 1,
-      "G": 1,
+      "C": 2,
+      "G": 3,
       "I": 3,
+      "J": 1,
       "M": 1
     },
     {
@@ -5901,16 +4781,9 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TENGAH",
       "sls": "RT 018 RW 006",
-      "C": 2,
+      "C": 1,
       "G": 1,
       "M": 1
-    },
-    {
-      "kode14": "53080500110020",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TENGAH",
-      "sls": "RT 020 RW 007",
-      "I": 1
     },
     {
       "kode14": "53080500110024",
@@ -5920,7 +4793,7 @@
       "A": 11,
       "C": 2,
       "E": 1,
-      "G": 6,
+      "G": 7,
       "I": 1
     },
     {
@@ -5932,6 +4805,19 @@
       "C": 4,
       "G": 2,
       "M": 2
+    },
+    {
+      "kode14": "53080500110026",
+      "kec": "NUBATUKAN",
+      "desa": "LEWOLEBA TENGAH",
+      "sls": "RT 026 RW 009",
+      "A": 14,
+      "C": 6,
+      "G": 6,
+      "H": 1,
+      "J": 1,
+      "M": 1,
+      "N_O": 2
     },
     {
       "kode14": "53080500110027",
@@ -5957,13 +4843,6 @@
       "M": 3
     },
     {
-      "kode14": "53080500125001",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "BANDAR UDARA",
-      "I": 1
-    },
-    {
       "kode14": "53080500120001",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TIMUR",
@@ -5971,173 +4850,10 @@
       "A": 3
     },
     {
-      "kode14": "53080500120002",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 02 RW 1",
-      "A": 4,
-      "G": 3,
-      "I": 1
-    },
-    {
-      "kode14": "53080500120003",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 03 RW 1",
-      "A": 3,
-      "D": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080500120004",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 04 RW 1",
-      "A": 2,
-      "G": 1,
-      "H": 1,
-      "I": 2
-    },
-    {
-      "kode14": "53080500120005",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 05 RW 1",
-      "A": 6,
-      "C": 1,
-      "I": 2
-    },
-    {
-      "kode14": "53080500120006",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 06 RW 2",
-      "A": 11,
-      "C": 3,
-      "G": 7,
-      "I": 2
-    },
-    {
-      "kode14": "53080500120007",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 07 RW 2",
-      "A": 2,
-      "C": 1
-    },
-    {
-      "kode14": "53080500120008",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 08 RW 2",
-      "A": 5,
-      "C": 1,
-      "G": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080500120009",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 09 RW 2",
-      "A": 6,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080500120010",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 10 RW 2",
-      "A": 14,
-      "C": 13,
-      "F": 1,
-      "G": 38,
-      "H": 2,
-      "I": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500120011",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 11 RW 3",
-      "A": 5,
-      "C": 3,
-      "G": 6,
-      "I": 2,
-      "M": 1
-    },
-    {
       "kode14": "53080500120012",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TIMUR",
       "sls": "RT 12 RW 3",
-      "A": 2,
-      "C": 2,
-      "G": 8,
-      "I": 2,
-      "M": 1
-    },
-    {
-      "kode14": "53080500120013",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 13 RW 3",
-      "A": 4,
-      "C": 2,
-      "G": 2,
-      "I": 2,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500120014",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 14 RW 3",
-      "A": 4,
-      "C": 5,
-      "G": 3,
-      "I": 1,
-      "L": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500120015",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 15 RW 3",
-      "A": 1,
-      "C": 5,
-      "G": 9,
-      "M": 1,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080500120016",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 16 RW 3",
-      "G": 1,
-      "I": 1,
-      "L": 1
-    },
-    {
-      "kode14": "53080500120017",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 17 RW 3",
-      "A": 4,
-      "C": 2,
-      "G": 10,
-      "H": 1,
-      "L": 1
-    },
-    {
-      "kode14": "53080500120019",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 19 RW 4",
       "G": 1
     },
     {
@@ -6145,286 +4861,48 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TIMUR",
       "sls": "RT 21 RW 4",
-      "A": 16,
-      "C": 1,
-      "G": 3,
-      "L": 1
-    },
-    {
-      "kode14": "53080500120022",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 22 RW 4",
-      "A": 8,
-      "G": 5,
-      "H": 4,
-      "M": 1,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080500120023",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 23 RW 4",
-      "A": 13,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080500120024",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 24 RW 4",
-      "A": 18,
-      "F": 1,
-      "G": 3,
-      "H": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500120025",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 25 RW 4",
-      "A": 15
-    },
-    {
-      "kode14": "53080500120026",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 26 RW 5",
-      "A": 17,
-      "C": 1,
-      "F": 1,
-      "G": 4,
-      "H": 3,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500120027",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 27 RW 5",
       "A": 2
-    },
-    {
-      "kode14": "53080500120028",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 28 RW 6",
-      "A": 9,
-      "G": 1
-    },
-    {
-      "kode14": "53080500120029",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 29 RW 6",
-      "A": 3,
-      "G": 1,
-      "L": 1
-    },
-    {
-      "kode14": "53080500120030",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 30 RW 6",
-      "A": 7,
-      "G": 3
-    },
-    {
-      "kode14": "53080500120031",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 31 RW 6",
-      "A": 5,
-      "H": 1,
-      "I": 1
-    },
-    {
-      "kode14": "53080500120032",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 32 RW 5",
-      "A": 8,
-      "C": 2
-    },
-    {
-      "kode14": "53080500120033",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 33 RW 5",
-      "A": 18,
-      "C": 3,
-      "G": 1,
-      "H": 1,
-      "I": 1
-    },
-    {
-      "kode14": "53080500120034",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 34 RW 7",
-      "A": 6,
-      "C": 3,
-      "G": 1,
-      "M": 1
-    },
-    {
-      "kode14": "53080500120035",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 35 RW 7",
-      "A": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080500120036",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 36 RW 7",
-      "A": 9,
-      "C": 2
     },
     {
       "kode14": "53080500120037",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA TIMUR",
       "sls": "RT 37 RW 8",
-      "A": 6,
-      "C": 2,
-      "F": 1,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080500120038",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 38 RW 8",
-      "A": 4,
-      "G": 1,
-      "I": 1
-    },
-    {
-      "kode14": "53080500120040",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 40 RW 8",
-      "A": 4,
-      "I": 2
-    },
-    {
-      "kode14": "53080500120041",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 41 RW 8",
-      "A": 39,
-      "C": 2,
-      "F": 1,
-      "G": 10,
-      "H": 1,
-      "I": 4,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080500120042",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA TIMUR",
-      "sls": "RT 42 RW 8",
-      "A": 11,
-      "C": 1,
-      "G": 11,
-      "H": 2,
-      "I": 3
-    },
-    {
-      "kode14": "53080500095001",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "KOMPLEKS PELABUHAN LEWOLEBA",
-      "L": 1
-    },
-    {
-      "kode14": "53080500092002",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RAWA-RAWA",
-      "A": 5,
-      "C": 2,
-      "G": 6,
-      "I": 2
+      "G": 1
     },
     {
       "kode14": "53080500090001",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 01 RW 1 LINGKUNGAN RAYUAN KELAPA TIMUR",
-      "A": 1,
-      "C": 7,
-      "G": 12,
-      "H": 3,
-      "I": 7,
-      "N_O": 2
+      "C": 4,
+      "G": 8,
+      "H": 2,
+      "I": 3,
+      "N_O": 1
     },
     {
       "kode14": "53080500090002",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 02 RW 1 LINGKUNGAN RAYUAN KELAPA TIMUR",
-      "A": 5,
-      "C": 1,
-      "G": 19,
-      "I": 1
+      "A": 1,
+      "G": 4
     },
     {
       "kode14": "53080500090003",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 03 RW 1 LINGKUNGAN RAYUAN KELAPA TIMUR",
-      "C": 6,
-      "G": 6,
-      "H": 1,
-      "I": 1,
-      "M": 1,
-      "S_U": 1
+      "C": 1,
+      "H": 1
     },
     {
-      "kode14": "53080500090004",
+      "kode14": "53080500090009",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
-      "sls": "RT 04 RW 2 LINGKUNGAN RAYUAN KELAPA TIMUR",
-      "G": 4,
-      "I": 1,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080500090006",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 06 RW 2 LINGKUNGAN RAYUAN KELAPA TIMUR",
-      "L": 1
-    },
-    {
-      "kode14": "53080500090007",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 07 RW 3 LINGKUNGAN RAYUAN KELAPA TENGAH",
-      "A": 6,
-      "C": 6,
-      "D": 1,
-      "G": 26,
-      "H": 3,
-      "I": 3,
-      "N_O": 1,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080500090010",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 10 RW 4 LINGKUNGAN RAYUAN KELAPA TENGAH",
-      "I": 2
+      "sls": "RT 09 RW 4 LINGKUNGAN RAYUAN KELAPA TENGAH",
+      "G": 3
     },
     {
       "kode14": "53080500090011",
@@ -6440,6 +4918,7 @@
       "sls": "RT 12 RW 5 LINGKUNGAN RAYUAN KELAPA BARAT",
       "A": 1,
       "C": 4,
+      "F": 1,
       "G": 4,
       "I": 1
     },
@@ -6470,21 +4949,27 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 16 RW 6 LINGKUNGAN RAYUAN KELAPA BARAT",
-      "A": 16,
+      "A": 8,
       "G": 4,
-      "H": 4,
-      "I": 1
+      "H": 2
     },
     {
       "kode14": "53080500090017",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 17 RW 6 LINGKUNGAN RAYUAN KELAPA BARAT",
-      "A": 13,
+      "A": 11,
       "F": 1,
       "G": 8,
-      "H": 2,
+      "H": 1,
       "I": 1
+    },
+    {
+      "kode14": "53080500090019",
+      "kec": "NUBATUKAN",
+      "desa": "LEWOLEBA UTARA",
+      "sls": "RT 19 RW 7 LINGKUNGAN WOLOKLAUS",
+      "A": 1
     },
     {
       "kode14": "53080500090020",
@@ -6492,41 +4977,19 @@
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 20 RW 7 LINGKUNGAN WOLOKLAUS",
       "A": 1,
-      "G": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080500090023",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 23 RW 8 LINGKUNGAN WOLOKLAUS",
-      "G": 1
-    },
-    {
-      "kode14": "53080500090024",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 24 RW 8 LINGKUNGAN WOLOKLAUS",
-      "A": 14,
       "C": 1,
-      "F": 1,
-      "G": 2,
-      "H": 2,
-      "I": 1
+      "G": 2
     },
     {
       "kode14": "53080500090025",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 25 RW 9 LINGKUNGAN WAIKILOK",
-      "A": 2,
-      "C": 9,
+      "A": 1,
+      "C": 6,
       "F": 1,
-      "G": 6,
-      "H": 2,
-      "I": 1,
+      "G": 1,
       "M": 1,
-      "R": 1,
       "N_O": 1
     },
     {
@@ -6534,93 +4997,33 @@
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 26 RW 9 LINGKUNGAN WAIKILOK",
-      "A": 9,
-      "C": 10,
-      "F": 1,
-      "G": 16,
-      "H": 2,
-      "I": 3,
-      "M": 1
+      "A": 1,
+      "G": 3
     },
     {
       "kode14": "53080500090027",
       "kec": "NUBATUKAN",
       "desa": "LEWOLEBA UTARA",
       "sls": "RT 27 RW 10 LINGKUNGAN WAIKILOK",
-      "A": 19,
-      "C": 5,
-      "G": 8,
-      "H": 3,
-      "I": 3
-    },
-    {
-      "kode14": "53080500090028",
-      "kec": "NUBATUKAN",
-      "desa": "LEWOLEBA UTARA",
-      "sls": "RT 28 RW 10 LINGKUNGAN WAIKOLOK",
       "A": 4,
-      "C": 5,
-      "F": 3,
-      "G": 4,
-      "H": 1,
-      "I": 3,
-      "M": 2,
-      "R": 1
-    },
-    {
-      "kode14": "53080500130001",
-      "kec": "NUBATUKAN",
-      "desa": "LITEULUMADO",
-      "sls": "RT 001 DUSUN 001",
-      "A": 32,
       "C": 3,
-      "F": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080500130002",
-      "kec": "NUBATUKAN",
-      "desa": "LITEULUMADO",
-      "sls": "RT 002 DUSUN 002",
-      "A": 6,
-      "N_O": 1
+      "G": 3,
+      "H": 2,
+      "I": 1
     },
     {
       "kode14": "53080500040001",
       "kec": "NUBATUKAN",
       "desa": "NUBA MADO",
       "sls": "RT 001 DUSUN A",
-      "A": 24,
-      "C": 3,
-      "G": 7,
-      "H": 2
-    },
-    {
-      "kode14": "53080500040002",
-      "kec": "NUBATUKAN",
-      "desa": "NUBA MADO",
-      "sls": "RT 002 DUSUN A",
-      "A": 20,
-      "G": 6,
-      "H": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500040003",
-      "kec": "NUBATUKAN",
-      "desa": "NUBA MADO",
-      "sls": "RT 003 DUSUN A",
-      "A": 26,
-      "C": 3,
-      "G": 6,
-      "H": 1
+      "G": 1
     },
     {
       "kode14": "53080500040004",
       "kec": "NUBATUKAN",
       "desa": "NUBA MADO",
       "sls": "RT 004 DUSUN B",
-      "A": 34,
+      "A": 37,
       "C": 1,
       "G": 4
     },
@@ -6634,76 +5037,43 @@
       "H": 1
     },
     {
-      "kode14": "53080500040006",
-      "kec": "NUBATUKAN",
-      "desa": "NUBA MADO",
-      "sls": "RT 006 DUSUN B",
-      "A": 31,
-      "C": 3,
-      "F": 1,
-      "R": 1
-    },
-    {
-      "kode14": "53080500040007",
-      "kec": "NUBATUKAN",
-      "desa": "NUBA MADO",
-      "sls": "RT 007 DUSUN B",
-      "A": 20,
-      "C": 1,
-      "G": 3,
-      "H": 1,
-      "N_O": 1
-    },
-    {
       "kode14": "53080500140001",
       "kec": "NUBATUKAN",
       "desa": "PADA",
       "sls": "RT 001 DUSUN 1",
-      "A": 31,
-      "C": 9,
-      "F": 2,
-      "G": 11,
-      "H": 3,
-      "J": 1,
-      "S_U": 1
+      "A": 4,
+      "C": 2,
+      "G": 1
     },
     {
       "kode14": "53080500140002",
       "kec": "NUBATUKAN",
       "desa": "PADA",
       "sls": "RT 002 DUSUN 2",
-      "A": 16,
-      "C": 12,
-      "G": 9,
-      "H": 3,
-      "I": 1,
-      "K": 1
+      "G": 1
     },
     {
       "kode14": "53080500140003",
       "kec": "NUBATUKAN",
       "desa": "PADA",
       "sls": "RT 003 DUSUN 1",
-      "A": 6,
-      "C": 2,
-      "G": 3
+      "G": 2
     },
     {
       "kode14": "53080500140004",
       "kec": "NUBATUKAN",
       "desa": "PADA",
       "sls": "RT 004 DUSUN 2",
-      "A": 10,
+      "A": 6,
       "C": 2,
-      "F": 1,
-      "G": 3
+      "G": 1
     },
     {
       "kode14": "53080500140005",
       "kec": "NUBATUKAN",
       "desa": "PADA",
       "sls": "RT 005 DUSUN 3",
-      "A": 20,
+      "A": 13,
       "G": 1
     },
     {
@@ -6712,7 +5082,6 @@
       "desa": "SELANDORO",
       "sls": "RT 003 RW II LINGKUNGAN WANGATOA SELATAN TIMUR",
       "C": 2,
-      "G": 1,
       "H": 1
     },
     {
@@ -6720,12 +5089,13 @@
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 004 RW II LINGKUNGAN WANGATOA SELATAN TIMUR",
-      "A": 6,
-      "G": 3,
+      "A": 4,
+      "C": 2,
+      "G": 4,
       "H": 2,
-      "I": 1,
+      "I": 2,
       "M": 1,
-      "N_O": 1
+      "N_O": 3
     },
     {
       "kode14": "53080500170007",
@@ -6756,7 +5126,9 @@
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 008 RW IV LINGKUNGAN WANGATOA SELATAN TIMUR",
-      "C": 2
+      "A": 2,
+      "C": 6,
+      "G": 1
     },
     {
       "kode14": "53080500170011",
@@ -6777,217 +5149,43 @@
       "G": 4
     },
     {
-      "kode14": "53080500170015",
+      "kode14": "53080500170014",
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
-      "sls": "RT 013 RW V LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 22,
-      "C": 9,
-      "G": 9,
-      "H": 1,
-      "I": 1,
-      "M": 2,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080500170016",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 014 RW VI LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 22,
-      "D": 1,
-      "G": 3,
-      "H": 3
-    },
-    {
-      "kode14": "53080500170017",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 015 RW VI LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 15,
-      "C": 2,
-      "G": 5,
-      "Q": 1
-    },
-    {
-      "kode14": "53080500170018",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 016 RW VI LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 22,
-      "C": 2,
-      "E": 1,
-      "G": 3,
-      "N_O": 2
-    },
-    {
-      "kode14": "53080500170019",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 017 RW VI LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 12,
-      "G": 1,
-      "H": 5,
-      "I": 1,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080500170024",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 021 RW VIII LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 3,
-      "C": 2,
-      "G": 5,
-      "I": 1,
-      "M": 3,
-      "N_O": 3
-    },
-    {
-      "kode14": "53080500170025",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 022 RW VIII LINGKUNGAN WANGATOA SELATAN BARAT",
-      "A": 1,
-      "C": 1,
-      "G": 3,
-      "M": 1,
-      "N_O": 3,
-      "S_U": 1
-    },
-    {
-      "kode14": "53080500170028",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 025 RW IX LINGKUNGAN WANGATOA UTARATIMUR",
-      "A": 5,
-      "C": 2,
-      "G": 1,
-      "H": 1,
-      "M": 8,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080500170029",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 026 RW IX LINGKUNGAN WANGATOA UTARA TIMUR",
-      "A": 2,
-      "C": 2,
-      "G": 2,
-      "H": 1,
-      "M": 3
-    },
-    {
-      "kode14": "53080500170031",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 028 RW X LINGKUNGAN WANGATOA UTARA TIMUR",
-      "M": 1
-    },
-    {
-      "kode14": "53080500170032",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 029 RW X LINGKUNGAN WANGATOA UTARA TIMUR",
-      "C": 2,
-      "F": 1,
-      "G": 15,
-      "H": 1,
-      "M": 1
-    },
-    {
-      "kode14": "53080500170033",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 030 RW X LINGKUNGAN WANGATOA UTARA TIMUR",
-      "A": 3,
-      "G": 4,
-      "M": 1
-    },
-    {
-      "kode14": "53080500170036",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 033 RW XI LINGKUNGAN WANGAOA UTARA BARAT",
-      "A": 3,
-      "G": 4,
-      "I": 1
+      "sls": "RT 012 RW V LINGKUNGAN WANGATOA SELATAN BARAT",
+      "A": 16,
+      "C": 4,
+      "G": 8,
+      "H": 3,
+      "I": 7
     },
     {
       "kode14": "53080500170037",
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 034 RW XI LINGKUNGAN WANGATOA UTARA BARAT",
-      "A": 20,
-      "C": 9,
-      "F": 2,
-      "G": 11,
-      "H": 2,
-      "I": 1
-    },
-    {
-      "kode14": "53080500170038",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 035 RW XI LINGKUNGAN WANGATOA UTARA BARAT",
-      "A": 5,
-      "C": 15,
-      "D": 1,
-      "G": 11,
-      "H": 1,
-      "I": 3
-    },
-    {
-      "kode14": "53080500170039",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 036 RW XII LINGKUNGAN WANGATOA UTARA BARAT",
-      "A": 7,
-      "C": 8,
-      "G": 12,
-      "H": 2,
-      "I": 3
+      "A": 1
     },
     {
       "kode14": "53080500170041",
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 038 RW XII LINGKUNGAN WANGATOA UTARA BARAT",
-      "A": 13,
-      "C": 11,
-      "G": 5,
-      "H": 4,
-      "I": 2,
-      "M": 1
-    },
-    {
-      "kode14": "53080500170042",
-      "kec": "NUBATUKAN",
-      "desa": "SELANDORO",
-      "sls": "RT 039 RW XII LINGKUNGAN WANGATOA UTARA BARAT",
-      "A": 3,
-      "C": 7,
-      "D": 1,
-      "G": 12,
-      "H": 2,
-      "I": 10,
-      "M": 1
+      "C": 1
     },
     {
       "kode14": "53080500170003",
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 040 RW I LINGKUNGAN WANGATOA SELATAN TIMUR",
-      "A": 1,
-      "H": 4
+      "H": 2
     },
     {
       "kode14": "53080500170005",
       "kec": "NUBATUKAN",
       "desa": "SELANDORO",
       "sls": "RT 041 RW II LINGKUNGAN WANGATOA SELATAN TIMUR",
-      "A": 14,
+      "A": 9,
       "C": 3,
       "F": 1,
       "G": 4,
@@ -7061,7 +5259,7 @@
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "BUKIT SABANA",
-      "A": 3,
+      "A": 5,
       "C": 2
     },
     {
@@ -7070,7 +5268,7 @@
       "desa": "WAIJARANG",
       "sls": "RT 1 DUSUN 1",
       "A": 12,
-      "C": 10,
+      "C": 11,
       "H": 2
     },
     {
@@ -7078,8 +5276,8 @@
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "RT 2 DUSUN 2",
-      "A": 13,
-      "C": 6,
+      "A": 18,
+      "C": 10,
       "H": 1
     },
     {
@@ -7087,7 +5285,8 @@
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "RT 3 DUSUN 2",
-      "C": 2,
+      "A": 4,
+      "C": 7,
       "G": 1
     },
     {
@@ -7095,6 +5294,8 @@
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "RT 4 DUSUN 2",
+      "A": 6,
+      "C": 3,
       "G": 1
     },
     {
@@ -7103,9 +5304,9 @@
       "desa": "WAIJARANG",
       "sls": "RT 5 DUSUN 1",
       "A": 17,
-      "C": 15,
+      "C": 16,
       "G": 2,
-      "H": 2
+      "H": 4
     },
     {
       "kode14": "53080500070006",
@@ -7113,16 +5314,17 @@
       "desa": "WAIJARANG",
       "sls": "RT 6 DUSUN 3",
       "A": 3,
-      "C": 6
+      "C": 8,
+      "G": 1
     },
     {
       "kode14": "53080500070007",
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "RT 7 DUSUN 3",
-      "A": 4,
-      "C": 1,
-      "H": 1
+      "A": 10,
+      "C": 4,
+      "H": 2
     },
     {
       "kode14": "53080500070008",
@@ -7140,231 +5342,79 @@
       "kec": "NUBATUKAN",
       "desa": "WAIJARANG",
       "sls": "RT 9 DUSUN 1",
-      "A": 19,
+      "A": 21,
       "C": 4,
       "I": 7
-    },
-    {
-      "kode14": "53080500060001",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 01 DUSUN A",
-      "A": 5,
-      "C": 1,
-      "G": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080500060002",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 02 DUSUN A",
-      "A": 6,
-      "G": 1
     },
     {
       "kode14": "53080500060003",
       "kec": "NUBATUKAN",
       "desa": "WATOKOBU",
       "sls": "RT 03 DUSUN A",
-      "A": 13,
-      "C": 2,
-      "G": 3,
-      "H": 2,
       "N_O": 1
-    },
-    {
-      "kode14": "53080500060004",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 04 DUSUN A",
-      "A": 3
-    },
-    {
-      "kode14": "53080500060005",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 05 DUSUN B",
-      "A": 4,
-      "C": 1,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080500060006",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 06 DUSUN B",
-      "A": 4,
-      "H": 1
-    },
-    {
-      "kode14": "53080500060007",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 07 DUSUN B",
-      "A": 2,
-      "C": 1
-    },
-    {
-      "kode14": "53080500060008",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 08 DUSUN B",
-      "A": 7,
-      "C": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080500060009",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 09 DUSUN",
-      "A": 6,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080500060011",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 11 DUSUN",
-      "M": 1
-    },
-    {
-      "kode14": "53080500060012",
-      "kec": "NUBATUKAN",
-      "desa": "WATOKOBU",
-      "sls": "RT 12 DUSUN A",
-      "A": 1
-    },
-    {
-      "kode14": "53080600160001",
-      "kec": "OMESURI",
-      "desa": "ARAMENGI",
-      "sls": "RT 001 DUSUN I PEUUMA",
-      "A": 16,
-      "C": 5,
-      "G": 1,
-      "H": 1
     },
     {
       "kode14": "53080600160002",
       "kec": "OMESURI",
       "desa": "ARAMENGI",
       "sls": "RT 002 DUSUN I PEUUMA",
-      "A": 28,
-      "C": 5,
-      "G": 1
+      "A": 6
     },
     {
       "kode14": "53080600160003",
       "kec": "OMESURI",
       "desa": "ARAMENGI",
       "sls": "RT 003 DUSUN I PEUUMA",
-      "A": 20,
-      "C": 6,
-      "G": 3,
-      "I": 1
+      "A": 3,
+      "C": 1
     },
     {
       "kode14": "53080600160004",
       "kec": "OMESURI",
       "desa": "ARAMENGI",
       "sls": "RT 004 DUSUN I PEUUMA",
-      "A": 13,
-      "C": 4,
-      "G": 3
+      "A": 8,
+      "C": 2
     },
     {
       "kode14": "53080600160005",
       "kec": "OMESURI",
       "desa": "ARAMENGI",
       "sls": "RT 005 DUSUN II PEU ARA",
-      "A": 24,
-      "C": 2,
-      "G": 4,
-      "H": 1
+      "A": 10,
+      "G": 2
     },
     {
       "kode14": "53080600160006",
       "kec": "OMESURI",
       "desa": "ARAMENGI",
       "sls": "RT 006 DUSUN II PEU ARA",
-      "A": 2,
-      "G": 3
-    },
-    {
-      "kode14": "53080600170002",
-      "kec": "OMESURI",
-      "desa": "BALAURING",
-      "sls": "RT 002 DUSUN I",
-      "A": 8,
-      "I": 1
-    },
-    {
-      "kode14": "53080600170003",
-      "kec": "OMESURI",
-      "desa": "BALAURING",
-      "sls": "RT 003 DUSUN I",
-      "A": 2,
-      "C": 1,
       "G": 1
-    },
-    {
-      "kode14": "53080600170004",
-      "kec": "OMESURI",
-      "desa": "BALAURING",
-      "sls": "RT 004 DUSUN I",
-      "A": 5,
-      "C": 2,
-      "G": 3,
-      "I": 1
-    },
-    {
-      "kode14": "53080600170005",
-      "kec": "OMESURI",
-      "desa": "BALAURING",
-      "sls": "RT 005 DUSUN II",
-      "A": 2
-    },
-    {
-      "kode14": "53080600170007",
-      "kec": "OMESURI",
-      "desa": "BALAURING",
-      "sls": "RT 007 DUSUN II",
-      "A": 1,
-      "C": 2
     },
     {
       "kode14": "53080600170008",
       "kec": "OMESURI",
       "desa": "BALAURING",
       "sls": "RT 008 DUSUN III",
-      "A": 7,
-      "C": 4,
-      "D": 1,
-      "G": 5,
-      "I": 1,
-      "L": 1
+      "A": 2,
+      "G": 1
     },
     {
       "kode14": "53080600170009",
       "kec": "OMESURI",
       "desa": "BALAURING",
       "sls": "RT 009 DUSUN III",
-      "A": 9,
-      "C": 4,
-      "G": 16
+      "A": 3,
+      "G": 2
     },
     {
       "kode14": "53080600170010",
       "kec": "OMESURI",
       "desa": "BALAURING",
       "sls": "RT 010 DUSUN III",
-      "A": 27,
-      "C": 4,
-      "G": 10,
+      "A": 23,
+      "C": 1,
+      "G": 7,
       "I": 2
     },
     {
@@ -7372,9 +5422,9 @@
       "kec": "OMESURI",
       "desa": "BALAURING",
       "sls": "RT 011 DUSUN IV",
-      "A": 36,
-      "C": 3,
-      "G": 9,
+      "A": 34,
+      "C": 2,
+      "G": 8,
       "K": 1
     },
     {
@@ -7382,9 +5432,9 @@
       "kec": "OMESURI",
       "desa": "BALAURING",
       "sls": "RT 012 DUSUN IV",
-      "A": 16,
-      "C": 7,
-      "G": 4
+      "A": 2,
+      "C": 2,
+      "G": 1
     },
     {
       "kode14": "53080600130004",
@@ -7392,34 +5442,17 @@
       "desa": "DOLULOLONG",
       "sls": "RT 004 DUSUN 2",
       "A": 2,
-      "C": 1
-    },
-    {
-      "kode14": "53080600130007",
-      "kec": "OMESURI",
-      "desa": "DOLULOLONG",
-      "sls": "RT 007 DUSUN 3",
-      "A": 3,
+      "C": 1,
       "G": 1
-    },
-    {
-      "kode14": "53080600130008",
-      "kec": "OMESURI",
-      "desa": "DOLULOLONG",
-      "sls": "RT 008 DUSUN 3",
-      "A": 10,
-      "C": 3,
-      "G": 2,
-      "K": 1
     },
     {
       "kode14": "53080600130009",
       "kec": "OMESURI",
       "desa": "DOLULOLONG",
       "sls": "RT 009 DUSUN 3",
-      "A": 22,
+      "A": 17,
       "C": 5,
-      "G": 3
+      "G": 1
     },
     {
       "kode14": "53080600130010",
@@ -7444,53 +5477,34 @@
       "kec": "OMESURI",
       "desa": "DOLULOLONG",
       "sls": "RT 012 DUSUN 4",
-      "A": 49,
-      "C": 7,
+      "A": 34,
+      "C": 5,
       "F": 1,
-      "G": 7
-    },
-    {
-      "kode14": "53080600131001",
-      "kec": "OMESURI",
-      "desa": "DOLULOLONG",
-      "sls": "WILAYAH BERVEGETASI PERTANIAN",
-      "A": 9,
-      "C": 3,
-      "G": 2
-    },
-    {
-      "kode14": "53080600140001",
-      "kec": "OMESURI",
-      "desa": "HINGALAMAMENGI",
-      "sls": "RT 001 DUSUN 1",
-      "A": 1
+      "G": 5
     },
     {
       "kode14": "53080600140004",
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 004 DUSUN 1",
-      "A": 27,
-      "C": 7,
-      "G": 2
+      "A": 3,
+      "G": 1
     },
     {
       "kode14": "53080600140005",
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 005 DUSUN 2",
-      "A": 48,
-      "C": 15,
-      "D": 1,
-      "G": 1
+      "A": 4,
+      "C": 2
     },
     {
       "kode14": "53080600140006",
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 006 DUSUN 2",
-      "A": 38,
-      "C": 7,
+      "A": 28,
+      "C": 5,
       "G": 5,
       "K": 1,
       "N_O": 1
@@ -7500,17 +5514,10 @@
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 007 DUSUN 2",
-      "A": 13,
-      "C": 3,
+      "A": 8,
+      "C": 2,
       "G": 2,
       "H": 1
-    },
-    {
-      "kode14": "53080600140008",
-      "kec": "OMESURI",
-      "desa": "HINGALAMAMENGI",
-      "sls": "RT 008 DUSUN 2",
-      "A": 2
     },
     {
       "kode14": "53080600140011",
@@ -7541,8 +5548,8 @@
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 013 DUSUN 4",
-      "A": 58,
-      "C": 14,
+      "A": 50,
+      "C": 13,
       "G": 3,
       "N_O": 1
     },
@@ -7551,8 +5558,8 @@
       "kec": "OMESURI",
       "desa": "HINGALAMAMENGI",
       "sls": "RT 014 DUSUN 4",
-      "A": 55,
-      "C": 17,
+      "A": 58,
+      "C": 18,
       "G": 3,
       "H": 1,
       "N_O": 1
@@ -7562,149 +5569,55 @@
       "kec": "OMESURI",
       "desa": "HOELEA",
       "sls": "RT 005 DUSUN LEMBA II",
-      "A": 6,
-      "C": 2,
-      "F": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080600120006",
-      "kec": "OMESURI",
-      "desa": "HOELEA",
-      "sls": "RT 006 DUSUN LEMBA II",
-      "A": 17,
-      "C": 4,
-      "F": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080600120007",
-      "kec": "OMESURI",
-      "desa": "HOELEA",
-      "sls": "RT 007 DUSUN LEMBA II",
-      "A": 19,
-      "C": 9,
-      "G": 2,
-      "H": 1
-    },
-    {
-      "kode14": "53080600120008",
-      "kec": "OMESURI",
-      "desa": "HOELEA",
-      "sls": "RT 008 DUSUN LEMBA II",
-      "A": 25,
-      "C": 11,
-      "H": 1,
-      "N_O": 1
+      "A": 1,
+      "C": 1,
+      "F": 1
     },
     {
       "kode14": "53080600120009",
       "kec": "OMESURI",
       "desa": "HOELEA",
       "sls": "RT 009 DUSUN NAPA",
-      "A": 18,
-      "C": 2,
-      "F": 1,
-      "G": 1
+      "A": 6
     },
     {
       "kode14": "53080600120010",
       "kec": "OMESURI",
       "desa": "HOELEA",
       "sls": "RT 010 DUSUN NAPA",
-      "A": 22,
-      "C": 3
-    },
-    {
-      "kode14": "53080600120011",
-      "kec": "OMESURI",
-      "desa": "HOELEA",
-      "sls": "RT 011 DUSUN NAPA",
-      "A": 3,
-      "I": 1
+      "A": 7,
+      "C": 1
     },
     {
       "kode14": "53080600110001",
       "kec": "OMESURI",
       "desa": "HOELEA II",
       "sls": "RT 001 DUSUN A",
-      "A": 5,
-      "C": 3
+      "A": 1
     },
     {
       "kode14": "53080600110002",
       "kec": "OMESURI",
       "desa": "HOELEA II",
       "sls": "RT 002 DUSUN A",
-      "A": 5,
-      "C": 3,
-      "G": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080600110004",
-      "kec": "OMESURI",
-      "desa": "HOELEA II",
-      "sls": "RT 004 DUSUN B",
-      "A": 19,
-      "C": 5
-    },
-    {
-      "kode14": "53080600110005",
-      "kec": "OMESURI",
-      "desa": "HOELEA II",
-      "sls": "RT 005 DUSUN B",
-      "A": 16,
-      "C": 5,
-      "F": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080600110006",
-      "kec": "OMESURI",
-      "desa": "HOELEA II",
-      "sls": "RT 006 DUSUN B",
-      "A": 12,
-      "C": 4,
-      "G": 1
-    },
-    {
-      "kode14": "53080600110007",
-      "kec": "OMESURI",
-      "desa": "HOELEA II",
-      "sls": "RT 007 DUSUN",
-      "A": 11,
-      "C": 3,
-      "F": 1,
-      "G": 2
-    },
-    {
-      "kode14": "53080600110008",
-      "kec": "OMESURI",
-      "desa": "HOELEA II",
-      "sls": "RT 008 DUSUN",
-      "A": 12,
-      "C": 5,
-      "F": 1
+      "A": 1
     },
     {
       "kode14": "53080600110010",
       "kec": "OMESURI",
       "desa": "HOELEA II",
       "sls": "RT 010 DUSUN",
-      "A": 9,
-      "C": 1,
-      "G": 1
+      "A": 2
     },
     {
       "kode14": "53080600180001",
       "kec": "OMESURI",
       "desa": "LEBEWALA",
       "sls": "RT 001 DUSUN 1",
-      "A": 41,
+      "A": 36,
       "C": 4,
       "G": 3,
-      "H": 2
+      "H": 1
     },
     {
       "kode14": "53080600180002",
@@ -7715,116 +5628,64 @@
       "G": 2
     },
     {
-      "kode14": "53080600180003",
-      "kec": "OMESURI",
-      "desa": "LEBEWALA",
-      "sls": "RT 003 DUSUN 2",
-      "A": 5
-    },
-    {
-      "kode14": "53080600180004",
-      "kec": "OMESURI",
-      "desa": "LEBEWALA",
-      "sls": "RT 004 DUSUN 2",
-      "A": 12,
-      "C": 1,
-      "G": 2
-    },
-    {
-      "kode14": "53080600180005",
-      "kec": "OMESURI",
-      "desa": "LEBEWALA",
-      "sls": "RT 005 DUSUN 3",
-      "A": 4
-    },
-    {
-      "kode14": "53080600180006",
-      "kec": "OMESURI",
-      "desa": "LEBEWALA",
-      "sls": "RT 006 DUSUN 3",
-      "A": 3
-    },
-    {
       "kode14": "53080600180007",
       "kec": "OMESURI",
       "desa": "LEBEWALA",
       "sls": "RT 007 DUSUN 4",
-      "A": 49,
-      "C": 4,
-      "G": 5
-    },
-    {
-      "kode14": "53080600180008",
-      "kec": "OMESURI",
-      "desa": "LEBEWALA",
-      "sls": "RT 008 DUSUN 4",
-      "A": 50,
-      "C": 1,
-      "F": 1,
-      "G": 7
+      "A": 7,
+      "C": 2
     },
     {
       "kode14": "53080600020001",
       "kec": "OMESURI",
       "desa": "LEUBATANG",
       "sls": "RT 001 DUSUN I",
-      "A": 55,
-      "C": 20,
-      "G": 4
+      "A": 13,
+      "C": 4
     },
     {
       "kode14": "53080600020002",
       "kec": "OMESURI",
       "desa": "LEUBATANG",
       "sls": "RT 002 DUSUN I",
-      "A": 44,
-      "C": 12,
-      "G": 2,
-      "H": 1
+      "A": 11,
+      "C": 3
     },
     {
       "kode14": "53080600020003",
       "kec": "OMESURI",
       "desa": "LEUBATANG",
       "sls": "RT 003 DUSUN I",
-      "A": 47,
-      "C": 14,
-      "G": 9
+      "A": 2,
+      "G": 1
     },
     {
       "kode14": "53080600020004",
       "kec": "OMESURI",
       "desa": "LEUBATANG",
       "sls": "RT 004 DUSUN II",
-      "A": 6,
-      "C": 2,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080600020005",
       "kec": "OMESURI",
       "desa": "LEUBATANG",
       "sls": "RT 005 DUSUN II",
-      "A": 73,
-      "C": 24,
-      "F": 1,
-      "G": 2
+      "A": 1
     },
     {
       "kode14": "53080600080001",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 001 DUSUN 1",
-      "A": 9,
-      "C": 1,
-      "H": 1
+      "A": 5
     },
     {
       "kode14": "53080600080002",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 002 DUSUN 1",
-      "A": 8,
+      "A": 6,
       "N_O": 1
     },
     {
@@ -7832,471 +5693,147 @@
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 003 DUSUN 1",
-      "A": 32,
-      "G": 1
-    },
-    {
-      "kode14": "53080600080004",
-      "kec": "OMESURI",
-      "desa": "LEUDANUNG",
-      "sls": "RT 004 DUSUN 2",
-      "A": 19,
-      "C": 1
-    },
-    {
-      "kode14": "53080600080005",
-      "kec": "OMESURI",
-      "desa": "LEUDANUNG",
-      "sls": "RT 005 DUSUN 2",
-      "A": 8,
-      "C": 2,
-      "G": 1
+      "A": 1
     },
     {
       "kode14": "53080600080006",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 006 DUSUN 2",
-      "A": 10
+      "A": 3
     },
     {
       "kode14": "53080600080007",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 007 DUSUN 3",
-      "A": 14
+      "A": 2
     },
     {
       "kode14": "53080600080008",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 008 DUSUN 3",
-      "A": 10
+      "A": 3
     },
     {
       "kode14": "53080600080009",
       "kec": "OMESURI",
       "desa": "LEUDANUNG",
       "sls": "RT 009 DUSUN 3",
-      "A": 19,
-      "C": 1
-    },
-    {
-      "kode14": "53080600090007",
-      "kec": "OMESURI",
-      "desa": "LEUWAYANG",
-      "sls": "RT 007 DUSUN RAMU AU",
-      "A": 29,
-      "C": 7,
-      "G": 5,
-      "H": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080600090008",
-      "kec": "OMESURI",
-      "desa": "LEUWAYANG",
-      "sls": "RT 008 DUSUN RAMU AU",
-      "A": 27,
-      "C": 2,
-      "G": 2,
-      "H": 2
+      "A": 14
     },
     {
       "kode14": "53080600090009",
       "kec": "OMESURI",
       "desa": "LEUWAYANG",
       "sls": "RT 009 DUSUN DAHUQ RAMUQ",
-      "A": 44,
-      "C": 9,
-      "G": 1,
-      "H": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080600090010",
-      "kec": "OMESURI",
-      "desa": "LEUWAYANG",
-      "sls": "RT 010 DUSUN DAHUQ RAMUQ",
-      "A": 14,
-      "C": 2,
-      "F": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080600090012",
-      "kec": "OMESURI",
-      "desa": "LEUWAYANG",
-      "sls": "RT 012 DUSUN DAHUQ RAMUQ",
-      "A": 18,
-      "C": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080600090013",
-      "kec": "OMESURI",
-      "desa": "LEUWAYANG",
-      "sls": "RT 013 DUSUN LALE RAMUQ",
-      "A": 5,
-      "C": 1
+      "A": 6,
+      "C": 3
     },
     {
       "kode14": "53080600050001",
       "kec": "OMESURI",
       "desa": "MAHAL",
       "sls": "RT 001 DUSUN I",
-      "A": 31,
+      "A": 26,
       "C": 8,
-      "G": 9
-    },
-    {
-      "kode14": "53080600050002",
-      "kec": "OMESURI",
-      "desa": "MAHAL",
-      "sls": "RT 002 DUSUN I",
-      "A": 41,
-      "C": 20,
-      "G": 18,
-      "H": 2
+      "G": 7
     },
     {
       "kode14": "53080600050003",
       "kec": "OMESURI",
       "desa": "MAHAL",
       "sls": "RT 003 DUSUN II",
-      "A": 3,
-      "G": 1,
-      "L": 1
-    },
-    {
-      "kode14": "53080600050004",
-      "kec": "OMESURI",
-      "desa": "MAHAL",
-      "sls": "RT 004 DUSUN II",
-      "A": 2,
-      "C": 1,
-      "G": 2
+      "A": 7,
+      "C": 2,
+      "H": 1
     },
     {
       "kode14": "53080600060001",
       "kec": "OMESURI",
       "desa": "MAHAL II",
       "sls": "RT 001 DUSUN I",
-      "A": 66,
-      "C": 14,
-      "G": 6
-    },
-    {
-      "kode14": "53080600060002",
-      "kec": "OMESURI",
-      "desa": "MAHAL II",
-      "sls": "RT 002 DUSUN I",
-      "A": 22,
-      "C": 8,
-      "G": 1
-    },
-    {
-      "kode14": "53080600060003",
-      "kec": "OMESURI",
-      "desa": "MAHAL II",
-      "sls": "RT 003 DUSUN I",
-      "A": 11
+      "A": 36,
+      "C": 9,
+      "G": 3
     },
     {
       "kode14": "53080600150001",
       "kec": "OMESURI",
       "desa": "MELUWITING",
       "sls": "RT 001 DUSUN PEU KAOQ",
-      "A": 23,
-      "C": 8,
-      "G": 2
+      "A": 3
     },
     {
       "kode14": "53080600150003",
       "kec": "OMESURI",
       "desa": "MELUWITING",
       "sls": "RT 003 DUSUN NARE LALENG",
-      "A": 53,
-      "C": 3,
-      "G": 4,
-      "I": 1
-    },
-    {
-      "kode14": "53080600150004",
-      "kec": "OMESURI",
-      "desa": "MELUWITING",
-      "sls": "RT 004 DUSUN NARE LALENG",
-      "A": 24,
-      "C": 5,
-      "G": 1,
-      "K": 1
-    },
-    {
-      "kode14": "53080600150005",
-      "kec": "OMESURI",
-      "desa": "MELUWITING",
-      "sls": "RT 005 DUSUN RIANG LALENG",
-      "A": 10,
-      "C": 3
+      "A": 7,
+      "C": 1
     },
     {
       "kode14": "53080600220001",
       "kec": "OMESURI",
       "desa": "MELUWITING I",
       "sls": "RT 001 DUSUN LODO LALENG",
-      "A": 62,
-      "C": 12,
-      "G": 4,
-      "K": 2
-    },
-    {
-      "kode14": "53080600220002",
-      "kec": "OMESURI",
-      "desa": "MELUWITING I",
-      "sls": "RT 002 DUSUN LODO LALENG",
-      "A": 47,
-      "C": 6,
-      "G": 3,
-      "H": 2
+      "A": 16,
+      "C": 3,
+      "K": 1
     },
     {
       "kode14": "53080600220003",
       "kec": "OMESURI",
       "desa": "MELUWITING I",
       "sls": "RT 003 DUSUN RAWA LALENG",
-      "A": 16,
-      "C": 2
-    },
-    {
-      "kode14": "53080600220006",
-      "kec": "OMESURI",
-      "desa": "MELUWITING I",
-      "sls": "RT 006 DUSUN BANGA LALENG",
-      "A": 4
+      "A": 2
     },
     {
       "kode14": "53080600220007",
       "kec": "OMESURI",
       "desa": "MELUWITING I",
       "sls": "RT 007 DUSUN WALANG LALENG",
-      "A": 38,
-      "C": 5,
-      "F": 1,
-      "G": 3,
-      "I": 1
-    },
-    {
-      "kode14": "53080600220008",
-      "kec": "OMESURI",
-      "desa": "MELUWITING I",
-      "sls": "RT 008 DUSUN WALANG LALENG",
-      "A": 22,
-      "C": 1,
-      "G": 2
-    },
-    {
-      "kode14": "53080600010001",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 001 DUSUN I",
-      "A": 49,
-      "F": 1,
-      "G": 5,
-      "H": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080600010002",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 002 DUSUN I",
-      "A": 44,
-      "C": 1,
-      "F": 2,
-      "G": 4
-    },
-    {
-      "kode14": "53080600010003",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 003 DUSUN I",
-      "A": 12,
-      "F": 1,
-      "G": 1,
-      "H": 1,
-      "Q": 1
-    },
-    {
-      "kode14": "53080600010004",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 004 DUSUN II",
-      "A": 7,
-      "F": 1
-    },
-    {
-      "kode14": "53080600010005",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 005 DUSUN II",
-      "A": 4,
-      "G": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080600010006",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 006 DUSUN II",
-      "A": 8,
-      "F": 2
-    },
-    {
-      "kode14": "53080600010007",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 007 DUSUN III",
-      "A": 17,
-      "C": 4,
-      "G": 1
-    },
-    {
-      "kode14": "53080600010008",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 008 DUSUN III",
-      "A": 3,
-      "F": 1
-    },
-    {
-      "kode14": "53080600010012",
-      "kec": "OMESURI",
-      "desa": "NILANAPO",
-      "sls": "RT 010 DUSUN IV",
-      "A": 1,
-      "G": 2
-    },
-    {
-      "kode14": "53080600070001",
-      "kec": "OMESURI",
-      "desa": "NORMAL",
-      "sls": "RT 001 DUSUN 1",
-      "A": 12,
-      "C": 2,
-      "G": 1,
-      "I": 1
-    },
-    {
-      "kode14": "53080600070002",
-      "kec": "OMESURI",
-      "desa": "NORMAL",
-      "sls": "RT 002 DUSUN 1",
-      "A": 8
-    },
-    {
-      "kode14": "53080600070004",
-      "kec": "OMESURI",
-      "desa": "NORMAL",
-      "sls": "RT 004 DUSUN 1",
-      "A": 8,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080600210001",
-      "kec": "OMESURI",
-      "desa": "NORMAL I",
-      "sls": "RT 001 DUSUN 1",
-      "A": 30,
-      "C": 3,
-      "G": 3,
-      "H": 1,
-      "I": 1
-    },
-    {
-      "kode14": "53080600210002",
-      "kec": "OMESURI",
-      "desa": "NORMAL I",
-      "sls": "RT 002 DUSUN 1",
-      "A": 13,
-      "C": 3,
-      "G": 1
-    },
-    {
-      "kode14": "53080600040001",
-      "kec": "OMESURI",
-      "desa": "PEUSAWAH",
-      "sls": "RT 001 DUSUN LEUTUAN",
-      "A": 5,
-      "G": 4,
-      "K": 1
-    },
-    {
-      "kode14": "53080600040002",
-      "kec": "OMESURI",
-      "desa": "PEUSAWAH",
-      "sls": "RT 002 DUSUN LEUTUAN",
-      "A": 17,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080600040003",
-      "kec": "OMESURI",
-      "desa": "PEUSAWAH",
-      "sls": "RT 003 DUSUN LEUTUAN",
-      "A": 6,
-      "C": 1,
-      "H": 1
+      "A": 1
     },
     {
       "kode14": "53080600100001",
       "kec": "OMESURI",
       "desa": "ROMA",
       "sls": "RT 001 DUSUN A",
-      "A": 46,
+      "A": 48,
       "C": 1,
       "G": 3,
       "H": 4,
       "J": 1,
-      "K": 1
+      "K": 1,
+      "N_O": 1
     },
     {
       "kode14": "53080600100002",
       "kec": "OMESURI",
       "desa": "ROMA",
       "sls": "RT 002 DUSUN A",
-      "A": 46,
-      "C": 5,
-      "G": 3,
+      "A": 38,
+      "C": 2,
+      "G": 2,
       "H": 2,
-      "K": 2,
       "N_O": 1
-    },
-    {
-      "kode14": "53080600100004",
-      "kec": "OMESURI",
-      "desa": "ROMA",
-      "sls": "RT 004 DUSUN B",
-      "A": 17,
-      "C": 3
     },
     {
       "kode14": "53080600190001",
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 001 DUSUN I",
-      "A": 10,
-      "C": 2,
-      "G": 1,
-      "I": 1
+      "A": 2,
+      "C": 1
     },
     {
       "kode14": "53080600190002",
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 002 DUSUN I",
-      "A": 22,
+      "A": 23,
       "C": 2,
       "G": 1,
       "I": 1
@@ -8306,8 +5843,8 @@
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 003 DUSUN I",
-      "A": 32,
-      "C": 2,
+      "A": 24,
+      "C": 1,
       "L": 1,
       "M": 1
     },
@@ -8316,7 +5853,7 @@
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 005 DUSUN II",
-      "A": 20,
+      "A": 10,
       "C": 1,
       "G": 1
     },
@@ -8325,24 +5862,17 @@
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 006 DUSUN II",
-      "A": 24,
-      "C": 1
-    },
-    {
-      "kode14": "53080600190007",
-      "kec": "OMESURI",
-      "desa": "WAILOLONG",
-      "sls": "RT 007 DUSUN III",
-      "A": 20,
-      "C": 1
+      "A": 31,
+      "C": 1,
+      "G": 1
     },
     {
       "kode14": "53080600190008",
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 008 DUSUN III",
-      "A": 46,
-      "C": 10,
+      "A": 11,
+      "C": 3,
       "G": 1
     },
     {
@@ -8350,240 +5880,79 @@
       "kec": "OMESURI",
       "desa": "WAILOLONG",
       "sls": "RT 009 DUSUN III",
-      "A": 12,
-      "C": 3
-    },
-    {
-      "kode14": "53080600030001",
-      "kec": "OMESURI",
-      "desa": "WALANGSAWAH",
-      "sls": "RT 001 DUSUN I",
-      "A": 44,
-      "C": 4,
-      "G": 4,
-      "H": 1
-    },
-    {
-      "kode14": "53080600030002",
-      "kec": "OMESURI",
-      "desa": "WALANGSAWAH",
-      "sls": "RT 002 DUSUN I",
-      "A": 10,
-      "C": 1,
-      "G": 2
+      "A": 3,
+      "C": 1
     },
     {
       "kode14": "53080600030003",
       "kec": "OMESURI",
       "desa": "WALANGSAWAH",
       "sls": "RT 003 DUSUN II",
-      "A": 1,
-      "C": 3,
-      "G": 21,
-      "I": 2
-    },
-    {
-      "kode14": "53080600030005",
-      "kec": "OMESURI",
-      "desa": "WALANGSAWAH",
-      "sls": "RT 005 DUSUN III",
-      "A": 21,
       "C": 1,
-      "G": 1,
-      "H": 1
-    },
-    {
-      "kode14": "53080600030006",
-      "kec": "OMESURI",
-      "desa": "WALANGSAWAH",
-      "sls": "RT 006 DUSUN III",
-      "A": 40,
-      "C": 6,
-      "F": 1,
-      "G": 2,
-      "I": 1
-    },
-    {
-      "kode14": "53080600200001",
-      "kec": "OMESURI",
-      "desa": "WOWONG",
-      "sls": "RT 001 DUSUN I LIHA SAIN",
-      "A": 26,
-      "C": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080600200002",
-      "kec": "OMESURI",
-      "desa": "WOWONG",
-      "sls": "RT 002 DUSUN I LIHA SAIN",
-      "A": 8,
-      "R": 1
-    },
-    {
-      "kode14": "53080600200004",
-      "kec": "OMESURI",
-      "desa": "WOWONG",
-      "sls": "RT 004 DUSUN II NIMANG HERING",
-      "A": 6
-    },
-    {
-      "kode14": "53080600200006",
-      "kec": "OMESURI",
-      "desa": "WOWONG",
-      "sls": "RT 006 DUSUN III",
-      "A": 7,
-      "C": 1,
-      "G": 1
+      "G": 27,
+      "I": 3
     },
     {
       "kode14": "53080110110008",
       "kec": "WULANDONI",
       "desa": "ALAP ATADEI",
       "sls": "RT 008 AMA IGO DUSUN WAY NIBA",
-      "A": 12,
-      "C": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080110150002",
-      "kec": "WULANDONI",
-      "desa": "ATAILI",
-      "sls": "RT LEWOTANAH DUSUN ADO WAJO",
-      "A": 33,
-      "C": 4,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080110150001",
-      "kec": "WULANDONI",
-      "desa": "ATAILI",
-      "sls": "RT MALA KALU DUSUN ADO WAJO",
-      "A": 31,
-      "C": 3,
-      "F": 1,
-      "G": 3,
-      "L": 1
-    },
-    {
-      "kode14": "53080110150003",
-      "kec": "WULANDONI",
-      "desa": "ATAILI",
-      "sls": "RT NUBA LERE DUSUN KAE ALI",
-      "A": 37,
-      "C": 3,
-      "H": 1
-    },
-    {
-      "kode14": "53080110150005",
-      "kec": "WULANDONI",
-      "desa": "ATAILI",
-      "sls": "RT SOBA RATU DUSUN KIA SATEL",
-      "A": 47,
-      "C": 2,
-      "F": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080110090007",
-      "kec": "WULANDONI",
-      "desa": "ATAKERA",
-      "sls": "RT 007 DUSUN DEWA ARI",
-      "A": 13,
-      "C": 2,
-      "G": 1
-    },
-    {
-      "kode14": "53080110090008",
-      "kec": "WULANDONI",
-      "desa": "ATAKERA",
-      "sls": "RT 008 DUSUN DEWA ARI",
-      "A": 33,
-      "C": 5,
-      "G": 2
+      "A": 3
     },
     {
       "kode14": "53080110090009",
       "kec": "WULANDONI",
       "desa": "ATAKERA",
       "sls": "RT 009 DUSUN AMA BANGA",
-      "A": 27,
-      "C": 4,
-      "G": 2
-    },
-    {
-      "kode14": "53080110090010",
-      "kec": "WULANDONI",
-      "desa": "ATAKERA",
-      "sls": "RT 010 DUSUN AMA BANGA",
-      "A": 34,
-      "C": 5,
-      "F": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080110090011",
-      "kec": "WULANDONI",
-      "desa": "ATAKERA",
-      "sls": "RT 011 DUSUN AMA BANGA",
-      "A": 24,
-      "C": 1,
-      "G": 1
+      "A": 3,
+      "C": 1
     },
     {
       "kode14": "53080110090012",
       "kec": "WULANDONI",
       "desa": "ATAKERA",
       "sls": "RT 012 DUSUN AMA BANGA",
-      "A": 44,
+      "A": 21,
       "C": 3,
       "G": 2,
-      "H": 1
+      "R": 1
     },
     {
       "kode14": "53080110060008",
       "kec": "WULANDONI",
       "desa": "BELOBAO",
       "sls": "RT 008 DUSUN BERINGIN",
-      "A": 44,
-      "C": 6
+      "A": 26,
+      "C": 4
     },
     {
-      "kode14": "53080110060010",
+      "kode14": "53080110060009",
       "kec": "WULANDONI",
       "desa": "BELOBAO",
-      "sls": "RT 010 DUSUN RITA",
-      "A": 28,
-      "C": 4,
-      "G": 1,
-      "J": 1
+      "sls": "RT 009 DUSUN RITA",
+      "A": 5
     },
     {
       "kode14": "53080110040001",
       "kec": "WULANDONI",
       "desa": "IMULOLONG",
       "sls": "RT 001 DUSUN I",
-      "A": 60,
-      "C": 4,
-      "G": 6,
-      "H": 1,
-      "K": 1,
-      "R": 1
+      "A": 16,
+      "G": 4
     },
     {
       "kode14": "53080110040002",
       "kec": "WULANDONI",
       "desa": "IMULOLONG",
       "sls": "RT 002 DUSUN I",
-      "A": 4,
-      "C": 1
+      "A": 2
     },
     {
       "kode14": "53080110040004",
       "kec": "WULANDONI",
       "desa": "IMULOLONG",
       "sls": "RT 004 DUSUN II",
-      "A": 4,
+      "A": 1,
       "C": 1,
       "G": 1
     },
@@ -8592,42 +5961,15 @@
       "kec": "WULANDONI",
       "desa": "IMULOLONG",
       "sls": "RT 005 DUSUN III",
-      "A": 10,
-      "C": 1
-    },
-    {
-      "kode14": "53080110040006",
-      "kec": "WULANDONI",
-      "desa": "IMULOLONG",
-      "sls": "RT 006 DUSUN III",
-      "A": 35,
-      "C": 2,
-      "G": 3,
-      "H": 1
-    },
-    {
-      "kode14": "53080110040007",
-      "kec": "WULANDONI",
-      "desa": "IMULOLONG",
-      "sls": "RT 007 DUSUN IV",
-      "A": 9,
-      "G": 1
-    },
-    {
-      "kode14": "53080110040008",
-      "kec": "WULANDONI",
-      "desa": "IMULOLONG",
-      "sls": "RT 008 DUSUN IV",
-      "A": 13
+      "A": 2
     },
     {
       "kode14": "53080110020005",
       "kec": "WULANDONI",
       "desa": "LAMALERA A",
       "sls": "RT 005 DUSUN III",
-      "A": 23,
-      "C": 15,
-      "D": 1,
+      "A": 20,
+      "C": 11,
       "F": 3,
       "G": 3,
       "K": 1,
@@ -8638,8 +5980,8 @@
       "kec": "WULANDONI",
       "desa": "LAMALERA A",
       "sls": "RT 006 DUSUN III",
-      "A": 21,
-      "C": 13,
+      "A": 10,
+      "C": 4,
       "G": 1
     },
     {
@@ -8647,38 +5989,26 @@
       "kec": "WULANDONI",
       "desa": "LAMALERA A",
       "sls": "RT 009 DUSUN IV",
-      "A": 24,
-      "C": 4,
-      "D": 1,
-      "G": 1
-    },
-    {
-      "kode14": "53080110020010",
-      "kec": "WULANDONI",
-      "desa": "LAMALERA A",
-      "sls": "RT 010 DUSUN IV",
-      "A": 4,
-      "C": 1
+      "A": 5,
+      "C": 2
     },
     {
       "kode14": "53080110030010",
       "kec": "WULANDONI",
       "desa": "LAMALERA B",
       "sls": "RT 10 DUSUN III",
-      "A": 5,
+      "A": 4,
       "B": 1,
-      "C": 6,
-      "K": 1
+      "C": 6
     },
     {
       "kode14": "53080110030011",
       "kec": "WULANDONI",
       "desa": "LAMALERA B",
       "sls": "RT 11 DUSUN IV",
-      "A": 2,
+      "A": 1,
       "C": 2,
       "G": 10,
-      "H": 1,
       "I": 1
     },
     {
@@ -8686,9 +6016,8 @@
       "kec": "WULANDONI",
       "desa": "LAMALERA B",
       "sls": "RT 7 DUSUN III",
-      "A": 18,
-      "C": 8,
-      "F": 1,
+      "A": 12,
+      "C": 6,
       "H": 1
     },
     {
@@ -8703,154 +6032,65 @@
       "K": 1
     },
     {
-      "kode14": "53080110010001",
-      "kec": "WULANDONI",
-      "desa": "LELATA",
-      "sls": "RT 1 DUSUN I",
-      "A": 4
-    },
-    {
       "kode14": "53080110100001",
       "kec": "WULANDONI",
       "desa": "LEWORAJA",
       "sls": "RT 001 DUSUN LAGA DONI",
-      "A": 33,
-      "C": 9,
-      "D": 1,
-      "G": 3,
-      "K": 1
-    },
-    {
-      "kode14": "53080110100002",
-      "kec": "WULANDONI",
-      "desa": "LEWORAJA",
-      "sls": "RT 002 DUSUN LAGA DONI",
-      "A": 16,
-      "C": 6,
-      "D": 1,
-      "G": 3,
-      "K": 2
-    },
-    {
-      "kode14": "53080110100003",
-      "kec": "WULANDONI",
-      "desa": "LEWORAJA",
-      "sls": "RT 003 DUSUN AL-MUQRABIN",
-      "A": 14,
-      "C": 7,
-      "G": 4,
-      "K": 1
+      "C": 1,
+      "R": 1
     },
     {
       "kode14": "53080110100004",
       "kec": "WULANDONI",
       "desa": "LEWORAJA",
       "sls": "RT 004 DUSUN AL-MUQRABIN",
-      "A": 8,
-      "C": 1,
-      "G": 4
+      "G": 3
+    },
+    {
+      "kode14": "53080110080005",
+      "kec": "WULANDONI",
+      "desa": "PANTAI HARAPAN",
+      "sls": "RT 005 DUSUN 02",
+      "A": 3,
+      "G": 1
     },
     {
       "kode14": "53080110080006",
       "kec": "WULANDONI",
       "desa": "PANTAI HARAPAN",
       "sls": "RT 006 DUSUN 03",
-      "A": 3,
-      "G": 4
+      "A": 2
     },
     {
       "kode14": "53080110080008",
       "kec": "WULANDONI",
       "desa": "PANTAI HARAPAN",
       "sls": "RT 008 DUSUN 03",
-      "A": 14,
-      "C": 3,
-      "D": 2,
-      "G": 9,
-      "I": 1,
-      "N_O": 1,
-      "S_U": 1
+      "D": 1
     },
     {
       "kode14": "53080110080009",
       "kec": "WULANDONI",
       "desa": "PANTAI HARAPAN",
       "sls": "RT 009 DUSUN 04",
-      "A": 17,
-      "C": 3,
-      "D": 1,
-      "G": 19,
-      "K": 1,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080110080010",
-      "kec": "WULANDONI",
-      "desa": "PANTAI HARAPAN",
-      "sls": "RT 010 DUSUN 04",
-      "A": 6,
-      "D": 2,
-      "G": 9
+      "A": 9,
+      "C": 2,
+      "G": 8
     },
     {
       "kode14": "53080110120001",
       "kec": "WULANDONI",
       "desa": "POSIWATU",
       "sls": "RT 001 DUSUN SOGA LEWO",
-      "A": 24,
-      "C": 1,
-      "F": 1,
-      "G": 4,
-      "N_O": 1
+      "A": 8
     },
     {
       "kode14": "53080110120002",
       "kec": "WULANDONI",
       "desa": "POSIWATU",
       "sls": "RT 002 DUSUN SOGA LEWO",
-      "A": 23,
-      "C": 2,
-      "G": 2,
-      "M": 1,
-      "Q": 1
-    },
-    {
-      "kode14": "53080110120003",
-      "kec": "WULANDONI",
-      "desa": "POSIWATU",
-      "sls": "RT 003 DUSUN BALA KOPONG",
-      "A": 7,
-      "C": 1
-    },
-    {
-      "kode14": "53080110120004",
-      "kec": "WULANDONI",
-      "desa": "POSIWATU",
-      "sls": "RT 004 DUSUN BALA KOPONG",
-      "A": 31,
-      "C": 4,
-      "G": 6,
-      "H": 2
-    },
-    {
-      "kode14": "53080110120005",
-      "kec": "WULANDONI",
-      "desa": "POSIWATU",
-      "sls": "RT 005 DUSUN WATO LELA",
       "A": 17,
-      "G": 3
-    },
-    {
-      "kode14": "53080110120006",
-      "kec": "WULANDONI",
-      "desa": "POSIWATU",
-      "sls": "RT 006 DUSUN WATO LELA",
-      "A": 33,
-      "C": 5,
-      "D": 1,
-      "G": 2,
-      "H": 1,
-      "K": 1,
+      "C": 1,
       "M": 1
     },
     {
@@ -8861,179 +6101,77 @@
       "A": 3
     },
     {
-      "kode14": "53080110050006",
-      "kec": "WULANDONI",
-      "desa": "PUOR",
-      "sls": "RT 006 DUSUN II - LAGA WURI",
-      "A": 12,
-      "G": 1,
-      "K": 1
-    },
-    {
       "kode14": "53080110050007",
       "kec": "WULANDONI",
       "desa": "PUOR",
       "sls": "RT 007 DUSUN III - NUBA NARA BURAK",
-      "A": 43,
-      "G": 4,
-      "K": 1,
-      "N_O": 1
+      "A": 2
     },
     {
       "kode14": "53080110050008",
       "kec": "WULANDONI",
       "desa": "PUOR",
       "sls": "RT 008 DUSUN III - NUBA NARA BURAK",
-      "A": 11,
-      "C": 1
-    },
-    {
-      "kode14": "53080110050009",
-      "kec": "WULANDONI",
-      "desa": "PUOR",
-      "sls": "RT 009 DUSUN III - NUBA NARA BURAK",
-      "A": 31,
-      "C": 4,
-      "G": 1
+      "A": 17,
+      "C": 2
     },
     {
       "kode14": "53080110140003",
       "kec": "WULANDONI",
       "desa": "PUOR B",
       "sls": "RT 003 DUSUN B",
-      "A": 60,
-      "C": 5,
-      "D": 2,
-      "G": 6
+      "A": 14,
+      "C": 1,
+      "D": 1,
+      "G": 3
     },
     {
       "kode14": "53080110140005",
       "kec": "WULANDONI",
       "desa": "PUOR B",
       "sls": "RT 005 DUSUN",
-      "A": 43
+      "A": 37
     },
     {
-      "kode14": "53080110130001",
+      "kode14": "53080110130006",
       "kec": "WULANDONI",
       "desa": "TAPOBALI",
-      "sls": "RT 1 DUSUN I",
-      "A": 21,
+      "sls": "RT 6 DUSUN III",
+      "A": 15,
       "C": 1,
-      "F": 1,
-      "G": 3
-    },
-    {
-      "kode14": "53080110130002",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 2 DUSUN I",
-      "A": 12,
-      "C": 2,
-      "N_O": 1
-    },
-    {
-      "kode14": "53080110130003",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 3 DUSUN I",
-      "A": 9,
-      "C": 4
-    },
-    {
-      "kode14": "53080110130004",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 4 DUSUN II",
-      "A": 5
-    },
-    {
-      "kode14": "53080110130005",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 5 DUSUN II",
-      "A": 1,
-      "C": 1
+      "G": 1
     },
     {
       "kode14": "53080110130007",
       "kec": "WULANDONI",
       "desa": "TAPOBALI",
       "sls": "RT 7 DUSUN III",
-      "A": 12,
-      "C": 3,
+      "A": 4,
+      "C": 2,
       "F": 1
-    },
-    {
-      "kode14": "53080110130008",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 8 DUSUN III",
-      "A": 6,
-      "C": 1
-    },
-    {
-      "kode14": "53080110130009",
-      "kec": "WULANDONI",
-      "desa": "TAPOBALI",
-      "sls": "RT 9 DUSUN III",
-      "A": 14,
-      "G": 1
-    },
-    {
-      "kode14": "53080110070006",
-      "kec": "WULANDONI",
-      "desa": "WULANDONI",
-      "sls": "RT 006 DUSUN BALAJ",
-      "A": 33,
-      "C": 3,
-      "G": 2
     },
     {
       "kode14": "53080110070007",
       "kec": "WULANDONI",
       "desa": "WULANDONI",
       "sls": "RT 007 DUSUN BALAJ",
-      "A": 30,
-      "C": 3,
-      "F": 1,
-      "G": 2,
-      "K": 1,
-      "M": 1
-    },
-    {
-      "kode14": "53080110070008",
-      "kec": "WULANDONI",
-      "desa": "WULANDONI",
-      "sls": "RT 008 DUSUN BAKAOR",
-      "A": 35,
+      "A": 2,
       "C": 1
-    },
-    {
-      "kode14": "53080110070009",
-      "kec": "WULANDONI",
-      "desa": "WULANDONI",
-      "sls": "RT 009 DUSUN BAKAOR",
-      "A": 20,
-      "C": 4,
-      "H": 1
     },
     {
       "kode14": "53080110070010",
       "kec": "WULANDONI",
       "desa": "WULANDONI",
       "sls": "RT 010 DUSUN BAKAOR",
-      "A": 32,
-      "G": 2,
-      "H": 2
+      "A": 4,
+      "H": 1
     },
     {
       "kode14": "53080110070012",
       "kec": "WULANDONI",
       "desa": "WULANDONI",
       "sls": "RT 012 DUSUN BAKAOR",
-      "A": 15,
-      "C": 1
+      "A": 2
     }
   ]
 }
