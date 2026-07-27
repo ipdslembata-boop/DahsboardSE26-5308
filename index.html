@@ -465,7 +465,8 @@
     <section id="view-anomali" hidden class="anom-fade space-y-3">
         <div class="flex items-center gap-1 bg-indigo-100 border border-indigo-200 rounded-lg p-1 w-fit shadow-sm">
             <button id="anom-source-tab-fasih" onclick="anomSetSourceTab('fasih')" class="px-4 py-1.5 rounded-md text-xs font-semibold bg-indigo-700 text-white shadow-sm">FASIH</button>
-            <button id="anom-source-tab-sheet" onclick="anomSetSourceTab('sheet')" class="px-4 py-1.5 rounded-md text-xs font-semibold text-indigo-900 hover:bg-indigo-200">Spreadsheet</button>
+            <button id="anom-source-tab-sheet" onclick="anomSetSourceTab('sheet')" class="px-4 py-1.5 rounded-md text-xs font-semibold text-indigo-900 hover:bg-indigo-200">Nilai Tambah</button>
+            <button id="anom-source-tab-aak" onclick="anomSetSourceTab('aak')" class="px-4 py-1.5 rounded-md text-xs font-semibold text-indigo-900 hover:bg-indigo-200">Anggota Keluarga</button>
         </div>
 
         <div id="anom-panel-fasih" class="space-y-3">
@@ -656,16 +657,45 @@
                 </div>
             </div>
 
-            <div id="as-table-card" class="anom-theme-card rounded-xl p-3 sm:p-4">
+            <div id="as-rekap-card" class="anom-theme-card rounded-xl p-3 sm:p-4">
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
                     <div>
-                        <h3 class="font-bold text-white text-base">Detail Anomali Spreadsheet</h3>
-                        <p id="as-table-count" class="text-xs text-white/85">0 kasus</p>
+                        <h3 class="font-bold text-white text-base">Rekap Petugas</h3>
+                        <p id="as-rekap-count" class="text-xs text-white/85">0 petugas</p>
                     </div>
                     <div class="flex items-center gap-2">
                         <button onclick="anomSheetDownload()" class="anom-chip bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Unduh Excel</button>
-                        <button onclick="anomSheetToggleFullscreen()" title="Perbesar tabel" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Perbesar</button>
+                        <button onclick="anomSheetToggleFullscreen('as-rekap-card')" title="Perbesar tabel" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Perbesar</button>
                     </div>
+                </div>
+                <div class="anom-inner-panel rounded-lg overflow-hidden">
+                    <div id="as-rekap-scroll" class="overflow-auto custom-scrollbar" style="max-height:560px">
+                        <table class="w-full text-left border-collapse text-xs anom-table" style="min-width:950px">
+                            <thead class="sticky top-0 z-10">
+                                <tr class="anom-thead text-xs uppercase tracking-wide">
+                                    <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSortRekap('ppl')">PPL <span data-as-rsort="ppl"></span></th>
+                                    <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSortRekap('kecamatan')">Kecamatan <span data-as-rsort="kecamatan"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('sls')">Jumlah SLS <span data-as-rsort="sls"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('assignment')">Assignment Terdampak <span data-as-rsort="assignment"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('kasus')">Jumlah Kasus <span data-as-rsort="kasus"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('belum')">Belum TL <span data-as-rsort="belum"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('sudah')">Sudah TL <span data-as-rsort="sudah"></span></th>
+                                    <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSortRekap('pct')">% TL <span data-as-rsort="pct"></span></th>
+                                </tr>
+                            </thead>
+                            <tbody id="as-rekap-body" class="text-indigo-950"><tr><td colspan="8" class="text-center py-8 text-indigo-200">Buka subtab Nilai Tambah untuk memuat data.</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="as-table-card" class="anom-theme-card rounded-xl p-3 sm:p-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                    <div>
+                        <h3 class="font-bold text-white text-base">Detail Kasus Nilai Tambah</h3>
+                        <p id="as-table-count" class="text-xs text-white/85">0 kasus</p>
+                    </div>
+                    <button onclick="anomSheetToggleFullscreen('as-table-card')" title="Perbesar tabel" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Perbesar</button>
                 </div>
                 <div class="anom-inner-panel rounded-lg overflow-hidden">
                     <div id="as-scroll" class="overflow-auto custom-scrollbar" style="max-height:560px">
@@ -680,12 +710,123 @@
                                     <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSort('kecamatan')">Kecamatan <span data-as-sort="kecamatan"></span></th>
                                     <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSort('desa')">Desa <span data-as-sort="desa"></span></th>
                                     <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSort('kode')">SLS/Sub-SLS <span data-as-sort="kode"></span></th>
-                                    <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSort('petugas')">Petugas <span data-as-sort="petugas"></span></th>
+                                    <th class="py-2 px-2 cursor-pointer" onclick="anomSheetSort('petugas')">PPL <span data-as-sort="petugas"></span></th>
                                     <th class="py-2 px-2 text-center cursor-pointer" onclick="anomSheetSort('status')">Status TL <span data-as-sort="status"></span></th>
                                     <th class="py-2 px-2">Hasil Tindak Lanjut</th>
                                 </tr>
                             </thead>
-                            <tbody id="as-table-body" class="text-indigo-950"><tr><td colspan="11" class="text-center py-8 text-indigo-200">Buka subtab Spreadsheet untuk memuat data.</td></tr></tbody>
+                            <tbody id="as-table-body" class="text-indigo-950"><tr><td colspan="11" class="text-center py-8 text-indigo-200">Buka subtab Nilai Tambah untuk memuat data.</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="anom-panel-aak" hidden class="space-y-3">
+            <div class="anom-theme-card rounded-xl p-3 sm:p-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-5 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-white mb-1">Kecamatan</label>
+                        <select id="aak-filter-kec" onchange="aakOnKecChange()" class="filter-input w-full bg-white border border-indigo-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                            <option value="all">Semua Kecamatan</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-white mb-1">PPL</label>
+                        <select id="aak-filter-ppl" onchange="aakClearSelectedPpl();aakRender()" class="filter-input w-full bg-white border border-indigo-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                            <option value="all">Semua PPL</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-white mb-1">Jenis Anomali</label>
+                        <select id="aak-filter-jenis" onchange="aakRender()" class="filter-input w-full bg-white border border-indigo-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                            <option value="all">Semua Jenis</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-white mb-1">Status Tindak Lanjut</label>
+                        <select id="aak-filter-status" onchange="aakRender()" class="filter-input w-full bg-white border border-indigo-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                            <option value="all">Semua Status</option>
+                            <option value="belum">Belum Ditindaklanjuti</option>
+                            <option value="sudah">Sudah Ditindaklanjuti</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-white mb-1">Pencarian</label>
+                        <input id="aak-search" oninput="aakRender()" type="search" placeholder="Wilayah, petugas, atau nama" class="filter-input w-full bg-white border border-indigo-200 rounded-lg px-3 py-2 text-sm focus:outline-indigo-600">
+                    </div>
+                </div>
+                <div class="flex flex-wrap items-center justify-between gap-2 mt-3">
+                    <div id="aak-source-info" class="text-xs text-white/90">Data anggota keluarga belum dimuat.</div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="aakReset()" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Reset</button>
+                        <button id="aak-refresh-btn" onclick="initAak(true)" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Muat Ulang</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-2.5">
+                <div class="bg-white p-3 rounded-lg border border-indigo-200 shadow-sm"><span class="text-[10px] font-bold text-indigo-600 uppercase">Assignment Terdampak</span><div id="aak-kpi-assignment" class="text-xl font-bold text-indigo-700 mt-2">0</div></div>
+                <div class="bg-white p-3 rounded-lg border border-violet-200 shadow-sm"><span class="text-[10px] font-bold text-violet-600 uppercase">Jumlah Kasus</span><div id="aak-kpi-kasus" class="text-xl font-bold text-violet-700 mt-2">0</div></div>
+                <div class="bg-white p-3 rounded-lg border border-rose-200 shadow-sm"><span class="text-[10px] font-bold text-rose-600 uppercase">Belum TL</span><div id="aak-kpi-belum" class="text-xl font-bold text-rose-700 mt-2">0</div></div>
+                <div class="bg-white p-3 rounded-lg border border-emerald-200 shadow-sm"><span class="text-[10px] font-bold text-emerald-600 uppercase">Sudah TL</span><div id="aak-kpi-sudah" class="text-xl font-bold text-emerald-700 mt-2">0</div></div>
+                <div class="bg-white p-3 rounded-lg border border-amber-200 shadow-sm"><span class="text-[10px] font-bold text-amber-700 uppercase">Persentase TL</span><div id="aak-kpi-pct" class="text-xl font-bold text-amber-700 mt-2">0%</div></div>
+            </div>
+
+            <div id="aak-rekap-card" class="anom-theme-card rounded-xl p-3 sm:p-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                    <div>
+                        <h3 class="font-bold text-white text-base">Rekap Petugas</h3>
+                        <p id="aak-rekap-count" class="text-xs text-white/85">0 petugas</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="aakDownload()" class="anom-chip bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Unduh Excel</button>
+                        <button onclick="aakToggleFullscreen('aak-rekap-card')" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Perbesar</button>
+                    </div>
+                </div>
+                <div class="anom-inner-panel rounded-lg overflow-hidden">
+                    <div id="aak-rekap-scroll" class="overflow-auto custom-scrollbar" style="max-height:560px">
+                        <table class="w-full text-left border-collapse text-xs anom-table" style="min-width:980px">
+                            <thead class="sticky top-0 z-10"><tr class="anom-thead text-xs uppercase tracking-wide">
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortRekap('ppl')">PPL <span data-aak-rsort="ppl"></span></th>
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortRekap('kecamatan')">Kecamatan <span data-aak-rsort="kecamatan"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('sls')">Jumlah SLS <span data-aak-rsort="sls"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('assignment')">Assignment Terdampak <span data-aak-rsort="assignment"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('kasus')">Jumlah Kasus <span data-aak-rsort="kasus"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('belum')">Belum TL <span data-aak-rsort="belum"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('sudah')">Sudah TL <span data-aak-rsort="sudah"></span></th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortRekap('pct')">% TL <span data-aak-rsort="pct"></span></th>
+                            </tr></thead>
+                            <tbody id="aak-rekap-body" class="text-indigo-950"><tr><td colspan="8" class="text-center py-8 text-indigo-200">Buka subtab Anggota Keluarga untuk memuat data.</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div id="aak-detail-card" class="anom-theme-card rounded-xl p-3 sm:p-4">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-3">
+                    <div>
+                        <h3 class="font-bold text-white text-base">Detail Kasus Anggota Keluarga</h3>
+                        <p id="aak-detail-count" class="text-xs text-white/85">0 kasus</p>
+                    </div>
+                    <button onclick="aakToggleFullscreen('aak-detail-card')" class="anom-chip bg-indigo-50 hover:bg-white text-indigo-900 px-3 py-1.5 rounded-lg text-xs font-semibold shadow-sm">Perbesar</button>
+                </div>
+                <div class="anom-inner-panel rounded-lg overflow-hidden">
+                    <div id="aak-detail-scroll" class="overflow-auto custom-scrollbar" style="max-height:560px">
+                        <table class="w-full text-left border-collapse text-xs anom-table" style="min-width:1250px">
+                            <thead class="sticky top-0 z-10"><tr class="anom-thead text-xs uppercase tracking-wide">
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortDetail('jenis')">Jenis <span data-aak-dsort="jenis"></span></th>
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortDetail('kecamatan')">Kecamatan <span data-aak-dsort="kecamatan"></span></th>
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortDetail('desa')">Desa <span data-aak-dsort="desa"></span></th>
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortDetail('kode16')">SLS/Sub-SLS <span data-aak-dsort="kode16"></span></th>
+                                <th class="py-2 px-2 cursor-pointer" onclick="aakSortDetail('ppl')">PPL <span data-aak-dsort="ppl"></span></th>
+                                <th class="py-2 px-2">Kepala Keluarga</th>
+                                <th class="py-2 px-2">Anggota</th>
+                                <th class="py-2 px-2">Ringkasan Anomali</th>
+                                <th class="py-2 px-2 text-center cursor-pointer" onclick="aakSortDetail('status')">Status TL <span data-aak-dsort="status"></span></th>
+                                <th class="py-2 px-2">Hasil TL</th>
+                            </tr></thead>
+                            <tbody id="aak-detail-body" class="text-indigo-950"><tr><td colspan="10" class="text-center py-8 text-indigo-200">Belum ada data.</td></tr></tbody>
                         </table>
                     </div>
                 </div>
@@ -1126,27 +1267,39 @@ let anomSheetLoading = false;
 let anomSheetLoadErrors = [];
 let anomSheetSortKey = 'no';
 let anomSheetSortDir = 1;
+let anomSheetRekapSortKey = 'kasus';
+let anomSheetRekapSortDir = -1;
+let anomSheetSelectedPpl = '';
 let anomSheetChartKec = null;
 let anomSheetChartJenis = null;
 
 function anomSetSourceTab(tab){
-  anomSourceTab = tab === 'sheet' ? 'sheet' : 'fasih';
+  anomSourceTab = ['fasih','sheet','aak'].includes(tab) ? tab : 'fasih';
   const fasihPanel = document.getElementById('anom-panel-fasih');
   const sheetPanel = document.getElementById('anom-panel-sheet');
+  const aakPanel = document.getElementById('anom-panel-aak');
   if(fasihPanel) fasihPanel.hidden = anomSourceTab !== 'fasih';
   if(sheetPanel) sheetPanel.hidden = anomSourceTab !== 'sheet';
-  ['fasih','sheet'].forEach(function(k){
+  if(aakPanel) aakPanel.hidden = anomSourceTab !== 'aak';
+  ['fasih','sheet','aak'].forEach(function(k){
     const btn = document.getElementById('anom-source-tab-'+k);
     if(!btn) return;
     const active = k === anomSourceTab;
     btn.className = 'px-4 py-1.5 rounded-md text-xs font-semibold ' +
       (active ? 'bg-indigo-700 text-white shadow-sm' : 'text-indigo-900 hover:bg-indigo-200');
   });
-  if(anomSourceTab === 'sheet'){
+  if(anomSourceTab === 'aak'){
+    if(!aakLoaded && !aakLoading) initAak(false);
+    else setTimeout(function(){
+      limitTableRows('aak-rekap-scroll',20);
+      limitTableRows('aak-detail-scroll',20);
+    },60);
+  }else if(anomSourceTab === 'sheet'){
     if(!anomSheetLoaded && !anomSheetLoading) initAnomSheet(false);
     else setTimeout(function(){
       if(anomSheetChartKec) anomSheetChartKec.resize();
       if(anomSheetChartJenis) anomSheetChartJenis.resize();
+      limitTableRows('as-rekap-scroll',20);
       limitTableRows('as-scroll',20);
     },60);
   }else{
@@ -1227,9 +1380,13 @@ function anomSheetMapRows(table,source){
     const code14 = anomSheetCode14(o);
     const sls = anomSheetPad(anomSheetValue(o,'SLS'),4) || (code14 ? code14.slice(-4) : '');
     const subsls = anomSheetPad(anomSheetValue(o,'SUBSLS'),2);
-    const ppl = anomSheetValue(o,'PPL');
-    const pml = anomSheetValue(o,'PML');
+    const alloc = aakAssignmentFor(code14,subsls || '0');
+    const ppl = anomSheetValue(o,'PPL') || alloc.ppl;
+    const pml = anomSheetValue(o,'PML') || alloc.pml;
     const name = anomSheetValue(o,'NAMA_USAHA') || anomSheetValue(o,'KEPALA_KELUARGA') || ppl || anomSheetValue(o,'Kategori') || '-';
+    const principal = anomSheetValue(o,'KEPALA_KELUARGA') || name;
+    const assignmentId = anomSheetValue(o,'assignment_id') ||
+      [alloc.code16 || (code14+subsls),principal].join('|').toLowerCase();
     return {
       no:0,
       jenis:source.label,
@@ -1243,9 +1400,10 @@ function anomSheetMapRows(table,source){
       sls:sls,
       subsls:subsls,
       kode14:code14,
+      assignmentId:assignmentId,
       petugas:ppl,
       pml:pml,
-      korwil:anomSheetValue(o,'Korwil'),
+      korwil:anomSheetValue(o,'Korwil') || alloc.korwil,
       hasil:result,
       is_resolved:anomSheetIsResolved(result)
     };
@@ -1350,6 +1508,7 @@ function anomSheetBuildDesaOptions(){
     Array.from(new Set(rows.map(function(r){return r.desa;}).filter(Boolean))).sort());
 }
 function anomSheetOnKecChange(){
+  anomSheetSelectedPpl = '';
   anomSheetBuildDesaOptions();
   anomSheetRender();
 }
@@ -1377,6 +1536,7 @@ function anomSheetReset(){
     const el=document.getElementById(id); if(el) el.value='all';
   });
   const search=document.getElementById('as-search'); if(search) search.value='';
+  anomSheetSelectedPpl='';
   anomSheetBuildDesaOptions();
   const desa=document.getElementById('as-filter-desa'); if(desa) desa.value='all';
   anomSheetRender();
@@ -1400,17 +1560,69 @@ function anomSheetSorted(rows){
     return String(av||'').localeCompare(String(bv||''),'id',{numeric:true,sensitivity:'base'})*dir;
   });
 }
+function anomSheetRekapRows(rows){
+  const groups={};
+  rows.forEach(function(r){
+    const key=r.petugas || '(Belum Terpetakan)';
+    if(!groups[key]) groups[key]={
+      ppl:key,kecamatan:new Set(),slsSet:new Set(),assignmentSet:new Set(),
+      kasus:0,belum:0,sudah:0
+    };
+    const g=groups[key];
+    if(r.kecamatan) g.kecamatan.add(r.kecamatan);
+    if(r.kode14 || r.sls) g.slsSet.add(r.kode14 || r.sls);
+    g.assignmentSet.add(r.assignmentId || [r.kode14,r.subsls,r.nama].join('|'));
+    g.kasus++;
+    if(r.is_resolved) g.sudah++; else g.belum++;
+  });
+  return Object.values(groups).map(function(g){
+    return {
+      ppl:g.ppl,
+      kecamatan:Array.from(g.kecamatan).sort().join(', '),
+      sls:g.slsSet.size,
+      assignment:g.assignmentSet.size,
+      kasus:g.kasus,
+      belum:g.belum,
+      sudah:g.sudah,
+      pct:g.kasus ? g.sudah/g.kasus*100 : 0
+    };
+  });
+}
+function anomSheetSortRows(rows,key,dir){
+  return rows.slice().sort(function(a,b){
+    const av=a[key],bv=b[key];
+    if(typeof av==='number' || typeof bv==='number')
+      return ((Number(av)||0)-(Number(bv)||0))*dir;
+    return String(av||'').localeCompare(String(bv||''),'id',{numeric:true,sensitivity:'base'})*dir;
+  });
+}
+function anomSheetSortRekap(key){
+  if(anomSheetRekapSortKey===key) anomSheetRekapSortDir*=-1;
+  else{ anomSheetRekapSortKey=key; anomSheetRekapSortDir=1; }
+  anomSheetRender();
+}
+function anomSheetSelectPpl(name){
+  anomSheetSelectedPpl=anomSheetSelectedPpl===name?'':name;
+  anomSheetRender();
+  document.getElementById('as-table-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
 function anomSheetRender(){
   if(!anomSheetLoaded) return;
   const rows = anomSheetFiltered();
+  if(anomSheetSelectedPpl && !rows.some(function(r){return r.petugas===anomSheetSelectedPpl;}))
+    anomSheetSelectedPpl='';
   setTxt('as-kpi-total',rows.length);
   setTxt('as-kpi-belum',rows.filter(function(r){return !r.is_resolved;}).length);
   setTxt('as-kpi-sudah',rows.filter(function(r){return r.is_resolved;}).length);
   setTxt('as-kpi-kec',new Set(rows.map(function(r){return r.kecamatan;}).filter(Boolean)).size);
   setTxt('as-kpi-desa',new Set(rows.map(function(r){return r.desa;}).filter(Boolean)).size);
-  setTxt('as-table-count',rows.length+' kasus');
   anomSheetRenderCharts(rows);
-  anomSheetRenderTable(anomSheetSorted(rows));
+  const rekap=anomSheetSortRows(anomSheetRekapRows(rows),anomSheetRekapSortKey,anomSheetRekapSortDir);
+  const detail=anomSheetSelectedPpl
+    ? rows.filter(function(r){return r.petugas===anomSheetSelectedPpl;})
+    : rows;
+  anomSheetRenderRekap(rekap);
+  anomSheetRenderTable(anomSheetSorted(detail));
 }
 function anomSheetGroup(rows,key){
   const out={};
@@ -1450,9 +1662,46 @@ function anomSheetRenderCharts(rows){
   anomSheetChartKec = anomSheetStackedChart('as-chart-kec',anomSheetChartKec,anomSheetGroup(rows,'kecamatan'));
   anomSheetChartJenis = anomSheetStackedChart('as-chart-jenis',anomSheetChartJenis,anomSheetGroup(rows,'jenis'));
 }
+function anomSheetHeat(value,max,color){
+  const alpha=max ? 0.08+(value/max)*0.32 : 0.08;
+  return 'background:rgba('+color+','+alpha.toFixed(2)+')';
+}
+function anomSheetRenderRekap(rows){
+  const body=document.getElementById('as-rekap-body');
+  if(!body) return;
+  setTxt('as-rekap-count',rows.length+' petugas');
+  document.querySelectorAll('[data-as-rsort]').forEach(function(el){
+    el.textContent=el.dataset.asRsort===anomSheetRekapSortKey
+      ? (anomSheetRekapSortDir===1?'▲':'▼') : '';
+  });
+  if(!rows.length){
+    body.innerHTML='<tr><td colspan="8" class="text-center py-8 text-indigo-300">Tidak ada data sesuai filter.</td></tr>';
+    return;
+  }
+  const maxKasus=Math.max.apply(null,rows.map(function(r){return r.kasus;}));
+  const maxBelum=Math.max.apply(null,rows.map(function(r){return r.belum;}));
+  body.innerHTML=rows.map(function(r){
+    const selected=anomSheetSelectedPpl===r.ppl;
+    const pctColor=r.pct>=75?'16,185,129':r.pct>=40?'245,158,11':'244,63,94';
+    return '<tr data-as-ppl="'+anomSheetEsc(r.ppl)+'" class="border-b border-indigo-100 cursor-pointer '+(selected?'bg-indigo-100':'hover:bg-indigo-50')+'">'+
+      '<td class="py-2 px-2 font-semibold text-indigo-900">'+anomSheetEsc(r.ppl)+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.kecamatan||'-')+'</td>'+
+      '<td class="py-2 px-2 text-center">'+r.sls+'</td>'+
+      '<td class="py-2 px-2 text-center">'+r.assignment+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="'+anomSheetHeat(r.kasus,maxKasus,'99,102,241')+'">'+r.kasus+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="'+anomSheetHeat(r.belum,maxBelum,'244,63,94')+'">'+r.belum+'</td>'+
+      '<td class="py-2 px-2 text-center">'+r.sudah+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="background:rgba('+pctColor+',0.18)">'+r.pct.toFixed(1)+'%</td></tr>';
+  }).join('');
+  body.querySelectorAll('[data-as-ppl]').forEach(function(row){
+    row.addEventListener('click',function(){anomSheetSelectPpl(row.getAttribute('data-as-ppl'));});
+  });
+  setTimeout(function(){limitTableRows('as-rekap-scroll',20);},0);
+}
 function anomSheetRenderTable(rows){
   const body=document.getElementById('as-table-body');
   if(!body) return;
+  setTxt('as-table-count',rows.length+' kasus'+(anomSheetSelectedPpl?' | PPL: '+anomSheetSelectedPpl:''));
   document.querySelectorAll('[data-as-sort]').forEach(function(el){
     el.textContent = el.dataset.asSort===anomSheetSortKey ? (anomSheetSortDir===1?'▲':'▼') : '';
   });
@@ -1489,23 +1738,331 @@ function anomSheetRenderTable(rows){
 }
 function anomSheetDownload(){
   if(typeof XLSX==='undefined'){ alert('Library Excel belum tersedia.'); return; }
-  const rows=anomSheetSorted(anomSheetFiltered());
+  const filtered=anomSheetFiltered();
+  const rows=anomSheetSorted(filtered);
+  const rekap=anomSheetSortRows(anomSheetRekapRows(filtered),anomSheetRekapSortKey,anomSheetRekapSortDir);
+  const wb=XLSX.utils.book_new();
+  const rekapData=[['PPL','Kecamatan','Jumlah SLS','Assignment Terdampak','Jumlah Kasus','Belum TL','Sudah TL','Persentase TL']];
+  rekap.forEach(function(r){
+    rekapData.push([r.ppl,r.kecamatan,r.sls,r.assignment,r.kasus,r.belum,r.sudah,r.pct/100]);
+  });
+  const wsRekap=XLSX.utils.aoa_to_sheet(rekapData);
+  wsRekap['!cols']=[{wch:32},{wch:22},{wch:12},{wch:22},{wch:14},{wch:12},{wch:12},{wch:16}];
+  XLSX.utils.book_append_sheet(wb,wsRekap,'Rekap Petugas');
   const data=[['No','Jenis','Nama','Kepala Keluarga','Anomali/Inkonsistensi','Nilai Terkait','Kecamatan','Desa','Kode SLS 14 Digit','SLS','Sub-SLS','PPL','PML','Korwil','Status TL','Hasil Tindak Lanjut']];
   rows.forEach(function(r){
     data.push([r.no,r.jenis,r.nama,r.kepala,r.anomali,r.nilai,r.kecamatan,r.desa,r.kode14,r.sls,r.subsls,r.petugas,r.pml,r.korwil,r.is_resolved?'Sudah TL':'Belum TL',r.hasil]);
   });
   const ws=XLSX.utils.aoa_to_sheet(data);
   ws['!cols']=[{wch:6},{wch:28},{wch:28},{wch:28},{wch:45},{wch:36},{wch:18},{wch:22},{wch:18},{wch:8},{wch:9},{wch:25},{wch:25},{wch:25},{wch:12},{wch:45}];
-  const wb=XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb,ws,'Anomali Spreadsheet');
-  XLSX.writeFile(wb,'anomali_spreadsheet_'+new Date().toISOString().slice(0,10)+'.xlsx');
+  XLSX.utils.book_append_sheet(wb,ws,'Detail Kasus');
+  XLSX.writeFile(wb,'anomali_nilai_tambah_'+new Date().toISOString().slice(0,10)+'.xlsx');
 }
-function anomSheetToggleFullscreen(){
-  const card=document.getElementById('as-table-card');
+function anomSheetToggleFullscreen(id){
+  const card=document.getElementById(id || 'as-table-card');
   if(!card) return;
   if(document.fullscreenElement) document.exitFullscreen();
   else if(card.requestFullscreen) card.requestFullscreen();
 }
+
+// ===================== ANOMALI ANGGOTA KELUARGA =====================
+const AAK_SHEET_ID='1qS5WTu4ZoCClQoXKHNqsNjmc_QeuDSWKyRdb2INiVXU';
+const AAK_SOURCES=[
+  {gid:'0',key:'aak1',label:'Stroke tanpa kesulitan fisik/wicara'},
+  {gid:'1499721376',key:'aak2',label:'Stroke tanpa disabilitas intelektual'}
+];
+let AAK_ALL=[];
+let aakLoaded=false;
+let aakLoading=false;
+let aakSelectedPpl='';
+let aakDuplicateCount=0;
+let aakRekapSortKey='kasus',aakRekapSortDir=-1;
+let aakDetailSortKey='kecamatan',aakDetailSortDir=1;
+
+function aakMaskName(value){
+  const text=String(value||'').trim();
+  if(!text) return '-';
+  return text.split(/\s+/).map(function(part){
+    return part.length<=1 ? part : part.charAt(0)+'***';
+  }).join(' ');
+}
+function aakAssignmentFor(code14,subsls){
+  const code16=String(code14||'')+anomSheetPad(subsls||'0',2);
+  const exact=(Array.isArray(PRELIST_SUBSLS)?PRELIST_SUBSLS:[]).find(function(r){
+    return String(r.kode16||'')===code16;
+  });
+  const sls=SLSASSIGN[String(code14||'')]||{};
+  return {
+    code16:code16,
+    ppl:(exact&&exact.ppl)||sls.ppl||'(Belum Terpetakan)',
+    pml:(exact&&exact.pml)||sls.pml||'',
+    korwil:(exact&&exact.korwil)||sls.korwil||''
+  };
+}
+function aakDetailText(obj,source){
+  if(source.key==='aak1'){
+    return 'Stroke: '+(anomSheetValue(obj,'SAKIT_STROKE')||'-')+
+      '; Kesulitan fisik: '+(anomSheetValue(obj,'DIF_FISIK')||'-')+
+      '; Disabilitas wicara: '+(anomSheetValue(obj,'DIS_WICARA')||'-');
+  }
+  return 'Stroke: '+(anomSheetValue(obj,'SAKIT_STROKE')||'-')+
+    '; Disabilitas intelektual: '+(anomSheetValue(obj,'DIS_INTELEKTUAL')||'-');
+}
+function aakMapRows(table,source){
+  return (table.rows||[]).map(function(row){
+    const obj=anomSheetObject(table,row);
+    const assignmentId=anomSheetValue(obj,'assignment_id');
+    const code14=anomSheetCode14(obj);
+    const subsls=anomSheetPad(anomSheetValue(obj,'SUBSLS')||'0',2);
+    const alloc=aakAssignmentFor(code14,subsls);
+    const hasil=anomSheetValue(obj,'HASIL TINDAK LANJUT')||
+      anomSheetValue(obj,'HASIL KONFIRMASI')||anomSheetValue(obj,'STATUS TL');
+    return {
+      jenis:source.label,
+      sourceKey:source.key,
+      assignmentId:assignmentId,
+      kecamatan:anomSheetValue(obj,'KEC'),
+      desa:anomSheetValue(obj,'DESA'),
+      sls:anomSheetPad(anomSheetValue(obj,'SLS'),4),
+      subsls:subsls,
+      kode14:code14,
+      kode16:alloc.code16,
+      ppl:alloc.ppl,
+      pml:alloc.pml,
+      korwil:alloc.korwil,
+      kepala:anomSheetValue(obj,'KEPALA_KELUARGA'),
+      anggota:anomSheetValue(obj,'NAMA_ANGGOTA_KELUARGA'),
+      detail:aakDetailText(obj,source),
+      hasil:hasil,
+      is_resolved:anomSheetIsResolved(hasil)
+    };
+  }).filter(function(r){return r.assignmentId&&r.kode14&&r.anggota;});
+}
+function aakLoadSource(source){
+  return new Promise(function(resolve,reject){
+    const callback='__aak_'+source.key+'_'+Date.now()+'_'+Math.floor(Math.random()*100000);
+    const script=document.createElement('script');
+    let done=false;
+    const finish=function(){
+      if(done)return;done=true;clearTimeout(timer);
+      try{delete window[callback];}catch(e){window[callback]=undefined;}
+      if(script.parentNode)script.parentNode.removeChild(script);
+    };
+    const timer=setTimeout(function(){finish();reject(new Error('Waktu pemuatan '+source.label+' habis.'));},30000);
+    window[callback]=function(response){
+      if(done)return;
+      if(!response||response.status==='error'||!response.table){
+        finish();reject(new Error('Respons '+source.label+' tidak valid.'));return;
+      }
+      const rows=aakMapRows(response.table,source);finish();resolve(rows);
+    };
+    script.onerror=function(){finish();reject(new Error(source.label+' tidak dapat diakses.'));};
+    const tqx='out:json;responseHandler:'+callback;
+    script.src='https://docs.google.com/spreadsheets/d/'+AAK_SHEET_ID+
+      '/gviz/tq?gid='+encodeURIComponent(source.gid)+'&headers=1&tqx='+encodeURIComponent(tqx)+'&t='+Date.now();
+    document.head.appendChild(script);
+  });
+}
+async function initAak(force){
+  if(aakLoading)return;
+  if(aakLoaded&&!force){aakRender();return;}
+  aakLoading=true;
+  const info=document.getElementById('aak-source-info');
+  const btn=document.getElementById('aak-refresh-btn');
+  if(info)info.textContent='Memuat data anggota keluarga...';
+  if(btn)btn.disabled=true;
+  try{
+    const result=await Promise.allSettled(AAK_SOURCES.map(aakLoadSource));
+    const ok=result.filter(function(r){return r.status==='fulfilled';});
+    const failed=result.map(function(r,i){return {r:r,s:AAK_SOURCES[i]};})
+      .filter(function(x){return x.r.status==='rejected';});
+    if(!ok.length)throw new Error(failed.map(function(x){return x.r.reason.message;}).join(' | '));
+    const raw=ok.map(function(r){return r.value;}).flat();
+    const seen=new Set();
+    AAK_ALL=raw.filter(function(r){
+      const key=[r.sourceKey,r.assignmentId,String(r.anggota).trim().toLowerCase()].join('|');
+      if(seen.has(key))return false;seen.add(key);return true;
+    });
+    aakDuplicateCount=raw.length-AAK_ALL.length;
+    aakLoaded=true;
+    aakBuildOptions();
+    aakRender();
+    const unmapped=AAK_ALL.filter(function(r){return r.ppl==='(Belum Terpetakan)';}).length;
+    if(info)info.textContent='Sumber: AAK1 dan AAK2 | '+AAK_ALL.length+' kasus unik | '+
+      aakDuplicateCount+' duplikat dilewati | '+unmapped+' kasus belum terpetakan'+
+      (failed.length?' | '+failed.length+' sheet gagal':'');
+  }catch(e){
+    aakLoaded=false;AAK_ALL=[];
+    if(info)info.textContent='Gagal memuat data anggota keluarga: '+e.message;
+    const body=document.getElementById('aak-rekap-body');
+    if(body)body.innerHTML='<tr><td colspan="8" class="text-center py-8 text-rose-600">Data gagal dimuat. Klik Muat Ulang.</td></tr>';
+  }finally{
+    aakLoading=false;if(btn)btn.disabled=false;
+  }
+}
+function aakSetOptions(id,label,values){
+  const el=document.getElementById(id);if(!el)return;
+  const cur=el.value;
+  el.innerHTML='<option value="all">'+label+'</option>'+values.map(function(v){
+    return '<option value="'+anomSheetEsc(v)+'">'+anomSheetEsc(v)+'</option>';
+  }).join('');
+  if(Array.from(el.options).some(function(o){return o.value===cur;}))el.value=cur;
+}
+function aakBuildOptions(){
+  aakSetOptions('aak-filter-kec','Semua Kecamatan',
+    Array.from(new Set(AAK_ALL.map(function(r){return r.kecamatan;}).filter(Boolean))).sort());
+  aakBuildPplOptions();
+  aakSetOptions('aak-filter-jenis','Semua Jenis',
+    Array.from(new Set(AAK_ALL.map(function(r){return r.jenis;}))).sort());
+}
+function aakBuildPplOptions(){
+  const kec=document.getElementById('aak-filter-kec')?.value||'all';
+  const rows=kec==='all'?AAK_ALL:AAK_ALL.filter(function(r){return r.kecamatan===kec;});
+  aakSetOptions('aak-filter-ppl','Semua PPL',
+    Array.from(new Set(rows.map(function(r){return r.ppl;}))).sort());
+}
+function aakOnKecChange(){aakSelectedPpl='';aakBuildPplOptions();aakRender();}
+function aakClearSelectedPpl(){aakSelectedPpl='';}
+function aakFiltered(){
+  const kec=document.getElementById('aak-filter-kec')?.value||'all';
+  const ppl=document.getElementById('aak-filter-ppl')?.value||'all';
+  const jenis=document.getElementById('aak-filter-jenis')?.value||'all';
+  const status=document.getElementById('aak-filter-status')?.value||'all';
+  const q=(document.getElementById('aak-search')?.value||'').trim().toLowerCase();
+  return AAK_ALL.filter(function(r){
+    if(kec!=='all'&&r.kecamatan!==kec)return false;
+    if(ppl!=='all'&&r.ppl!==ppl)return false;
+    if(jenis!=='all'&&r.jenis!==jenis)return false;
+    if(status==='belum'&&r.is_resolved)return false;
+    if(status==='sudah'&&!r.is_resolved)return false;
+    if(q&&![r.kecamatan,r.desa,r.ppl,r.kode16,r.kepala,r.anggota].join(' ').toLowerCase().includes(q))return false;
+    return true;
+  });
+}
+function aakRekapRows(rows){
+  const groups={};
+  rows.forEach(function(r){
+    const key=r.ppl;
+    if(!groups[key])groups[key]={ppl:key,kecamatan:new Set(),slsSet:new Set(),assignmentSet:new Set(),kasus:0,belum:0,sudah:0};
+    const g=groups[key];g.kecamatan.add(r.kecamatan);g.slsSet.add(r.kode14);g.assignmentSet.add(r.assignmentId);
+    g.kasus++;if(r.is_resolved)g.sudah++;else g.belum++;
+  });
+  return Object.values(groups).map(function(g){
+    return {ppl:g.ppl,kecamatan:Array.from(g.kecamatan).sort().join(', '),sls:g.slsSet.size,
+      assignment:g.assignmentSet.size,kasus:g.kasus,belum:g.belum,sudah:g.sudah,
+      pct:g.kasus?g.sudah/g.kasus*100:0};
+  });
+}
+function aakSortRows(rows,key,dir){
+  return rows.slice().sort(function(a,b){
+    const av=a[key],bv=b[key];
+    if(typeof av==='number'||typeof bv==='number')return ((Number(av)||0)-(Number(bv)||0))*dir;
+    return String(av||'').localeCompare(String(bv||''),'id',{numeric:true,sensitivity:'base'})*dir;
+  });
+}
+function aakSortRekap(key){
+  if(aakRekapSortKey===key)aakRekapSortDir*=-1;else{aakRekapSortKey=key;aakRekapSortDir=1;}
+  aakRender();
+}
+function aakSortDetail(key){
+  if(aakDetailSortKey===key)aakDetailSortDir*=-1;else{aakDetailSortKey=key;aakDetailSortDir=1;}
+  aakRender();
+}
+function aakSelectPpl(name){
+  aakSelectedPpl=aakSelectedPpl===name?'':name;
+  aakRender();
+  document.getElementById('aak-detail-card')?.scrollIntoView({behavior:'smooth',block:'start'});
+}
+function aakReset(){
+  ['aak-filter-kec','aak-filter-ppl','aak-filter-jenis','aak-filter-status'].forEach(function(id){
+    const el=document.getElementById(id);if(el)el.value='all';
+  });
+  const q=document.getElementById('aak-search');if(q)q.value='';
+  aakSelectedPpl='';aakBuildPplOptions();aakRender();
+}
+function aakRender(){
+  if(!aakLoaded)return;
+  const rows=aakFiltered();
+  const assignments=new Set(rows.map(function(r){return r.assignmentId;})).size;
+  const sudah=rows.filter(function(r){return r.is_resolved;}).length;
+  setTxt('aak-kpi-assignment',assignments);setTxt('aak-kpi-kasus',rows.length);
+  setTxt('aak-kpi-belum',rows.length-sudah);setTxt('aak-kpi-sudah',sudah);
+  setTxt('aak-kpi-pct',rows.length?(sudah/rows.length*100).toFixed(1)+'%':'0%');
+  const rekap=aakSortRows(aakRekapRows(rows),aakRekapSortKey,aakRekapSortDir);
+  const detail=aakSortRows(aakSelectedPpl?rows.filter(function(r){return r.ppl===aakSelectedPpl;}):rows,
+    aakDetailSortKey,aakDetailSortDir);
+  aakRenderRekap(rekap);aakRenderDetail(detail);
+}
+function aakHeat(value,max,color){
+  const alpha=max?0.08+(value/max)*0.32:0.08;
+  return 'background:rgba('+color+','+alpha.toFixed(2)+')';
+}
+function aakRenderRekap(rows){
+  const body=document.getElementById('aak-rekap-body');if(!body)return;
+  setTxt('aak-rekap-count',rows.length+' petugas');
+  document.querySelectorAll('[data-aak-rsort]').forEach(function(el){
+    el.textContent=el.dataset.aakRsort===aakRekapSortKey?(aakRekapSortDir===1?'▲':'▼'):'';
+  });
+  if(!rows.length){body.innerHTML='<tr><td colspan="8" class="text-center py-8 text-indigo-200">Tidak ada data sesuai filter.</td></tr>';return;}
+  const maxKasus=Math.max.apply(null,rows.map(function(r){return r.kasus;}));
+  const maxBelum=Math.max.apply(null,rows.map(function(r){return r.belum;}));
+  body.innerHTML=rows.map(function(r){
+    const selected=aakSelectedPpl===r.ppl;
+    const pctColor=r.pct>=75?'16,185,129':r.pct>=40?'245,158,11':'244,63,94';
+    return '<tr data-aak-ppl="'+anomSheetEsc(r.ppl)+'" class="border-b border-indigo-100 cursor-pointer '+(selected?'bg-indigo-100':'hover:bg-indigo-50')+'">'+
+      '<td class="py-2 px-2 font-semibold text-indigo-900">'+anomSheetEsc(r.ppl)+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.kecamatan)+'</td>'+
+      '<td class="py-2 px-2 text-center">'+r.sls+'</td><td class="py-2 px-2 text-center">'+r.assignment+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="'+aakHeat(r.kasus,maxKasus,'99,102,241')+'">'+r.kasus+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="'+aakHeat(r.belum,maxBelum,'244,63,94')+'">'+r.belum+'</td>'+
+      '<td class="py-2 px-2 text-center">'+r.sudah+'</td>'+
+      '<td class="py-2 px-2 text-center font-semibold" style="background:rgba('+pctColor+',0.18)">'+r.pct.toFixed(1)+'%</td></tr>';
+  }).join('');
+  body.querySelectorAll('[data-aak-ppl]').forEach(function(row){
+    row.addEventListener('click',function(){aakSelectPpl(row.getAttribute('data-aak-ppl'));});
+  });
+  setTimeout(function(){limitTableRows('aak-rekap-scroll',20);},0);
+}
+function aakRenderDetail(rows){
+  const body=document.getElementById('aak-detail-body');if(!body)return;
+  setTxt('aak-detail-count',rows.length+' kasus'+(aakSelectedPpl?' | PPL: '+aakSelectedPpl:''));
+  document.querySelectorAll('[data-aak-dsort]').forEach(function(el){
+    el.textContent=el.dataset.aakDsort===aakDetailSortKey?(aakDetailSortDir===1?'▲':'▼'):'';
+  });
+  if(!rows.length){body.innerHTML='<tr><td colspan="10" class="text-center py-8 text-indigo-200">Tidak ada detail sesuai filter.</td></tr>';return;}
+  body.innerHTML=rows.map(function(r){
+    const badge=r.is_resolved?'<span class="px-2 py-1 rounded bg-emerald-100 text-emerald-700 font-semibold">Sudah TL</span>':
+      '<span class="px-2 py-1 rounded bg-rose-100 text-rose-700 font-semibold">Belum TL</span>';
+    return '<tr class="border-b border-indigo-100 hover:bg-indigo-50">'+
+      '<td class="py-2 px-2 font-semibold text-indigo-700">'+anomSheetEsc(r.jenis)+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.kecamatan)+'</td><td class="py-2 px-2">'+anomSheetEsc(r.desa)+'</td>'+
+      '<td class="py-2 px-2 font-mono">'+anomSheetEsc(r.sls+'/'+r.subsls)+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.ppl)+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(aakMaskName(r.kepala))+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(aakMaskName(r.anggota))+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.detail)+'</td><td class="py-2 px-2 text-center">'+badge+'</td>'+
+      '<td class="py-2 px-2">'+anomSheetEsc(r.hasil||'-')+'</td></tr>';
+  }).join('');
+  setTimeout(function(){limitTableRows('aak-detail-scroll',20);},0);
+}
+function aakDownload(){
+  if(typeof XLSX==='undefined'){alert('Library Excel belum tersedia.');return;}
+  const rows=aakFiltered(),rekap=aakRekapRows(rows);
+  const wb=XLSX.utils.book_new();
+  const rdata=[['PPL','Kecamatan','Jumlah SLS','Assignment Terdampak','Jumlah Kasus','Belum TL','Sudah TL','Persentase TL']];
+  rekap.forEach(function(r){rdata.push([r.ppl,r.kecamatan,r.sls,r.assignment,r.kasus,r.belum,r.sudah,r.pct/100]);});
+  const wsR=XLSX.utils.aoa_to_sheet(rdata);wsR['!cols']=[{wch:32},{wch:22},{wch:12},{wch:22},{wch:14},{wch:12},{wch:12},{wch:16}];
+  const ddata=[['Jenis','Kecamatan','Desa','SLS','Sub-SLS','PPL','Kepala Keluarga (disamarkan)','Anggota (disamarkan)','Ringkasan Anomali','Status TL','Hasil TL']];
+  rows.forEach(function(r){ddata.push([r.jenis,r.kecamatan,r.desa,r.sls,r.subsls,r.ppl,aakMaskName(r.kepala),aakMaskName(r.anggota),r.detail,r.is_resolved?'Sudah TL':'Belum TL',r.hasil]);});
+  const wsD=XLSX.utils.aoa_to_sheet(ddata);wsD['!cols']=[{wch:38},{wch:18},{wch:22},{wch:8},{wch:10},{wch:30},{wch:28},{wch:28},{wch:60},{wch:12},{wch:35}];
+  XLSX.utils.book_append_sheet(wb,wsR,'Rekap Petugas');XLSX.utils.book_append_sheet(wb,wsD,'Detail Kasus');
+  XLSX.writeFile(wb,'anomali_anggota_keluarga_'+new Date().toISOString().slice(0,10)+'.xlsx');
+}
+function aakToggleFullscreen(id){
+  const card=document.getElementById(id);if(!card)return;
+  if(document.fullscreenElement)document.exitFullscreen();else if(card.requestFullscreen)card.requestFullscreen();
+}
+// ===================== /ANOMALI ANGGOTA KELUARGA =====================
 
 const ANOMALI_URL = "https://raw.githubusercontent.com/ipdslembata-boop/DahsboardSE26-5308/main/anomali.json";
 let ANOM_ALL = [];
@@ -1567,10 +2124,15 @@ function switchView(v){
   var on='bg-white text-indigo-800 shadow-sm', off='text-indigo-100 hover:bg-indigo-700/60';
   Object.keys(views).forEach(function(kk){ var el=document.getElementById(views[kk]); var b=document.getElementById(btns[kk]); if(!el||!b) return; var act=(kk===v); el.hidden=!act; if(act) el.classList.add('anom-fade'); b.className='anom-tabbtn px-6 py-2 rounded-md text-xs sm:text-sm font-semibold '+(act?on:off); });
   if(v==='anomali'){ setTimeout(function(){
-    if(anomSourceTab==='sheet'){
+    if(anomSourceTab==='aak'){
+      if(!aakLoaded && !aakLoading) initAak(false);
+      limitTableRows('aak-rekap-scroll',20);
+      limitTableRows('aak-detail-scroll',20);
+    }else if(anomSourceTab==='sheet'){
       if(!anomSheetLoaded && !anomSheetLoading) initAnomSheet(false);
       if(anomSheetChartKec) anomSheetChartKec.resize();
       if(anomSheetChartJenis) anomSheetChartJenis.resize();
+      limitTableRows('as-rekap-scroll',20);
       limitTableRows('as-scroll',20);
     }else{
       if(!anomFasihLoaded && !anomFasihLoading) initAnomali();
