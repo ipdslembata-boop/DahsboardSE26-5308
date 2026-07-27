@@ -1150,6 +1150,7 @@ function anomSetSourceTab(tab){
       limitTableRows('as-scroll',20);
     },60);
   }else{
+    if(!anomFasihLoaded && !anomFasihLoading) initAnomali();
     setTimeout(function(){
       if(anomChartKec) anomChartKec.resize();
       if(anomChartJenis) anomChartJenis.resize();
@@ -1516,6 +1517,8 @@ let anomStatusFilter = 'all';   // status filter (klik KPI), pengganti <select>
 let anomKpiFilter = null;
 let anomChartKec = null, anomChartJenis = null;
 let anomXChartKec = null, anomXChartJenis = null;
+let anomFasihLoaded = false;
+let anomFasihLoading = false;
 const ANOM_PALETTE = ['#312e81','#4338ca','#6366f1','#4f46e5','#7c3aed','#a78bfa','#2563eb','#3730a3','#8b5cf6','#1e1b4b','#312e81','#6d28d9'];
 const ANOM_COLOR_MAP = {};      // nama anomali -> warna tetap (konsisten di semua chart)
 
@@ -1565,10 +1568,12 @@ function switchView(v){
   Object.keys(views).forEach(function(kk){ var el=document.getElementById(views[kk]); var b=document.getElementById(btns[kk]); if(!el||!b) return; var act=(kk===v); el.hidden=!act; if(act) el.classList.add('anom-fade'); b.className='anom-tabbtn px-6 py-2 rounded-md text-xs sm:text-sm font-semibold '+(act?on:off); });
   if(v==='anomali'){ setTimeout(function(){
     if(anomSourceTab==='sheet'){
+      if(!anomSheetLoaded && !anomSheetLoading) initAnomSheet(false);
       if(anomSheetChartKec) anomSheetChartKec.resize();
       if(anomSheetChartJenis) anomSheetChartJenis.resize();
       limitTableRows('as-scroll',20);
     }else{
+      if(!anomFasihLoaded && !anomFasihLoading) initAnomali();
       if(typeof anomChartKec!=='undefined'&&anomChartKec) anomChartKec.resize();
       if(typeof anomChartJenis!=='undefined'&&anomChartJenis) anomChartJenis.resize();
       limitTableRows('anom-scroll',20);
@@ -1579,17 +1584,24 @@ function switchView(v){
 }
 
 async function initAnomali(){
+  if(anomFasihLoading) return;
+  anomFasihLoading = true;
   const lbl = document.getElementById('anom-source-label');
+  if(lbl) lbl.textContent = 'Memuat data anomali FASIH...';
   try{
     const r = await fetch(ANOMALI_URL + (ANOMALI_URL.includes('?')?'&':'?') + 't=' + Date.now());
     if(!r.ok) throw new Error('HTTP '+r.status);
     const j = await r.json();
     ANOM_META = j;
     ANOM_ALL = Array.isArray(j) ? j : (j.data || []);
+    anomFasihLoaded = true;
     if(lbl) lbl.textContent = 'Sumber: Dashboard SE2026 • ' + (j.generated_label || '—') + ' • ' + ANOM_ALL.length + ' kasus';
   }catch(e){
     ANOM_ALL = [];
-    if(lbl) lbl.innerHTML = '<span class="text-rose-500">Gagal memuat anomali.json ('+e.message+'). Pastikan file sudah di-upload ke GitHub.</span>';
+    anomFasihLoaded = false;
+    if(lbl) lbl.innerHTML = '<span class="text-rose-500">Gagal memuat anomali.json ('+esc(e.message)+'). Klik tab FASIH untuk mencoba lagi.</span>';
+  }finally{
+    anomFasihLoading = false;
   }
   // pre-assign warna konsisten per nama anomali (urut nama)
   [...new Set(ANOM_ALL.map(r=>r.anomali).filter(Boolean))].sort().forEach(anomColorFor);
@@ -1982,8 +1994,14 @@ const FASIH_TANGGAL = "27 Juli 2026 pukul 20.53 WITA (FASIH)";
 window.addEventListener('DOMContentLoaded', () => {
     const el=document.getElementById('sync-timestamp');
     if(el){ el.innerText=FASIH_TANGGAL; el.className='text-[11px] sm:text-sm font-semibold text-emerald-400 max-w-[120px] sm:max-w-none truncate'; }
-    initDashboard();
-    initAnomali();
+    try{
+      initDashboard();
+    }catch(e){
+      console.error('Inisialisasi menu Progres gagal:', e);
+    }
+    initAnomali().catch(function(e){
+      console.error('Inisialisasi menu Anomali gagal:', e);
+    });
 });
 window.fetchData = function(){ location.reload(); };
 
