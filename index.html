@@ -924,7 +924,15 @@
     
 <section id="view-jumlahusaha" hidden class="anom-fade">
 <div class="max-w-7xl mx-auto px-3 py-4 space-y-3">
-<div class="inline-flex bg-white border border-indigo-200 rounded-lg p-0.5 text-xs font-bold shadow-sm"><button id="ju-subtab-datakosong" type="button" onclick="juSetSubtab('datakosong')" class="px-3 py-1.5 rounded-md transition bg-indigo-600 text-white shadow-sm">Indikator</button><button id="ju-subtab-kbli" type="button" onclick="juSetSubtab('kbli')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Kategori KBLI</button><button id="ju-subtab-pn" type="button" onclick="juSetSubtab('pn')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Perbandingan SE2026 &middot; ST2023</button><button id="ju-subtab-desa" type="button" onclick="juSetSubtab('desa')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Perbandingan SE2026</button></div>
+<div class="overflow-x-auto custom-scrollbar">
+<div class="inline-flex min-w-max bg-white border border-indigo-200 rounded-lg p-0.5 text-xs font-bold shadow-sm">
+<button id="ju-subtab-datakosong" type="button" onclick="juSetSubtab('datakosong')" class="px-3 py-1.5 rounded-md transition bg-indigo-600 text-white shadow-sm">Indikator</button>
+<button id="ju-subtab-kbli" type="button" onclick="juSetSubtab('kbli')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Kategori KBLI</button>
+<button id="ju-subtab-pn" type="button" onclick="juSetSubtab('pn')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Perbandingan SE2026 &middot; ST2023</button>
+<button id="ju-subtab-desa" type="button" onclick="juSetSubtab('desa')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Perbandingan SE2026</button>
+<button id="ju-subtab-penduduk" type="button" onclick="juSetSubtab('penduduk')" class="px-3 py-1.5 rounded-md transition text-slate-600 hover:bg-slate-100 hover:text-indigo-700">Perbandingan Penduduk</button>
+</div>
+</div>
 <div id="ju-panel-detail" hidden>
 <div class="grid grid-cols-4 gap-1.5 sm:gap-2"><div class="bg-white rounded-lg border border-indigo-200 p-1.5 sm:p-2 shadow-xs"><div class="text-[8px] sm:text-[9px] font-bold leading-tight text-indigo-700 uppercase tracking-wide">Total Usaha (Σ jumlah usaha)</div><div id="ju-kpi-total" class="text-base sm:text-xl font-extrabold text-indigo-700 mt-0.5">–</div></div><div class="bg-white rounded-lg border border-indigo-200 p-1.5 sm:p-2 shadow-xs"><div class="text-[8px] sm:text-[9px] font-bold leading-tight text-emerald-700 uppercase tracking-wide">Punya Usaha (≥1)</div><div id="ju-kpi-punya" class="text-base sm:text-xl font-extrabold text-emerald-700 mt-0.5">–</div></div><div class="bg-white rounded-lg border border-indigo-200 p-1.5 sm:p-2 shadow-xs"><div class="text-[8px] sm:text-[9px] font-bold leading-tight text-slate-700 uppercase tracking-wide">Bangunan Kosong</div><div id="ju-kpi-kosong" class="text-base sm:text-xl font-extrabold text-slate-700 mt-0.5">–</div></div><div class="bg-white rounded-lg border border-amber-200 p-1.5 sm:p-2 shadow-xs"><div class="text-[7px] sm:text-[8px] font-bold leading-snug text-amber-700">Tidak Ditemukan / Kode Keberadaan Keluarga Selain Kode 1</div><div id="ju-kpi-tidakditemukan" class="text-base sm:text-xl font-extrabold text-amber-700 mt-0.5">–</div></div></div>
 <div id="ju-freshness" class="text-[10px] font-semibold text-indigo-700 mt-1.5"></div>
@@ -1115,6 +1123,40 @@
 <th data-sort="selst" class="px-1 py-2 text-center font-semibold text-indigo-800 whitespace-normal leading-tight cursor-pointer select-none hover:bg-indigo-100">Selisih vs ST2023<span class="pn-arrow text-indigo-500"></span></th>
 </tr></thead>
 <tbody id="pn-tbody"></tbody>
+</table>
+</div>
+</div>
+</div>
+<div id="pend-panel" hidden>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-2">
+<div class="bg-white rounded-lg border border-indigo-200 p-3 shadow-xs"><div class="text-[10px] font-bold text-indigo-600 uppercase tracking-wide">Jumlah Penduduk</div><div id="pend-kpi-total" class="text-2xl font-extrabold text-indigo-800 mt-1">-</div></div>
+<div class="bg-white rounded-lg border border-emerald-200 p-3 shadow-xs"><div class="text-[10px] font-bold text-emerald-700 uppercase tracking-wide">Keberadaan Kode 1</div><div id="pend-kpi-kode1" class="text-2xl font-extrabold text-emerald-700 mt-1">-</div></div>
+<div class="bg-white rounded-lg border border-amber-200 p-3 shadow-xs"><div class="text-[10px] font-bold text-amber-700 uppercase tracking-wide">Keberadaan Kode 5</div><div id="pend-kpi-kode5" class="text-2xl font-extrabold text-amber-700 mt-1">-</div></div>
+<div class="bg-white rounded-lg border border-rose-200 p-3 shadow-xs"><div class="text-[10px] font-bold text-rose-700 uppercase tracking-wide">% Kode 5</div><div id="pend-kpi-pct5" class="text-2xl font-extrabold text-rose-700 mt-1">-</div></div>
+</div>
+<div class="bg-white rounded-lg border border-indigo-200 p-3 shadow-xs mt-3">
+<div class="flex flex-wrap items-end gap-2">
+<div class="shrink-0"><div class="block text-[10px] font-bold text-indigo-600 uppercase mb-0.5">Level Tabel</div><div class="inline-flex rounded-md bg-slate-100 p-0.5" role="group" aria-label="Level tabel penduduk"><button id="pend-mode-subsls" type="button" onclick="pendSetMode('subsls')" class="px-3 py-1.5 rounded text-xs font-bold bg-white text-indigo-700 shadow-sm">Sub-SLS</button><button id="pend-mode-desa" type="button" onclick="pendSetMode('desa')" class="px-3 py-1.5 rounded text-xs font-bold text-slate-600">Desa</button></div></div>
+<div class="shrink-0"><label class="block text-[10px] font-bold text-indigo-600 uppercase mb-0.5" for="pend-f-kec">Kecamatan</label><select id="pend-f-kec" class="text-xs border border-indigo-200 rounded-md px-2 py-1.5 bg-white focus:outline-indigo-500 min-w-[140px]"><option value="">Semua kecamatan</option></select></div>
+<div class="shrink-0"><label class="block text-[10px] font-bold text-indigo-600 uppercase mb-0.5" for="pend-f-desa">Desa</label><select id="pend-f-desa" class="text-xs border border-indigo-200 rounded-md px-2 py-1.5 bg-white focus:outline-indigo-500 min-w-[150px]"><option value="">Semua desa</option></select></div>
+<div class="grow min-w-[190px]"><label class="block text-[10px] font-bold text-indigo-600 uppercase mb-0.5" for="pend-search">Pencarian</label><input id="pend-search" type="search" autocomplete="off" placeholder="Cari desa, SLS, atau kode..." class="w-full text-xs border border-indigo-200 rounded-md px-2 py-1.5 bg-white focus:outline-indigo-500"></div>
+<button id="pend-reset" type="button" class="shrink-0 text-xs font-semibold text-indigo-700 border border-indigo-300 rounded-md px-3 py-1.5 hover:bg-indigo-50">Reset</button>
+<button id="pend-refresh" type="button" class="shrink-0 text-xs font-semibold text-white bg-indigo-600 rounded-md px-3 py-1.5 hover:bg-indigo-700">Muat ulang</button>
+</div>
+<div class="flex flex-wrap items-center justify-between gap-2 mt-2 text-[10px] text-slate-500">
+<div id="pend-source-info">Data penduduk belum dimuat.</div>
+<a href="https://docs.google.com/spreadsheets/d/16mQWKi3AEZteQKPGm4WlhF8jhcYDkExI5y4wyNAMUa4/edit?gid=0#gid=0" target="_blank" rel="noopener noreferrer" class="font-semibold text-indigo-600 hover:underline">Buka sumber</a>
+</div>
+</div>
+<div id="pend-fs" class="bg-white rounded-lg border border-indigo-200 shadow-xs mt-3">
+<div class="flex flex-wrap items-center justify-between gap-2 px-3 py-2 border-b border-indigo-100">
+<div class="text-xs font-semibold text-slate-600"><span id="pend-count">0</span> <span id="pend-count-label">Sub-SLS</span> ditampilkan</div>
+<div class="flex items-center gap-2"><button id="pend-xls" type="button" class="text-xs font-semibold text-emerald-700 border border-emerald-300 rounded-md px-3 py-1.5 hover:bg-emerald-50">Unduh Excel</button><button id="pend-fullscreen" type="button" class="text-xs font-semibold text-indigo-700 border border-indigo-300 rounded-md px-3 py-1.5 hover:bg-indigo-50">Layar penuh</button></div>
+</div>
+<div id="pend-scroll" class="overflow-auto" style="max-height:720px">
+<table id="pend-table" class="min-w-full text-xs border-collapse">
+<thead id="pend-head" class="sticky top-0 z-10 bg-indigo-50"></thead>
+<tbody id="pend-tbody" class="divide-y divide-slate-100"><tr><td class="px-3 py-8 text-center text-slate-400">Pilih tab Penduduk untuk memuat data.</td></tr></tbody>
 </table>
 </div>
 </div>
@@ -5234,23 +5276,26 @@ function buildDesaCmpModel(){
   window.__juSubtab = 'datakosong';
   window.juSetSubtab = function(which){
     window.__juSubtab = which;
-    var bdk=$('ju-subtab-datakosong'), bk=$('ju-subtab-kbli'), bp=$('ju-subtab-pn'), be=$('ju-subtab-desa');
-    var pd=$('ju-panel-detail'), pdk=$('ju-panel-datakosong'), pk=$('ju-panel-kbli'), pp=$('ju-panel-pn'), pe=$('desacmp-panel');
+    var bdk=$('ju-subtab-datakosong'), bk=$('ju-subtab-kbli'), bp=$('ju-subtab-pn'), be=$('ju-subtab-desa'), bpop=$('ju-subtab-penduduk');
+    var pd=$('ju-panel-detail'), pdk=$('ju-panel-datakosong'), pk=$('ju-panel-kbli'), pp=$('ju-panel-pn'), pe=$('desacmp-panel'), ppop=$('pend-panel');
     var active='bg-indigo-600 text-white shadow-sm', inactive='text-slate-600 hover:bg-slate-100 hover:text-indigo-700';
     if(bdk) bdk.className='px-3 py-1.5 rounded-md transition '+(which==='datakosong'?active:inactive);
     if(bk) bk.className='px-3 py-1.5 rounded-md transition '+(which==='kbli'?active:inactive);
     if(bp) bp.className='px-3 py-1.5 rounded-md transition '+(which==='pn'?active:inactive);
     if(be) be.className='px-3 py-1.5 rounded-md transition '+(which==='desa'?active:inactive);
+    if(bpop) bpop.className='px-3 py-1.5 rounded-md transition '+(which==='penduduk'?active:inactive);
     if(pd) pd.hidden = which!=='detail';
     if(pdk) pdk.hidden = which!=='datakosong';
     if(pk) pk.hidden = which!=='kbli';
     if(pp) pp.hidden = which!=='pn';
     if(pe) pe.hidden = which!=='desa';
+    if(ppop) ppop.hidden = which!=='penduduk';
     if(which==='detail'){ if(oldRenderJU) oldRenderJU(); }
     else if(which==='datakosong'){ if(window.__renderDataKosong) window.__renderDataKosong(); }
     else if(which==='kbli'){ if(window.__renderKbli) window.__renderKbli(); }
     else if(which==='desa'){ if(window.renderDesaCmp) window.renderDesaCmp(); }
-    else { if(window.__renderPN) window.__renderPN(); }
+    else if(which==='penduduk'){ if(window.__renderPenduduk) window.__renderPenduduk(); }
+    else if(which==='pn'){ if(window.__renderPN) window.__renderPN(); }
   };
   window.__renderJU = function(){ window.juSetSubtab(window.__juSubtab||'datakosong'); };
 
@@ -6070,6 +6115,190 @@ function buildDesaCmpModel(){
   if(document.readyState!=='loading') init(); else document.addEventListener('DOMContentLoaded', init);
 })();
 </script>
+<script>
+// ===== Perbandingan penduduk: sumber Google Spreadsheet, level Sub-SLS dan Desa =====
+(function(){
+  var SHEET_ID='16mQWKi3AEZteQKPGm4WlhF8jhcYDkExI5y4wyNAMUa4', SHEET_GID='0';
+  var rows=[], loaded=false, loading=false, mode='subsls', sortKey='total', sortAsc=false;
+  var filter={kec:'',desa:'',q:''}, lastVisible=[];
+  function $(id){ return document.getElementById(id); }
+  function esc(v){ return String(v==null?'':v).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];}); }
+  function num(v){ return Number(v||0).toLocaleString('id-ID'); }
+  function pct(a,b){ return b>0 ? (a/b*100) : 0; }
+  function pctText(v){ return Number(v||0).toLocaleString('id-ID',{minimumFractionDigits:1,maximumFractionDigits:1})+'%'; }
+  function clean(v){ return String(v==null?'':v).trim(); }
+  function n(v){ var x=Number(String(v==null?'':v).replace(',','.')); return isFinite(x)?x:0; }
+  function pad(v,len){ var s=clean(v).replace(/\.0+$/,'').replace(/\D/g,''); return s.padStart(len,'0').slice(-len); }
+  function normHead(v){ return clean(v).replace(/\u200B/g,'').toUpperCase().replace(/\s+/g,'_'); }
+  function rawCell(c){ return !c?'':(c.v!=null?c.v:(c.f!=null?c.f:'')); }
+  function setInfo(text,isError){
+    var el=$('pend-source-info'); if(!el)return;
+    el.textContent=text; el.className=isError?'font-semibold text-rose-600':'text-slate-500';
+  }
+  function setLoading(on){
+    loading=on; var b=$('pend-refresh'); if(!b)return;
+    b.disabled=on; b.textContent=on?'Memuat...':'Muat ulang'; b.classList.toggle('opacity-60',on);
+  }
+  function loadData(force){
+    if(loading || (loaded&&!force)){ render(); return; }
+    setLoading(true); setInfo('Memuat data penduduk dari Google Spreadsheet...',false);
+    var cb='__pendGviz_'+Date.now()+'_'+Math.floor(Math.random()*10000);
+    var script=document.createElement('script'), done=false;
+    var timer=setTimeout(function(){ finishError('Waktu pemuatan habis. Pastikan spreadsheet dapat diakses publik, lalu klik Muat ulang.'); },30000);
+    function cleanup(){ clearTimeout(timer); if(script.parentNode)script.parentNode.removeChild(script); try{delete window[cb];}catch(e){window[cb]=undefined;} setLoading(false); }
+    function finishError(msg){ if(done)return; done=true; cleanup(); setInfo(msg,true); }
+    window[cb]=function(resp){
+      if(done)return; done=true;
+      try{
+        if(!resp||!resp.table||!resp.table.cols||!resp.table.rows) throw new Error('Respons spreadsheet tidak berisi tabel.');
+        var headers=resp.table.cols.map(function(c){return normHead(c.label||c.id);});
+        function ix(name){ return headers.indexOf(name); }
+        var required=['KODE_PROV','KODE_KAB','KODE_KEC','KODE_DESA','KEC','DESA','SLS','SUBSLS','JUMLAH_ANGGOTA_KELUARGA','JUMLAH_KODE_1','JUMLAH_KODE_5'];
+        var missing=required.filter(function(h){return ix(h)<0;});
+        if(missing.length) throw new Error('Kolom sumber tidak ditemukan: '+missing.join(', '));
+        var parsed=[];
+        resp.table.rows.forEach(function(rr){
+          var c=rr.c||[], kec=clean(rawCell(c[ix('KEC')])), desa=clean(rawCell(c[ix('DESA')]));
+          var sls=pad(rawCell(c[ix('SLS')]),4), subsls=pad(rawCell(c[ix('SUBSLS')]),2);
+          if(!kec&&!desa)return;
+          var kodeDesa=pad(rawCell(c[ix('KODE_PROV')]),2)+pad(rawCell(c[ix('KODE_KAB')]),2)+pad(rawCell(c[ix('KODE_KEC')]),3)+pad(rawCell(c[ix('KODE_DESA')]),3);
+          var total=n(rawCell(c[ix('JUMLAH_ANGGOTA_KELUARGA')])), kode1=n(rawCell(c[ix('JUMLAH_KODE_1')])), kode5=n(rawCell(c[ix('JUMLAH_KODE_5')]));
+          parsed.push({kec:kec,desa:desa,sls:sls,subsls:subsls,kodeDesa:kodeDesa,kode16:kodeDesa+sls+subsls,total:total,kode1:kode1,kode5:kode5});
+        });
+        rows=parsed; loaded=true; cleanup(); refreshOptions();
+        var mismatch=rows.filter(function(r){return Math.abs(r.total-r.kode1-r.kode5)>0.001;}).length;
+        setInfo(num(rows.length)+' baris dimuat pada '+new Date().toLocaleString('id-ID')+(mismatch?' · '+num(mismatch)+' baris tidak sama dengan Kode 1 + Kode 5.':''),mismatch>0);
+        render();
+      }catch(err){ cleanup(); setInfo('Gagal membaca spreadsheet: '+err.message,true); }
+    };
+    script.onerror=function(){finishError('Spreadsheet gagal dimuat. Periksa akses publik dan koneksi internet.');};
+    script.src='https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?gid='+SHEET_GID+'&headers=1&tqx=out:json;responseHandler:'+encodeURIComponent(cb)+'&_='+Date.now();
+    document.head.appendChild(script);
+  }
+  function uniqueSorted(vals){ return Array.from(new Set(vals.filter(Boolean))).sort(function(a,b){return a.localeCompare(b,'id',{numeric:true,sensitivity:'base'});}); }
+  function fillSelect(id,values,label,current){
+    var el=$(id); if(!el)return;
+    el.innerHTML='<option value="">'+label+'</option>'+values.map(function(v){return '<option value="'+esc(v)+'">'+esc(v)+'</option>';}).join('');
+    if(values.indexOf(current)>=0) el.value=current; else if(current) { filter[id==='pend-f-kec'?'kec':'desa']=''; }
+  }
+  function refreshOptions(){
+    fillSelect('pend-f-kec',uniqueSorted(rows.map(function(r){return r.kec;})),'Semua kecamatan',filter.kec);
+    var desaRows=filter.kec?rows.filter(function(r){return r.kec===filter.kec;}):rows;
+    fillSelect('pend-f-desa',uniqueSorted(desaRows.map(function(r){return r.desa;})),'Semua desa',filter.desa);
+  }
+  function aggregate(){
+    var base=rows.filter(function(r){return (!filter.kec||r.kec===filter.kec)&&(!filter.desa||r.desa===filter.desa);});
+    var map=new Map();
+    base.forEach(function(r){
+      var key=mode==='desa'?r.kodeDesa:r.kode16, x=map.get(key);
+      if(!x){
+        x=mode==='desa'
+          ? {kec:r.kec,desa:r.desa,kodeDesa:r.kodeDesa,subslsCount:0,total:0,kode1:0,kode5:0}
+          : {kec:r.kec,desa:r.desa,sls:r.sls,subsls:r.subsls,kode16:r.kode16,total:0,kode1:0,kode5:0};
+        map.set(key,x);
+      }
+      x.total+=r.total; x.kode1+=r.kode1; x.kode5+=r.kode5;
+      if(mode==='desa') x.subslsCount++;
+    });
+    var out=Array.from(map.values()), q=filter.q.toLocaleLowerCase('id');
+    if(q){
+      out=out.filter(function(r){
+        var hay=mode==='desa'?[r.kec,r.desa,r.kodeDesa]:[r.kec,r.desa,r.sls,r.subsls,r.kode16];
+        return hay.join(' ').toLocaleLowerCase('id').indexOf(q)>=0;
+      });
+    }
+    out.forEach(function(r){r.pct1=pct(r.kode1,r.total);r.pct5=pct(r.kode5,r.total);});
+    out.sort(function(a,b){
+      var av=a[sortKey],bv=b[sortKey],cmp;
+      if(typeof av==='number'||typeof bv==='number')cmp=(Number(av)||0)-(Number(bv)||0);
+      else cmp=String(av||'').localeCompare(String(bv||''),'id',{numeric:true,sensitivity:'base'});
+      return sortAsc?cmp:-cmp;
+    });
+    return out;
+  }
+  function columns(){
+    return mode==='desa'
+      ? [{k:'kec',t:'Kecamatan',a:'left'},{k:'desa',t:'Desa',a:'left'},{k:'kodeDesa',t:'Kode Desa (10)',a:'left'},{k:'subslsCount',t:'Jumlah Sub-SLS',a:'center'},{k:'total',t:'Jumlah Penduduk',a:'center'},{k:'kode1',t:'Kode 1',a:'center'},{k:'kode5',t:'Kode 5',a:'center'},{k:'pct1',t:'% Kode 1',a:'center'},{k:'pct5',t:'% Kode 5',a:'center'}]
+      : [{k:'kec',t:'Kecamatan',a:'left'},{k:'desa',t:'Desa',a:'left'},{k:'sls',t:'SLS',a:'center'},{k:'subsls',t:'Sub-SLS',a:'center'},{k:'kode16',t:'Kode Sub-SLS (16)',a:'left'},{k:'total',t:'Jumlah Penduduk',a:'center'},{k:'kode1',t:'Kode 1',a:'center'},{k:'kode5',t:'Kode 5',a:'center'},{k:'pct1',t:'% Kode 1',a:'center'},{k:'pct5',t:'% Kode 5',a:'center'}];
+  }
+  function updateKpi(data){
+    var total=0,k1=0,k5=0; data.forEach(function(r){total+=r.total;k1+=r.kode1;k5+=r.kode5;});
+    if($('pend-kpi-total'))$('pend-kpi-total').textContent=num(total);
+    if($('pend-kpi-kode1'))$('pend-kpi-kode1').textContent=num(k1);
+    if($('pend-kpi-kode5'))$('pend-kpi-kode5').textContent=num(k5);
+    if($('pend-kpi-pct5'))$('pend-kpi-pct5').textContent=pctText(pct(k5,total));
+  }
+  function render(){
+    if(!loaded){ if(!loading)loadData(false); return; }
+    var data=aggregate(); lastVisible=data; updateKpi(data);
+    var cols=columns(), head=$('pend-head'), body=$('pend-tbody');
+    if(head)head.innerHTML='<tr>'+cols.map(function(c){
+      var arrow=c.k===sortKey?(sortAsc?' ▲':' ▼'):'';
+      return '<th scope="col" data-key="'+esc(c.k)+'" class="px-3 py-2 text-'+c.a+' font-semibold text-indigo-800 whitespace-nowrap cursor-pointer select-none hover:bg-indigo-100">'+esc(c.t)+'<span class="text-indigo-500">'+arrow+'</span></th>';
+    }).join('')+'</tr>';
+    if(body){
+      body.innerHTML=data.map(function(r){
+        return '<tr class="hover:bg-indigo-50/50">'+cols.map(function(c){
+          var val=r[c.k], display=(c.k==='pct1'||c.k==='pct5')?pctText(val):(typeof val==='number'?num(val):esc(val));
+          var color=c.k==='kode1'?' text-emerald-700 bg-emerald-50':(c.k==='kode5'||c.k==='pct5'?' text-amber-800 bg-amber-50':'');
+          var mono=c.k==='kode16'||c.k==='kodeDesa'?' font-mono text-[11px]':'';
+          return '<td class="px-3 py-2 text-'+c.a+' whitespace-nowrap'+color+mono+'">'+display+'</td>';
+        }).join('')+'</tr>';
+      }).join('')||'<tr><td colspan="'+cols.length+'" class="px-3 py-8 text-center text-slate-400">Tidak ada data sesuai filter.</td></tr>';
+    }
+    if($('pend-count'))$('pend-count').textContent=num(data.length);
+    if($('pend-count-label'))$('pend-count-label').textContent=mode==='desa'?'Desa':'Sub-SLS';
+    var sub=$('pend-mode-subsls'), des=$('pend-mode-desa');
+    if(sub)sub.className='px-3 py-1.5 rounded text-xs font-bold '+(mode==='subsls'?'bg-white text-indigo-700 shadow-sm':'text-slate-600');
+    if(des)des.className='px-3 py-1.5 rounded text-xs font-bold '+(mode==='desa'?'bg-white text-indigo-700 shadow-sm':'text-slate-600');
+    var search=$('pend-search'); if(search)search.placeholder=mode==='desa'?'Cari kecamatan, desa, atau kode...':'Cari desa, SLS, Sub-SLS, atau kode...';
+  }
+  function exportXls(){
+    if(!loaded||!lastVisible.length)return;
+    var cols=columns(), html='<table border="1"><thead><tr>'+cols.map(function(c){return '<th>'+esc(c.t)+'</th>';}).join('')+'</tr></thead><tbody>';
+    lastVisible.forEach(function(r){ html+='<tr>'+cols.map(function(c){
+      var v=(c.k==='pct1'||c.k==='pct5')?pctText(r[c.k]):r[c.k];
+      var textStyle=(c.k==='kode16'||c.k==='kodeDesa'||c.k==='sls'||c.k==='subsls')?' style="mso-number-format:\'\\@\'"':'';
+      return '<td'+textStyle+'>'+esc(v)+'</td>';
+    }).join('')+'</tr>'; });
+    html+='</tbody></table>';
+    var doc='<html xmlns:x="urn:schemas-microsoft-com:office:excel"><head><meta charset="utf-8"></head><body>'+html+'</body></html>';
+    var a=document.createElement('a'); a.href=URL.createObjectURL(new Blob(['\ufeff'+doc],{type:'application/vnd.ms-excel'}));
+    a.download='perbandingan_penduduk_'+(mode==='desa'?'desa':'subsls')+'.xls'; document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(function(){URL.revokeObjectURL(a.href);},1000);
+  }
+  function toggleFullscreen(){
+    var el=$('pend-fs'); if(!el)return;
+    if(!document.fullscreenElement&&el.requestFullscreen)el.requestFullscreen();
+    else if(document.fullscreenElement&&document.exitFullscreen)document.exitFullscreen();
+  }
+  function onFullscreen(){
+    var active=document.fullscreenElement===$('pend-fs'), sc=$('pend-scroll'), fs=$('pend-fs'), b=$('pend-fullscreen');
+    if(sc)sc.style.maxHeight=active?'calc(100vh - 58px)':'720px';
+    if(fs){fs.style.background=active?'#fff':'';fs.style.padding=active?'8px':'';}
+    if(b)b.textContent=active?'Keluar layar penuh':'Layar penuh';
+  }
+  window.pendSetMode=function(next){
+    mode=next==='desa'?'desa':'subsls';
+    if(mode==='desa'&&['sls','subsls','kode16'].indexOf(sortKey)>=0){sortKey='total';sortAsc=false;}
+    if(mode==='subsls'&&['kodeDesa','subslsCount'].indexOf(sortKey)>=0){sortKey='total';sortAsc=false;}
+    render();
+  };
+  window.__renderPenduduk=function(){ if(loaded)render(); else loadData(false); };
+  function wire(){
+    var kec=$('pend-f-kec'),desa=$('pend-f-desa'),search=$('pend-search');
+    if(kec)kec.addEventListener('change',function(){filter.kec=kec.value;filter.desa='';refreshOptions();render();});
+    if(desa)desa.addEventListener('change',function(){filter.desa=desa.value;render();});
+    if(search)search.addEventListener('input',function(){filter.q=search.value.trim();render();});
+    if($('pend-reset'))$('pend-reset').addEventListener('click',function(){filter={kec:'',desa:'',q:''};if(search)search.value='';refreshOptions();render();});
+    if($('pend-refresh'))$('pend-refresh').addEventListener('click',function(){loadData(true);});
+    if($('pend-xls'))$('pend-xls').addEventListener('click',exportXls);
+    if($('pend-fullscreen'))$('pend-fullscreen').addEventListener('click',toggleFullscreen);
+    if($('pend-head'))$('pend-head').addEventListener('click',function(e){var th=e.target.closest('th[data-key]');if(!th)return;var key=th.getAttribute('data-key');if(sortKey===key)sortAsc=!sortAsc;else{sortKey=key;sortAsc=['kec','desa','sls','subsls','kode16','kodeDesa'].indexOf(key)>=0;}render();});
+    document.addEventListener('fullscreenchange',onFullscreen);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',wire);else wire();
+})();
+</script>
 </body>
 </html>
-
