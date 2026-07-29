@@ -42,8 +42,18 @@
         .anom-tabbtn{transition:all .15s ease;}
         /* toggle Kumulatif/Harian pada tren */
         .trendmode-wrap{ display:inline-flex; gap:2px; background:#eef2ff; border-radius:8px; padding:3px; }
-        .trendmode-btn, .ppltrendmode-btn, .summaryscope-btn, .summarytarget-btn{ font-size:11px; font-weight:600; padding:3px 10px; border-radius:6px; color:#4f46e5; cursor:pointer; transition:all .15s ease; white-space:nowrap; border:0; background:transparent; }
-        .trendmode-btn.active, .ppltrendmode-btn.active, .summaryscope-btn.active, .summarytarget-btn.active{ background:#ffffff; color:#3730a3; box-shadow:0 1px 2px rgba(0,0,0,.10); }
+        .trendmode-btn, .ppltrendmode-btn, .summaryscope-btn, .summarytarget-btn, .summaryview-btn, .modalview-btn, .modalcomparemode-btn{ font-size:11px; font-weight:600; padding:3px 10px; border-radius:6px; color:#4f46e5; cursor:pointer; transition:all .15s ease; white-space:nowrap; border:0; background:transparent; }
+        .trendmode-btn.active, .ppltrendmode-btn.active, .summaryscope-btn.active, .summarytarget-btn.active, .summaryview-btn.active, .modalview-btn.active, .modalcomparemode-btn.active{ background:#ffffff; color:#3730a3; box-shadow:0 1px 2px rgba(0,0,0,.10); }
+        .summary-pizza-shell{background:transparent;border:0;border-radius:8px;box-shadow:none;}
+        .summary-pizza-card{background:var(--pizza-card-bg,#ffffff);border:1px solid var(--pizza-card-border,#cbd5e1);border-radius:8px;padding:10px;cursor:pointer;transition:border-color .15s ease,transform .15s ease,box-shadow .15s ease;}
+        .summary-pizza-card:hover{border-color:#818cf8;transform:translateY(-2px);box-shadow:0 10px 22px rgba(49,46,129,.16);}
+        .summary-pizza-stage{position:relative;width:min(100%,270px);aspect-ratio:1/1;margin:auto;}
+        .summary-pizza-canvas{display:block;width:100%;height:100%;background:transparent!important;border:0!important;}
+        .summary-pizza-card h4{color:#0f172a!important;}
+        .summary-pizza-tooltip{position:absolute;z-index:4;pointer-events:none;max-width:240px;padding:8px 10px;border-radius:6px;background:rgba(7,22,34,.96);border:1px solid #496b84;color:#e8f1f8;font-size:10px;line-height:1.45;box-shadow:0 8px 22px rgba(0,0,0,.28);transform:translate(10px,10px);}
+        .summary-pizza-metric{min-height:38px;border:1px solid rgba(148,163,184,.28);background:rgba(255,255,255,.82);border-radius:6px;padding:5px 6px;}
+        .summary-pizza-swatch{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;flex:none;}
+        @media (max-width: 639px){.summary-pizza-stage{width:min(100%,250px);}}
         .anom-fade{animation:anomFade .25s ease;}
         @keyframes anomFade{from{opacity:0; transform:translateY(4px);} to{opacity:1; transform:none;}}
         /* ====== TEMA #312e81 (card coklat/amber gelap) ====== */
@@ -92,6 +102,11 @@
         .anom-kpi-panel{ background:transparent !important; border:0 !important; padding:0 !important; box-shadow:none !important; }
         /* ===== #2: area plot chart -> putih + outline biru (KARTU & kotak filter tetap indigo-100) ===== */
         /* (warna putih+outline ada pada elemen <canvas> di atas; kartu tidak diubah) */
+        #view-progres .bg-indigo-900 #summary-pizza-view .text-white,
+        #view-progres .bg-indigo-900 #summary-pizza-view .summary-pizza-card h4,
+        #view-progres .bg-indigo-900 #summary-pizza-view .summary-pizza-metric b{color:#0f172a !important;}
+        #view-progres .bg-indigo-900 #summary-pizza-view .text-slate-300{color:#475569 !important;}
+        #view-progres .bg-indigo-900 #summary-pizza-view .text-slate-400{color:#64748b !important;}
         @media (max-width: 639px) {
             .dashboard-nav-inner{display:grid !important; grid-template-columns:minmax(0,1fr) auto; gap:.5rem !important; align-items:center !important;}
             .dashboard-nav-brand{min-width:0;}
@@ -346,11 +361,15 @@
                             <button type="button" id="summary-scope-ppl" class="summaryscope-btn active" data-scope="ppl" onclick="setSummaryScope('ppl')">PPL</button>
                             <button type="button" id="summary-scope-pml" class="summaryscope-btn" data-scope="pml" onclick="setSummaryScope('pml')">PML</button>
                         </div>
+                        <div class="trendmode-wrap" id="summary-view-toggle" title="Pilih tampilan kartu atau pizza chart">
+                            <button type="button" id="summary-view-cards" class="summaryview-btn active" data-summary-view="cards" onclick="setSummaryDisplayMode('cards')">Kartu</button>
+                            <button type="button" id="summary-view-pizza" class="summaryview-btn" data-summary-view="pizza" onclick="setSummaryDisplayMode('pizza')">Pizza</button>
+                        </div>
                         <div class="trendmode-wrap" id="summary-target-toggle" title="Pilih basis target kartu">
                             <button type="button" id="summary-target-fasih" class="summarytarget-btn active" data-target="fasih" onclick="setSummaryTargetMode('fasih')">FASIH</button>
                             <button type="button" id="summary-target-prelist" class="summarytarget-btn" data-target="prelist" onclick="setSummaryTargetMode('prelist')">Prelist</button>
                         </div>
-                        <button onclick="downloadPplCards()" title="Unduh 9 kartu teratas (PNG landscape)" class="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition shadow-sm whitespace-nowrap">
+                        <button id="summary-download-cards" onclick="downloadPplCards()" title="Unduh 9 kartu teratas (PNG landscape)" class="flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition shadow-sm whitespace-nowrap">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             Unduh 9 Kartu
                         </button>
@@ -400,8 +419,23 @@
                     </div>
                 </div>
             </div>
-            <div class="overflow-y-auto custom-scrollbar pr-1" style="max-height:640px">
+            <div id="summary-card-view" class="overflow-y-auto custom-scrollbar pr-1" style="max-height:640px">
                 <div id="ppl-summary-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
+            </div>
+            <div id="summary-pizza-view" class="hidden summary-pizza-shell p-3 sm:p-4">
+                <div class="flex flex-col lg:flex-row lg:items-start justify-between gap-3 mb-3 pb-3 border-b border-indigo-200">
+                    <div class="max-w-3xl">
+                        <p class="text-xs font-bold text-white">Profil Kinerja Seluruh Petugas</p>
+                        <p class="mt-1 text-[10px] leading-relaxed text-slate-300">Sektor biru menunjukkan kinerja; semakin panjang semakin baik. Sektor kuning menunjukkan volume/konteks dan bukan skor kualitas. Arahkan ke nilai untuk melihat rumus, atau klik pizza untuk membuka rincian petugas.</p>
+                    </div>
+                    <div class="flex items-center gap-4 text-[10px] font-semibold text-slate-700 shrink-0">
+                        <span><i class="summary-pizza-swatch" style="background:#6f91bd"></i>Kinerja</span>
+                        <span><i class="summary-pizza-swatch" style="background:#d9bc61"></i>Volume/konteks</span>
+                    </div>
+                </div>
+                <div class="overflow-y-auto custom-scrollbar pr-1" style="max-height:640px">
+                    <div id="summary-pizza-grid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3"></div>
+                </div>
             </div>
         </div>
 
@@ -1195,21 +1229,20 @@
 
     <!-- MODAL -->
     <div id="sls-modal" class="fixed inset-0 z-[9999] overflow-y-auto hidden" role="dialog" aria-modal="true">
-        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+        <div class="flex items-center justify-center min-h-screen p-4 text-center">
             <div class="fixed inset-0 bg-slate-900/60" onclick="closeModal()"></div>
-            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
-            <div class="relative inline-block align-bottom bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all sm:my-8 sm:align-middle sm:max-w-2xl sm:w-full border border-slate-200 z-10">
+            <div class="relative bg-white rounded-xl text-left overflow-hidden shadow-2xl transform transition-all w-full max-w-4xl border border-slate-200 z-10">
                 <div class="bg-indigo-900 px-4 py-4 sm:px-6 flex justify-between items-center text-white gap-2">
                     <div class="min-w-0">
                         <h3 class="text-base font-bold leading-6 truncate" id="modal-ppl-name">Nama Petugas</h3>
-                        <p class="text-xs text-indigo-200"><span id="modal-ppl-prog" class="font-bold text-white"></span> Rincian Beban Kerja & Progres per Desa</p>
+                        <p class="text-xs text-indigo-200"><span id="modal-ppl-prog" class="font-bold text-white"></span><span id="modal-header-context"> • Rincian Beban Kerja & Progres per Desa</span></p>
                     </div>
                     <div class="flex items-center gap-2 shrink-0">
                         <div class="trendmode-wrap" id="ppl-trendmode-toggle">
                             <button type="button" class="ppltrendmode-btn active" data-pmode="kumulatif" onclick="setPplTrendMode('kumulatif')">Kumulatif</button>
                             <button type="button" class="ppltrendmode-btn" data-pmode="harian" onclick="setPplTrendMode('harian')">Harian</button>
                         </div>
-                        <button onclick="downloadPplDetail()" title="Unduh PNG" class="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition shadow-sm">
+                        <button id="modal-download-png" onclick="downloadPplDetail()" title="Unduh PNG rincian" class="flex items-center gap-1.5 bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg text-xs font-semibold transition shadow-sm">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
                             PNG
                         </button>
@@ -1218,7 +1251,16 @@
                     </button>
                     </div>
                 </div>
-                <div class="bg-white p-4 sm:p-6 max-h-[60vh] overflow-y-auto custom-scrollbar">
+                <div class="bg-indigo-50 border-b border-indigo-100 px-4 sm:px-6 py-2 flex items-center gap-2 overflow-x-auto">
+                    <div class="trendmode-wrap" id="modal-view-toggle">
+                        <button type="button" class="modalview-btn active" data-modal-view="detail" onclick="setModalView('detail')">Rincian</button>
+                        <button type="button" class="modalview-btn" data-modal-view="pizza" onclick="setModalView('pizza')">Pizza</button>
+                        <button type="button" class="modalview-btn" data-modal-view="compare" onclick="setModalView('compare')">Bandingkan</button>
+                    </div>
+                    <span id="modal-view-caption" class="text-[10px] text-indigo-500 font-semibold whitespace-nowrap">Rincian beban kerja dan progres</span>
+                </div>
+                <div class="bg-white p-4 sm:p-5 max-h-[calc(100vh-13rem)] overflow-y-auto custom-scrollbar">
+                    <div id="modal-view-detail">
                     <div id="modal-shared-note" style="display:none" class="mb-3 text-[11px] bg-orange-50 border border-orange-200 text-orange-700 rounded-lg px-3 py-2">
                         ⚠ Petugas ini berbagi desa dengan PPL lain. Untuk desa berbagi, angka adalah <b>perkiraan bagi rata</b> (CSV hanya mencatat total per desa, bukan per orang).
                     </div>
@@ -1270,6 +1312,57 @@
                             </thead>
                             <tbody id="modal-sls-tbody" class="divide-y divide-slate-100 text-slate-700"></tbody>
                         </table>
+                    </div>
+                    </div>
+                    <div id="modal-view-pizza" class="hidden">
+                        <div class="grid grid-cols-1 lg:grid-cols-[minmax(360px,1.05fr)_minmax(340px,.95fr)] gap-4 items-center">
+                            <div class="relative w-full aspect-square mx-auto" style="width:min(100%,46vh);max-width:430px;">
+                                <canvas id="modal-pizza-canvas" class="summary-pizza-canvas" data-large="1" aria-label="Pizza kinerja petugas"></canvas>
+                                <div id="modal-pizza-tooltip" class="summary-pizza-tooltip hidden"></div>
+                            </div>
+                            <div>
+                                <div id="modal-pizza-metrics" class="grid grid-cols-1 sm:grid-cols-2 gap-2"></div>
+                                <p class="mt-3 text-[10px] leading-relaxed text-slate-500"><b>Cara baca:</b> sektor biru adalah kinerja. Sektor kuning adalah volume/konteks yang dinormalisasi P10-P90 dalam kelompok petugas aktif dan bukan skor kualitas.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="modal-view-compare" class="hidden">
+                        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-3 mb-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 min-w-0 flex-1">
+                                <div class="min-w-0">
+                                    <label id="modal-compare-label-a" for="modal-compare-person-a" class="block text-[10px] font-bold uppercase tracking-wide text-indigo-600 mb-1">Petugas A</label>
+                                    <select id="modal-compare-person-a" onchange="setModalComparePerson('a',this.value)" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"></select>
+                                </div>
+                                <div class="min-w-0">
+                                    <label id="modal-compare-label-b" for="modal-compare-person-b" class="block text-[10px] font-bold uppercase tracking-wide text-indigo-600 mb-1">Petugas B</label>
+                                    <select id="modal-compare-person-b" onchange="setModalComparePerson('b',this.value)" class="w-full bg-white border border-slate-300 rounded-lg px-3 py-2 text-xs font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-indigo-400"></select>
+                                </div>
+                            </div>
+                            <div class="trendmode-wrap">
+                                <button type="button" class="modalcomparemode-btn active" data-compare-mode="pizza" onclick="setModalCompareMode('pizza')">Pizza</button>
+                                <button type="button" class="modalcomparemode-btn" data-compare-mode="cumulative" onclick="setModalCompareMode('cumulative')">Tren Kumulatif</button>
+                                <button type="button" class="modalcomparemode-btn" data-compare-mode="daily" onclick="setModalCompareMode('daily')">Tren Harian</button>
+                            </div>
+                        </div>
+                        <div id="modal-compare-pizza-wrap">
+                            <div class="relative w-full aspect-square mx-auto" style="width:min(100%,47vh);max-width:440px;">
+                                <canvas id="modal-compare-pizza-canvas" class="summary-pizza-canvas" data-large="1" aria-label="Pizza perbandingan dua petugas"></canvas>
+                                <div id="modal-compare-tooltip" class="summary-pizza-tooltip hidden"></div>
+                            </div>
+                            <div id="modal-compare-legend" class="flex flex-wrap justify-center gap-4 text-[10px] font-bold text-slate-700 mb-3"></div>
+                            <div class="overflow-x-auto rounded-lg border border-slate-200">
+                                <table class="w-full text-left text-xs">
+                                    <thead class="bg-slate-50 text-slate-600 uppercase text-[9px]"><tr><th class="px-3 py-2">Indikator</th><th id="modal-compare-head-a" class="px-3 py-2 text-right">Petugas A</th><th id="modal-compare-head-b" class="px-3 py-2 text-right">Petugas B</th><th class="px-3 py-2 text-right">Selisih B - A</th></tr></thead>
+                                    <tbody id="modal-compare-tbody" class="divide-y divide-slate-100"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="modal-compare-trend-wrap" class="hidden">
+                            <div class="relative h-72 sm:h-[420px] bg-white rounded-lg border border-slate-200 p-2">
+                                <canvas id="modalCompareTrendChart"></canvas>
+                            </div>
+                            <p id="modal-compare-trend-note" class="mt-2 text-[10px] leading-relaxed text-slate-500"></p>
+                        </div>
                     </div>
                 </div>
                 <div class="bg-slate-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse border-t border-slate-200">
@@ -2651,6 +2744,8 @@ let trendMode='kumulatif';      // 'kumulatif' (%) | 'harian' (dokumen)
 let pplTrendMode='kumulatif';   // toggle terpisah utk modal detail PPL
 let summaryScope='ppl';     // toggle ringkasan kartu: 'ppl' | 'pml'
 let summaryTargetMode='fasih'; // basis target kartu: 'fasih' | 'prelist'
+let summaryDisplayMode='cards'; // 'cards' | 'pizza'
+let summaryPizzaAnomaliAttempted=false;
 let MERGED_HISTORY=[];   // riwayat final (lama + hari ini), 1 per hari
 const INACTIVE_PPL_NAMES=new Set(['Yosefina Dewi','Tajudin Angin Bin Abidin']);
 function isInactivePpl(name){ return INACTIVE_PPL_NAMES.has(String(name||'').trim()); }
@@ -2946,6 +3041,14 @@ function setSummaryScope(s){
     summaryScope=(s==='pml')?'pml':'ppl';
     document.querySelectorAll('.summaryscope-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.scope===summaryScope); });
     applyFilters();
+}
+function setSummaryDisplayMode(mode){
+    summaryDisplayMode=(mode==='pizza')?'pizza':'cards';
+    document.querySelectorAll('.summaryview-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.summaryView===summaryDisplayMode); });
+    const downloadCards=document.getElementById('summary-download-cards');
+    if(downloadCards)downloadCards.classList.toggle('hidden',summaryDisplayMode==='pizza');
+    applyFilters();
+    if(summaryDisplayMode==='pizza') ensureSummaryPizzaAnomali();
 }
 function setSummaryTargetMode(mode){
     summaryTargetMode=(mode==='prelist')?'prelist':'fasih';
@@ -3578,21 +3681,301 @@ function summaryStackedBarHtml(gr, target, pctShow){
         '</div>' +
     '</div>';
 }
+function summaryPizzaClamp(v,min,max){
+    return Math.max(min,Math.min(max,Number(v)||0));
+}
+function summaryPizzaCleanProgress(gr){
+    const gross=progDoc(gr);
+    const notFound=summaryNotFoundCount(gr.scope,gr.name);
+    const clean=Math.max(0,gross-notFound);
+    const target=summaryTargetValue(gr);
+    return {gross:gross,notFound:notFound,clean:clean,target:target,pct:target>0?clean/target*100:0};
+}
+function summaryPizzaAllocationFromAnomaly(r){
+    const email=String(r&&r.email||r&&r.id_petugas||'').trim().toLowerCase();
+    const code=String(r&&r.kode_wilayah||r&&r.kode16||r&&r.kode14||'').replace(/\D/g,'');
+    let alloc=null;
+    if(code){
+        alloc=(PRELIST_SUBSLS||[]).find(function(a){
+            return (a.kode16&&code.indexOf(String(a.kode16))===0)||(a.kode14&&code.indexOf(String(a.kode14))===0);
+        })||null;
+    }
+    if(!alloc&&email){
+        alloc=(PRELIST_SUBSLS||[]).find(function(a){ return String(a.emailppl||'').trim().toLowerCase()===email; })||null;
+    }
+    return alloc;
+}
+function summaryPizzaPersonFromAnomaly(scope,r,alloc){
+    alloc=alloc||summaryPizzaAllocationFromAnomaly(r);
+    if(scope==='pml'){
+        if(alloc&&alloc.pml) return alloc.pml;
+        const fallbackPpl=(r&&r.ppl)||(alloc&&alloc.ppl);
+        return fallbackPpl?effectiveSummaryPml(fallbackPpl,r&&r.pml):(r&&r.pml)||'';
+    }
+    return (alloc&&alloc.ppl)||(r&&r.ppl)||(r&&r.nama_petugas)||'';
+}
+function summaryPizzaContextMaps(scope,keys){
+    const allowed=new Set(keys),business={},notFound={},building={},anomalySets={};
+    (window.__USAHA_WEB_SE||[]).forEach(function(r){
+        if(!summaryRecordMatchesCurrentFilters(r)) return;
+        const name=scope==='pml'?mappedSummaryPml(r):mappedSummaryPpl(r);
+        if(!allowed.has(name)) return;
+        business[name]=(business[name]||0)+(parseInt(r.usaha,10)||0);
+        notFound[name]=(notFound[name]||0)+notFoundValue(r);
+    });
+    (window.__JU_DOCS||[]).forEach(function(r){
+        if(!summaryRecordMatchesCurrentFilters(r)||!r.kosong||['open','draft'].includes(String(r.status||'').toLowerCase())) return;
+        const name=scope==='pml'?mappedSummaryPml(r):mappedSummaryPpl(r);
+        if(allowed.has(name)) building[name]=(building[name]||0)+1;
+    });
+    (ANOM_ALL||[]).forEach(function(r){
+        if(!r||r.is_resolved) return;
+        const alloc=summaryPizzaAllocationFromAnomaly(r);
+        if(alloc&&!summaryRowMatchesCurrentFilters(alloc)) return;
+        const name=summaryPizzaPersonFromAnomaly(scope,r,alloc);
+        if(!allowed.has(name)) return;
+        const key=String(r.id||r.assignment_id||r.link_fasih||[
+            r.jenis,r.nama,r.anomali_no,r.kode_wilayah,r.email||r.id_petugas
+        ].join('|'));
+        (anomalySets[name]||(anomalySets[name]=new Set())).add(key);
+    });
+    const anomaly={};
+    Object.keys(anomalySets).forEach(function(name){ anomaly[name]=anomalySets[name].size; });
+    return {business:business,notFound:notFound,building:building,anomaly:anomaly};
+}
+function ensureSummaryPizzaAnomali(){
+    if(summaryDisplayMode!=='pizza'||anomFasihLoaded) return;
+    if(anomFasihLoading){
+        setTimeout(function(){
+            if(summaryDisplayMode!=='pizza') return;
+            if(anomFasihLoaded) applyFilters(); else ensureSummaryPizzaAnomali();
+        },700);
+        return;
+    }
+    if(summaryPizzaAnomaliAttempted) return;
+    summaryPizzaAnomaliAttempted=true;
+    Promise.resolve(initAnomali()).then(function(){
+        if(summaryDisplayMode==='pizza') applyFilters();
+    }).catch(function(){
+        if(summaryDisplayMode==='pizza') applyFilters();
+    });
+}
+function summaryPizzaHistoryRate(scope,name,currentGross,currentFasihTarget){
+    const rows=(MERGED_HISTORY||[]).filter(function(h){
+        return h&&h.date&&h[scope]&&h[scope][name]!=null;
+    }).sort(function(a,b){ return String(a.date).localeCompare(String(b.date)); });
+    if(!rows.length) return {value:null,days:0,estimated:false};
+    const latestDate=new Date(localYmd(new Date())+'T00:00:00');
+    const targetDate=new Date(latestDate); targetDate.setDate(targetDate.getDate()-7);
+    let old=null;
+    rows.forEach(function(h){
+        if(new Date(String(h.date).slice(0,10)+'T00:00:00')<=targetDate) old=h;
+    });
+    if(!old){
+        old=rows.find(function(h){ return new Date(String(h.date).slice(0,10)+'T00:00:00')<latestDate; })||null;
+    }
+    if(!old) return {value:null,days:0,estimated:false};
+    const oldDate=new Date(String(old.date).slice(0,10)+'T00:00:00');
+    const days=Math.max(1,Math.round((latestDate-oldDate)/86400000));
+    const dokObj=old.dok&&old.dok[scope];
+    const exact=!!(dokObj&&dokObj[name]!=null);
+    const oldGross=exact?Number(dokObj[name]):Math.round((Number(old[scope][name])||0)/100*(currentFasihTarget||0));
+    return {value:(currentGross-oldGross)/days,days:days,estimated:!exact};
+}
+function summaryPizzaPercentile(values,p){
+    const a=values.filter(Number.isFinite).slice().sort(function(x,y){return x-y;});
+    if(!a.length) return 0;
+    const i=(a.length-1)*p,lo=Math.floor(i),hi=Math.ceil(i);
+    return lo===hi?a[lo]:a[lo]+(a[hi]-a[lo])*(i-lo);
+}
+function summaryPizzaNormalize(value,values){
+    const p10=summaryPizzaPercentile(values,.10),p90=summaryPizzaPercentile(values,.90);
+    if(p90<=p10) return value>0?60:0;
+    return summaryPizzaClamp((value-p10)/(p90-p10)*100,0,100);
+}
+function summaryPizzaRaw(gr,context){
+    const gross=progDoc(gr);
+    const notFound=context.notFound[gr.name]||0;
+    const clean=Math.max(0,gross-notFound);
+    const target=summaryTargetValue(gr);
+    const rate=summaryPizzaHistoryRate(gr.scope,gr.name,gross,gr.total||0);
+    const submitDen=(gr.approve||0)+(gr.reject||0);
+    const anomaly=context.anomaly[gr.name]||0;
+    return {
+        progressPct:target>0?gross/target*100:0,progress:gross,
+        cleanPct:target>0?clean/target*100:0,clean:clean,target:target,
+        approvePct:target>0?(gr.approve||0)/target*100:0,approve:gr.approve||0,
+        rate:rate.value,rateDays:rate.days,rateEstimated:rate.estimated,
+        submitQuality:submitDen>0?(gr.approve||0)/submitDen*100:null,
+        anomaly:anomaly,dataQuality:anomFasihLoaded&&clean>0?summaryPizzaClamp(100-anomaly/clean*100,0,100):null,
+        business:context.business[gr.name]||0,notFound:notFound,building:context.building[gr.name]||0
+    };
+}
+function summaryPizzaMetricSets(g,keys,scopeOverride){
+    const metricScope=scopeOverride||summaryScope;
+    const context=summaryPizzaContextMaps(metricScope,keys),raw={};
+    keys.forEach(function(name){raw[name]=summaryPizzaRaw(g[name],context);});
+    const rates=keys.map(function(n){return raw[n].rate;}).filter(Number.isFinite);
+    const businesses=keys.map(function(n){return raw[n].business;});
+    const notFound=keys.map(function(n){return raw[n].notFound;});
+    const buildings=keys.map(function(n){return raw[n].building;});
+    const out={};
+    keys.forEach(function(name){
+        const r=raw[name];
+        out[name]=[
+            {label:'Progres',short:'Progres',value:summaryPizzaClamp(r.progressPct,0,100),raw:r.progressPct,deltaType:'pp',display:r.progress.toLocaleString('id-ID')+' / '+r.target.toLocaleString('id-ID')+' ('+r.progressPct.toFixed(1)+'%)',detail:'Submit + Reject + Approve FASIH dibandingkan target '+(summaryTargetMode==='prelist'?'Prelist':'FASIH')+'.',color:'#7898c2'},
+            {label:'Approve',short:'Approve',value:summaryPizzaClamp(r.approvePct,0,100),raw:r.approvePct,deltaType:'pp',display:r.approve.toLocaleString('id-ID')+' ('+r.approvePct.toFixed(1)+'%)',detail:'Approve dibandingkan target '+(summaryTargetMode==='prelist'?'Prelist':'FASIH')+'.',color:'#6688b3'},
+            {label:'Rata-rata Progres 7 Hari',short:'Rerata 7H',value:r.rate==null?0:summaryPizzaNormalize(r.rate,rates),raw:r.rate,deltaType:'rate',display:r.rate==null?'N/A':((r.rate>=0?'+':'')+r.rate.toFixed(1)+'/hari'),detail:r.rate==null?'Riwayat belum cukup.':'Selisih progres selama '+r.rateDays+' hari dibagi '+r.rateDays+(r.rateEstimated?' (nilai awal diestimasi).':'.'),color:'#597ca8'},
+            {label:'Kualitas Submit',short:'K. Submit',value:r.submitQuality==null?0:summaryPizzaClamp(r.submitQuality,0,100),raw:r.submitQuality,deltaType:'pp',display:r.submitQuality==null?'N/A':r.submitQuality.toFixed(1)+'%',detail:'Approve / (Approve + Reject). Submit menunggu tidak dihitung.',color:'#4f719d'},
+            {label:'Kualitas Data',short:'K. Data',value:r.dataQuality==null?0:r.dataQuality,raw:r.dataQuality,deltaType:'pp',display:r.dataQuality==null?'N/A':r.dataQuality.toFixed(1)+'%',detail:!anomFasihLoaded?'Data anomali belum tersedia.':(r.anomaly.toLocaleString('id-ID')+' anomali aktif unik. Semakin sedikit semakin baik.'),color:'#43668f'},
+            {label:'Volume Usaha',short:'Usaha',value:summaryPizzaNormalize(r.business,businesses),raw:r.business,deltaType:'count',display:r.business.toLocaleString('id-ID'),detail:'Jumlah absolut; panjang sektor dinormalisasi P10-P90 antar '+metricScope.toUpperCase()+'.',color:'#d9bc61'},
+            {label:'Volume Tidak Ditemukan',short:'Tdk Dtm',value:summaryPizzaNormalize(r.notFound,notFound),raw:r.notFound,deltaType:'count',display:r.notFound.toLocaleString('id-ID'),detail:'Jumlah absolut; sektor panjang berarti volume lebih banyak, bukan lebih baik.',color:'#cfad4f'},
+            {label:'Volume Bangunan Kosong',short:'Bgn Kosong',value:summaryPizzaNormalize(r.building,buildings),raw:r.building,deltaType:'count',display:r.building.toLocaleString('id-ID'),detail:'Jumlah absolut; status Open dan Draft tidak dihitung.',color:'#c39e40'}
+        ];
+    });
+    return out;
+}
+function summaryPizzaWrapText(ctx,text,maxWidth){
+    const words=String(text||'').split(/\s+/),lines=[];let line='';
+    words.forEach(function(word){
+        const test=line?line+' '+word:word;
+        if(line&&ctx.measureText(test).width>maxWidth){lines.push(line);line=word;}else line=test;
+    });
+    if(line)lines.push(line);
+    return lines;
+}
+function drawSummaryPizzaCanvas(canvas,name,scope,metrics,hoverIndex){
+    const rect=canvas.getBoundingClientRect();
+    const large=canvas.dataset.large==='1';
+    const size=Math.max(210,Math.min(large?540:270,rect.width||(large?500:250)));
+    const dpr=Math.min(window.devicePixelRatio||1,1.5);
+    canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);
+    const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
+    const cx=size/2,cy=size/2,R=size*(large ? .29 : .32),hole=size*(large ? .105 : .115);
+    ctx.clearRect(0,0,size,size);
+    ctx.strokeStyle='rgba(79,70,229,.16)';ctx.lineWidth=1;
+    [20,40,60,80,100].forEach(function(v){
+        const rr=hole+(R-hole)*v/100;
+        ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.stroke();
+    });
+    const gap=.04,step=Math.PI*2/metrics.length,start=-Math.PI/2;
+    metrics.forEach(function(m,i){
+        const a0=start+i*step+gap,a1=start+(i+1)*step-gap;
+        const outer=Math.max(hole+3,hole+(R-hole)*summaryPizzaClamp(m.value,0,100)/100);
+        ctx.save();
+        if(hoverIndex===i){ctx.shadowColor='rgba(49,46,129,.42)';ctx.shadowBlur=large?16:9;}
+        else if(hoverIndex!=null)ctx.globalAlpha=.58;
+        ctx.beginPath();ctx.arc(cx,cy,outer,a0,a1);ctx.arc(cx,cy,hole,a1,a0,true);ctx.closePath();
+        ctx.fillStyle=m.color;ctx.fill();ctx.strokeStyle='#142b3d';ctx.lineWidth=1.4;ctx.stroke();
+        ctx.restore();
+        const mid=(a0+a1)/2,labelR=R+(large?24:19);
+        const lx=cx+Math.cos(mid)*labelR,ly=cy+Math.sin(mid)*labelR;
+        ctx.strokeStyle=m.color;ctx.lineWidth=1;
+        ctx.beginPath();ctx.moveTo(cx+Math.cos(mid)*(R+2),cy+Math.sin(mid)*(R+2));ctx.lineTo(cx+Math.cos(mid)*(R+(large?15:9)),cy+Math.sin(mid)*(R+(large?15:9)));ctx.stroke();
+        ctx.fillStyle=hoverIndex===i?'#312e81':'#334155';
+        ctx.font=(hoverIndex===i?'800 ':'700 ')+(large?'11px':'7px')+' "Plus Jakarta Sans",sans-serif';
+        ctx.textAlign=Math.cos(mid)>.28?'left':(Math.cos(mid)<-.28?'right':'center');ctx.textBaseline='middle';
+        ctx.fillText(m.short,lx,ly);
+    });
+    ctx.beginPath();ctx.arc(cx,cy,hole-2,0,Math.PI*2);ctx.fillStyle='#102637';ctx.fill();
+    ctx.strokeStyle='#d9bc61';ctx.lineWidth=2.5;ctx.stroke();
+    ctx.fillStyle='#d9bc61';ctx.font='800 '+(large?12:8)+'px "Plus Jakarta Sans",sans-serif';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillText(scope.toUpperCase(),cx,cy-(large?18:12));
+    ctx.fillStyle='#f4f8fb';ctx.font='800 '+(large?11:8)+'px "Plus Jakarta Sans",sans-serif';
+    const lines=summaryPizzaWrapText(ctx,name,hole*1.55).slice(0,2);
+    lines.forEach(function(line,i){ctx.fillText(line,cx,cy-(large?2:1)+i*(large?14:10));});
+    ctx.fillStyle='#9ec1d8';ctx.font='700 '+(large?10:7)+'px "Plus Jakarta Sans",sans-serif';
+    ctx.fillText(metrics[0].display.match(/\(([-\d.]+%)\)/)?.[1]||'',cx,cy+(large?34:22));
+    canvas.__pizzaMeta={name:name,scope:scope,metrics:metrics,cx:cx,cy:cy,R:R,hole:hole,start:start,step:step,size:size,large:large,hoverIndex:hoverIndex};
+}
+function summaryPizzaSectorIndex(canvas,ev){
+    const m=canvas.__pizzaMeta;if(!m)return -1;
+    const r=canvas.getBoundingClientRect(),x=(ev.clientX-r.left)*m.size/r.width,y=(ev.clientY-r.top)*m.size/r.height;
+    const dx=x-m.cx,dy=y-m.cy,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<m.hole||dist>m.R)return -1;
+    let angle=Math.atan2(dy,dx)-m.start;while(angle<0)angle+=Math.PI*2;while(angle>=Math.PI*2)angle-=Math.PI*2;
+    return Math.min(m.metrics.length-1,Math.floor(angle/m.step));
+}
+function bindSummaryPizzaHover(canvas,tooltip){
+    if(!canvas||canvas.__pizzaHoverBound)return;
+    canvas.addEventListener('mousemove',function(ev){
+        const i=summaryPizzaSectorIndex(canvas,ev),m=canvas.__pizzaMeta;
+        if(!m)return;
+        if(i!==m.hoverIndex)drawSummaryPizzaCanvas(canvas,m.name,m.scope,m.metrics,i<0?null:i);
+        if(!tooltip)return;
+        if(i<0){tooltip.classList.add('hidden');return;}
+        const metric=m.metrics[i],rect=canvas.getBoundingClientRect();
+        tooltip.innerHTML='<b>'+esc(metric.label)+'</b><br><span class="font-extrabold">'+esc(metric.display)+'</span><br><span style="color:#a9c3d5">'+esc(metric.detail)+'</span>';
+        tooltip.style.left=Math.min(rect.width-235,Math.max(0,ev.clientX-rect.left+8))+'px';
+        tooltip.style.top=Math.min(rect.height-90,Math.max(0,ev.clientY-rect.top+8))+'px';
+        tooltip.classList.remove('hidden');
+    });
+    canvas.addEventListener('mouseleave',function(){
+        const m=canvas.__pizzaMeta;if(m)drawSummaryPizzaCanvas(canvas,m.name,m.scope,m.metrics,null);
+        if(tooltip)tooltip.classList.add('hidden');
+    });
+    canvas.__pizzaHoverBound=true;
+}
+function renderSummaryPizzaGrid(g,keys){
+    const grid=document.getElementById('summary-pizza-grid');
+    if(!grid)return;
+    if(!keys.length){
+        grid.innerHTML='<p class="col-span-full text-center text-sm text-slate-300 py-8">Tidak ada data petugas untuk filter aktif.</p>';
+        return;
+    }
+    const metricSets=summaryPizzaMetricSets(g,keys);
+    grid.innerHTML=keys.map(function(name){
+        const metrics=metricSets[name];
+        const cp=summaryCleanProgress(g[name]);
+        const cardTone=cp.pct>=75
+            ? {bg:'#ecfdf5',border:'#a7f3d0'}
+            : (cp.pct>=40?{bg:'#fffbeb',border:'#fde68a'}:{bg:'#fff1f2',border:'#fecdd3'});
+        const inactive=summaryScope==='ppl'&&isInactivePpl(name)?'<span class="text-[8px] font-extrabold px-1.5 py-0.5 rounded bg-slate-600 text-white">Tidak Aktif</span>':'';
+        return '<article class="summary-pizza-card" style="--pizza-card-bg:'+cardTone.bg+';--pizza-card-border:'+cardTone.border+'" data-pizza-name="'+esc(name)+'" data-pizza-scope="'+summaryScope+'">'+
+            '<div class="flex items-center justify-between gap-2 px-1"><h4 class="text-xs font-bold text-white truncate" title="'+esc(name)+'">'+esc(name)+'</h4>'+inactive+'</div>'+
+            '<div class="summary-pizza-stage"><canvas class="summary-pizza-canvas" aria-label="Pizza chart '+esc(name)+'"></canvas><div class="summary-pizza-tooltip hidden"></div></div>'+
+        '</article>';
+    }).join('');
+    grid.querySelectorAll('.summary-pizza-card').forEach(function(card){
+        card.addEventListener('click',function(ev){
+            const name=this.getAttribute('data-pizza-name'),scope=this.getAttribute('data-pizza-scope');
+            if(scope==='pml')openPmlDetail(name,'pizza');else openPplDetail(name,'pizza');
+        });
+        const name=card.getAttribute('data-pizza-name');
+        const canvas=card.querySelector('canvas');
+        const tooltip=card.querySelector('.summary-pizza-tooltip');
+        if(canvas)requestAnimationFrame(function(){drawSummaryPizzaCanvas(canvas,name,summaryScope,metricSets[name],null);bindSummaryPizzaHover(canvas,tooltip);});
+    });
+    ensureSummaryPizzaAnomali();
+}
 function renderPPLSummary(data){
     const cont=document.getElementById('ppl-summary-container');
     cont.innerHTML='';
     const scope=(summaryScope==='pml')?'pml':'ppl';
     document.querySelectorAll('.summaryscope-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.scope===scope); });
     document.querySelectorAll('.summarytarget-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.target===summaryTargetMode); });
+    document.querySelectorAll('.summaryview-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.summaryView===summaryDisplayMode); });
+    const cardView=document.getElementById('summary-card-view');
+    const pizzaView=document.getElementById('summary-pizza-view');
+    if(cardView)cardView.classList.toggle('hidden',summaryDisplayMode==='pizza');
+    if(pizzaView)pizzaView.classList.toggle('hidden',summaryDisplayMode!=='pizza');
     const g=buildPersonSummary(data, scope);
     let keys=sortedSummaryKeys(g, scope);
     const label=scope.toUpperCase();
     if(Object.keys(g).length===0){
-        cont.innerHTML='<p class="col-span-full text-center text-sm text-slate-400 py-4">Tidak ada data petugas</p>';
+        const msg='<p class="col-span-full text-center text-sm text-slate-400 py-4">Tidak ada data petugas</p>';
+        cont.innerHTML=msg;
+        const pizzaGrid=document.getElementById('summary-pizza-grid');if(pizzaGrid)pizzaGrid.innerHTML=msg;
         return;
     }
     if(keys.length===0){
-        cont.innerHTML='<p class="col-span-full text-center text-sm text-slate-400 py-4">Semua '+label+' menunjukkan progres pada hari terakhir.</p>';
+        const msg='<p class="col-span-full text-center text-sm text-slate-400 py-4">Semua '+label+' menunjukkan progres pada hari terakhir.</p>';
+        cont.innerHTML=msg;
+        const pizzaGrid=document.getElementById('summary-pizza-grid');if(pizzaGrid)pizzaGrid.innerHTML=msg;
+        return;
+    }
+    if(summaryDisplayMode==='pizza'){
+        renderSummaryPizzaGrid(g,keys);
         return;
     }
     keys.forEach(function(name){
@@ -3708,9 +4091,16 @@ function modalAllocationRows(scope,name,t){
 
 let currentPplName='';
 let currentDetailScope='ppl';
-window.openPplDetail=function(name){
+let currentModalView='detail';
+let modalCompareMode='pizza';
+let modalCompareNameA='';
+let modalCompareNameB='';
+let modalCompareTrendChart=null;
+window.openPplDetail=function(name,initialView){
     currentDetailScope='ppl';
     currentPplName=name;
+    modalCompareNameA=name;
+    modalCompareNameB='';
     pplTrendMode='kumulatif';
     document.querySelectorAll('.ppltrendmode-btn').forEach(b=>b.classList.toggle('active', b.dataset.pmode==='kumulatif'));
     const modal=document.getElementById('sls-modal');
@@ -3799,10 +4189,13 @@ window.openPplDetail=function(name){
     if(modal) modal.classList.remove('hidden');
     document.body.style.overflow='hidden';
     renderPplTrend(name);
+    setModalView(initialView==='pizza'?'pizza':'detail');
 };
-window.openPmlDetail=function(name){
+window.openPmlDetail=function(name,initialView){
     currentDetailScope='pml';
     currentPplName=name;
+    modalCompareNameA=name;
+    modalCompareNameB='';
     pplTrendMode='kumulatif';
     document.querySelectorAll('.ppltrendmode-btn').forEach(function(b){ b.classList.toggle('active', b.dataset.pmode==='kumulatif'); });
     const modal=document.getElementById('sls-modal');
@@ -3881,11 +4274,223 @@ window.openPmlDetail=function(name){
     if(modal) modal.classList.remove('hidden');
     document.body.style.overflow='hidden';
     renderPplTrend(name);
+    setModalView(initialView==='pizza'?'pizza':'detail');
 };
 window.closeModal=function(){
     document.getElementById('sls-modal').classList.add('hidden'); document.body.style.overflow='';
     if(window.__pplTrendRef){ try{window.__pplTrendRef.destroy();}catch(e){} window.__pplTrendRef=null; }
+    if(modalCompareTrendChart){try{modalCompareTrendChart.destroy();}catch(e){}modalCompareTrendChart=null;}
 };
+function modalSummaryDataset(){
+    const scope=currentDetailScope==='pml'?'pml':'ppl';
+    const g=buildPersonSummary(summaryFilteredProgressRows(),scope);
+    let keys=sortedSummaryKeys(g,scope);
+    if(keys.indexOf(currentPplName)<0&&g[currentPplName])keys.unshift(currentPplName);
+    return {scope:scope,g:g,keys:keys,metrics:summaryPizzaMetricSets(g,keys,scope)};
+}
+function setModalView(view){
+    currentModalView=['detail','pizza','compare'].includes(view)?view:'detail';
+    document.querySelectorAll('.summary-pizza-tooltip').forEach(function(t){t.classList.add('hidden');});
+    ['detail','pizza','compare'].forEach(function(v){
+        const el=document.getElementById('modal-view-'+v);if(el)el.classList.toggle('hidden',v!==currentModalView);
+    });
+    document.querySelectorAll('.modalview-btn').forEach(function(b){b.classList.toggle('active',b.dataset.modalView===currentModalView);});
+    const trendToggle=document.getElementById('ppl-trendmode-toggle');
+    if(trendToggle)trendToggle.style.display=currentModalView==='detail'?'inline-flex':'none';
+    const downloadPng=document.getElementById('modal-download-png');
+    if(downloadPng)downloadPng.style.display=currentModalView==='detail'?'flex':'none';
+    const caption=document.getElementById('modal-view-caption');
+    if(caption)caption.textContent=currentModalView==='detail'?'Rincian beban kerja dan progres':(currentModalView==='pizza'?'Profil kinerja delapan indikator':'Perbandingan maksimal dua '+currentDetailScope.toUpperCase());
+    const headerContext=document.getElementById('modal-header-context');
+    if(headerContext)headerContext.textContent=currentModalView==='detail'?' • Rincian Beban Kerja & Progres per Desa':(currentModalView==='pizza'?' • Profil Kinerja':' • Perbandingan Petugas');
+    if(currentModalView==='pizza')renderModalPizza();
+    if(currentModalView==='compare')renderModalCompare();
+}
+window.addEventListener('resize',function(){
+    document.querySelectorAll('.summary-pizza-tooltip').forEach(function(t){t.classList.add('hidden');});
+});
+function renderModalPizza(){
+    const data=modalSummaryDataset(),metrics=data.metrics[currentPplName];
+    if(!metrics)return;
+    const canvas=document.getElementById('modal-pizza-canvas');
+    const tooltip=document.getElementById('modal-pizza-tooltip');
+    const box=document.getElementById('modal-pizza-metrics');
+    if(box)box.innerHTML=metrics.map(function(m){
+        return '<div class="summary-pizza-metric" title="'+esc(m.detail)+'"><div class="flex items-start justify-between gap-2"><span class="flex items-center min-w-0 text-[10px] font-bold text-slate-600"><i class="summary-pizza-swatch mt-0.5" style="background:'+m.color+'"></i>'+esc(m.label)+'</span><b class="text-xs text-slate-900 whitespace-nowrap">'+esc(m.display)+'</b></div><p class="mt-1 text-[9px] leading-snug text-slate-500">'+esc(m.detail)+'</p></div>';
+    }).join('');
+    if(canvas)requestAnimationFrame(function(){drawSummaryPizzaCanvas(canvas,currentPplName,data.scope,metrics,null);bindSummaryPizzaHover(canvas,tooltip);});
+}
+function setModalComparePerson(slot,name){
+    name=String(name||'');
+    if(slot==='a'){
+        const oldA=modalCompareNameA;
+        modalCompareNameA=name;
+        if(modalCompareNameB===name)modalCompareNameB=oldA!==name?oldA:'';
+    }else{
+        const oldB=modalCompareNameB;
+        modalCompareNameB=name;
+        if(modalCompareNameA===name)modalCompareNameA=oldB!==name?oldB:'';
+    }
+    renderModalCompare();
+}
+function setModalCompareMode(mode){
+    modalCompareMode=['pizza','cumulative','daily'].includes(mode)?mode:'pizza';
+    document.querySelectorAll('.modalcomparemode-btn').forEach(function(b){b.classList.toggle('active',b.dataset.compareMode===modalCompareMode);});
+    renderModalCompareContent();
+}
+function renderModalCompare(){
+    const data=modalSummaryDataset();
+    if(data.keys.indexOf(modalCompareNameA)<0)modalCompareNameA=data.keys.indexOf(currentPplName)>=0?currentPplName:(data.keys[0]||'');
+    if(data.keys.indexOf(modalCompareNameB)<0||modalCompareNameB===modalCompareNameA)modalCompareNameB=data.keys.find(function(n){return n!==modalCompareNameA;})||'';
+    const selectA=document.getElementById('modal-compare-person-a');
+    const selectB=document.getElementById('modal-compare-person-b');
+    if(selectA){
+        selectA.innerHTML=data.keys.map(function(n){return '<option value="'+esc(n)+'"'+(n===modalCompareNameB?' disabled':'')+'>'+esc(n)+'</option>';}).join('');
+        selectA.value=modalCompareNameA;
+    }
+    if(selectB){
+        selectB.innerHTML=data.keys.map(function(n){return '<option value="'+esc(n)+'"'+(n===modalCompareNameA?' disabled':'')+'>'+esc(n)+'</option>';}).join('');
+        selectB.value=modalCompareNameB;
+    }
+    const labelA=document.getElementById('modal-compare-label-a'),labelB=document.getElementById('modal-compare-label-b');
+    if(labelA)labelA.textContent=data.scope.toUpperCase()+' A';
+    if(labelB)labelB.textContent=data.scope.toUpperCase()+' B';
+    document.querySelectorAll('.modalcomparemode-btn').forEach(function(b){b.classList.toggle('active',b.dataset.compareMode===modalCompareMode);});
+    renderModalCompareContent(data);
+}
+function summaryPizzaDeltaText(a,b){
+    if(a.raw==null||b.raw==null)return 'N/A';
+    const d=b.raw-a.raw,prefix=d>0?'+':'';
+    if(a.deltaType==='pp')return prefix+d.toFixed(1)+' poin';
+    if(a.deltaType==='rate')return prefix+d.toFixed(1)+' dok/hari';
+    return prefix+Math.round(d).toLocaleString('id-ID');
+}
+function renderModalCompareContent(data){
+    data=data||modalSummaryDataset();
+    const pizzaWrap=document.getElementById('modal-compare-pizza-wrap');
+    const trendWrap=document.getElementById('modal-compare-trend-wrap');
+    if(pizzaWrap)pizzaWrap.classList.toggle('hidden',modalCompareMode!=='pizza');
+    if(trendWrap)trendWrap.classList.toggle('hidden',modalCompareMode==='pizza');
+    if(!modalCompareNameA||!modalCompareNameB||modalCompareNameA===modalCompareNameB||!data.metrics[modalCompareNameA]||!data.metrics[modalCompareNameB])return;
+    if(modalCompareMode!=='pizza'){renderModalCompareTrend(modalCompareMode,data);return;}
+    if(modalCompareTrendChart){try{modalCompareTrendChart.destroy();}catch(e){}modalCompareTrendChart=null;}
+    const a=data.metrics[modalCompareNameA],b=data.metrics[modalCompareNameB];
+    const headA=document.getElementById('modal-compare-head-a'),headB=document.getElementById('modal-compare-head-b');
+    if(headA)headA.textContent=modalCompareNameA;if(headB)headB.textContent=modalCompareNameB;
+    const legend=document.getElementById('modal-compare-legend');
+    if(legend)legend.innerHTML='<span><i class="inline-block w-5 h-2.5 rounded-sm mr-1" style="background:#4f719d"></i>'+esc(modalCompareNameA)+' (solid)</span><span><i class="inline-block w-5 h-2.5 rounded-sm mr-1 border border-indigo-500" style="background:rgba(79,113,157,.38)"></i>'+esc(modalCompareNameB)+' (terang)</span>';
+    const tbody=document.getElementById('modal-compare-tbody');
+    if(tbody)tbody.innerHTML=a.map(function(m,i){
+        return '<tr><td class="px-3 py-2 font-semibold text-slate-700"><i class="summary-pizza-swatch" style="background:'+m.color+'"></i>'+esc(m.label)+'</td><td class="px-3 py-2 text-right text-slate-700">'+esc(m.display)+'</td><td class="px-3 py-2 text-right text-slate-700">'+esc(b[i].display)+'</td><td class="px-3 py-2 text-right font-bold text-indigo-700">'+esc(summaryPizzaDeltaText(m,b[i]))+'</td></tr>';
+    }).join('');
+    const canvas=document.getElementById('modal-compare-pizza-canvas'),tooltip=document.getElementById('modal-compare-tooltip');
+    if(canvas)requestAnimationFrame(function(){drawSummaryComparePizza(canvas,modalCompareNameA,modalCompareNameB,data.scope,a,b,null);bindSummaryCompareHover(canvas,tooltip);});
+}
+function drawSummaryComparePizza(canvas,nameA,nameB,scope,a,b,hoverIndex){
+    const rect=canvas.getBoundingClientRect(),size=Math.max(320,Math.min(600,rect.width||560)),dpr=Math.min(window.devicePixelRatio||1,1.5);
+    canvas.width=Math.round(size*dpr);canvas.height=Math.round(size*dpr);
+    const ctx=canvas.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);
+    const cx=size/2,cy=size/2,R=size*.29,hole=size*.105,start=-Math.PI/2,step=Math.PI*2/a.length,gap=.025;
+    ctx.clearRect(0,0,size,size);ctx.strokeStyle='rgba(79,70,229,.16)';ctx.lineWidth=1;
+    [20,40,60,80,100].forEach(function(v){const rr=hole+(R-hole)*v/100;ctx.beginPath();ctx.arc(cx,cy,rr,0,Math.PI*2);ctx.stroke();});
+    a.forEach(function(m,i){
+        const sectorStart=start+i*step+gap,sectorEnd=start+(i+1)*step-gap,mid=(sectorStart+sectorEnd)/2,subGap=.018;
+        [[m,sectorStart,mid-subGap,1],[b[i],mid+subGap,sectorEnd,.46]].forEach(function(part){
+            const metric=part[0],a0=part[1],a1=part[2],alpha=part[3],outer=Math.max(hole+3,hole+(R-hole)*summaryPizzaClamp(metric.value,0,100)/100);
+            ctx.save();ctx.globalAlpha=hoverIndex==null||hoverIndex===i?alpha:alpha*.42;
+            if(hoverIndex===i){ctx.shadowColor='rgba(49,46,129,.35)';ctx.shadowBlur=14;}
+            ctx.beginPath();ctx.arc(cx,cy,outer,a0,a1);ctx.arc(cx,cy,hole,a1,a0,true);ctx.closePath();ctx.fillStyle=m.color;ctx.fill();ctx.strokeStyle='#142b3d';ctx.lineWidth=1.2;ctx.stroke();ctx.restore();
+        });
+        const labelR=R+24,lx=cx+Math.cos(mid)*labelR,ly=cy+Math.sin(mid)*labelR;
+        ctx.strokeStyle=m.color;ctx.beginPath();ctx.moveTo(cx+Math.cos(mid)*(R+2),cy+Math.sin(mid)*(R+2));ctx.lineTo(cx+Math.cos(mid)*(R+15),cy+Math.sin(mid)*(R+15));ctx.stroke();
+        ctx.fillStyle=hoverIndex===i?'#312e81':'#334155';ctx.font=(hoverIndex===i?'800 ':'700 ')+'11px "Plus Jakarta Sans",sans-serif';ctx.textAlign=Math.cos(mid)>.28?'left':(Math.cos(mid)<-.28?'right':'center');ctx.textBaseline='middle';ctx.fillText(m.short,lx,ly);
+    });
+    ctx.beginPath();ctx.arc(cx,cy,hole-2,0,Math.PI*2);ctx.fillStyle='#102637';ctx.fill();ctx.strokeStyle='#d9bc61';ctx.lineWidth=3;ctx.stroke();
+    ctx.fillStyle='#d9bc61';ctx.font='800 12px "Plus Jakarta Sans",sans-serif';ctx.textAlign='center';ctx.fillText(scope.toUpperCase(),cx,cy-8);
+    ctx.fillStyle='#f4f8fb';ctx.font='800 11px "Plus Jakarta Sans",sans-serif';ctx.fillText('BANDING',cx,cy+9);
+    canvas.__compareMeta={nameA:nameA,nameB:nameB,scope:scope,a:a,b:b,cx:cx,cy:cy,R:R,hole:hole,start:start,step:step,size:size,hoverIndex:hoverIndex};
+}
+function summaryCompareSectorIndex(canvas,ev){
+    const m=canvas.__compareMeta;if(!m)return -1;
+    const r=canvas.getBoundingClientRect(),x=(ev.clientX-r.left)*m.size/r.width,y=(ev.clientY-r.top)*m.size/r.height,dx=x-m.cx,dy=y-m.cy,dist=Math.sqrt(dx*dx+dy*dy);
+    if(dist<m.hole||dist>m.R)return -1;
+    let angle=Math.atan2(dy,dx)-m.start;while(angle<0)angle+=Math.PI*2;return Math.min(m.a.length-1,Math.floor((angle%(Math.PI*2))/m.step));
+}
+function bindSummaryCompareHover(canvas,tooltip){
+    if(!canvas||canvas.__compareHoverBound)return;
+    canvas.addEventListener('mousemove',function(ev){
+        const i=summaryCompareSectorIndex(canvas,ev),m=canvas.__compareMeta;if(!m)return;
+        if(i!==m.hoverIndex)drawSummaryComparePizza(canvas,m.nameA,m.nameB,m.scope,m.a,m.b,i<0?null:i);
+        if(!tooltip)return;if(i<0){tooltip.classList.add('hidden');return;}
+        const a=m.a[i],b=m.b[i],r=canvas.getBoundingClientRect();
+        tooltip.innerHTML='<b>'+esc(a.label)+'</b><br>'+esc(m.nameA)+': <b>'+esc(a.display)+'</b><br>'+esc(m.nameB)+': <b>'+esc(b.display)+'</b><br><span style="color:#d9bc61">Selisih B - A: '+esc(summaryPizzaDeltaText(a,b))+'</span>';
+        tooltip.style.left=Math.min(r.width-250,Math.max(0,ev.clientX-r.left+8))+'px';tooltip.style.top=Math.min(r.height-105,Math.max(0,ev.clientY-r.top+8))+'px';tooltip.classList.remove('hidden');
+    });
+    canvas.addEventListener('mouseleave',function(){const m=canvas.__compareMeta;if(m)drawSummaryComparePizza(canvas,m.nameA,m.nameB,m.scope,m.a,m.b,null);if(tooltip)tooltip.classList.add('hidden');});
+    canvas.__compareHoverBound=true;
+}
+function modalCompareHistory(scope,name,target){
+    const rows=(MERGED_HISTORY||[]).filter(function(h){return h&&h.date&&h[scope]&&h[scope][name]!=null;}).sort(function(a,b){return String(a.date).localeCompare(String(b.date));});
+    return rows.map(function(h){
+        const pct=Number(h[scope][name])||0,dokObj=h.dok&&h.dok[scope],exact=!!(dokObj&&dokObj[name]!=null);
+        return {date:String(h.date).slice(0,10),pct:pct,docs:exact?Number(dokObj[name]):Math.round(pct/100*(target||0)),estimated:!exact};
+    });
+}
+function modalCompareDailyMap(rows,target){
+    const out={};
+    for(let i=1;i<rows.length;i++){
+        const a=rows[i-1],b=rows[i],days=Math.max(1,Math.round((new Date(b.date+'T00:00:00')-new Date(a.date+'T00:00:00'))/86400000));
+        out[b.date]={pctPerDay:(b.pct-a.pct)/days,docsPerDay:(b.docs-a.docs)/days,days:days,estimated:a.estimated||b.estimated};
+    }
+    return out;
+}
+function renderModalCompareTrend(mode,data){
+    if(modalCompareTrendChart){try{modalCompareTrendChart.destroy();}catch(e){}modalCompareTrendChart=null;}
+    const canvas=document.getElementById('modalCompareTrendChart'),note=document.getElementById('modal-compare-trend-note');
+    if(!canvas)return;
+    const scope=data.scope,nameA=modalCompareNameA,nameB=modalCompareNameB;
+    const targetA=data.g[nameA]?data.g[nameA].total||0:0,targetB=data.g[nameB]?data.g[nameB].total||0:0;
+    const ha=modalCompareHistory(scope,nameA,targetA),hb=modalCompareHistory(scope,nameB,targetB);
+    if(ha.length<2||hb.length<2){
+        if(note)note.textContent='Riwayat salah satu petugas belum cukup untuk dibandingkan.';
+        return;
+    }
+    let labels,valuesA,valuesB,docsA=[],docsB=[];
+    if(mode==='daily'){
+        const ma=modalCompareDailyMap(ha,targetA),mb=modalCompareDailyMap(hb,targetB);
+        labels=Array.from(new Set(Object.keys(ma).concat(Object.keys(mb)))).sort();
+        valuesA=labels.map(function(d){return ma[d]?+ma[d].pctPerDay.toFixed(3):null;});
+        valuesB=labels.map(function(d){return mb[d]?+mb[d].pctPerDay.toFixed(3):null;});
+        docsA=labels.map(function(d){return ma[d]?ma[d].docsPerDay:null;});
+        docsB=labels.map(function(d){return mb[d]?mb[d].docsPerDay:null;});
+    }else{
+        labels=Array.from(new Set(ha.map(function(r){return r.date;}).concat(hb.map(function(r){return r.date;})))).sort();
+        const ma={},mb={};ha.forEach(function(r){ma[r.date]=r;});hb.forEach(function(r){mb[r.date]=r;});
+        valuesA=labels.map(function(d){return ma[d]?ma[d].pct:null;});
+        valuesB=labels.map(function(d){return mb[d]?mb[d].pct:null;});
+        docsA=labels.map(function(d){return ma[d]?ma[d].docs:null;});
+        docsB=labels.map(function(d){return mb[d]?mb[d].docs:null;});
+    }
+    const datasets=[
+        {label:nameA,data:valuesA,rawDocs:docsA,borderColor:'#4f46e5',backgroundColor:'rgba(79,70,229,.10)',borderWidth:2.5,tension:.25,spanGaps:true,pointRadius:2.5},
+        {label:nameB,data:valuesB,rawDocs:docsB,borderColor:'#d97706',backgroundColor:'rgba(217,119,6,.10)',borderWidth:2.5,borderDash:[6,3],tension:.25,spanGaps:true,pointRadius:2.5}
+    ];
+    modalCompareTrendChart=new Chart(canvas.getContext('2d'),{
+        type:'line',data:{labels:labels.map(fmtTgl),datasets:datasets},
+        options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},
+            scales:{y:{beginAtZero:true,ticks:{callback:function(v){return v+'%';}},title:{display:true,text:mode==='daily'?'% target FASIH per hari':'% target FASIH'}},x:{ticks:{maxRotation:50,font:{size:9}}}},
+            plugins:{legend:{position:'bottom',labels:{boxWidth:14,font:{size:10}}},tooltip:{callbacks:{label:function(it){
+                const docs=it.dataset.rawDocs&&it.dataset.rawDocs[it.dataIndex];
+                const pct=it.raw==null?'-':Number(it.raw).toFixed(mode==='daily'?2:1)+'%';
+                const docText=docs==null?'':(' | '+Number(docs).toFixed(mode==='daily'?1:0)+' dok'+(mode==='daily'?'/hari':''));
+                return ' '+it.dataset.label+': '+pct+docText;
+            }}}}
+        }
+    });
+    if(note)note.innerHTML=mode==='daily'
+        ? '<b>Tren Harian Progres Kotor FASIH.</b> Nilai utama adalah kenaikan % target per hari; tooltip juga menampilkan dokumen/hari. Jika snapshot berjarak beberapa hari, kenaikan dibagi jarak hari aktual.'
+        : '<b>Tren Kumulatif Progres Kotor FASIH.</b> Dua garis memakai persentase target FASIH agar beban berbeda tetap sebanding. Jumlah dokumen tersedia pada tooltip; sebagian riwayat lama dapat berupa estimasi persentase × target.';
+}
 
 // Tren capaian harian utk 1 PPL (di modal). Data dari MERGED_HISTORY[*].ppl[name].
 function renderPplTrend(name){
